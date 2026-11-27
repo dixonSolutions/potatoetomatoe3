@@ -8,7 +8,7 @@ import {
 describe('harness guard', () => {
 	it('parses only known harness modes', () => {
 		expect(parseHarnessMode('console-test')).toBe('console-test');
-		expect(parseHarnessMode('puller-test')).toBe('puller-test');
+		expect(parseHarnessMode('puller-test')).toBeNull();
 		expect(parseHarnessMode('production')).toBeNull();
 		expect(parseHarnessMode('')).toBeNull();
 	});

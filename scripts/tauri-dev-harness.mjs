@@ -1,9 +1,8 @@
 #!/usr/bin/env node
 /**
  * Launch a development-only Tauri harness window.
- * Puller is owned by Tauri (src-tauri/src/lib.rs) — do not pre-spawn it here.
  *
- * Usage: node scripts/tauri-dev-harness.mjs <console-test|puller-test>
+ * Usage: node scripts/tauri-dev-harness.mjs <console-test>
  */
 import { spawn } from 'node:child_process';
 import path from 'node:path';
@@ -13,11 +12,11 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, '..');
 
 const harness = process.argv[2];
-const allowed = new Set(['console-test', 'puller-test']);
+const allowed = new Set(['console-test']);
 
 if (!allowed.has(harness)) {
 	console.error(
-		`Usage: node scripts/tauri-dev-harness.mjs <console-test|puller-test>\n` +
+		`Usage: node scripts/tauri-dev-harness.mjs <console-test>\n` +
 			`Received: ${harness ?? '(none)'}`
 	);
 	process.exit(1);
@@ -42,7 +41,6 @@ const env = {
 };
 
 console.log(`[harness] launching ${harness} via tauri dev --config ${configPath}`);
-console.log(`[harness] puller lifecycle owned by Tauri (do not run pnpm dev / puller:start in parallel)`);
 
 const child = spawn('pnpm', ['tauri', 'dev', '--config', configPath], {
 	cwd: repoRoot,

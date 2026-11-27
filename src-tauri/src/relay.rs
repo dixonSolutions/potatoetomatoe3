@@ -70,7 +70,7 @@ fn client() -> &'static reqwest::Client {
 
 /// Resolves names for the relay's connections and keeps only public addresses: one that
 /// resolves solely into this machine or the local network fails to connect at all.
-struct PublicOnlyResolver;
+pub(crate) struct PublicOnlyResolver;
 
 impl reqwest::dns::Resolve for PublicOnlyResolver {
   fn resolve(&self, name: reqwest::dns::Name) -> reqwest::dns::Resolving {

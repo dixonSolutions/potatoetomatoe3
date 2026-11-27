@@ -1,5 +1,5 @@
 //! System tray via StatusNotifierItem (Ayatana AppIndicator / SNI on Linux).
-//! Window close hides to tray; Quit exits the app (and puller sidecar).
+//! Window close hides to tray; Quit exits the app.
 
 use std::sync::Mutex;
 use std::sync::atomic::{AtomicBool, Ordering};

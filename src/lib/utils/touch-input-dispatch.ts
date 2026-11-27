@@ -217,7 +217,7 @@ function isSameOriginRelayUrl(url: string): boolean {
 	return parsed.origin === window.location.origin;
 }
 
-/** Packaged Tauri talks to its puller over loopback — cross-origin, but the bridge answers. */
+/** Loopback relay routes — cross-origin, but the bridge answers. */
 function isLoopbackRelayUrl(url: string): boolean {
 	const parsed = parseAgainstApp(url);
 	if (!parsed || !isPullerPlayProxyPath(parsed.pathname)) return false;
@@ -229,7 +229,6 @@ export function isLikelyInjectableUrl(url: string | null | undefined): boolean {
 	const u = url.trim();
 	if (!u) return false;
 	if (u.startsWith('blob:')) return true;
-	if (u.includes('/puller-games/')) return true;
 	if (u.includes('/browser-offline/')) return true;
 	if (isSameOriginRelayUrl(u)) return true;
 	if (u.includes('/games/') && u.includes('/offline/')) return true;
@@ -279,7 +278,6 @@ export function canUseTouchBridge(url: string | null | undefined): boolean {
 	const u = url.trim();
 	if (!u) return false;
 	if (isSameOriginRelayUrl(u)) return true;
-	if (u.includes('/puller-games/') && u.includes('/offline/')) return true;
 	if (u.includes('/games/') && u.includes('/offline/')) return true;
 	if (u.includes('/browser-offline/')) return true;
 	if (u.startsWith('blob:')) return true;

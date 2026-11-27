@@ -39,7 +39,7 @@ jobs:
             ~/.pkg-cache
             ~/.cache/pkg-native
             ~/.cache/ms-playwright
-          key: native-tools-${{ runner.os }}-node22-${{ hashFiles('pnpm-lock.yaml', 'puller/package.json') }}
+          key: native-tools-${{ runner.os }}-node22-${{ hashFiles('pnpm-lock.yaml') }}
           restore-keys: |
             native-tools-${{ runner.os }}-node22-
 
@@ -78,13 +78,6 @@ jobs:
         run: |
           pnpm install --frozen-lockfile
           scripts/test-andysu-release.sh
-          if ! (ldconfig -p | grep -q 'libnss3\.so' && ldconfig -p | grep -q 'libatk-1\.0\.so'); then
-            (cd puller && npx playwright install-deps chromium)
-          else
-            echo "Playwright system dependencies already available"
-          fi
-          # No explicit `pnpm puller:bundle:linux` — tauri.conf.json's beforeBuildCommand
-          # ends in exactly that, so running it here bundled and smoke-tested twice.
           pnpm tauri:build:flatpak
           test -x src-tauri/target/release/potato-tomato
 
@@ -94,23 +87,6 @@ jobs:
             --state-dir=.flatpak-builder --ccache \
             --repo=repo --default-branch=stable \
             build-flatpak flatpak/com.potatotomato.games.yml
-          # Absolute paths: pnpm --filter runs smoke from puller/, so relative
-          # build-flatpak/... would resolve to the wrong directory.
-          SOURCE_SIDECAR="$PWD/src-tauri/binaries/puller-sidecar-x86_64-unknown-linux-gnu"
-          ASSEMBLED_SIDECAR="$PWD/build-flatpak/files/bin/puller-sidecar"
-          ASSEMBLED_SIDECAR_TRIPLE="$PWD/build-flatpak/files/bin/puller-sidecar-x86_64-unknown-linux-gnu"
-          test -x "$ASSEMBLED_SIDECAR" || {
-            echo "ERROR: assembled sidecar missing at $ASSEMBLED_SIDECAR" >&2
-            find build-flatpak -name 'puller-sidecar*' 2>/dev/null | head -20 >&2 || true
-            exit 1
-          }
-          test -x "$ASSEMBLED_SIDECAR_TRIPLE" || {
-            echo "ERROR: Tauri triple-named sidecar missing at $ASSEMBLED_SIDECAR_TRIPLE" >&2
-            exit 1
-          }
-          cmp "$SOURCE_SIDECAR" "$ASSEMBLED_SIDECAR"
-          cmp "$SOURCE_SIDECAR" "$ASSEMBLED_SIDECAR_TRIPLE"
-          PULLER_BINARY="$ASSEMBLED_SIDECAR" pnpm --filter @potatotomato/puller smoke:bundle
           flatpak build-bundle repo potato-tomato.flatpak com.potatotomato.games stable
 
       - uses: actions/upload-artifact@v4

@@ -12,7 +12,6 @@ import { KeyDispatcher, canUseTouchBridge, isLikelyInjectableUrl } from './touch
 describe('touch-input-dispatch', () => {
 	it('classifies offline and proxied play URLs as injectable', () => {
 		expect(isLikelyInjectableUrl('/games/shrek-escape/offline/index.html')).toBe(true);
-		expect(isLikelyInjectableUrl('/puller-games/foo/offline/index.html')).toBe(true);
 		expect(isLikelyInjectableUrl('/api/unity-play/foo')).toBe(true);
 		expect(isLikelyInjectableUrl('/api/game-live/foo')).toBe(true);
 		expect(isLikelyInjectableUrl('blob:http://localhost/abc')).toBe(true);
@@ -29,7 +28,6 @@ describe('touch-input-dispatch', () => {
 		expect(canUseTouchBridge('http://127.0.0.1:18787/api/unity-play/mob-city')).toBe(true);
 		expect(canUseTouchBridge('http://127.0.0.1:18787/api/game-live/ovo')).toBe(true);
 		expect(canUseTouchBridge('/games/foo/offline/index.html')).toBe(true);
-		expect(canUseTouchBridge('/puller-games/foo/offline/index.html')).toBe(true);
 		expect(canUseTouchBridge('/browser-offline/foo/online/index.html')).toBe(true);
 		expect(canUseTouchBridge('/unity/player.html?src=https://play.unity.com/x')).toBe(false);
 		expect(canUseTouchBridge('https://games.crazygames.com/en_US/ovo/index.html')).toBe(false);

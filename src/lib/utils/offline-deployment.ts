@@ -68,7 +68,7 @@ export function resolveAppDeployment(input: {
 
 /**
  * Hosted static site (e.g. GitHub Pages) vs local desktop/dev build.
- * Public site → browser IndexedDB. Local app → puller file downloads when available.
+ * Public site → browser IndexedDB. Local app → files on disk (desktop) or browser storage.
  */
 export function getAppDeployment(): AppDeployment {
 	return resolveAppDeployment({
@@ -98,12 +98,4 @@ export function isTauriMobileBuild(): boolean {
 
 export function isTauriAndroidBuild(): boolean {
 	return import.meta.env.TAURI_ENV_PLATFORM === 'android';
-}
-
-/** Local/Tauri builds should prefer the puller sidecar; public sites must not probe it. */
-export function shouldProbePullerBackend(): boolean {
-	if (!isLocalAppDeployment()) return false;
-	// Mobile Tauri builds intentionally disable the puller sidecar (see src-tauri/src/lib.rs).
-	if (isTauriMobileBuild()) return false;
-	return true;
 }

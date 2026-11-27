@@ -5,19 +5,15 @@ import {
 	isLocalAppDeployment,
 	isPublicSiteDeployment,
 	isTauriApp,
-	shouldProbePullerBackend,
 	type AppDeployment
 } from './offline-deployment';
-import { isPullerAvailable } from './offline-downloader-puller';
 import { hasNativeOfflineBackend } from './offline-native';
 
 /**
- * - `native`: the desktop app reads and writes game files on disk itself; the puller is
- *   started only to capture a download.
- * - `puller`: a puller answers on this machine (`pnpm dev` in a plain browser).
- * - `browser`: IndexedDB + service worker (public site, Android, or no puller in dev).
+ * - `native`: the desktop app reads and writes game files on disk itself.
+ * - `browser`: IndexedDB + service worker (public site, Android, `pnpm dev`).
  */
-export type OfflineBackend = 'native' | 'puller' | 'browser' | 'none';
+export type OfflineBackend = 'native' | 'browser' | 'none';
 
 export {
 	getAppDeployment,
@@ -39,8 +35,8 @@ const BACKEND_TTL_MS = 5000;
 /**
  * Pick offline storage backend:
  * - **public-site** (GitHub Pages): browser IndexedDB + service worker only
- * - **desktop app**: game files on disk, read natively; no puller until a download
- * - **local-app in a browser** (pnpm dev): puller file downloads; browser fallback if it is down
+ * - **desktop app**: game files on disk, read natively; 
+ * - **local-app in a browser** (pnpm dev): browser storage
  */
 export async function getOfflineBackend(force = false): Promise<OfflineBackend> {
 	const now = Date.now();
@@ -60,14 +56,7 @@ export async function getOfflineBackend(force = false): Promise<OfflineBackend> 
 		return backendCache;
 	}
 
-	// local-app in a browser: full game mirrors via a dev puller on disk
-	if (shouldProbePullerBackend() && (await isPullerAvailable(force))) {
-		backendCache = 'puller';
-	} else if (isBrowserStorageSupported()) {
-		backendCache = 'browser';
-	} else {
-		backendCache = 'none';
-	}
+	backendCache = isBrowserStorageSupported() ? 'browser' : 'none';
 	backendCheckedAt = now;
 	return backendCache;
 }
@@ -76,12 +65,10 @@ export function describeOfflineBackend(backend: OfflineBackend): string {
 	switch (backend) {
 		case 'native':
 			return 'Game files on disk';
-		case 'puller':
-			return 'Local file download (puller)';
 		case 'browser':
 			return isPublicSiteDeployment()
 				? 'Browser storage (IndexedDB)'
-				: 'Browser storage (puller unavailable)';
+				: 'Browser storage';
 		default:
 			return 'Offline downloads unavailable';
 	}

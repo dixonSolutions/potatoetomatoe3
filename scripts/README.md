@@ -4,10 +4,9 @@
 
 | Script                                                   | Root command                                | Purpose                                                                                                                                                                              |
 | -------------------------------------------------------- | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [`tauri-dev-harness.mjs`](./tauri-dev-harness.mjs)       | `pnpm console-test` / `pnpm puller-test`    | Native Tauri workbenches for puller proxy + touch console (see [docs/dev-test-harnesses.md](../docs/dev-test-harnesses.md))                                                          |
+| [`tauri-dev-harness.mjs`](./tauri-dev-harness.mjs)       | `pnpm console-test`                         | Native Tauri workbench for the touch console (see [docs/dev-test-harnesses.md](../docs/dev-test-harnesses.md))                                                          |
 | [`verify-desktop-theme.mjs`](./verify-desktop-theme.mjs) | `pnpm desktop-theme-test -- --binary <app>` | Linux desktop field test: launch colour, live light/dark switch, resize repaint, ghost windows, measured from compositor screenshots (`lib/png-stats.mjs`, `lib/gdr-mcp-client.mjs`) |
 
-These launchers do **not** start the puller themselves — Tauri owns the puller lifecycle.
 
 ## Quick Start - Port Everything!
 

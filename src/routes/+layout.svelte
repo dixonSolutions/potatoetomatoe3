@@ -58,9 +58,7 @@
 		shouldShowTrayCloseHint,
 		syncDesktopTrayRecent
 	} from '$lib/utils/desktop-tray';
-	import { isTauriApp, shouldProbePullerBackend } from '$lib/utils/offline-deployment';
-	import { invalidateOfflineBackendCache } from '$lib/utils/offline-runtime';
-	import { dispatchOfflineStatusChanged } from '$lib/utils/offline-status-events';
+	import { isTauriApp } from '$lib/utils/offline-deployment';
 
 	let { data, children } = $props();
 
@@ -433,16 +431,6 @@
 		const detachGameStorageBridge = attachGameStorageBridge();
 
 		let detachTray: (() => void) | undefined;
-		if (shouldProbePullerBackend()) {
-			void import('$lib/utils/offline-downloader-puller').then(
-				async ({ syncPullerBaseUrlFromTauri, invalidatePullerAvailabilityCache }) => {
-					await syncPullerBaseUrlFromTauri();
-					invalidatePullerAvailabilityCache();
-					invalidateOfflineBackendCache();
-					dispatchOfflineStatusChanged();
-				}
-			);
-		}
 		if (isTauriApp()) {
 			void attachDesktopTrayListeners().then((unlisten) => {
 				detachTray = unlisten;

@@ -8,7 +8,7 @@
  * the game page and reads getGame(...) → file.content (games.poki.com iframe URL).
  *
  * Writes static/games/<slug>/online/index.html + metadata.json + assets thumbnail.
- * Does not mirror gameplay assets — use the puller service (`pnpm puller:start`) to download offline copies.
+ * Does not mirror gameplay assets — the app downloads offline copies itself.
  *
  * Usage:
  *   node scripts/import-poki-catalog.mjs

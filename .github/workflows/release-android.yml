@@ -43,7 +43,6 @@ jobs:
       - name: Restore prepared shared outputs
         run: |
           cp -a release-inputs/build/. build/
-          cp -a release-inputs/puller/dist/. puller/dist/
       - name: Read immutable release identity
         id: release
         run: |

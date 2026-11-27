@@ -12,7 +12,8 @@
 //!   profile, in the exact on-disk layout `puller/src/browser-data.ts` uses, so saves made
 //!   while the puller ran are still there.
 //!
-//! Downloading still needs the puller (Playwright capture); it is started on demand.
+//! Downloading is `offline_download.rs`: it builds the copy in `offline.part/` and swaps it
+//! in as `offline/` when complete.
 
 // The scheme is registered on desktop only; mobile builds keep the commands and nothing else.
 #![cfg_attr(mobile, allow(dead_code))]
@@ -144,14 +145,15 @@ pub struct OfflineStatus {
 pub fn status(roots: &GameRoots, id: &str) -> OfflineStatus {
   let mirror = resolve_mirror(roots, id);
   let offline = mirror.is_some();
-  let user_dir = roots.data.join(id).join("offline");
-  let partial = !offline && user_dir.is_dir() && count_files(&user_dir) > 0;
+  let part_dir = roots.data.join(id).join(crate::offline_download::PART_DIR);
+  let part_files = if part_dir.is_dir() { count_files(&part_dir) } else { 0 };
+  let partial = !offline && part_files > 0;
   OfflineStatus {
     online: true,
     offline,
-    downloading: false,
+    downloading: crate::offline_download::is_running(id),
     partial_cache: partial.then_some(true),
-    cache_file_count: partial.then(|| count_files(&user_dir)),
+    cache_file_count: partial.then_some(part_files),
     offline_thumbnail: mirror.and_then(|(dir, _)| thumbnail_in(&dir)),
   }
 }
@@ -166,7 +168,10 @@ pub fn statuses_on_disk(roots: &GameRoots) -> HashMap<String, OfflineStatus> {
     };
     for entry in entries.flatten() {
       let name = entry.file_name().to_string_lossy().to_string();
-      if is_catalog_id(&name) && entry.path().join("offline").is_dir() {
+      let path = entry.path();
+      if is_catalog_id(&name)
+        && (path.join("offline").is_dir() || path.join(crate::offline_download::PART_DIR).is_dir())
+      {
         ids.insert(name);
       }
     }
@@ -174,7 +179,7 @@ pub fn statuses_on_disk(roots: &GameRoots) -> HashMap<String, OfflineStatus> {
   ids
     .into_iter()
     .map(|id| (id.clone(), status(roots, &id)))
-    .filter(|(_, s)| s.offline || s.partial_cache == Some(true))
+    .filter(|(_, s)| s.offline || s.downloading || s.partial_cache == Some(true))
     .collect()
 }
 
@@ -183,9 +188,12 @@ pub fn delete_copy(roots: &GameRoots, id: &str) -> Result<(), String> {
   if !is_catalog_id(id) {
     return Err(format!("not a catalog game id: {id:?}"));
   }
-  let dir = roots.data.join(id).join("offline");
-  if dir.exists() {
-    std::fs::remove_dir_all(&dir).map_err(|e| format!("{}: {e}", dir.display()))?;
+  crate::offline_download::cancel(roots, id, true);
+  for name in ["offline", crate::offline_download::PART_DIR] {
+    let dir = roots.data.join(id).join(name);
+    if dir.exists() {
+      std::fs::remove_dir_all(&dir).map_err(|e| format!("{}: {e}", dir.display()))?;
+    }
   }
   Ok(())
 }
@@ -242,7 +250,10 @@ fn regex(slot: &'static OnceLock<regex::Regex>, pattern: &str) -> &'static regex
 }
 
 /// Absolute URLs the capture vaulted under `_external/<host>/…` point at the local copy.
-pub fn rewrite_vaulted_urls(html: &str, mirror_root: &Path) -> String {
+///
+/// The result is rooted at the game (`/<id>/_external/…`), so it resolves the same from the
+/// entry at the copy's root and from a document deep inside `_external/`.
+pub fn rewrite_vaulted_urls(html: &str, mirror_root: &Path, id: &str) -> String {
   static URL: OnceLock<regex::Regex> = OnceLock::new();
   regex(&URL, r#"https?://[^\s"'<>\\]+"#)
     .replace_all(html, |caps: &regex::Captures| {
@@ -261,7 +272,7 @@ pub fn rewrite_vaulted_urls(html: &str, mirror_root: &Path) -> String {
       if !local.exists() {
         return absolute.to_string();
       }
-      let mut rel = format!("_external/{host}");
+      let mut rel = format!("/{id}/_external/{host}");
       for part in &parts {
         rel.push('/');
         rel.push_str(part);
@@ -372,8 +383,30 @@ fn strip_unity_portal_bloat(html: &str) -> String {
 /// `<script src="/game-storage-bridge.child.js">`, which it served itself; under
 /// `ptoffline://localhost/` that path is not a file, so the tag is dropped rather than
 /// trusted — it used to leave such a copy running with no bridge at all.
+/// The host a document under `_external/<host>/…` was fetched from.
+fn vault_host(rel: &str) -> Option<&str> {
+  let host = rel.strip_prefix("_external/")?.split('/').next()?;
+  (!host.is_empty()).then_some(host)
+}
+
+/// Site-root paths (`src="/js/a.js"`, `url(/img/b.png)`) in a document fetched from `host`
+/// point into that host's part of the copy; served as they are they would leave the game.
+pub fn rewrite_root_paths(text: &str, host: &str, id: &str) -> String {
+  static ATTR: OnceLock<regex::Regex> = OnceLock::new();
+  static CSS: OnceLock<regex::Regex> = OnceLock::new();
+  let prefix = format!("/{id}/_external/{host}/");
+  let out = regex(
+    &ATTR,
+    r#"(?i)(\s(?:src|href|data|poster|action|data-src)\s*=\s*["'])/([^/"'][^"']*)"#,
+  )
+  .replace_all(text, |c: &regex::Captures| format!("{}{prefix}{}", &c[1], &c[2]));
+  regex(&CSS, r#"(?i)(url\(\s*["']?)/([^/"')][^"')]*)"#)
+    .replace_all(&out, |c: &regex::Captures| format!("{}{prefix}{}", &c[1], &c[2]))
+    .into_owned()
+}
+
 pub fn offline_html(html: &str, mirror_root: &Path, id: &str) -> String {
-  let mut out = crate::relay::strip_bridge_tags(&rewrite_vaulted_urls(html, mirror_root));
+  let mut out = crate::relay::strip_bridge_tags(&rewrite_vaulted_urls(html, mirror_root, id));
   if is_unity_game_html(&out) && !out.contains("__ptUnityInjectInstalled") {
     out = strip_unity_portal_bloat(&out);
     out =
@@ -392,9 +425,31 @@ fn respond(status: StatusCode, content_type: &str, body: Vec<u8>) -> Response<Ve
     .unwrap_or_else(|_| Response::new(Vec::new()))
 }
 
+/// A site-root request (`/js/a.js`) made at run time by a document deep in a copy, mapped
+/// back into that document's host folder using its `Referer`.
+fn from_referer(path: &str, referer: Option<&str>) -> Option<String> {
+  let referer = reqwest::Url::parse(referer?).ok()?;
+  let mut segments = referer.path().trim_start_matches('/').splitn(4, '/');
+  let id = segments.next()?;
+  (segments.next()? == "_external").then_some(())?;
+  let host = segments.next()?;
+  if !is_catalog_id(id) || host.is_empty() {
+    return None;
+  }
+  Some(format!("/{id}/_external/{host}/{}", path.trim_start_matches('/')))
+}
+
 /// `ptoffline://localhost/<id>/<path under offline/>`; an empty path is the entry file.
-pub async fn handle(roots: GameRoots, path: String) -> Response<Vec<u8>> {
-  let decoded = crate::relay::percent_decode(&path);
+pub async fn handle(roots: GameRoots, path: String, referer: Option<String>) -> Response<Vec<u8>> {
+  let mut decoded = crate::relay::percent_decode(&path);
+  {
+    let first = decoded.trim_start_matches('/').split('/').next().unwrap_or("");
+    if !is_catalog_id(first) || resolve_mirror(&roots, first).is_none() {
+      if let Some(mapped) = from_referer(&decoded, referer.as_deref()) {
+        decoded = mapped;
+      }
+    }
+  }
   let trimmed = decoded.trim_start_matches('/');
   let (id, rel) = trimmed.split_once('/').unwrap_or((trimmed, ""));
   if !is_catalog_id(id) {
@@ -447,18 +502,29 @@ pub async fn handle(roots: GameRoots, path: String) -> Response<Vec<u8>> {
     }
   };
   let mime = mime_for(&file);
+  let base = if root == mirror_root {
+    &mirror_root
+  } else {
+    &root
+  };
+  let host = vault_host(&rel);
   if mime.starts_with("text/html") {
     let html = String::from_utf8_lossy(&bytes);
-    let base = if root == mirror_root {
-      &mirror_root
-    } else {
-      &root
-    };
-    return respond(
-      StatusCode::OK,
-      mime,
-      offline_html(&html, base, id).into_bytes(),
-    );
+    let mut out = offline_html(&html, base, id);
+    if let Some(host) = host {
+      out = rewrite_root_paths(&out, host, id);
+    }
+    return respond(StatusCode::OK, mime, out.into_bytes());
+  }
+  let is_css = mime.starts_with("text/css");
+  if (is_css || mime.contains("javascript") || mime.contains("json")) && bytes.len() < 32 << 20 {
+    if let Ok(text) = std::str::from_utf8(&bytes) {
+      let mut out = rewrite_vaulted_urls(text, base, id);
+      if let (true, Some(host)) = (is_css, host) {
+        out = rewrite_root_paths(&out, host, id);
+      }
+      return respond(StatusCode::OK, mime, out.into_bytes());
+    }
   }
   respond(StatusCode::OK, mime, bytes)
 }
@@ -1037,9 +1103,33 @@ mod tests {
     write(&mirror.join("_external/cdn.example.com/lib/x.js"), "1");
     let html = "<html><head></head><body><script src=\"https://cdn.example.com/lib/x.js?v=2\"></script></body></html>";
     let out = offline_html(html, &mirror, "g");
-    assert!(out.contains("src=\"_external/cdn.example.com/lib/x.js?v=2\""));
+    assert!(out.contains("src=\"/g/_external/cdn.example.com/lib/x.js?v=2\""));
     assert!(out.contains("window.__ptGameId=\"g\""));
     assert!(out.find("__ptGameId").unwrap() < out.find("<body>").unwrap());
+  }
+
+  #[test]
+  fn site_root_paths_in_a_vaulted_document_stay_inside_the_copy() {
+    let html = r#"<script src="/js/a.js"></script><img src="//cdn.x/i.png"><link href='/c.css'><a href="https://x/">"#;
+    let out = rewrite_root_paths(html, "h.example", "g");
+    assert!(out.contains(r#"src="/g/_external/h.example/js/a.js""#));
+    assert!(out.contains(r#"href='/g/_external/h.example/c.css'"#));
+    assert!(out.contains(r#"src="//cdn.x/i.png""#));
+    let css = rewrite_root_paths("a{background:url(/img/b.png)} b{background:url('rel.png')}", "h", "g");
+    assert!(css.contains("url(/g/_external/h/img/b.png)"));
+    assert!(css.contains("url('rel.png')"));
+    assert_eq!(vault_host("_external/h.example/x/index.html"), Some("h.example"));
+    assert_eq!(vault_host("index.html"), None);
+  }
+
+  #[test]
+  fn run_time_root_requests_map_back_through_the_referer() {
+    assert_eq!(
+      from_referer("/js/a.js", Some("ptoffline://localhost/g/_external/h.example/games/g/index.html")).as_deref(),
+      Some("/g/_external/h.example/js/a.js")
+    );
+    assert_eq!(from_referer("/js/a.js", Some("ptoffline://localhost/g/index.html")), None);
+    assert_eq!(from_referer("/js/a.js", None), None);
   }
 
   #[test]

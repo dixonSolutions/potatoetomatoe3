@@ -1,269 +1,45 @@
-# Offline downloader service
-
-The app picks an offline backend automatically from where it is running:
-
-| Deployment                     | Detection                                                                   | Download storage                                        | Play path                                              |
-| ------------------------------ | --------------------------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------ |
-| **Public site** (GitHub Pages) | `PUBLIC_OFFLINE_DEPLOYMENT=public-site`, or non-local host without Tauri    | **Browser IndexedDB**, same-origin games only           | `/browser-offline/{id}/…` (service worker) or `blob:`  |
-| **Desktop app** (Tauri)        | `globalThis.isTauri` on a desktop build                                     | **Files on disk**; the puller is started to capture one | `ptoffline://localhost/{id}/…`, served by the app      |
-| **`pnpm dev`** in a browser    | `local-app` stamp, `tauri.localhost`, or `TAURI_ENV_PLATFORM` without Tauri | **Puller** writes files to disk                         | `/puller-games/{id}/offline/…` or loopback puller URLs |
-
-Release preparation stamps native artifacts with `PUBLIC_OFFLINE_DEPLOYMENT=local-app`.
-Pages CI keeps `public-site`. Override with `PUBLIC_OFFLINE_DEPLOYMENT=public-site` or
-`local-app` in `.env` only when debugging.
-
-The puller is the Node.js capture backend. It mirrors games into
-`<data>/<id>/offline/` for true offline play (`/api/offline`). It no longer runs with the
-desktop app: the app reads mirrors, offline status and saves itself
-([native-first.md](./native-first.md#offline-copies-and-saves-without-node)) and starts the
-puller (`ensure_puller`) when the user downloads a game. Its live relays
-(`/api/game-live`, `/api/unity-play`) are the last route of the play chain, used only if a
-puller is already running.
-
-The execution and storage adapters differ by host, but scrape/capture/ads logic is not duplicated:
-
-- Tauri/Flatpak starts the puller sidecar for a download and keeps mirrors on disk.
-- The public web app downloads **same-origin** games into IndexedDB and plays them back through `offline-sw.js`. It cannot capture a third-party game host and does not relay arbitrary sites; for those titles it stays an online player and a native-app download site.
-- Linux/Flatpak is the mirror-creating platform. Android plays bundled/imported verified mirrors and cannot run the Node/Playwright capture sidecar.
-
-## Running
-
-```bash
-pnpm puller:start          # production
-pnpm puller:dev            # watch mode
-```
-
-Environment variables:
-
-| Variable               | Default               | Description                                  |
-| ---------------------- | --------------------- | -------------------------------------------- |
-| `PULLER_PORT`          | `18787`               | HTTP listen port (8787 used by Cursor Voice) |
-| `GAMES_DATA_DIR`       | `<repo>/static/games` | Writable games root                          |
-| `PULLER_CORS_ORIGIN`   | `*`                   | CORS header                                  |
-| `EMBED_STRATEGY_GAMES` | `shrek-escape`        | Comma-separated embed-strategy game IDs      |
-
-## Security
-
-- Game IDs are validated against `games-list.json` (allowlist)
-- The allowlist reloads when `games-list.json` mtime changes (and once on a miss), so catalog imports do not require a puller restart for new IDs
-- Path traversal is rejected on static file serving
-- Writes are restricted to `<dataDir>/<gameId>/offline/` and `<dataDir>/<gameId>/data/` (browser profiles)
-
-## Offline status API (scoped)
-
-At 10k+ catalog size, the SPA never asks the puller for every game’s status.
-
-| Request                             | Response                                                                                        |
-| ----------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `GET /api/offline/status`           | Only **downloaded / in-progress / partial** games (dirs with `offline/`, plus active downloads) |
-| `GET /api/offline/status?ids=a,b,c` | Statuses for the listed ids (visible cards)                                                     |
-| `GET /api/offline/status/:id`       | Single game (unchanged)                                                                         |
-
-Client helpers: `fetchDownloadedStatuses()` and `fetchOfflineStatusesForIds(ids)`.
-
-## Offline covers
-
-After a successful offline download, the puller also caches the catalog `thumbnail` (remote Unity CDN or local asset) as `offline/assets/thumbnail.*` and records it in `offline-manifest.json`. The UI prefers that local cover when the device is offline or the game is marked downloaded, so cards do not depend on the network for covers.
-
-For browser/PWA downloads delegated to the puller, the export API includes the cached thumbnail.
-The browser storage adapter stores that file in IndexedDB and records its path in the browser game
-metadata, so dashboard cards use a blob URL from IndexedDB instead of the catalog/network reference.
-Existing puller mirrors are repaired lazily when status is requested if their thumbnail is missing.
-
-## Strategies
-
-### `embed`
-
-Used for Unity WebGL games embedded via Google Sites (Shrek). Carried over from [ShrekEscape2 `pull/`](https://github.com/dixonSolutions/ShrekEscape2) (design reference, not a runtime dependency):
-
-1. Discover game via Playwright (FILE_URL from embed page)
-2. Download split Brotli Unity assets
-3. Merge parts, scan external media, write ad-free host HTML
-
-Set `pullStrategy: "embed"` in `online/metadata.json` or add the game ID to `EMBED_STRATEGY_GAMES`.
-
-### `generic` (full scrape)
-
-Default for catalog games. **Does not stop at the online shell** — mirrors the iframe game host and all reachable assets:
-
-1. Read `online/index.html` iframe URL
-2. **Primary:** Playwright opens the iframe URL, walks nested frames, and vaults every successful network response (HTML/JS/CSS/WASM/data/media/JSON) during boot (`puller/src/capture/`)
-3. Persist vault under `offline/` (`_external/<host>/…` for cross-origin assets)
-4. **Fill-in:** BFS discovery (`discover-all.ts`) + parallel wget for refs never requested during boot
-5. **Ads:** strip known ad iframes; inject offline Poki / Yandex / generic stubs (`puller/src/ads/`)
-6. Unity WebGL: `postProcessUnityOfflineMirror` (inject.js, asset-map) then ad strip
-
-**Fallback:** if Playwright cannot start, use `wget --mirror` + the same fill-in / ad / Unity post-process path (never a silent shell-only copy).
-
-### Offline on the public web site
-
-The web build is a full offline client for the games it can actually mirror:
-
-- `offline-sw.js` registers on every deployment, not just local ones.
-- **Download for offline** on a game page saves the game's same-origin files into
-  IndexedDB and plays them back from `/browser-offline/{id}/…`.
-- The worker also caches the app shell, its hashed `_app/immutable` chunks, SvelteKit
-  route data, and catalog JSON, so a downloaded game is still reachable after a reload
-  with no network. Because the worker registers from the app's own `onMount`, the first
-  page load happens before it can intercept anything; the page therefore posts the URLs
-  it already loaded (`pt-cache-app-assets`) and the worker backfills them.
-- `navigator.storage.persist()` is requested when a browser download starts. Without a
-  persistence grant IndexedDB is evictable, and evicting it would silently delete
-  downloaded games.
-- Game media is deliberately **not** shell-cached — downloaded covers already live in
-  IndexedDB, and caching thumbnails for a 13k catalog would compete with the games
-  themselves for quota.
-
-What the web build still cannot do is mirror a game that runs on someone else's origin.
-That is the same-origin policy, not a missing feature: page JavaScript cannot read a
-cross-origin document or its assets. Most of the catalog embeds such a host, so on the
-public site those titles show the third-party notice and stay online-only. A visitor
-running `pnpm puller:start` on the same machine is the exception — the download is
-delegated to that puller and the finished mirror is imported into IndexedDB.
-
-### Browser IndexedDB vs puller
-
-| Backend                        | What gets saved                         | Cross-origin iframe                                                                                                                       |
-| ------------------------------ | --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| **Puller** (local app / Tauri) | Full iframe host + assets + ad stubs    | Supported (this is the full-scrape path)                                                                                                  |
-| **Browser** (GitHub Pages)     | Same-origin `/games/{id}/online/*` only | **Refused** — download fails with CTA unless a local puller is reachable (`pnpm puller:start`), then the download is routed to the puller |
-
-Shell-only “offline” copies that still load a live third-party iframe are no longer treated as successful downloads.
-
-### Y8 catalog import
-
-```bash
-pnpm run games:import-y8
-pnpm run games:import-y8 -- --limit 50 --skip-existing
-node scripts/generate-games-list.js
-```
-
-Unity titles get `engine: "unity"` and `onlineEmbedUrl` pointing at the raw `storage-direct.y8.com` build. Online play loads that build straight from its host; on desktop the in-game bridge is injected into its frame natively, and elsewhere it plays inside `/unity/player.html`. See [native-first.md](./native-first.md#play-path-no-puller).
-
-**All Games catalog:** shards are A–Z; the browse page paints after shard-000 and loads more as you scroll (`loadMoreCatalogShards`). Searching or non-name sorts pull the rest of the index in the background.
-
-**Unity inject hardening** ([`static/unity/inject.js`](../static/unity/inject.js)):
-
-- Patches both `assert(0===stdin.fd,…)` and `assert(stdin.fd===0,…)` so WebKitGTK does not abort at `createStandardStreams` (“invalid handle for stdin”).
-- Wraps `unityDecompressReleaseFile` so legacy UnityLoader only gunzips real gzip payloads (plain UnityFS / already-decoded bodies pass through) — avoids zlib “incorrect header check” when the `*.gz` fallback would inflate HTML or uncompressed data.
-- Forces `UnityLoader.CompressionState` to Supported when possible so flaky first XHRs do not kick that broken `.gz` path.
-
-**GitHub Pages:** online games play straight from their own hosts (Unity inside `/unity/player.html`), and Drive U 7 titles from their catalog `embed.html`. Set `PUBLIC_PLAY_PROXY_URL` (Cloudflare Worker, see [`workers/unity-play-proxy/`](../workers/unity-play-proxy/)) to send Unity through a hosted proxy instead. The page no longer routes launches through a puller on the visitor's machine; [`offline-sw.js`](../static/offline-sw.js) still relays `/api/unity-play` and `/api/game-live` to one if something asks.
-
-### Live online relay (legacy, last resort)
-
-When a puller is already running (it is never started for play), catalog games with an external `onlineEmbedUrl` can play through `/api/game-live/:id` as the last route of the play chain. That path:
-
-- Fetches the remote entry HTML and rewrites assets through a short-lived in-memory session
-- Injects the touch / storage bridge (and Unity patches when the HTML looks like Unity)
-- Does **not** write an offline mirror — use **Download for offline** / `/api/offline` for that
-
-Offline play loads the local offline entry **directly** (blob, `/browser-offline/`, `ptoffline://`, `/puller-games/`, or `/games/…/offline/`) — those hosts are already post-processed and must not be wrapped in `player.html` (which rejects `blob:` and caused “Missing or invalid ?src=” for browser-storage offline).
-
-### Unity Play catalog import
-
-Primary source for new Unity WebGL catalog entries (Poki import is deprecated; purge with `pnpm games:purge-poki`):
-
-```bash
-pnpm run games:import-unity-play -- --discover-only
-pnpm run games:import-unity-play -- --limit 20 --skip-existing
-pnpm run games:import-unity-play -- --skip-existing
-node scripts/generate-games-list.js
-```
-
-Each game gets `sourcePortal: "unity-play"`, `engine: "unity"`, and `onlineEmbedUrl` set to the Unity Play build frame (`https://play.unity.com/api/v1/games/game/<uuid>/build/latest/frame`). That frame loads `createUnityInstance` against `cdn.play.unity.com` assets and does **not** send `frame-ancestors` / `X-Frame-Options`, so it plays framed directly (desktop, bridge injected natively) or inside `/unity/player.html?src=…` (web, Android). `PUBLIC_PLAY_PROXY_URL` sends Unity through a hosted Worker instead.
-
-## Tauri integration
-
-The desktop app does **not** start the puller at launch. `ensure_puller` starts it when a download begins (and `puller_running` only looks, never starts). In debug builds (`pnpm app` / `tauri dev`) that means `puller/node_modules/.bin/tsx puller/src/index.ts`, waiting for `/api/offline/health` before treating it as up. The `src-tauri/binaries/puller-sidecar-*` file is only a **placeholder shell script** until `pnpm puller:bundle:linux` runs — spawning that stub used to “succeed” and skip the tsx fallback, which left the UI on “puller unavailable”. `PULLER_PORT` pins the port the app uses, so several dev checkouts do not adopt each other's puller.
-
-In release builds, the puller is bundled as a real sidecar binary (`src-tauri/binaries/puller-sidecar`) built via `pnpm puller:bundle:linux`. The bundle uses CommonJS before packaging because the pkg runtime can lose imported ESM bindings such as `isValidGameId` and `loadGameIds`. It targets the prebuilt Node 22 runtime and runs a health and proxy-route smoke test before succeeding; CI caches the pkg runtime so it does not compile Node from source. Unity inject + game-storage bridge scripts are **inlined at build time** (`puller/scripts/embed-assets.mjs`) so the pkg sidecar does not need to read `static/` from disk (required for Flatpak).
-
-Flatpak must preserve the sidecar byte-for-byte. `pkg` appends its JavaScript snapshot to the Node ELF, so Flatpak debug-info extraction or stripping corrupts the snapshot even when the pre-Flatpak smoke test passes. The manifest disables both transformations, and CI compares the installed sidecar with its source and reruns the health/proxy smoke test after Flatpak assembly.
-
-The desktop app sets `GAMES_DATA_DIR` to the app data directory so downloads persist outside the read-only bundle. Tauri reserves a free loopback port (default `18787`, next free if busy — e.g. when Flatpak already owns 18787) and exposes it to the UI via `get_puller_base_url` so the webview talks to **this** app’s puller, not another instance.
-
-| Variable         | Dev              | Packaged app                                                                                                                                                                                                                                                                                    |
-| ---------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `GAMES_DATA_DIR` | `static/games/`  | `~/.local/share/com.potatotomato.games/games/`                                                                                                                                                                                                                                                  |
-| `CATALOG_DIR`    | same as data dir | bundled `catalog/games/` resource (read-only online shells). Flatpak must install under `/app/lib/Potato Tomato/catalog/games/` because Tauri resolves Linux resources with `productName` (`Potato Tomato`), not the Cargo crate name. A `potato-tomato` symlink is also created for debugging. |
-
-Downloaded `offline/` folders are **gitignored** under `static/games/` during development.
-
-## Frontend client
-
-The SvelteKit app uses `src/lib/utils/offline-downloader.ts` as a unified API. Detection lives in `src/lib/utils/offline-deployment.ts`; routing in `offline-runtime.ts`:
-
-| Environment                        | Backend          | Storage                                                   |
-| ---------------------------------- | ---------------- | --------------------------------------------------------- |
-| Public site (GitHub Pages)         | Browser only     | IndexedDB + `offline-sw.js`                               |
-| Tauri desktop                      | `native`         | App data directory, read by the app; puller for downloads |
-| `pnpm dev` in a browser + puller   | Puller           | Files on disk (`GAMES_DATA_DIR`)                          |
-| `pnpm dev` in a browser, no puller | Browser fallback | IndexedDB (limited mirrors)                               |
-
-Configure the dev puller URL with `PUBLIC_DOWNLOADER_URL` (default `http://127.0.0.1:18787`).
-In Vite / `pnpm app`, puller APIs use same-origin `/api/offline/*` (proxied to the puller) so
-WebKit/Tauri does not depend on cross-origin fetches to `:18787`. The desktop app reads status,
-mirrors and saves through Tauri commands and `ptoffline://` instead, and asks Rust
-(`puller_running`) rather than trusting a loopback fetch from `tauri://`.
-`PUBLIC_OFFLINE_DEPLOYMENT=local-app` is set by `pnpm app` and the Tauri beforeDevCommand.
-
-### Game save data (browser profiles)
-
-Per-game saves (`localStorage`, `sessionStorage`, cookies, IndexedDB) are emulated and persisted so online and offline play share one profile. Full documentation: [game-browser-storage.md](./game-browser-storage.md).
-
-| Play path                             | Bridge injection                                                   |
-| ------------------------------------- | ------------------------------------------------------------------ |
-| A game on its own host (desktop)      | WebKitGTK user script, per launch (`src-tauri/src/game_frames.rs`) |
-| `blob:` shells (`embed.html`, text)   | `<script>` first in `<head>` (`online-play-routing-shell.ts`)      |
-| `ptoffline://` / `ptrelay://`         | Inline bridge, written by the app (`offline_games.rs`, `relay.rs`) |
-| `/games/{id}/online/` or `/offline/`  | Vite middleware (dev) or service worker (public site)              |
-| `/puller-games/{id}/offline/`         | Same as app origin + puller HTML injection                         |
-| `/browser-offline/{id}/…`             | Service worker injects `game-storage-bridge.child.js`              |
-| Direct puller URL (`127.0.0.1:18787`) | Inline bridge; shell syncs via `postMessage`                       |
-
-| Deployment   | Profile storage                                                       |
-| ------------ | --------------------------------------------------------------------- |
-| Desktop app  | `<data>/{id}/data/`, the puller's layout, read and written by the app |
-| `pnpm dev`   | `static/games/{id}/data/` via the puller (gitignored)                 |
-| GitHub Pages | IndexedDB `potatotomato-browser-data-v1`                              |
-
-Games embedded in third-party iframes (Poki, etc.) keep saves on the embed origin and cannot be mirrored automatically.
-
-### Browser offline (GitHub Pages)
-
-When the puller is unavailable but IndexedDB and service workers are supported:
-
-1. **Download** crawls same-origin files under `/games/<id>/online/` and stores them in IndexedDB.
-2. **Play** uses `/browser-offline/<id>/online/index.html`, served by `static/offline-sw.js`.
-3. Games that load entirely from external iframes may still need network access after download.
-
-Per-game online/offline preference is stored in localStorage via `src/lib/utils/game-play-mode.ts`.
-
-In `pnpm dev` in a browser, when the puller drops mid-session, the UI falls back to browser
-storage but still probes same-origin `/games/{id}/offline/` mirrors so previously downloaded
-offline copies remain playable. Use **Retry puller** (or wait ~12s for auto-recovery) to
-reconnect without reloading. The desktop app has no such state: it never depends on a
-running puller to show or play what is on disk.
-
-On the game page, **View logs** opens diagnostics scoped to the current game only (play URL
-resolution, download events, and relaunch events). **Relaunch** resets the player surface and
-remounts the iframe so you can start fresh after a bad offline load. The in-memory ring buffer
-may contain events from multiple games during an SPA session, but the game dialog filters and
-clears only its own entries.
-
-## GitHub Pages
-
-Production builds use base path `/potatoetomatoe3` (override with `PUBLIC_PAGES_BASE` in CI).
-
-**Public URL:** `https://dixonsolutions.github.io/potatoetomatoe3/` — game pages are `…/potatoetomatoe3/games/{id}` (not `…/games/{id}` at the domain root). The build copies SPA shells into each `games/{id}/` folder so GitHub Pages deep links work beside static game assets.
-
-Deploy workflows: `.github/workflows/pages.yml` handles the fast web build on every `main` push, preserves `/flatpak/` from the latest successful Release artifact, and runs again after a successful Release to attach that exact new OSTree. `.github/workflows/release.yml` publishes the Flatpak and GitHub Release only. Manual web hotfixes: `pages.yml` or `deploy.yml` via **workflow_dispatch**.
-
-Enable Pages in the repo: **Settings → Pages → Build and deployment → GitHub Actions**.
-
-Note: private repos require a GitHub plan that includes Pages for private repositories.
-
-## Touch console
-
-Mirrored / offline play paths are what make the [universal touch console](./touch-console.md) able to inject keyboard events into the game document. In the desktop app the bridge is also injected natively into a game playing from its own host, so the console reaches external online embeds with no relay and no download; Android does the same with its own native bridge.
+# Offline downloads
+
+Two backends, picked by `getOfflineBackend()` in `src/lib/utils/offline-runtime.ts`.
+The legacy Node puller (Playwright capture + HTTP API) was removed in M3; nothing starts a
+separate process any more.
+
+## Desktop app (`native`)
+
+`src-tauri/src/offline_download.rs` downloads a game over HTTP, in the app process:
+
+1. **Start document:** catalog `online/metadata.json` `onlineEmbedUrl` / `remotePlayUrl`;
+   Drive U 7 games use the catalog's `online/embed.html` against `embedBaseUrl`; games whose
+   files ship in the catalog are copied from `online/`.
+2. **Discovery:** tag `src`/`href` (scripts, images, media, `<link>`, frames), CSS
+   `url()`/`@import`, quoted paths with an asset extension in scripts and JSON. `<a href>`
+   is never followed. Ad and analytics hosts are skipped.
+3. **Layout:** `<data>/<id>/offline.part/_external/<host>/<path>`, swapped in as
+   `offline/` with `offline-manifest.json` (`entry`, `title`, `description`, `author`,
+   `thumbnail`, `files`, `bytes`) only when complete. A cancelled download keeps
+   `offline.part/` and resumes from it.
+4. **Limits:** public addresses only (same resolver and redirect rules as `relay.rs`),
+   6 parallel fetches, 6000 files, 2 GB per game, 768 MB per file.
+
+Commands: `offline_download_start`, `offline_download_progress`, `offline_download_cancel`
+(`discard` drops the partial files), plus `offline_statuses`, `offline_entry`,
+`offline_delete` in `offline_games.rs`.
+
+Serving (`offline_games.rs`, `ptoffline://localhost/<id>/<path>`): absolute URLs whose file
+is in the copy are rewritten to `/<id>/_external/<host>/…` in HTML, CSS, JS and JSON;
+site-root paths (`/js/a.js`) in a vaulted document map into that document's host folder;
+run-time site-root requests are mapped back through the `Referer`. The storage bridge is
+inlined first in every HTML document.
+
+Copies written by the old puller use the same layout and still play.
+
+## Web and Android (`browser`)
+
+`src/lib/utils/browser-offline-download.ts` crawls the same-origin online shell
+(`/games/<id>/online/`) into IndexedDB; the service worker serves it offline. Games whose
+shell frames a third-party host cannot be saved from a browser and say so.
+
+## Saves
+
+Per-game saves live in `<data>/<id>/profile/…` on desktop (`game_profile_*` commands) and in
+IndexedDB elsewhere (`game-browser-storage.ts`).

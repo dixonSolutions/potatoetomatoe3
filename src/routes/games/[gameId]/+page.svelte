@@ -48,7 +48,7 @@
 		type OfflineStatusChangedDetail
 	} from '$lib/utils/offline-downloader';
 	import { describeOfflineBackend, getOfflineBackend } from '$lib/utils/offline-runtime';
-	import { isPublicSiteDeployment, shouldProbePullerBackend } from '$lib/utils/offline-deployment';
+	import { isPublicSiteDeployment, isTauriMobileBuild } from '$lib/utils/offline-deployment';
 	import { appendPlayLog } from '$lib/utils/play-diagnostics-log';
 	import {
 		applyPauseToGameIframe,
@@ -251,7 +251,7 @@
 	let cannotFrameInApp = $derived(
 		isUnframeableInApp({
 			localApp: !isPublicSiteDeployment(),
-			pullerSupported: shouldProbePullerBackend(),
+			desktopApp: !isPublicSiteDeployment() && !isTauriMobileBuild(),
 			frameBlockedHost: isFrameBlockedHost(unframeableEmbedUrl)
 		})
 	);
@@ -901,7 +901,8 @@
 	 */
 	afterNavigate(({ from, to }) => {
 		if (!browser || !to) return;
-		const id = to.params?.gameId ?? '';
+		/* On the first load `to.params` can be empty; the page store always has them. */
+		const id = to.params?.gameId || gameId;
 		if (!id) return;
 		/* Came here from a list inside the app: "Back to games" can simply go back to it. */
 		cameFromList = Boolean(from?.route?.id && from.route.id !== '/games/[gameId]');

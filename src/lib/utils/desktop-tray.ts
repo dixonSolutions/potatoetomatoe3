@@ -95,7 +95,7 @@ export async function setCloseToTrayEnabled(enabled: boolean): Promise<boolean> 
 	}
 }
 
-/** Fully quit the desktop app (stops puller). */
+/** Fully quit the desktop app. */
 export async function quitDesktopApp(): Promise<void> {
 	if (!isTauriApp()) return;
 	try {
