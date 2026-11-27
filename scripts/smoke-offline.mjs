@@ -43,7 +43,9 @@ async function startServer() {
 				resolve();
 			}
 		});
-		server.on('exit', (code) => reject(new Error(`Vite exited (${code})`)));
+		let stderr = '';
+		server.stderr.on('data', (d) => (stderr = (stderr + d).slice(-2000)));
+		server.on('exit', (code) => reject(new Error(`Vite exited (${code}): ${stderr}`)));
 	});
 	return `http://127.0.0.1:${port}`;
 }

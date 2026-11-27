@@ -254,6 +254,8 @@
 	 * keyboard or mouse is used (`inputMode`), coming back on the next touch. Availability
 	 * 'always' keeps them up whatever the input.
 	 */
+	/** Set by the game-ready effect below. */
+	let gameReady = $state(false);
 	const touchInput = $derived(inputMode() === 'touch' || config.availability === 'always');
 	const showOverlay = $derived(
 		started && visible && !paused && !privacyLocked && injectable && gameReady && touchInput
@@ -331,7 +333,6 @@
 	 */
 	const READY_SILENT_MS = 6000;
 	const READY_CAP_MS = 25000;
-	let gameReady = $state(false);
 	let frameInputWin: Window | null = null;
 	let detachFrameInput: () => void = () => {};
 
