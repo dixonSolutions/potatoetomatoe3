@@ -34,7 +34,11 @@ import {
 	prepareNativeGameFrames,
 	watchGameFrameLife
 } from '$lib/utils/native-game-frames';
-import { OFFLINE_SCHEME, hasNativeOfflineBackend, nativeOfflineUrl } from '$lib/utils/offline-native';
+import {
+	OFFLINE_SCHEME,
+	hasNativeOfflineBackend,
+	nativeOfflineUrl
+} from '$lib/utils/offline-native';
 
 export type GameEngine = 'unity' | 'html5' | string;
 
@@ -407,10 +411,22 @@ export async function loadGameMetadata(id: string): Promise<GameMetadata | null>
 		if (response.ok) {
 			return await response.json();
 		}
-	} catch (error) {
-		console.error(`Failed to load metadata for ${id}:`, error);
+	} catch {
+		/* offline: try the copy saved with the download */
 	}
-	return null;
+	return storedGameMetadata(id);
+}
+
+/** The metadata a browser download saved, for when the network and caches have none. */
+async function storedGameMetadata(id: string): Promise<GameMetadata | null> {
+	if (typeof indexedDB === 'undefined') return null;
+	try {
+		const { getGameMeta } = await import('./browser-offline-storage');
+		const stored = (await getGameMeta(id))?.metadata;
+		return stored ? (stored as unknown as GameMetadata) : null;
+	} catch {
+		return null;
+	}
 }
 
 /**

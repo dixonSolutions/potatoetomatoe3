@@ -638,6 +638,7 @@ async function runBrowserDownload(gameId: string, signal: AbortSignal): Promise<
 			});
 			const { loadGameMetadata } = await import('./games');
 			const gameMeta = await loadGameMetadata(gameId);
+			if (gameMeta) meta.metadata = gameMeta as unknown as Record<string, unknown>;
 			const thumbPath = gameMeta?.thumbnail
 				? await cacheRemoteThumbnail(gameId, gameMeta.thumbnail, signal)
 				: null;

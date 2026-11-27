@@ -203,6 +203,43 @@ try {
 		onlyDownloaded: ids.every((id) => id === KEEP_ID)
 	});
 
+	/* A4: launch the downloaded game offline from Home (in-app navigation). */
+	const tile = page.locator(`a[href$="/games/${KEEP_ID}"]`).first();
+	if (await tile.isVisible().catch(() => false)) {
+		await tile.click();
+		await page.waitForURL(new RegExp(`/games/${KEEP_ID}`), { timeout: 15000 });
+		const title = await page
+			.locator('h1')
+			.first()
+			.textContent({ timeout: 20000 })
+			.catch(() => '');
+		const frame = await page
+			.locator('iframe[src]')
+			.first()
+			.getAttribute('src', { timeout: 30000 })
+			.catch(() => null);
+		await page.waitForTimeout(4000);
+		const crashed = await page.getByTestId('game-crashed-notice').isVisible();
+		const description = await page
+			.locator('p.text-muted-foreground')
+			.first()
+			.textContent()
+			.catch(() => '');
+		await page.screenshot({ path: path.join(OUT, `offline-launch-${KEEP_ID}.png`) });
+		check('offline launch', Boolean(title?.trim() && frame && !crashed), {
+			id: KEEP_ID,
+			title: title?.trim(),
+			description: (description ?? '').trim().slice(0, 60),
+			frame: frame?.slice(0, 80),
+			crashed
+		});
+		await page.locator('a[href$="/home"]').first().click();
+		await page.waitForURL(/\/home/);
+		await page.waitForTimeout(500);
+	} else {
+		check('offline launch', false, { id: KEEP_ID, reason: 'no tile on offline Home' });
+	}
+
 	/* A2: filter off: "Offline" + Downloads button, everything listed. */
 	await page.getByTestId('offline-filter').click();
 	await page.waitForTimeout(500);
