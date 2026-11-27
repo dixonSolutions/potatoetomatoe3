@@ -17,6 +17,7 @@
 use futures_util::StreamExt;
 use serde::Serialize;
 use std::path::{Path, PathBuf};
+use std::sync::atomic::{AtomicBool, Ordering};
 use tauri::{AppHandle, Emitter, Manager};
 use tokio::io::AsyncWriteExt;
 
@@ -25,10 +26,13 @@ const APP_UPDATE_REPO: &str = "dixonSolutions/potatoetomatoe3";
 
 pub const PROGRESS_EVENT: &str = "apk-update://progress";
 
+/// Set by `cancel_apk_download`; the download loop checks it between chunks.
+static CANCEL: AtomicBool = AtomicBool::new(false);
+
 #[derive(Clone, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct UpdateProgress {
-  /// `cached` | `downloading` | `needs-permission` | `installing` | `done` | `error`
+  /// `cached` | `downloading` | `staged` | `needs-permission` | `installing` | `done` | `error`
   pub phase: String,
   pub received: u64,
   /// 0 when the server sends no Content-Length.
@@ -80,18 +84,22 @@ fn apk_target_path(app: &AppHandle, file_name: &str) -> Result<PathBuf, String> 
 
 /// Stream the release APK to disk, emitting progress as it goes, then launch the installer.
 ///
-/// Runs to completion in the background; the frontend follows `PROGRESS_EVENT` and only
-/// needs to render a toast.
+/// With `install: false` the APK is only downloaded (phase `staged`); the next call for
+/// the same version finds it in the cache and goes straight to the installer, which is how
+/// "apply on next start" works. `cancel_apk_download` stops a download between chunks.
 #[tauri::command]
 pub async fn download_and_install_apk(
   app: AppHandle,
   url: String,
   file_name: String,
+  install: Option<bool>,
 ) -> Result<String, String> {
   if !is_trusted_apk_url(&url) {
     return Err("refusing to download an untrusted APK URL".into());
   }
+  let install = install.unwrap_or(true);
   let target = apk_target_path(&app, &file_name)?;
+  CANCEL.store(false, Ordering::SeqCst);
 
   emit(&app, UpdateProgress::downloading(0, 0));
 
@@ -113,6 +121,10 @@ pub async fn download_and_install_apk(
     let size = std::fs::metadata(&target).map(|m| m.len()).unwrap_or(0);
     emit(&app, UpdateProgress::simple("cached", None));
     emit(&app, UpdateProgress::downloading(size, size));
+    if !install {
+      emit(&app, UpdateProgress::simple("staged", None));
+      return Ok("staged".into());
+    }
     return finish_install(&app, target);
   }
   prune_stale_apks(&app, &target);
@@ -138,6 +150,11 @@ pub async fn download_and_install_apk(
   let mut last_emit = 0u64;
   let mut stream = response.bytes_stream();
   while let Some(chunk) = stream.next().await {
+    if CANCEL.load(Ordering::SeqCst) {
+      drop(file);
+      let _ = tokio::fs::remove_file(&partial).await;
+      return Err("cancelled".into());
+    }
     let chunk = chunk.map_err(|e| format!("download interrupted: {e}"))?;
     file
       .write_all(&chunk)
@@ -157,7 +174,17 @@ pub async fn download_and_install_apk(
     .map_err(|e| format!("could not finalise {target:?}: {e}"))?;
   emit(&app, UpdateProgress::downloading(received, total.max(received)));
 
+  if !install {
+    emit(&app, UpdateProgress::simple("staged", None));
+    return Ok("staged".into());
+  }
   finish_install(&app, target)
+}
+
+/// Stop a running `download_and_install_apk`; its partial file is removed.
+#[tauri::command]
+pub fn cancel_apk_download() {
+  CANCEL.store(true, Ordering::SeqCst);
 }
 
 /// Drop APKs for other versions so the cache does not accumulate ~188 MB per release.

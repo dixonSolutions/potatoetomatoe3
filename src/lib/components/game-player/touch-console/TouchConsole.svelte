@@ -49,6 +49,8 @@
 	import { isLocalAppDeployment } from '$lib/utils/offline-deployment';
 	import { IsMobile } from '$lib/hooks/is-mobile.svelte.js';
 	import { inputMode, watchInputMode } from '$lib/hooks/input-mode.svelte';
+	import { resolveOverlaps, type Rect } from '$lib/utils/touch-layout-solver';
+	import { detectPlayers } from '$lib/utils/touch-players';
 
 	let {
 		iframe = null,
@@ -206,8 +208,23 @@
 		return arrows ? 'arrows' : 'wasd';
 	});
 
+	/*
+	 * Same-keyboard two-player games (WASD for one player, arrows for the other) get a stick
+	 * each: player 1 on the left on WASD, player 2 mirrored on the right on the arrows.
+	 * Only on strong evidence, and never once the player has picked a scheme by hand.
+	 */
+	const twoPlayer = $derived(
+		planProfile.declared.length > 0 &&
+			manualSchemeForGame !== gameId &&
+			detectPlayers(profileCodes, controlsHint, config.joystickScheme).length === 2
+	);
+
 	const effectiveScheme = $derived<TouchJoystickScheme>(
-		manualSchemeForGame === gameId || !detectedScheme ? config.joystickScheme : detectedScheme
+		twoPlayer
+			? 'wasd'
+			: manualSchemeForGame === gameId || !detectedScheme
+				? config.joystickScheme
+				: detectedScheme
 	);
 
 	const effectiveDirections = $derived<Record<TouchDirection, TouchKeyCode[]>>(
@@ -223,13 +240,16 @@
 	 * floor in planControlVisibility can only be applied once every control has been judged.
 	 */
 	const JOYSTICK_ID = '__joystick';
+	const JOYSTICK2_ID = '__joystick2';
 	const visibilityPlan = $derived(
 		planControlVisibility(planProfile, [
 			{ id: JOYSTICK_ID, codes: [...DIRECTION_CODES[effectiveScheme]] },
+			...(twoPlayer ? [{ id: JOYSTICK2_ID, codes: [...DIRECTION_CODES.arrows] }] : []),
 			...layout.buttons.map((b) => ({ id: b.id, codes: buttonCodes(b.id) }))
 		])
 	);
 	const joystickFate = $derived(visibilityPlan[JOYSTICK_ID] ?? 'show');
+	const joystick2Fate = $derived(twoPlayer ? (visibilityPlan[JOYSTICK2_ID] ?? 'show') : 'hide');
 	const hiddenControlCount = $derived(
 		Object.values(visibilityPlan).filter((fate) => fate === 'hide').length
 	);
@@ -254,9 +274,33 @@
 	 * keyboard or mouse is used (`inputMode`), coming back on the next touch. Availability
 	 * 'always' keeps them up whatever the input.
 	 */
-	const touchInput = $derived(inputMode() === 'touch' || config.availability === 'always');
+	/** Set by the game-ready effect below. */
+	let gameReady = $state(false);
+	/*
+	 * Console turned on with a keyboard or mouse (the toolbar button on a desktop) is an
+	 * explicit ask: show the controls now, loader or not, until the player next touches.
+	 * Auto-show only happens in touch mode, so it never sets this.
+	 */
+	let userShown = $state(false);
+	let prevVisible = false;
+	$effect(() => {
+		const v = visible;
+		const mode = inputMode();
+		if (v && !prevVisible && mode === 'keyboard') userShown = true;
+		if (!v || mode === 'touch') userShown = false;
+		prevVisible = v;
+	});
+	const touchInput = $derived(
+		inputMode() === 'touch' || config.availability === 'always' || userShown
+	);
 	const showOverlay = $derived(
-		started && visible && !paused && !privacyLocked && injectable && gameReady && touchInput
+		started &&
+			visible &&
+			!paused &&
+			!privacyLocked &&
+			injectable &&
+			(gameReady || userShown) &&
+			touchInput
 	);
 	const showSurface = $derived(started && (visible || menuOpen));
 	const showMenu = $derived(menuOpen && started && !privacyLocked && !editMode);
@@ -331,7 +375,6 @@
 	 */
 	const READY_SILENT_MS = 6000;
 	const READY_CAP_MS = 25000;
-	let gameReady = $state(false);
 	let frameInputWin: Window | null = null;
 	let detachFrameInput: () => void = () => {};
 
@@ -508,16 +551,27 @@
 		editingControl = null;
 	}
 
-	function onJoystickVector(v: { x: number; y: number }) {
+	/* Directions each stick holds; the dispatcher's joystick channel holds their union. */
+	const stickHeld: Record<1 | 2, TouchKeyCode[]> = { 1: [], 2: [] };
+
+	function onStickVector(stick: 1 | 2, v: { x: number; y: number }) {
 		if (!showOverlay || editingControl) {
+			stickHeld[1] = [];
+			stickHeld[2] = [];
 			dispatcher.setJoystickCodes([]);
 			return;
 		}
-		const held = dispatcher.joystickCodes();
-		const codes = KeyDispatcher.directionsFromVector(v.x, v.y, effectiveDirections, held);
+		const held = new Set(stickHeld[stick]);
+		const mapping = stick === 1 ? effectiveDirections : directionsForJoystickScheme('arrows');
+		const codes = KeyDispatcher.directionsFromVector(v.x, v.y, mapping, held);
 		/* A light tick when the stick engages a new direction — not on every move. */
 		if (config.haptics && codes.some((c) => !held.has(c))) buzz(4);
-		dispatcher.setJoystickCodes(codes);
+		stickHeld[stick] = codes;
+		dispatcher.setJoystickCodes([...stickHeld[1], ...(twoPlayer ? stickHeld[2] : [])]);
+	}
+
+	function onJoystickVector(v: { x: number; y: number }) {
+		onStickVector(1, v);
 	}
 
 	function buzz(ms: number) {
@@ -550,6 +604,75 @@
 	function buttonWidth(btn: { id: string; size: number }): number | undefined {
 		if (btn.id === 'space') return Math.round(btn.size * 2.1 * scale);
 		return undefined;
+	}
+
+	/*
+	 * Where each control is drawn: saved positions, then moved apart so no two controls
+	 * overlap and none covers the panel's header (scheme chip, grip, hide/edit buttons).
+	 * The control being dragged stays under the finger; the others make room.
+	 */
+	const CONTROL_PAD = 4;
+	const PANEL_HEADER_PX = 40;
+	const placed = $derived.by(() => {
+		const out: Record<string, Rect> = {};
+		if (surfaceW <= 0 || surfaceH <= 0) return out;
+		const rects: Rect[] = [
+			{
+				id: '__header',
+				x: pctToPx(layout.console.xPct, 'x'),
+				y: pctToPx(layout.console.yPct, 'y'),
+				w: pctToPx(layout.console.widthPct, 'x'),
+				h: PANEL_HEADER_PX,
+				pinned: true
+			}
+		];
+		if (joystickFate !== 'hide') {
+			const size = Math.round(layout.joystick.size * scale);
+			rects.push({
+				id: 'joystick',
+				x: pctToPx(layout.joystick.xPct, 'x'),
+				y: pctToPx(layout.joystick.yPct, 'y'),
+				w: size,
+				h: size,
+				pinned: editingControl === 'joystick'
+			});
+		}
+		if (joystick2Fate !== 'hide') {
+			const size = Math.round(layout.joystick.size * scale);
+			rects.push({
+				id: 'joystick2',
+				x: surfaceW - pctToPx(layout.joystick.xPct, 'x') - size,
+				y: pctToPx(layout.joystick.yPct, 'y'),
+				w: size,
+				h: size
+			});
+		}
+		for (const b of layout.buttons) {
+			if ((visibilityPlan[b.id] ?? 'show') === 'hide') continue;
+			const h = Math.round(b.size * scale);
+			rects.push({
+				id: b.id,
+				x: pctToPx(b.xPct, 'x'),
+				y: pctToPx(b.yPct, 'y'),
+				w: buttonWidth(b) ?? h,
+				h,
+				pinned: editingControl === b.id
+			});
+		}
+		const bounds = {
+			x: CONTROL_PAD,
+			y: CONTROL_PAD,
+			w: surfaceW - 2 * CONTROL_PAD,
+			h: surfaceH - 2 * CONTROL_PAD
+		};
+		for (const r of resolveOverlaps(rects, bounds)) out[r.id] = r;
+		return out;
+	});
+
+	/** Position style for a control, from the overlap-free placement. */
+	function placedStyle(id: string, fallback: string): string {
+		const r = placed[id];
+		return r ? `left:${r.x}px;top:${surfaceOffsetY + r.y}px;` : fallback;
 	}
 
 	function onJoystickSchemeChange(scheme: TouchJoystickScheme) {
@@ -632,6 +755,7 @@
 	const coveredCodes = $derived.by(() => {
 		const codes: string[] = [];
 		if (joystickFate !== 'hide') codes.push(...DIRECTION_CODES[effectiveScheme]);
+		if (joystick2Fate !== 'hide') codes.push(...DIRECTION_CODES.arrows);
 		for (const b of layout.buttons) {
 			if ((visibilityPlan[b.id] ?? 'show') !== 'hide') codes.push(...buttonCodes(b.id));
 		}
@@ -927,6 +1051,9 @@
 	<div
 		bind:this={surfaceEl}
 		class="pointer-events-none absolute inset-0 z-30 overflow-hidden"
+		data-testid="touch-console-surface"
+		data-injectable={injectable}
+		data-game-ready={gameReady}
 		aria-hidden={!showOverlay && !showMenu}
 		onpointerdowncapture={keepGameFocused}
 	>
@@ -936,7 +1063,7 @@
 				data-console-control
 				data-testid="console-dock-tab"
 				data-side={docked}
-				class="pointer-events-auto absolute z-30 flex h-16 w-7 touch-none items-center justify-center border border-border/70 bg-background/80 text-foreground shadow-md backdrop-blur-md {docked ===
+				class="pointer-events-auto absolute z-30 flex h-16 w-7 touch-none items-center justify-center border border-border/70 bg-background/80 text-foreground shadow-md backdrop-blur-sm {docked ===
 				'left'
 					? 'left-0 rounded-r-2xl border-l-0'
 					: 'right-0 rounded-l-2xl border-r-0'}"
@@ -983,7 +1110,7 @@
 				<button
 					type="button"
 					data-console-control
-					class="pointer-events-auto absolute top-2 left-2 z-10 flex h-7 max-w-[34%] items-center gap-1 rounded-full border border-border/70 bg-background/80 px-2.5 text-[10px] font-semibold tracking-wide text-foreground shadow-sm backdrop-blur-md outline-none"
+					class="pointer-events-auto absolute top-2 left-2 z-10 flex h-7 max-w-[34%] items-center gap-1 rounded-full border border-border/70 bg-background/80 px-2.5 text-[10px] font-semibold tracking-wide text-foreground shadow-sm backdrop-blur-sm outline-none"
 					class:border-emerald-400={effectiveScheme !== config.joystickScheme}
 					aria-label="Joystick key scheme"
 					aria-haspopup="listbox"
@@ -1001,7 +1128,7 @@
 				<button
 					type="button"
 					data-console-control
-					class="pointer-events-auto absolute top-2 left-1/2 z-10 flex h-7 w-14 -translate-x-1/2 cursor-move touch-none items-center justify-center rounded-full border border-border/70 bg-background/80 text-foreground shadow-sm backdrop-blur-md"
+					class="pointer-events-auto absolute top-2 left-1/2 z-10 flex h-7 w-14 -translate-x-1/2 cursor-move touch-none items-center justify-center rounded-full border border-border/70 bg-background/80 text-foreground shadow-sm backdrop-blur-sm"
 					aria-label="Drag to move the whole console"
 					title="Drag to move the whole console"
 					onpointerdown={(e) => {
@@ -1062,7 +1189,7 @@
 						<button
 							type="button"
 							data-console-control
-							class="flex h-7 items-center justify-center rounded-full border border-border/70 bg-background/80 px-2 text-foreground shadow-sm backdrop-blur-md"
+							class="flex h-7 items-center justify-center rounded-full border border-border/70 bg-background/80 px-2 text-foreground shadow-sm backdrop-blur-sm"
 							aria-label="Reset layout to default"
 							title="Reset layout to default"
 							onclick={resetLayout}
@@ -1074,7 +1201,7 @@
 							type="button"
 							data-console-control
 							data-testid="console-hide"
-							class="flex h-7 w-8 items-center justify-center rounded-full border border-border/70 bg-background/80 text-foreground shadow-sm backdrop-blur-md"
+							class="flex h-7 w-8 items-center justify-center rounded-full border border-border/70 bg-background/80 text-foreground shadow-sm backdrop-blur-sm"
 							aria-label="Hide touch controls"
 							title="Hide — tap the side tab to bring them back"
 							onclick={() =>
@@ -1086,7 +1213,7 @@
 							type="button"
 							data-console-control
 							data-testid="console-controls-toggle"
-							class="flex h-7 w-8 items-center justify-center rounded-full border backdrop-blur-md {menuOpen
+							class="flex h-7 w-8 items-center justify-center rounded-full border backdrop-blur-sm {menuOpen
 								? 'border-emerald-500/80 bg-emerald-500 text-white'
 								: 'border-border/70 bg-background/80 text-foreground shadow-sm'}"
 							aria-label={menuOpen ? 'Hide controls' : 'Show controls'}
@@ -1101,7 +1228,7 @@
 						type="button"
 						data-console-control
 						data-testid="console-edit-toggle"
-						class="flex h-7 items-center justify-center gap-1 rounded-full border px-2 text-[10px] font-semibold backdrop-blur-md {editMode
+						class="flex h-7 items-center justify-center gap-1 rounded-full border px-2 text-[10px] font-semibold backdrop-blur-sm {editMode
 							? 'border-rose-500/80 bg-rose-500 text-white'
 							: 'border-border/70 bg-background/80 text-foreground shadow-sm'}"
 						aria-label={editMode ? 'Done editing layout' : 'Edit layout'}
@@ -1122,14 +1249,14 @@
 				-->
 				{#if noKeyboardSettled}
 					<span
-						class="pointer-events-none absolute right-3 bottom-2 z-10 rounded-full border border-amber-500/50 bg-background/80 px-2 py-0.5 text-[10px] font-semibold text-amber-700 backdrop-blur-md dark:text-amber-300"
+						class="pointer-events-none absolute right-3 bottom-2 z-10 rounded-full border border-amber-500/50 bg-background/80 px-2 py-0.5 text-[10px] font-semibold text-amber-700 backdrop-blur-sm dark:text-amber-300"
 						title="Nothing in this game listens for key presses — touch the game directly."
 					>
 						No keys used
 					</span>
 				{:else if hiddenControlCount > 0}
 					<span
-						class="pointer-events-none absolute right-3 bottom-2 z-10 rounded-full border border-emerald-500/50 bg-background/80 px-2 py-0.5 text-[10px] font-semibold text-emerald-700 backdrop-blur-md dark:text-emerald-300"
+						class="pointer-events-none absolute right-3 bottom-2 z-10 rounded-full border border-emerald-500/50 bg-background/80 px-2 py-0.5 text-[10px] font-semibold text-emerald-700 backdrop-blur-sm dark:text-emerald-300"
 						title="Hidden because this game's own control list does not mention them."
 					>
 						−{hiddenControlCount} unused
@@ -1221,7 +1348,7 @@
 					role="status"
 				>
 					<span
-						class="rounded-full border border-rose-500/60 bg-popover/90 px-3 py-1 text-[11px] font-semibold text-popover-foreground shadow-md backdrop-blur-md"
+						class="rounded-full border border-rose-500/60 bg-popover/90 px-3 py-1 text-[11px] font-semibold text-popover-foreground shadow-md backdrop-blur-sm"
 					>
 						Drag any control to move it · tap Done when finished
 					</span>
@@ -1231,13 +1358,17 @@
 			{#if joystickFate !== 'hide'}
 				<div
 					class="absolute"
-					style={controlPos(
-						layout.joystick.xPct,
-						layout.joystick.yPct,
-						Math.round(layout.joystick.size * scale),
-						Math.round(layout.joystick.size * scale)
+					style={placedStyle(
+						'joystick',
+						controlPos(
+							layout.joystick.xPct,
+							layout.joystick.yPct,
+							Math.round(layout.joystick.size * scale),
+							Math.round(layout.joystick.size * scale)
+						)
 					)}
 				>
+					{#if twoPlayer}<span class="pt-player-tag" data-testid="touch-player-tag-1">P1</span>{/if}
 					<TouchJoystick
 						size={Math.round(layout.joystick.size * scale)}
 						deadzone={layout.joystick.deadzone}
@@ -1253,16 +1384,32 @@
 				</div>
 			{/if}
 
+			{#if joystick2Fate !== 'hide' && placed.joystick2}
+				<div class="absolute" data-testid="touch-joystick-2" style={placedStyle('joystick2', '')}>
+					<span class="pt-player-tag" data-testid="touch-player-tag-2">P2</span>
+					<TouchJoystick
+						size={Math.round(layout.joystick.size * scale)}
+						deadzone={layout.joystick.deadzone}
+						opacity={joystick2Fate === 'dim' ? config.opacity * 0.4 : config.opacity}
+						disabled={editMode || Boolean(editingControl)}
+						onVector={(v) => onStickVector(2, v)}
+					/>
+				</div>
+			{/if}
+
 			{#each layout.buttons as btn (btn.id)}
 				{@const fate = visibilityPlan[btn.id] ?? 'show'}
 				{#if fate !== 'hide'}
 					<div
 						class="absolute"
-						style={controlPos(
-							btn.xPct,
-							btn.yPct,
-							buttonWidth(btn) ?? Math.round(btn.size * scale),
-							Math.round(btn.size * scale)
+						style={placedStyle(
+							btn.id,
+							controlPos(
+								btn.xPct,
+								btn.yPct,
+								buttonWidth(btn) ?? Math.round(btn.size * scale),
+								Math.round(btn.size * scale)
+							)
 						)}
 					>
 						<TouchButton
@@ -1310,3 +1457,18 @@
 		{/if}
 	</div>
 {/if}
+
+<style>
+	.pt-player-tag {
+		position: absolute;
+		top: -18px;
+		left: 50%;
+		transform: translateX(-50%);
+		font:
+			600 11px/1 system-ui,
+			sans-serif;
+		color: rgb(255 255 255 / 0.85);
+		text-shadow: 0 1px 2px rgb(0 0 0 / 0.6);
+		pointer-events: none;
+	}
+</style>

@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { tick } from 'svelte';
+	import type { SettingsTarget } from '$lib/settings-ui-context';
+	import { tick, untrack } from 'svelte';
 	import { MediaQuery } from 'svelte/reactivity';
 	import { toast } from 'svelte-sonner';
 	import { ChevronLeft, ChevronRight, Search } from 'lucide-svelte';
@@ -30,9 +31,12 @@
 
 	let {
 		open = $bindable(false),
+		reveal = $bindable(null),
 		onApplied
 	}: {
 		open?: boolean;
+		/** Open at this setting (e.g. the top-bar update badge → Updates). Cleared once shown. */
+		reveal?: SettingsTarget | null;
 		onApplied?: () => void;
 	} = $props();
 
@@ -205,6 +209,15 @@
 			saveError = '';
 		}
 		wasOpen = open;
+	});
+
+	$effect(() => {
+		if (!open || !reveal) return;
+		const target = reveal;
+		reveal = null;
+		if (isSettingsSectionAvailable(target.section)) {
+			untrack(() => pickSearchHit(target.section, target.targetId));
+		}
 	});
 </script>
 
