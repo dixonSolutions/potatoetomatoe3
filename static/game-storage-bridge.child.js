@@ -3900,6 +3900,60 @@
 			}
 		}
 	}
+	/*
+	 * Input mode: the app cannot see touches or keys inside a cross-origin frame, so the
+	 * frame tells it. Trusted events only (the touch controls send synthetic keys), and at
+	 * most one report per 250 ms per mode.
+	 */
+	var lastTouchAt = -1e9;
+	var lastReport = { touch: -1e9, keyboard: -1e9 };
+	function reportInput(mode, now) {
+		if (now - lastReport[mode] < 250) return;
+		lastReport[mode] = now;
+		try {
+			(window.top || window.parent).postMessage({ type: 'potato-tomato-input', mode: mode }, '*');
+		} catch {
+			/* detached */
+		}
+	}
+	var inputOpts = { capture: true, passive: true };
+	window.addEventListener(
+		'touchstart',
+		function (e) {
+			if (!e.isTrusted) return;
+			lastTouchAt = e.timeStamp;
+			reportInput('touch', e.timeStamp);
+		},
+		inputOpts
+	);
+	window.addEventListener(
+		'pointerdown',
+		function (e) {
+			if (!e.isTrusted) return;
+			if (e.pointerType === 'touch' || e.pointerType === 'pen') {
+				lastTouchAt = e.timeStamp;
+				reportInput('touch', e.timeStamp);
+			} else if (e.timeStamp - lastTouchAt > 800) {
+				reportInput('keyboard', e.timeStamp);
+			}
+		},
+		inputOpts
+	);
+	window.addEventListener(
+		'mousemove',
+		function (e) {
+			if (!e.isTrusted || (!e.movementX && !e.movementY)) return;
+			if (e.timeStamp - lastTouchAt > 800) reportInput('keyboard', e.timeStamp);
+		},
+		inputOpts
+	);
+	window.addEventListener(
+		'keydown',
+		function (e) {
+			if (e.isTrusted) reportInput('keyboard', e.timeStamp);
+		},
+		inputOpts
+	);
 	window.__ptGameReady = function (reason) {
 		window.__ptEngineLoading = false;
 		post(reason || 'engine');

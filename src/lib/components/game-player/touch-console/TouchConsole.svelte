@@ -1,6 +1,15 @@
 <script lang="ts">
 	import { onMount, untrack } from 'svelte';
-	import { Check, ChevronDown, GripHorizontal, Keyboard, Move, RotateCcw } from 'lucide-svelte';
+	import {
+		Check,
+		ChevronDown,
+		EyeOff,
+		Gamepad2,
+		GripHorizontal,
+		Keyboard,
+		Move,
+		RotateCcw
+	} from 'lucide-svelte';
 	import TouchJoystick from './TouchJoystick.svelte';
 	import TouchButton from './TouchButton.svelte';
 	import ControlsMenu from './ControlsMenu.svelte';
@@ -35,8 +44,7 @@
 		KeyDispatcher,
 		canUseTouchBridge,
 		isLikelyInjectableUrl,
-		resolveInjectable,
-		isTouchOnlyDevice
+		resolveInjectable
 	} from '$lib/utils/touch-input-dispatch';
 	import { isLocalAppDeployment } from '$lib/utils/offline-deployment';
 	import { IsMobile } from '$lib/hooks/is-mobile.svelte.js';
@@ -126,6 +134,30 @@
 	 * long as the game needs without ever turning into drag handles.
 	 */
 	let editMode = $state(false);
+
+	/**
+	 * Docked: the controls are tucked behind a small tab on one side edge. Dragging the
+	 * console's grip onto an edge, or tapping the hide button, docks them; tapping the tab
+	 * or swiping it back in brings them back where they were.
+	 */
+	let docked = $state<'left' | 'right' | null>(null);
+	const DOCK_EDGE_PX = 28;
+	const UNDOCK_SWIPE_PX = 24;
+
+	function dock(side: 'left' | 'right') {
+		dispatcher.releaseAll();
+		schemeMenuOpen = false;
+		editMode = false;
+		docked = side;
+	}
+
+	function edgeAt(clientX: number): 'left' | 'right' | null {
+		const rect = surfaceEl?.getBoundingClientRect();
+		if (!rect || rect.width <= 0) return null;
+		if (clientX - rect.left < DOCK_EDGE_PX) return 'left';
+		if (rect.right - clientX < DOCK_EDGE_PX) return 'right';
+		return null;
+	}
 
 	const DIRECTION_CODES: Record<TouchJoystickScheme, TouchKeyCode[]> = {
 		arrows: ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'],
@@ -246,7 +278,7 @@
 		if (
 			!started ||
 			!config.autoEnableOnTouchOnly ||
-			!isTouchOnlyDevice() ||
+			inputMode() !== 'touch' ||
 			autoOpenedForGame === gameId
 		) {
 			return;
@@ -254,6 +286,11 @@
 		autoOpenedForGame = gameId;
 		onRequestShow?.();
 	}
+
+	/* A touch on a hybrid device turns the console on, as a touch-only device does at start. */
+	$effect(() => {
+		if (inputMode() === 'touch' && injectable && started) untrack(requestAutoShow);
+	});
 
 	/**
 	 * Console is game chrome. preventDefault stops the overlay from taking DOM focus
@@ -893,7 +930,48 @@
 		aria-hidden={!showOverlay && !showMenu}
 		onpointerdowncapture={keepGameFocused}
 	>
-		{#if showOverlay && surfaceW > 0 && surfaceH > 0}
+		{#if showOverlay && docked && surfaceH > 0}
+			<button
+				type="button"
+				data-console-control
+				data-testid="console-dock-tab"
+				data-side={docked}
+				class="pointer-events-auto absolute z-30 flex h-16 w-7 touch-none items-center justify-center border border-border/70 bg-background/80 text-foreground shadow-md backdrop-blur-md {docked ===
+				'left'
+					? 'left-0 rounded-r-2xl border-l-0'
+					: 'right-0 rounded-l-2xl border-r-0'}"
+				style={`top:${surfaceOffsetY + Math.max(0, surfaceH / 2 - 32)}px;`}
+				aria-label="Show touch controls"
+				title="Show touch controls — tap, or swipe in"
+				onclick={() => (docked = null)}
+				onpointerdown={(e) => {
+					const side = docked;
+					const id = e.pointerId;
+					const x0 = e.clientX;
+					const onMove = (ev: PointerEvent) => {
+						if (ev.pointerId !== id) return;
+						const dx = ev.clientX - x0;
+						if (
+							(side === 'left' && dx > UNDOCK_SWIPE_PX) ||
+							(side === 'right' && dx < -UNDOCK_SWIPE_PX)
+						) {
+							stop();
+							docked = null;
+						}
+					};
+					const stop = () => {
+						window.removeEventListener('pointermove', onMove, true);
+						window.removeEventListener('pointerup', stop, true);
+						window.removeEventListener('pointercancel', stop, true);
+					};
+					window.addEventListener('pointermove', onMove, true);
+					window.addEventListener('pointerup', stop, true);
+					window.addEventListener('pointercancel', stop, true);
+				}}
+			>
+				<Gamepad2 class="size-4" />
+			</button>
+		{:else if showOverlay && surfaceW > 0 && surfaceH > 0}
 			<!-- Compact console panel (visual grouping + whole-unit drag handle) -->
 			<div
 				class="pointer-events-none absolute rounded-[26px] border border-white/20 bg-white/[0.04] shadow-[0_10px_40px_rgb(0_0_0_/0.35)]"
@@ -963,7 +1041,14 @@
 							} catch {
 								/* Ignore releases after a WebView pointer cancellation. */
 							}
-							endEdit(editing && ev.type !== 'pointercancel');
+							const committed = editing && ev.type !== 'pointercancel';
+							const side = committed ? edgeAt(ev.clientX) : null;
+							if (side) {
+								endEdit(false);
+								dock(side);
+								return;
+							}
+							endEdit(committed);
 						};
 						window.addEventListener('pointermove', onMove, true);
 						window.addEventListener('pointerup', onUp, true);
@@ -985,6 +1070,18 @@
 							<RotateCcw class="size-3.5" />
 						</button>
 					{:else}
+						<button
+							type="button"
+							data-console-control
+							data-testid="console-hide"
+							class="flex h-7 w-8 items-center justify-center rounded-full border border-border/70 bg-background/80 text-foreground shadow-sm backdrop-blur-md"
+							aria-label="Hide touch controls"
+							title="Hide — tap the side tab to bring them back"
+							onclick={() =>
+								dock(layout.console.xPct + layout.console.widthPct / 2 < 0.5 ? 'left' : 'right')}
+						>
+							<EyeOff class="size-3.5" />
+						</button>
 						<button
 							type="button"
 							data-console-control

@@ -70,7 +70,16 @@ function linkedIds(page) {
 
 async function openGame(page, id) {
 	await page.goto(`${BASE}/games/${id}`, { waitUntil: 'domcontentloaded' });
-	await controls(page).waitFor({ timeout: 60000 });
+	await showPlayOptions(page, 60000);
+}
+
+/** The offline controls sit under More → "Play version & offline copy". */
+async function showPlayOptions(page, timeout = 30000) {
+	await controls(page).waitFor({ state: 'attached', timeout });
+	if (await controls(page).isVisible()) return;
+	await page.getByTestId('game-more-menu').click();
+	await page.getByTestId('play-options-toggle').click();
+	await controls(page).waitFor({ timeout: 15000 });
 }
 
 /** Leave by an in-app link (a reload would end a web download), then come back. */
@@ -80,7 +89,7 @@ async function leaveAndReturn(page) {
 	await page.waitForTimeout(1500);
 	await page.goBack();
 	await page.waitForURL(/\/games\//, { timeout: 15000 });
-	await controls(page).waitFor({ timeout: 30000 });
+	await showPlayOptions(page);
 }
 
 /** Count changes of `testid` presence while `fn` runs, sampling every 50 ms. */

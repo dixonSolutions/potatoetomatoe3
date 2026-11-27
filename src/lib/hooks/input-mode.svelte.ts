@@ -6,6 +6,9 @@
  * follow a tap with emulated mouse events, so mouse events right after a touch are
  * ignored, as are events scripts make up (the touch controls send synthetic keys).
  *
+ * Game frames the app cannot reach (cross-origin) report their own trusted input with a
+ * `potato-tomato-input` message.
+ *
  * Starts from the device heuristic (`isTouchOnlyDevice`). The state is a module-level
  * rune, so every reader re-renders the moment it changes: no popup, no reload.
  */
@@ -53,6 +56,18 @@ function onMouseMove(e: Event) {
 	set('keyboard');
 }
 
+/** A game frame's report of trusted input the app cannot see (cross-origin frames). */
+function onMessage(e: Event) {
+	const data = (e as MessageEvent).data as { type?: unknown; mode?: unknown } | null;
+	if (!data || data.type !== 'potato-tomato-input') return;
+	if (data.mode === 'touch') {
+		lastTouchAt = e.timeStamp;
+		set('touch');
+	} else if (data.mode === 'keyboard') {
+		set('keyboard');
+	}
+}
+
 function onKey(e: Event) {
 	if (!e.isTrusted) return;
 	set('keyboard');
@@ -68,11 +83,13 @@ export function watchInputMode(target: EventTarget | null | undefined): () => vo
 	target.addEventListener('touchstart', onTouch, opts);
 	target.addEventListener('mousemove', onMouseMove, opts);
 	target.addEventListener('keydown', onKey, opts);
+	target.addEventListener('message', onMessage);
 	const detach = () => {
 		target.removeEventListener('pointerdown', onPointer, opts);
 		target.removeEventListener('touchstart', onTouch, opts);
 		target.removeEventListener('mousemove', onMouseMove, opts);
 		target.removeEventListener('keydown', onKey, opts);
+		target.removeEventListener('message', onMessage);
 		attached.delete(target);
 	};
 	attached.set(target, detach);

@@ -75,12 +75,23 @@ describe('input mode', () => {
 		expect(inputMode()).toBe('touch');
 	});
 
+	it('takes reports from game frames it cannot reach', () => {
+		const w = fakeWindow();
+		watchInputMode(w.target);
+		w.fire('message', { data: { type: 'potato-tomato-input', mode: 'touch' }, timeStamp: 10 });
+		expect(inputMode()).toBe('touch');
+		w.fire('message', { data: { type: 'something-else', mode: 'keyboard' }, timeStamp: 20 });
+		expect(inputMode()).toBe('touch');
+		w.fire('message', { data: { type: 'potato-tomato-input', mode: 'keyboard' }, timeStamp: 30 });
+		expect(inputMode()).toBe('keyboard');
+	});
+
 	it('attaches once per target and detaches cleanly', () => {
 		const w = fakeWindow();
 		const a = watchInputMode(w.target);
 		const b = watchInputMode(w.target);
 		expect(a).toBe(b);
-		expect(w.count()).toBe(4);
+		expect(w.count()).toBe(5);
 		a();
 		expect(w.count()).toBe(0);
 		expect(watchInputMode(null)).toBeTypeOf('function');
