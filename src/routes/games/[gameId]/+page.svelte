@@ -433,7 +433,7 @@
 		);
 		toast.error('Console cannot reach this game.', {
 			description:
-				'It runs on a third-party site. Touch the game directly, or download it for offline play.'
+				'It runs on another site. Tap the game itself, or download it.'
 		});
 		return false;
 	}
@@ -666,7 +666,7 @@
 		}
 		toast.error("This game can't run inside the app.", {
 			description: browser
-				? 'Its host blocks being played in other apps. It may still play in your browser.'
+				? 'Its host blocks other apps. It may play in your browser.'
 				: 'Try Relaunch, or switch Play from → Offline if you have it downloaded.',
 			action: browser
 		});
@@ -1136,12 +1136,12 @@
 		}
 		if (state === 'locked' && !pointerLockHintShown) {
 			pointerLockHintShown = true;
-			toast.message('Site locked the cursor — double-click twice to unlock', {
+			toast.message('Cursor locked · double-click twice to unlock', {
 				duration: 5000
 			});
 		} else if (state === 'stuck' && !stuckCursorHintShown && !pointerLockHintShown) {
 			stuckCursorHintShown = true;
-			toast.message('Cursor hidden by the game — double-click twice to show it', {
+			toast.message('Cursor hidden · double-click twice to show it', {
 				duration: 5000
 			});
 		}

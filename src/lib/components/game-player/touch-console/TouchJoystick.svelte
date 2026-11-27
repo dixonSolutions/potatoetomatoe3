@@ -175,8 +175,8 @@
 		box-shadow:
 			0 8px 24px rgb(0 0 0 / 0.35),
 			inset 0 1px 0 rgb(255 255 255 / 0.28);
-		-webkit-backdrop-filter: blur(16px) saturate(160%);
-		backdrop-filter: blur(16px) saturate(160%);
+		-webkit-backdrop-filter: blur(10px);
+		backdrop-filter: blur(10px);
 	}
 	.pt-touch-joystick__thumb {
 		position: relative;

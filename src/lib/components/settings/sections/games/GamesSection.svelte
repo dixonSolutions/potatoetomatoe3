@@ -185,7 +185,7 @@
 			() => (recordingPauseShortcut = false),
 			(next) => {
 				if (!isValidGamePauseShortcut(next)) {
-					toast.error('That shortcut is reserved (Ctrl+Shift+, opens settings).');
+					toast.error('Reserved for Settings (Ctrl+Shift+,)');
 					return;
 				}
 				pauseShortcut = saveGamePauseShortcut(next);
@@ -200,7 +200,7 @@
 			() => (recordingFullscreenShortcut = false),
 			(next) => {
 				if (!isValidGameFullscreenShortcut(next)) {
-					toast.error('That shortcut is already taken (pause, or Ctrl+Shift+, for settings).');
+					toast.error('That key is already in use');
 					return;
 				}
 				fullscreenShortcut = saveGameFullscreenShortcut(next);

@@ -160,8 +160,8 @@
 		box-shadow:
 			0 6px 18px rgb(0 0 0 / 0.35),
 			inset 0 1px 0 rgb(255 255 255 / 0.25);
-		-webkit-backdrop-filter: blur(14px) saturate(150%);
-		backdrop-filter: blur(14px) saturate(150%);
+		-webkit-backdrop-filter: blur(8px);
+		backdrop-filter: blur(8px);
 		display: grid;
 		place-items: center;
 		align-content: center;

@@ -8,6 +8,7 @@
 	import Button from '$lib/components/ui/button/button.svelte';
 	import * as Tooltip from '$lib/components/ui/tooltip';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
+	import { Switch } from '$lib/components/ui/switch';
 	import {
 		Ellipsis,
 		Gamepad2,
@@ -170,10 +171,21 @@
 				{/snippet}
 			</DropdownMenu.Trigger>
 			<DropdownMenu.Content align="end" class="w-56">
-				<DropdownMenu.CheckboxItem bind:checked={playOptionsOpen} data-testid="play-options-toggle">
-					Play version &amp; offline copy
-				</DropdownMenu.CheckboxItem>
-				<DropdownMenu.Item inset onSelect={onOpenLogs} data-testid="view-logs">
+				<DropdownMenu.Item
+					onSelect={() => (playOptionsOpen = !playOptionsOpen)}
+					role="menuitemcheckbox"
+					aria-checked={playOptionsOpen}
+					data-testid="play-options-toggle"
+				>
+					<span class="flex-1">Version &amp; offline</span>
+					<Switch
+						checked={playOptionsOpen}
+						tabindex={-1}
+						class="pointer-events-none"
+						aria-hidden="true"
+					/>
+				</DropdownMenu.Item>
+				<DropdownMenu.Item onSelect={onOpenLogs} data-testid="view-logs">
 					View logs
 				</DropdownMenu.Item>
 			</DropdownMenu.Content>

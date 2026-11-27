@@ -77,7 +77,7 @@ async function openGame(page, id) {
 	await showPlayOptions(page, 60000);
 }
 
-/** The offline controls sit under More → "Play version & offline copy". */
+/** The offline controls sit under More → "Version & offline". */
 async function showPlayOptions(page, timeout = 30000) {
 	await controls(page).waitFor({ state: 'attached', timeout });
 	if (await controls(page).isVisible()) return;

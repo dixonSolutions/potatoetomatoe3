@@ -366,7 +366,7 @@
 				playLimitToastIssued = true;
 				toast.error('Daily playtime limit reached', {
 					description:
-						'Use “Disable time limit” on the overlay or change the cap in Settings → Play time.'
+						'Change it in Settings → Play time.'
 				});
 			}
 		} else if (!exceeded) {

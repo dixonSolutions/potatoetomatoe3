@@ -22,7 +22,6 @@
 		type TrayLifecycleState
 	} from '$lib/utils/desktop-tray';
 	import { isTauriApp, isTauriMobileBuild } from '$lib/utils/offline-deployment';
-	import { toast } from 'svelte-sonner';
 	import SettingsGroup from '../../shared/SettingsGroup.svelte';
 	import SettingsRow from '../../shared/SettingsRow.svelte';
 
@@ -45,11 +44,6 @@
 				...(trayLife ?? { trayAvailable: false, closeToTray: false }),
 				closeToTray: next
 			};
-			toast.message(
-				next
-					? 'Closing the window will keep the app in the tray'
-					: 'Closing the window will quit the app'
-			);
 		} finally {
 			closeToTrayBusy = false;
 		}
