@@ -66,7 +66,7 @@
 
 	/** Dev harness routes: strip app chrome (TopBar / privacy / play-limit). */
 	const isDevHarnessRoute = $derived(
-		page.url.pathname === '/dev' || page.url.pathname.startsWith('/dev/')
+		(page.url.pathname as string) === '/dev' || page.url.pathname.startsWith('/dev/')
 	);
 
 	const ssrPrivacyHeadFallback = {

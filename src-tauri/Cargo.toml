@@ -33,7 +33,7 @@ log = "0.4"
 # into `GdkRGBA`'s 0.0–1.0 range. Below it every non-black background clamps to white and
 # the launch flash comes back. Keep the major/minor in step with `@tauri-apps/api` in
 # package.json, or `tauri build` refuses to start on the version mismatch.
-tauri = { version = "2.11.5", features = ["devtools", "tray-icon", "image-png"] }
+tauri = { version = "2.12.7", features = ["devtools", "tray-icon", "image-png"] }
 tauri-plugin-log = "2"
 tauri-plugin-shell = "2"
 # APK self-update: stream the release asset to disk with progress rather than handing
