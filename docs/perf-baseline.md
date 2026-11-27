@@ -72,3 +72,16 @@ Cluster job `20261127T065838-potatoetomatoe3-Lg7VD0` at `4b9fbd1eb`, same comman
 | `build/_app` (JS + CSS)           | 3,684,049 (gzip 742,656) | 1,204,162 (gzip 354,782) |
 | `build/games/games-index`         | 3,276,990                | 1,509,497                |
 | `build/games/games-metadata.json` | 12,440,146               | not shipped              |
+
+## M9: Tauri release binary after profile tuning
+
+Cluster job `20261127T070858-potatoetomatoe3-9gj9ui` at `919c5ec2d`, built with
+`scripts/cluster-cargo.sh` (`cargo build --release`, 4 m 30 s). The profile is
+`[profile.release] codegen-units = 1, lto = "fat", opt-level = "s", strip = true`.
+
+| Item                                          | M1                          | M9                              |
+| --------------------------------------------- | --------------------------- | ------------------------------- |
+| Tauri release binary `potato-tomato` (x86_64) | 20,478,688 (gzip 5,862,687) | 8,961,168 (`gzip -c` 3,824,406) |
+
+The binary is 56% smaller. The M1 gzip figure may have used a different gzip level, so
+compare the raw sizes.
