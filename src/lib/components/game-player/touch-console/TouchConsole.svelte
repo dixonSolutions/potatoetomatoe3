@@ -256,9 +256,31 @@
 	 */
 	/** Set by the game-ready effect below. */
 	let gameReady = $state(false);
-	const touchInput = $derived(inputMode() === 'touch' || config.availability === 'always');
+	/*
+	 * Console turned on with a keyboard or mouse (the toolbar button on a desktop) is an
+	 * explicit ask: show the controls now, loader or not, until the player next touches.
+	 * Auto-show only happens in touch mode, so it never sets this.
+	 */
+	let userShown = $state(false);
+	let prevVisible = false;
+	$effect(() => {
+		const v = visible;
+		const mode = inputMode();
+		if (v && !prevVisible && mode === 'keyboard') userShown = true;
+		if (!v || mode === 'touch') userShown = false;
+		prevVisible = v;
+	});
+	const touchInput = $derived(
+		inputMode() === 'touch' || config.availability === 'always' || userShown
+	);
 	const showOverlay = $derived(
-		started && visible && !paused && !privacyLocked && injectable && gameReady && touchInput
+		started &&
+			visible &&
+			!paused &&
+			!privacyLocked &&
+			injectable &&
+			(gameReady || userShown) &&
+			touchInput
 	);
 	const showSurface = $derived(started && (visible || menuOpen));
 	const showMenu = $derived(menuOpen && started && !privacyLocked && !editMode);
@@ -928,6 +950,9 @@
 	<div
 		bind:this={surfaceEl}
 		class="pointer-events-none absolute inset-0 z-30 overflow-hidden"
+		data-testid="touch-console-surface"
+		data-injectable={injectable}
+		data-game-ready={gameReady}
 		aria-hidden={!showOverlay && !showMenu}
 		onpointerdowncapture={keepGameFocused}
 	>
