@@ -1,3 +1,7 @@
+import { existsSync, readFileSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
 /**
  * Shared quality heuristics for catalog imports / Unity Play purge.
  */
@@ -27,6 +31,7 @@ export function normalizeTitleKey(name) {
  * @returns {{ ok: boolean, reason?: string }}
  */
 export function assessUnityPlayQuality(game, opts = {}) {
+	if (game.id && isCuratedOut(game.id)) return { ok: false, reason: 'curated-out' };
 	const minPlays = opts.minPlays ?? 100;
 	const name = String(game.name || '');
 	const desc = String(game.description || '');
@@ -55,6 +60,7 @@ export function assessUnityPlayQuality(game, opts = {}) {
 export function assessPortalTitleQuality(game) {
 	const id = String(game.id || '');
 	if (KEEP_IDS.has(id)) return { ok: true };
+	if (isCuratedOut(id)) return { ok: false, reason: 'curated-out' };
 	const name = String(game.name || '');
 	const desc = String(game.description || '');
 	if (NSFW_RE.test(name) || NSFW_RE.test(desc)) return { ok: false, reason: 'nsfw' };
@@ -71,4 +77,30 @@ export function slugify(raw, fallback = 'game') {
 		.replace(/-+/g, '-')
 		.replace(/^-|-$/g, '');
 	return cleaned || fallback;
+}
+
+/** scripts/data/catalog-curation.json: ids curation removed or replaced, and their aliases. */
+export const CURATION_PATH = join(
+	dirname(fileURLToPath(import.meta.url)),
+	'..',
+	'data',
+	'catalog-curation.json'
+);
+
+let curation;
+/** @returns {{ removed: Record<string, string>, aliases: Record<string, string> }} */
+export function loadCuration() {
+	if (curation) return curation;
+	try {
+		const raw = existsSync(CURATION_PATH) ? JSON.parse(readFileSync(CURATION_PATH, 'utf8')) : {};
+		curation = { removed: raw.removed ?? {}, aliases: raw.aliases ?? {} };
+	} catch {
+		curation = { removed: {}, aliases: {} };
+	}
+	return curation;
+}
+
+/** Curation removed this game (or replaced it with a working copy): never import it again. */
+export function isCuratedOut(id) {
+	return Object.hasOwn(loadCuration().removed, String(id || ''));
 }

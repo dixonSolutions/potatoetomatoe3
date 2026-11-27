@@ -10,6 +10,7 @@ import {
 	toLeanEntry
 } from './catalog-quality/index-entry.mjs';
 import { writeIndexDir } from './catalog-quality/index-format.mjs';
+import { loadCuration } from './lib/catalog-quality.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -168,7 +169,10 @@ function writeGamesIndex(allMetadata) {
 
 	/* Quality score + DoE status per game, from scripts/catalog-quality/classify.mjs. */
 	const quality = loadQualityMap();
-	const lean = allMetadata.map((entry) => toLeanEntry(entry, quality.get(entry.id)));
+	/* Curation (scripts/catalog-quality/curate.mjs) removed or replaced these: not listed. */
+	const { removed, aliases } = loadCuration();
+	const listed = allMetadata.filter((entry) => !Object.hasOwn(removed, entry.id));
+	const lean = listed.map((entry) => toLeanEntry(entry, quality.get(entry.id)));
 	const scored = lean.filter((entry) => Number.isFinite(entry.q)).length;
 
 	/*
@@ -178,6 +182,10 @@ function writeGamesIndex(allMetadata) {
 	lean.sort(compareLeanEntries);
 
 	const manifest = writeIndexDir(indexDir, lean, { order: INDEX_ORDER });
+	writeFileSync(join(indexDir, 'aliases.json'), JSON.stringify(aliases));
+	console.log(
+		`   Curation: ${allMetadata.length - listed.length} games left out, ${Object.keys(aliases).length} aliases`
+	);
 	console.log(
 		`✅ Generated games index v${manifest.version}: ${lean.length} games in ${manifest.shardCount} shards, ${scored} with a quality score`
 	);

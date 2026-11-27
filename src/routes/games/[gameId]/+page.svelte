@@ -31,6 +31,7 @@
 		isTodayPlayLimitReached,
 		isGlobalDailyLimitExceeded
 	} from '$lib/utils/play-recommendations';
+	import { resolveCatalogAlias } from '$lib/utils/catalog-aliases';
 	import { recordPlayEvent } from '$lib/utils/play-events';
 	import { EARLY_LEAVE_MS } from '$lib/utils/recommendation-model';
 	import Button from '$lib/components/ui/button/button.svelte';
@@ -770,6 +771,15 @@
 		}
 
 		const switchingGame = id !== loadedGameId;
+
+		if (!soft && switchingGame) {
+			/* Curation replaced this copy with a working one: open that instead. */
+			const replacement = await resolveCatalogAlias(id);
+			if (replacement && id === gameId) {
+				void goto(resolve('/games/[gameId]', { gameId: replacement }), { replaceState: true });
+				return;
+			}
+		}
 
 		if (!soft && switchingGame) {
 			/* The surface is about to unmount; leave fullscreen with it, not after it. */

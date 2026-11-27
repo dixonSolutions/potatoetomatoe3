@@ -14,6 +14,7 @@ import {
 	toLeanEntry
 } from './catalog-quality/index-entry.mjs';
 import { readIndexDir, writeIndexDir } from './catalog-quality/index-format.mjs';
+import { loadCuration } from './lib/catalog-quality.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const indexDir = path.join(root, 'static/games/games-index');
@@ -24,14 +25,20 @@ if (!fs.existsSync(path.join(indexDir, 'manifest.json'))) {
 }
 
 const quality = loadQualityMap();
-const lean = readIndexDir(indexDir).map((entry) => {
-	/* Drop stale scores first: a game the classifier no longer lists must not keep one. */
-	const rest = { ...entry };
-	delete rest.q;
-	delete rest.d;
-	return toLeanEntry(rest, quality.get(entry.id));
-});
+const { removed, aliases } = loadCuration();
+const lean = readIndexDir(indexDir)
+	.filter((entry) => !Object.hasOwn(removed, entry.id))
+	.map((entry) => {
+		/* Drop stale scores first: a game the classifier no longer lists must not keep one. */
+		const rest = { ...entry };
+		delete rest.q;
+		delete rest.d;
+		return toLeanEntry(rest, quality.get(entry.id));
+	});
 lean.sort(compareLeanEntries);
 
 const manifest = writeIndexDir(indexDir, lean, { order: INDEX_ORDER });
-console.log(`Reindexed ${lean.length} games into ${manifest.shardCount} best-first shards (v${manifest.version})`);
+fs.writeFileSync(path.join(indexDir, 'aliases.json'), JSON.stringify(aliases));
+console.log(
+	`Reindexed ${lean.length} games into ${manifest.shardCount} best-first shards (v${manifest.version})`
+);
