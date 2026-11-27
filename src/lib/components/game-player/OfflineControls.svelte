@@ -171,10 +171,12 @@
 		}
 	}
 
+	/* A running download always shows its progress, even before the status checks finish. */
 	let showSection = $derived(
-		!bundled &&
-			(offlineReady || isLocalAppDeployment()) &&
-			(onlineAvailable || Boolean(status?.offline) || downloading || hasPartialCache)
+		downloading ||
+			(!bundled &&
+				(offlineReady || isLocalAppDeployment()) &&
+				(onlineAvailable || Boolean(status?.offline) || downloading || hasPartialCache))
 	);
 </script>
 

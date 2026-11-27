@@ -110,10 +110,12 @@ function findCanvas(doc: Document): HTMLCanvasElement | HTMLElement | null {
 	 * is false even when the element is a real canvas.
 	 */
 	if (canvas) return canvas as HTMLCanvasElement;
-	const unity = doc.querySelector(
+	/* Never an iframe: Unity player.html calls its cross-origin game frame #game. */
+	for (const el of doc.querySelectorAll(
 		'#unity-canvas, #gameContainer, #game, .game-canvas, [data-game-canvas]'
-	);
-	if (unity) return unity as HTMLElement;
+	)) {
+		if (el.tagName !== 'IFRAME') return el as HTMLElement;
+	}
 	return null;
 }
 
@@ -166,7 +168,13 @@ export function resolveInjectable(
 			let anySameOriginChild = false;
 			for (const frame of nested) {
 				try {
-					if (frame.contentDocument) anySameOriginChild = true;
+					/*
+					 * A child still on its initial about:blank is readable even when it is about
+					 * to load a cross-origin game (Unity player.html sets src from script), so
+					 * it does not count as a same-origin game.
+					 */
+					const childDoc = frame.contentDocument;
+					if (childDoc && childDoc.URL !== 'about:blank') anySameOriginChild = true;
 				} catch {
 					/* cross-origin */
 				}

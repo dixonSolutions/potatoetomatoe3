@@ -11,7 +11,7 @@
  *       inward swipe on the tab brings them back.
  *
  * The first game is a same-origin lab written to static/games/_touch-lab (removed after):
- * a 3 s "Loading…" screen, then a full-size canvas. Catalog games follow; one whose frame
+ * a 3 s "Loading…" screen, then a full-size canvas (plus a 2-player copy for A12). Catalog games follow; one whose frame
  * the console cannot reach at all (cross-origin, no bridge) is reported as skipped.
  *
  * Touches are trusted (CDP Input.dispatchTouchEvent / locator.tap), so the page sees touch
@@ -35,7 +35,7 @@ const OUT = arg('--out') ?? path.join(ROOT, 'test-results', 'smoke-touch');
 const LAB = '_touch-lab';
 const LAB_2P = '_touch-lab-2p';
 const isLab = (id) => id === LAB || id === LAB_2P;
-const GAMES = (arg('--games') ?? `${LAB},${LAB_2P},002,slope`).split(',').filter(Boolean);
+const GAMES = (arg('--games') ?? `${LAB},${LAB_2P},weasels,002,slope`).split(',').filter(Boolean);
 let BASE = arg('--url');
 let server;
 
@@ -260,7 +260,8 @@ async function checkGame(browser, id, n) {
 	const cdp = await context.newCDPSession(page);
 	const errors = [];
 	page.on('pageerror', (e) => errors.push(String(e).slice(0, 160)));
-	await page.goto(`${BASE}/games/${id}`, { waitUntil: 'domcontentloaded' });
+	/* The first page compiles the whole app on a cold Vite server. */
+	await page.goto(`${BASE}/games/${id}`, { waitUntil: 'domcontentloaded', timeout: 120000 });
 
 	/* A7: catch the loader with a frame up and no controls, then wait for controls. */
 	let loaderShot = false;
@@ -385,7 +386,17 @@ async function checkGame(browser, id, n) {
 	 * frame is same-origin, so the key goes into the game. A cross-origin game frame is
 	 * invisible to the app, so the key is pressed in the app window instead.
 	 */
-	if (!isLab(id)) await page.evaluate(() => document.activeElement?.blur?.());
+	/* Keys go to the focused frame: take focus back to the app document first. */
+	if (!isLab(id))
+		await page.evaluate(() => {
+			document.activeElement?.blur?.();
+			window.focus();
+			const h = document.querySelector('h1');
+			if (h) {
+				h.tabIndex = -1;
+				h.focus();
+			}
+		});
 	await page.keyboard.press('Shift');
 	await page.waitForTimeout(50);
 	const hiddenAfterKey = !(await visible(page, GRIP));

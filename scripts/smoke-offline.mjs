@@ -73,7 +73,7 @@ function linkedIds(page) {
 }
 
 async function openGame(page, id) {
-	await page.goto(`${BASE}/games/${id}`, { waitUntil: 'domcontentloaded' });
+	await page.goto(`${BASE}/games/${id}`, { waitUntil: 'domcontentloaded', timeout: 120000 });
 	await showPlayOptions(page, 60000);
 }
 
@@ -93,7 +93,7 @@ async function leaveAndReturn(page) {
 	await page.waitForTimeout(1500);
 	await page.goBack();
 	await page.waitForURL(/\/games\//, { timeout: 15000 });
-	await showPlayOptions(page);
+	await showPlayOptions(page, 60000);
 }
 
 /** Count changes of `testid` presence while `fn` runs, sampling every 50 ms. */
