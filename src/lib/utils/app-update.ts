@@ -8,7 +8,11 @@ import { androidSdk, andysuAvailable } from '$lib/utils/andysu';
 import { openExternalUrl } from '$lib/utils/open-external';
 
 export const APP_UPDATE_REPO = 'dixonSolutions/potatoetomatoe3';
-const RELEASES_API = `https://api.github.com/repos/${APP_UPDATE_REPO}/releases/latest`;
+/*
+ * The recent releases, not /releases/latest: a release is tagged before its APK is attached,
+ * and the newest one that already has an APK is the one to offer (never just the next one).
+ */
+const RELEASES_API = `https://api.github.com/repos/${APP_UPDATE_REPO}/releases?per_page=15`;
 
 export interface LatestApkRelease {
 	tag: string;
@@ -28,8 +32,10 @@ type GithubReleaseAsset = {
 	size?: number;
 };
 
-type GithubRelease = {
+export type GithubRelease = {
 	tag_name?: string;
+	draft?: boolean;
+	prerelease?: boolean;
 	html_url?: string;
 	published_at?: string;
 	assets?: GithubReleaseAsset[];
@@ -82,6 +88,19 @@ export function selectLatestApkAsset(release: GithubRelease, sdk = 0): LatestApk
 	};
 }
 
+/** The newest published release that carries an APK, however far ahead of this build. */
+export function pickNewestApkRelease(releases: GithubRelease[], sdk = 0): LatestApkRelease | null {
+	let best: LatestApkRelease | null = null;
+	for (const r of releases) {
+		if (r.draft || r.prerelease) continue;
+		const picked = selectLatestApkAsset(r, sdk);
+		if (picked && (!best || compareVersions(picked.versionName, best.versionName) > 0)) {
+			best = picked;
+		}
+	}
+	return best;
+}
+
 export async function fetchLatestApkRelease(signal?: AbortSignal): Promise<LatestApkRelease> {
 	const res = await fetch(RELEASES_API, {
 		headers: {
@@ -93,10 +112,10 @@ export async function fetchLatestApkRelease(signal?: AbortSignal): Promise<Lates
 	if (!res.ok) {
 		throw new Error(`GitHub Releases returned ${res.status}`);
 	}
-	const body = (await res.json()) as GithubRelease;
-	const selected = selectLatestApkAsset(body, androidSdk());
+	const body = (await res.json()) as GithubRelease[] | GithubRelease;
+	const selected = pickNewestApkRelease(Array.isArray(body) ? body : [body], androidSdk());
 	if (!selected) {
-		throw new Error('Latest GitHub Release has no Potato Tomato APK asset');
+		throw new Error('No recent GitHub Release has a Potato Tomato APK');
 	}
 	return selected;
 }
@@ -144,7 +163,7 @@ export function compareVersions(a: string, b: string): number {
 }
 
 export interface ApkUpdateProgress {
-	phase: 'cached' | 'downloading' | 'needs-permission' | 'installing' | 'done' | 'error';
+	phase: 'cached' | 'downloading' | 'staged' | 'needs-permission' | 'installing' | 'done' | 'error';
 	received: number;
 	total: number;
 	message?: string | null;
@@ -169,7 +188,8 @@ export async function getInstalledVersion(): Promise<string | null> {
  */
 export async function downloadAndInstallApk(
 	release: LatestApkRelease,
-	onProgress?: (p: ApkUpdateProgress) => void
+	onProgress?: (p: ApkUpdateProgress) => void,
+	{ install = true }: { install?: boolean } = {}
 ): Promise<void> {
 	if (!isTrustedApkUrl(release.apkUrl)) {
 		throw new Error('Refusing to install an untrusted APK URL');
@@ -182,7 +202,8 @@ export async function downloadAndInstallApk(
 	try {
 		await invoke('download_and_install_apk', {
 			url: release.apkUrl,
-			fileName: release.apkName
+			fileName: release.apkName,
+			install
 		});
 	} finally {
 		unlisten?.();
@@ -242,4 +263,15 @@ export function versionsBehind(installed: string, latest: string): number {
 		return compareVersions(latest, installed) > 0 ? 1 : 0;
 	}
 	return Math.max(0, b[2] - a[2]);
+}
+
+/** Stop a running APK download (its partial file is removed). */
+export async function cancelApkDownload(): Promise<void> {
+	if (!isTauriApp()) return;
+	try {
+		const { invoke } = await import('@tauri-apps/api/core');
+		await invoke('cancel_apk_download');
+	} catch {
+		/* nothing running */
+	}
 }

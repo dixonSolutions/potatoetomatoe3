@@ -437,6 +437,7 @@ pub fn run() {
       quit_app,
       open_external_url,
       apk_update::download_and_install_apk,
+      apk_update::cancel_apk_download,
       apk_update::can_install_apk,
       apk_update::open_install_permission_settings,
       disguise::native_identity_target,

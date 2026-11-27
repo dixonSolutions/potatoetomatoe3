@@ -21,7 +21,7 @@ commands.allow = ["open_external_url"]
 [[permission]]
 identifier = "allow-apk-self-update"
 description = "Allow the frontend to download a verified release APK and hand it to the Android package installer"
-commands.allow = ["download_and_install_apk", "can_install_apk", "open_install_permission_settings"]
+commands.allow = ["download_and_install_apk", "cancel_apk_download", "can_install_apk", "open_install_permission_settings"]
 
 [[permission]]
 identifier = "allow-native-identity"

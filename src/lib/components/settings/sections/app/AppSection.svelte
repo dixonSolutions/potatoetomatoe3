@@ -1,52 +1,37 @@
 <script lang="ts">
-	import {
-		andysuAvailable,
-		andysuStatus,
-		statusText,
-		initAndySU,
-		andysuMode,
-		setAndySUMode,
-		checkAndySU,
-		applyAndySU
-	} from '$lib/utils/andysu';
 	import { onMount } from 'svelte';
-	import { CheckCircle2, Download, Loader2, RefreshCw } from 'lucide-svelte';
+	import { CheckCircle2, Download, RefreshCw } from 'lucide-svelte';
 	import Button from '$lib/components/ui/button/button.svelte';
+	import { Progress } from '$lib/components/ui/progress';
+	import * as RadioGroup from '$lib/components/ui/radio-group';
+	import { Label } from '$lib/components/ui/label';
 	import { Switch } from '$lib/components/ui/switch';
 	import {
-		canSelfInstall,
-		fetchLatestApkRelease,
-		getInstalledVersion,
-		versionsBehind,
-		type LatestApkRelease
-	} from '$lib/utils/app-update';
-	import {
-		isAutoUpdateEnabled,
-		runApkUpdate,
-		setAutoUpdateEnabled
-	} from '$lib/utils/auto-apk-update';
-	import { openExternalUrl } from '$lib/utils/open-external';
+		applyUpdate,
+		cancelUpdate,
+		checkForUpdates,
+		downloadUpdate,
+		setUpdateSettings,
+		updates,
+		updatesInApp,
+		type ApplyMode
+	} from '$lib/utils/update-center.svelte';
 	import {
 		getTrayLifecycleState,
 		setCloseToTrayEnabled,
 		type TrayLifecycleState
 	} from '$lib/utils/desktop-tray';
-	import {
-		isTauriAndroidBuild,
-		isTauriApp,
-		isTauriMobileBuild
-	} from '$lib/utils/offline-deployment';
+	import { isTauriApp, isTauriMobileBuild } from '$lib/utils/offline-deployment';
 	import { toast } from 'svelte-sonner';
 	import SettingsGroup from '../../shared/SettingsGroup.svelte';
 	import SettingsRow from '../../shared/SettingsRow.svelte';
 
 	/*
-	 * Everything here applies at once; there is nothing to Save. Android gets updates (the
-	 * APK can install itself); the desktop app gets what closing its window does.
+	 * Everything here applies at once; there is nothing to Save. Android updates in the app
+	 * (src/lib/utils/update-center.svelte.ts); the Flatpak updates from its remote; the
+	 * desktop app also gets what closing its window does.
 	 */
-	const android = isTauriAndroidBuild();
-	const live = andysuAvailable();
-	let liveAuto = $state(true);
+	const inApp = $derived(updatesInApp(updates.platform));
 	const desktop = isTauriApp() && !isTauriMobileBuild();
 
 	let trayLife = $state<TrayLifecycleState | null>(null);
@@ -70,224 +55,135 @@
 		}
 	}
 
-	let loading = $state(true);
-	let updating = $state(false);
-	let latest = $state<LatestApkRelease | null>(null);
-	let installed = $state<string | null>(null);
-	let error = $state('');
-	let autoUpdate = $state(isAutoUpdateEnabled());
-
-	const behind = $derived(installed && latest ? versionsBehind(installed, latest.versionName) : 0);
-	const ready = $derived(Boolean(latest) && behind > 0);
-
-	function formatSize(bytes: number): string {
-		if (!bytes) return '';
-		return `${(bytes / (1024 * 1024)).toFixed(0)} MB`;
-	}
-
-	function formatDate(iso: string | null): string {
-		if (!iso) return '';
-		try {
-			return new Date(iso).toLocaleDateString(undefined, {
-				year: 'numeric',
-				month: 'short',
-				day: 'numeric'
-			});
-		} catch {
-			return '';
+	const status = $derived.by(() => {
+		switch (updates.phase) {
+			case 'checking':
+				return 'Checking…';
+			case 'up-to-date':
+				return 'Up to date';
+			case 'available':
+				return updates.needsInstall
+					? `${updates.latest ?? 'New version'} needs a new install`
+					: `${updates.latest ?? 'New version'} available`;
+			case 'downloading':
+				return `Downloading ${updates.latest ?? 'update'} · ${Math.round(updates.progress)}%`;
+			case 'staged':
+				return updates.settings.applyMode === 'live'
+					? `${updates.latest ?? 'Update'} ready`
+					: `${updates.latest ?? 'Update'} ready · installs on next start`;
+			case 'error':
+				return updates.error || 'Could not check for updates';
+			default:
+				return 'Not checked yet';
 		}
-	}
-
-	const latestDetails = $derived(
-		latest
-			? [
-					latest.apkName,
-					formatSize(latest.apkSize),
-					latest.publishedAt ? `released ${formatDate(latest.publishedAt)}` : ''
-				]
-					.filter(Boolean)
-					.join(' · ')
-			: undefined
-	);
-
-	/** Fetch both sides of the comparison so the section opens already answered. */
-	async function refresh() {
-		loading = true;
-		error = '';
-		try {
-			installed = await getInstalledVersion();
-			latest = await fetchLatestApkRelease();
-		} catch (e) {
-			error = e instanceof Error ? e.message : 'Could not reach GitHub Releases';
-		} finally {
-			loading = false;
-		}
-	}
+	});
 
 	onMount(() => {
-		if (live) {
-			liveAuto = andysuMode() !== 'off';
-			return initAndySU((mode) => {
-				liveAuto = mode !== 'off';
-			});
-		}
-		if (android) void refresh();
 		if (desktop) {
-			void getInstalledVersion().then((v) => (installed = v));
 			void getTrayLifecycleState(true).then((state) => {
 				trayLife = state;
 			});
 		}
 	});
-
-	async function updateNow() {
-		if (!latest || updating) return;
-		if (!canSelfInstall()) {
-			await openExternalUrl(latest.releaseUrl).catch(() => {});
-			return;
-		}
-		updating = true;
-		try {
-			await runApkUpdate(latest);
-		} catch {
-			/* runApkUpdate surfaces failures in its own toast. */
-		} finally {
-			updating = false;
-		}
-	}
 </script>
 
 <div class="space-y-6">
-	{#if live}
-		<SettingsGroup title="Updates" id="settings-section-updates-android">
-			<div class="flex flex-wrap items-center gap-2 px-4 py-3">
-				<span class="text-sm">{statusText($andysuStatus)}</span>
-				{#if $andysuStatus.state === 'shell_update' || ($andysuStatus.state === 'staged' && $andysuStatus.release !== $andysuStatus.runningVersion)}
-					<Button size="sm" onclick={applyAndySU}
-						>{$andysuStatus.state === 'shell_update' ? 'Install' : 'Apply now'}</Button
-					>
-				{/if}
-			</div>
-			<SettingsRow label="Update automatically" labelFor="andysu-auto" inline>
-				<Switch
-					id="andysu-auto"
-					checked={liveAuto}
-					onCheckedChange={(v) => {
-						liveAuto = Boolean(v);
-						setAndySUMode(liveAuto ? 'auto' : 'off');
-					}}
-				/>
-			</SettingsRow>
-			<div class="px-4 py-3">
-				<Button size="sm" variant="outline" onclick={checkAndySU}>Check now</Button>
-			</div>
-		</SettingsGroup>
-	{:else if android}
-		<SettingsGroup id="settings-section-updates-android">
-			<SettingsRow label="This version" inline>
-				<span class="font-mono text-sm">{installed ?? '—'}</span>
-			</SettingsRow>
-			<SettingsRow label="Latest on GitHub" hint={latestDetails} inline>
-				<span class="font-mono text-sm">
-					{#if loading}
-						checking…
-					{:else if latest}
-						{latest.versionName}
+	{#if inApp}
+		<SettingsGroup title="Updates" id="settings-section-updates">
+			<div class="flex flex-col gap-3 px-4 py-3" data-testid="updates-status">
+				<div class="flex flex-wrap items-center justify-between gap-2">
+					<div class="min-w-0">
+						<p class="text-sm font-medium">Version {updates.installed ?? '—'}</p>
+						<p
+							class="flex items-center gap-1.5 text-sm text-muted-foreground"
+							class:text-destructive={updates.phase === 'error'}
+						>
+							{#if updates.phase === 'up-to-date'}<CheckCircle2 class="size-3.5" />{/if}
+							{status}
+						</p>
+					</div>
+					{#if updates.phase === 'available'}
+						<Button size="sm" onclick={() => void downloadUpdate()} data-testid="update-download">
+							<Download class="size-4" />
+							{updates.needsInstall ? 'Install' : 'Download'}
+						</Button>
+					{:else if updates.phase === 'downloading'}
+						<Button
+							size="sm"
+							variant="outline"
+							onclick={() => void cancelUpdate()}
+							data-testid="update-cancel"
+						>
+							Cancel
+						</Button>
+					{:else if updates.phase === 'staged'}
+						<Button size="sm" onclick={() => void applyUpdate()} data-testid="update-apply">
+							Install now
+						</Button>
 					{:else}
-						unknown
-					{/if}
-				</span>
-			</SettingsRow>
-			<div class="flex flex-wrap items-center gap-2 px-4 py-3">
-				<Button size="sm" onclick={() => void updateNow()} disabled={updating || loading || !ready}>
-					{#if updating}
-						<Loader2 class="size-4 animate-spin" />
-						Updating…
-					{:else}
-						<Download class="size-4" />
-						{#if !ready}
-							Up to date
-						{:else if canSelfInstall()}
-							Download {latest?.versionName}
-						{:else}
-							View {latest?.versionName} release
-						{/if}
-					{/if}
-				</Button>
-				<Button
-					size="sm"
-					variant="outline"
-					onclick={() => void refresh()}
-					disabled={loading || updating}
-				>
-					<RefreshCw class="size-4 {loading ? 'animate-spin' : ''}" />
-					Check again
-				</Button>
-				{#if latest}
-					<!--
-					Not an <a target="_blank">. In the Tauri Android WebView that navigates the app's
-					own view away from tauri.localhost with no way back — the same trap the APK
-					download hit. openExternalUrl hands the URL to the OS browser instead.
-				-->
-					<Button
-						size="sm"
-						variant="link"
-						class="px-1"
-						onclick={() => void openExternalUrl(latest!.releaseUrl).catch(() => {})}
-					>
-						Release notes
-					</Button>
-				{/if}
-				<div class="basis-full text-xs">
-					{#if error}
-						<p class="text-destructive">{error}</p>
-					{:else if !loading && latest}
-						{#if ready}
-							<p class="font-medium text-amber-600 dark:text-amber-500">
-								{behind}
-								{behind === 1 ? 'release' : 'releases'} behind.
-							</p>
-						{:else}
-							<p class="flex items-center gap-1.5 text-muted-foreground">
-								<CheckCircle2 class="size-3.5" /> You're on the latest version.
-							</p>
-						{/if}
+						<Button
+							size="sm"
+							variant="outline"
+							disabled={updates.phase === 'checking'}
+							onclick={() => void checkForUpdates()}
+							data-testid="update-check"
+						>
+							<RefreshCw class="size-4 {updates.phase === 'checking' ? 'animate-spin' : ''}" />
+							Check
+						</Button>
 					{/if}
 				</div>
-			</div>
-		</SettingsGroup>
-
-		{#if canSelfInstall()}
-			<SettingsGroup title="Updates">
-				<SettingsRow
-					label="Download updates automatically"
-					labelFor="auto-apk-update"
-					hint="Android still asks before it installs."
-					inline
-				>
-					<Switch
-						id="auto-apk-update"
-						bind:checked={
-							() => autoUpdate,
-							(v) => {
-								autoUpdate = v;
-								setAutoUpdateEnabled(v);
-							}
-						}
+				{#if updates.phase === 'downloading'}
+					<Progress
+						value={updates.progress}
+						max={100}
+						class="h-1.5"
+						aria-label="Update download progress"
 					/>
-				</SettingsRow>
-			</SettingsGroup>
-		{:else}
-			<p class="px-1 text-xs text-muted-foreground">
-				This build can't install its own updates. A Flatpak updates with <code>flatpak update</code
-				>.
-			</p>
-		{/if}
+				{/if}
+			</div>
+			<SettingsRow label="Download on Wi-Fi" labelFor="update-wifi" inline>
+				<Switch
+					id="update-wifi"
+					checked={updates.settings.wifi}
+					onCheckedChange={(v) => setUpdateSettings({ wifi: Boolean(v) })}
+				/>
+			</SettingsRow>
+			<SettingsRow label="Download on mobile data" labelFor="update-mobile" inline>
+				<Switch
+					id="update-mobile"
+					checked={updates.settings.mobileData}
+					onCheckedChange={(v) => setUpdateSettings({ mobileData: Boolean(v) })}
+				/>
+			</SettingsRow>
+			<SettingsRow label="Update automatically" labelFor="update-auto" inline>
+				<Switch
+					id="update-auto"
+					checked={updates.settings.automatic}
+					onCheckedChange={(v) => setUpdateSettings({ automatic: Boolean(v) })}
+				/>
+			</SettingsRow>
+			<SettingsRow label="Install updates">
+				<RadioGroup.Root
+					value={updates.settings.applyMode}
+					onValueChange={(v) => setUpdateSettings({ applyMode: v as ApplyMode })}
+					class="flex gap-4"
+				>
+					<div class="flex items-center gap-2">
+						<RadioGroup.Item value="next-start" id="update-apply-next" />
+						<Label for="update-apply-next" class="font-normal">On next start</Label>
+					</div>
+					<div class="flex items-center gap-2">
+						<RadioGroup.Item value="live" id="update-apply-live" />
+						<Label for="update-apply-live" class="font-normal">Right away</Label>
+					</div>
+				</RadioGroup.Root>
+			</SettingsRow>
+		</SettingsGroup>
 	{:else if desktop}
-		<!-- The GitHub check above is for the APK; the desktop app updates through Flatpak. -->
-		<SettingsGroup id="settings-section-updates-android">
-			<SettingsRow label="This version" hint="A Flatpak updates with flatpak update." inline>
-				<span class="font-mono text-sm">{installed ?? '—'}</span>
+		<SettingsGroup id="settings-section-updates">
+			<SettingsRow label="Version" hint="Updates come from the Flatpak remote." inline>
+				<span class="font-mono text-sm">{updates.installed ?? '—'}</span>
 			</SettingsRow>
 		</SettingsGroup>
 	{/if}

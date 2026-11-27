@@ -229,8 +229,9 @@ export const SETTINGS_SEARCH_INDEX: SettingsSearchSectionDef[] = [
 			{
 				id: 'sub-updates-android',
 				label: 'Version and updates',
-				scrollTargetId: 'settings-section-updates-android',
-				keywords: 'android apk download latest github release update install'
+				scrollTargetId: 'settings-section-updates',
+				keywords:
+					'android apk download latest github release update install wifi wi-fi mobile data automatic next start right away cancel'
 			},
 			{
 				id: 'sub-app-close-to-tray',

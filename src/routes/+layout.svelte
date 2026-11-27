@@ -8,7 +8,8 @@
 		cacheLoadedAppAssets,
 		ensureOfflineServiceWorker
 	} from '$lib/utils/browser-offline-download';
-	import { startAutoApkUpdate } from '$lib/utils/auto-apk-update';
+	import { startUpdates } from '$lib/utils/update-center.svelte';
+	import type { SettingsTarget } from '$lib/settings-ui-context';
 	import { isBrowserStorageSupported } from '$lib/utils/offline-downloader';
 	/** Same potato-over-tomato mark as TopBar (`logo.png`). `?url` keeps SSR/client href identical. */
 	import favicon from '$lib/assets/logo.png?url';
@@ -84,6 +85,7 @@
 		!initialPrivacyHead.privacyModeEnabled || !!initialPrivacyHead.privacySessionUnlocked
 	);
 	let settingsOpen = $state(false);
+	let settingsReveal = $state<SettingsTarget | null>(null);
 	/*
 	 * Settings is the largest thing in the shell — six sections, their dialogs and the
 	 * settings search — and it was parsed on every page load for a dialog most visits never
@@ -225,8 +227,9 @@
 	}
 
 	setSettingsUiContext({
-		openSettings: () => {
+		openSettings: (target) => {
 			if (isPrivacyEnabled() && !isPrivacySessionUnlocked()) return;
+			settingsReveal = target ?? null;
 			settingsOpen = true;
 		}
 	});
@@ -393,7 +396,7 @@
 		}
 
 		/* Android self-update. No-ops on every other target and when already current. */
-		startAutoApkUpdate();
+		startUpdates();
 
 		/* Settings off the critical path: after `load` (covers in view are in), when idle. */
 		const prefetchSettings = () => {
@@ -568,6 +571,7 @@
 {#if Settings && !isDevHarnessRoute && (!privacyEnabled || privacyUnlocked)}
 	<Settings
 		bind:open={settingsOpen}
+		bind:reveal={settingsReveal}
 		onApplied={() => {
 			refreshPrivacyState();
 			refreshPlayLimitLock();
