@@ -68,7 +68,7 @@ function parseArgs() {
  * Buckets are the launch classes that behave differently, not just the portals.
  */
 function sampleIds(perPortal) {
-	const all = JSON.parse(readFileSync(path.join(root, 'static/games/games-metadata.json'), 'utf8'));
+	const all = JSON.parse(readFileSync(path.join(root, 'scripts/data/games-metadata.json'), 'utf8'));
 	const host = (g) => {
 		try {
 			return new URL(g.onlineEmbedUrl).hostname;

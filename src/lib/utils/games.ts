@@ -1,3 +1,8 @@
+import {
+	decodeShardV2,
+	isShardV2,
+	type CatalogDictionaries
+} from '$lib/utils/catalog-index-format';
 import { base } from '$app/paths';
 import { getGamePlayMode } from '$lib/utils/game-play-mode';
 import {
@@ -69,12 +74,16 @@ export type GameIndexEntry = Pick<
 > &
 	QualityFields;
 
-export interface CatalogManifest {
+export interface CatalogManifest extends CatalogDictionaries {
+	/** 1: shards are arrays of rows; 2: columnar shards (`catalog-index-format.ts`). */
 	version: number;
 	/** 'quality' when shards run best-first (shard 0 is the top of the catalog). */
 	order?: 'quality';
 	total: number;
-	shardSize: number;
+	/** v1 only: every shard's size. */
+	shardSize?: number;
+	/** v2: each shard's size (the first is small, for a fast first paint). */
+	shardSizes?: number[];
 	shardCount: number;
 	categories: string[];
 }
@@ -223,7 +232,12 @@ export async function loadCatalogShard(index: number): Promise<GameIndexEntry[]>
 		throw new Error(`Catalog shard ${index} failed (${response.status})`);
 	}
 	const data: unknown = await response.json();
-	const shard = Array.isArray(data) ? (data as GameIndexEntry[]) : [];
+	let shard: GameIndexEntry[] = [];
+	if (Array.isArray(data)) shard = data as GameIndexEntry[];
+	else if (isShardV2(data)) {
+		const manifest = await loadCatalogManifest();
+		shard = decodeShardV2(manifest, data) as GameIndexEntry[];
+	}
 	shardCache.set(index, shard);
 	return shard;
 }

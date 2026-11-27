@@ -9,12 +9,19 @@ import {
 	loadQualityMap,
 	toLeanEntry
 } from './catalog-quality/index-entry.mjs';
+import { writeIndexDir } from './catalog-quality/index-format.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 /** Each catalog game lives under static/games/<id>/{shared,online,offline}/ */
 const GAMES_ROOT = join(__dirname, '..', 'static', 'games');
 const BUILD_GAMES_ROOT = join(__dirname, '..', 'build', 'games');
+/**
+ * Consolidated metadata for the build scripts (quality engine, benches, importers). Not
+ * shipped: nothing at run time reads it (the client uses games-index/ and per-game
+ * metadata.json), so it lives outside static/ and stays out of the web build and the app.
+ */
+const METADATA_PATH = join(__dirname, 'data', 'games-metadata.json');
 
 /**
  * A directory is only a game when it carries catalog content. Without this check
@@ -71,6 +78,8 @@ function readMetadataForGame(gameId) {
 function loadMetadataCache() {
 	const cache = new Map();
 	const sources = [
+		METADATA_PATH,
+		/* Where it lived before M4. */
 		join(GAMES_ROOT, 'games-metadata.json'),
 		join(BUILD_GAMES_ROOT, 'games-metadata.json')
 	];
@@ -136,14 +145,13 @@ function generateGamesList() {
 		});
 	}
 
-	const metadataOutputPath = join(GAMES_ROOT, 'games-metadata.json');
-	writeFileSync(metadataOutputPath, JSON.stringify(allMetadata, null, 2));
+	writeFileSync(METADATA_PATH, JSON.stringify(allMetadata, null, 2));
 
 	console.log(`✅ Generated consolidated metadata with ${allMetadata.length} games`);
 	console.log(
 		`   Source metadata files: ${metadataFileCount}, from cache: ${cacheCount}, synthesized: ${synthesizedCount}`
 	);
-	console.log(`   Saved to: static/games/games-metadata.json`);
+	console.log(`   Saved to: scripts/data/games-metadata.json`);
 
 	writeGamesIndex(allMetadata);
 
@@ -154,12 +162,9 @@ function generateGamesList() {
 	}
 }
 
-/** Lean catalog shards for progressive client load (see docs/catalog-portals.md). */
-const INDEX_SHARD_SIZE = 500;
-
+/** Lean catalog index for progressive client load (v2 columnar, see index-format.mjs). */
 function writeGamesIndex(allMetadata) {
 	const indexDir = join(GAMES_ROOT, 'games-index');
-	mkdirSync(indexDir, { recursive: true });
 
 	/* Quality score + DoE status per game, from scripts/catalog-quality/classify.mjs. */
 	const quality = loadQualityMap();
@@ -167,34 +172,14 @@ function writeGamesIndex(allMetadata) {
 	const scored = lean.filter((entry) => Number.isFinite(entry.q)).length;
 
 	/*
-	 * Best games first, so the first shard All Games and Home paint is the top of the
+	 * Best games first, so the first shard Home and Games paint is the top of the
 	 * catalog, not whatever sorts first alphabetically ("!!!", "0.02", "002", …).
 	 */
 	lean.sort(compareLeanEntries);
 
-	const categories = [...new Set(lean.map((g) => g.category).filter(Boolean))].sort((a, b) =>
-		a.localeCompare(b)
-	);
-
-	const shardCount = Math.max(1, Math.ceil(lean.length / INDEX_SHARD_SIZE));
-	for (let i = 0; i < shardCount; i++) {
-		const slice = lean.slice(i * INDEX_SHARD_SIZE, (i + 1) * INDEX_SHARD_SIZE);
-		const shardName = `shard-${String(i).padStart(3, '0')}.json`;
-		writeFileSync(join(indexDir, shardName), JSON.stringify(slice));
-	}
-
-	const manifest = {
-		version: 1,
-		order: INDEX_ORDER,
-		total: lean.length,
-		shardSize: INDEX_SHARD_SIZE,
-		shardCount,
-		categories
-	};
-	writeFileSync(join(indexDir, 'manifest.json'), JSON.stringify(manifest));
-
+	const manifest = writeIndexDir(indexDir, lean, { order: INDEX_ORDER });
 	console.log(
-		`✅ Generated games index: ${lean.length} games in ${shardCount} shards (${INDEX_SHARD_SIZE}/shard), ${scored} with a quality score`
+		`✅ Generated games index v${manifest.version}: ${lean.length} games in ${manifest.shardCount} shards, ${scored} with a quality score`
 	);
 	console.log(`   Saved to: static/games/games-index/`);
 }

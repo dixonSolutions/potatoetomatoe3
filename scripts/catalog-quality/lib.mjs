@@ -54,7 +54,9 @@ export function writeJsonAtomic(path, value, { pretty = false } = {}) {
 }
 
 export function loadCatalog() {
-	const path = join(GAMES_ROOT, 'games-metadata.json');
+	const legacy = join(GAMES_ROOT, 'games-metadata.json');
+	const moved = join(GAMES_ROOT, '..', '..', 'scripts', 'data', 'games-metadata.json');
+	const path = existsSync(moved) ? moved : legacy;
 	const list = readJson(path);
 	if (!Array.isArray(list)) throw new Error(`Missing or unreadable catalog: ${path}`);
 	return list;
