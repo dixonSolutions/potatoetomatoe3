@@ -6,9 +6,8 @@ describe('isLocalOfflinePlayUrl', () => {
 		expect(isLocalOfflinePlayUrl('blob:http://localhost:5173/abc-123')).toBe(true);
 	});
 
-	it('accepts browser-offline and puller-games paths', () => {
+	it('accepts browser-offline paths', () => {
 		expect(isLocalOfflinePlayUrl('/browser-offline/microgame/online/index.html')).toBe(true);
-		expect(isLocalOfflinePlayUrl('/puller-games/microgame/offline/index.html')).toBe(true);
 	});
 
 	it('accepts static offline game paths', () => {

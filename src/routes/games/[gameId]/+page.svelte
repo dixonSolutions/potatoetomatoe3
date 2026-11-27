@@ -31,6 +31,8 @@
 		isTodayPlayLimitReached,
 		isGlobalDailyLimitExceeded
 	} from '$lib/utils/play-recommendations';
+	import { recordPlayEvent } from '$lib/utils/play-events';
+	import { EARLY_LEAVE_MS } from '$lib/utils/recommendation-model';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import * as Card from '$lib/components/ui/card';
 	import { ArrowLeft, ThumbsUp, ThumbsDown, Play, Download } from 'lucide-svelte';
@@ -48,7 +50,7 @@
 		type OfflineStatusChangedDetail
 	} from '$lib/utils/offline-downloader';
 	import { describeOfflineBackend, getOfflineBackend } from '$lib/utils/offline-runtime';
-	import { isPublicSiteDeployment, shouldProbePullerBackend } from '$lib/utils/offline-deployment';
+	import { isPublicSiteDeployment, isTauriMobileBuild } from '$lib/utils/offline-deployment';
 	import { appendPlayLog } from '$lib/utils/play-diagnostics-log';
 	import {
 		applyPauseToGameIframe,
@@ -251,7 +253,7 @@
 	let cannotFrameInApp = $derived(
 		isUnframeableInApp({
 			localApp: !isPublicSiteDeployment(),
-			pullerSupported: shouldProbePullerBackend(),
+			desktopApp: !isPublicSiteDeployment() && !isTauriMobileBuild(),
 			frameBlockedHost: isFrameBlockedHost(unframeableEmbedUrl)
 		})
 	);
@@ -901,7 +903,8 @@
 	 */
 	afterNavigate(({ from, to }) => {
 		if (!browser || !to) return;
-		const id = to.params?.gameId ?? '';
+		/* On the first load `to.params` can be empty; the page store always has them. */
+		const id = to.params?.gameId || gameId;
 		if (!id) return;
 		/* Came here from a list inside the app: "Back to games" can simply go back to it. */
 		cameFromList = Boolean(from?.route?.id && from.route.id !== '/games/[gameId]');
@@ -1206,6 +1209,22 @@
 			heldForRefresh = false;
 		});
 	}
+
+	/* Recommender signals: a launch error, or leaving within seconds of the game starting. */
+	$effect(() => {
+		const id = gameId;
+		if (error && id) untrack(() => recordPlayEvent(id, 'error'));
+	});
+	$effect(() => {
+		if (!gameSurfaceStarted || !gameId) return;
+		const id = gameId;
+		const started = Date.now();
+		return () => {
+			if (Date.now() - started < EARLY_LEAVE_MS && !untrack(() => error)) {
+				recordPlayEvent(id, 'leave');
+			}
+		};
+	});
 
 	$effect(() => {
 		if (!gameSurfaceStarted || !gameId) return;

@@ -21,6 +21,8 @@ export interface StoredGameMeta {
 	totalFileCount?: number;
 	/** Relative path of cached cover image inside IndexedDB files store. */
 	thumbnailPath?: string;
+	/** The game's metadata.json (title, description, controls), so the page works offline. */
+	metadata?: Record<string, unknown>;
 }
 
 function fileKey(gameId: string, relativePath: string): string {

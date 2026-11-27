@@ -24,7 +24,7 @@
 		type PlayRouteKind
 	} from '$lib/utils/online-play-routing';
 
-	const ALL_ROUTES: PlayRouteKind[] = ['direct', 'local', 'shell', 'relay', 'puller'];
+	const ALL_ROUTES: PlayRouteKind[] = ['direct', 'local', 'shell', 'relay'];
 	import { saveGamePlayMode } from '$lib/utils/game-play-mode';
 	import { registerGameFrameHost } from '$lib/utils/game-storage-bridge';
 	import {
@@ -80,7 +80,7 @@
 		id: string;
 		label: string;
 		urls: string[];
-		/** Route of each URL tried, in order (`direct`, `local`, `shell`, `relay`, `puller`). */
+		/** Route of each URL tried, in order (`direct`, `local`, `shell`, `relay`). */
 		routes: string[];
 		/** Why the launch moved on from a route: `<route>:stalled` or `<route>:silent`. */
 		escalations: string[];

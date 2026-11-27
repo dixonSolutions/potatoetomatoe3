@@ -3,7 +3,7 @@
 	import { Label } from '$lib/components/ui/label';
 	import { Badge } from '$lib/components/ui/badge';
 	import type { HarnessTestGame } from '$lib/dev-harness/test-games';
-	import type { GameOfflineStatus } from '$lib/utils/offline-downloader-puller';
+	import type { GameOfflineStatus } from '$lib/utils/offline-types';
 
 	let {
 		games,

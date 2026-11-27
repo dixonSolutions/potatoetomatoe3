@@ -27,8 +27,7 @@
 			Keep playing with offline downloads and touch controls.
 		</h1>
 		<p class="mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">
-			The browser is the preview. The native app adds the puller, verified offline mirrors, saves,
-			and the full touch console.
+			The app downloads any game for offline play, keeps your saves, and has full touch controls.
 		</p>
 		<div class="mt-6 flex flex-wrap gap-3">
 			<Button href={releasesUrl} target="_blank" rel="noreferrer">

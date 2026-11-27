@@ -1,3 +1,8 @@
+import {
+	decodeShardV2,
+	isShardV2,
+	type CatalogDictionaries
+} from '$lib/utils/catalog-index-format';
 import { base } from '$app/paths';
 import { getGamePlayMode } from '$lib/utils/game-play-mode';
 import {
@@ -6,11 +11,7 @@ import {
 	getOfflinePlayUrl,
 	isBrowserGameDownloaded
 } from '$lib/utils/offline-downloader';
-import {
-	pullerOfflineAssetUrl,
-	shouldUsePullerGameProxy
-} from '$lib/utils/offline-downloader-puller';
-import { isPublicSiteDeployment, shouldProbePullerBackend } from '$lib/utils/offline-deployment';
+import { isPublicSiteDeployment } from '$lib/utils/offline-deployment';
 import { isBundledOfflineGame } from '$lib/utils/game-availability';
 import { resolveStaticOfflinePlayUrl, staticOfflineFileExists } from '$lib/utils/offline-play-url';
 import { appendPlayLog } from '$lib/utils/play-diagnostics-log';
@@ -33,7 +34,11 @@ import {
 	prepareNativeGameFrames,
 	watchGameFrameLife
 } from '$lib/utils/native-game-frames';
-import { OFFLINE_SCHEME } from '$lib/utils/offline-native';
+import {
+	OFFLINE_SCHEME,
+	hasNativeOfflineBackend,
+	nativeOfflineUrl
+} from '$lib/utils/offline-native';
 
 export type GameEngine = 'unity' | 'html5' | string;
 
@@ -55,7 +60,7 @@ export interface GameMetadata {
 	onlineEmbedUrl?: string;
 	/** Prefer this CDN HTML over Sites fallback URLs when present. */
 	remotePlayUrl?: string;
-	/** Catalog importer wrote online/embed.html for puller live/unity proxies. */
+	/** Catalog importer wrote online/embed.html for relay proxies. */
 	localEmbed?: boolean;
 	/** Where the relative URLs of `online/embed.html` resolve (the gadget's own base). */
 	embedBaseUrl?: string;
@@ -73,12 +78,16 @@ export type GameIndexEntry = Pick<
 > &
 	QualityFields;
 
-export interface CatalogManifest {
+export interface CatalogManifest extends CatalogDictionaries {
+	/** 1: shards are arrays of rows; 2: columnar shards (`catalog-index-format.ts`). */
 	version: number;
 	/** 'quality' when shards run best-first (shard 0 is the top of the catalog). */
 	order?: 'quality';
 	total: number;
-	shardSize: number;
+	/** v1 only: every shard's size. */
+	shardSize?: number;
+	/** v2: each shard's size (the first is small, for a fast first paint). */
+	shardSizes?: number[];
 	shardCount: number;
 	categories: string[];
 }
@@ -101,7 +110,7 @@ export type ThumbnailResolveOptions = {
 	 * offline play mode with a downloaded copy.
 	 */
 	preferOffline?: boolean;
-	/** Relative path under offline/ from puller status (e.g. assets/thumbnail.jpg). */
+	/** Relative path under offline/ from status (e.g. assets/thumbnail.jpg). */
 	offlineThumbnailRel?: string | null;
 	/** Absolute/blob URL for browser-offline covers. */
 	offlineThumbnailUrl?: string | null;
@@ -111,14 +120,12 @@ export type ThumbnailResolveOptions = {
 
 /**
  * Cover URL for a file under offline/ (e.g. assets/thumbnail.jpg).
- * Dev → Vite `/puller-games` proxy; packaged desktop → puller loopback;
- * Android / static mirrors → same-origin `/games/.../offline/...`.
+ * Desktop → `ptoffline://` native copy; Android / static mirrors → same-origin
+ * `/games/.../offline/...`.
  */
 function offlineAssetUrl(gameId: string, relPath: string): string {
 	const safe = relPath.replace(/^(\.\.\/)+/, '').replace(/^\//, '');
-	if (shouldUsePullerGameProxy() || shouldProbePullerBackend()) {
-		return pullerOfflineAssetUrl(gameId, safe, base);
-	}
+	if (hasNativeOfflineBackend()) return nativeOfflineUrl(gameId, safe);
 	const b = base.replace(/\/$/, '');
 	return `${b}/games/${encodeURIComponent(gameId)}/offline/${safe}`.replace(/\/{2,}/g, '/');
 }
@@ -229,7 +236,12 @@ export async function loadCatalogShard(index: number): Promise<GameIndexEntry[]>
 		throw new Error(`Catalog shard ${index} failed (${response.status})`);
 	}
 	const data: unknown = await response.json();
-	const shard = Array.isArray(data) ? (data as GameIndexEntry[]) : [];
+	let shard: GameIndexEntry[] = [];
+	if (Array.isArray(data)) shard = data as GameIndexEntry[];
+	else if (isShardV2(data)) {
+		const manifest = await loadCatalogManifest();
+		shard = decodeShardV2(manifest, data) as GameIndexEntry[];
+	}
 	shardCache.set(index, shard);
 	return shard;
 }
@@ -335,7 +347,7 @@ async function runPool<T>(items: T[], concurrency: number, worker: (item: T) => 
 
 /**
  * Progressive catalog index: shard 0 first (callback), then remaining shards.
- * Pass `{ eager: false }` for All Games (first page only; use {@link loadMoreCatalogShards} on scroll).
+ * Pass `{ eager: false }` for the Games tab (first page only; use {@link loadMoreCatalogShards} on scroll).
  * Default `eager: true` loads the full index (Home / recommendations).
  */
 export async function loadCatalogIndex(
@@ -399,10 +411,22 @@ export async function loadGameMetadata(id: string): Promise<GameMetadata | null>
 		if (response.ok) {
 			return await response.json();
 		}
-	} catch (error) {
-		console.error(`Failed to load metadata for ${id}:`, error);
+	} catch {
+		/* offline: try the copy saved with the download */
 	}
-	return null;
+	return storedGameMetadata(id);
+}
+
+/** The metadata a browser download saved, for when the network and caches have none. */
+async function storedGameMetadata(id: string): Promise<GameMetadata | null> {
+	if (typeof indexedDB === 'undefined') return null;
+	try {
+		const { getGameMeta } = await import('./browser-offline-storage');
+		const stored = (await getGameMeta(id))?.metadata;
+		return stored ? (stored as unknown as GameMetadata) : null;
+	} catch {
+		return null;
+	}
 }
 
 /**
@@ -436,7 +460,7 @@ function unityOfflineAssetsBase(gameId: string): string {
 /**
  * Offline Unity hosts are already post-processed (inject + asset-map) or are
  * browser blob / SW shells. Wrapping them in `/unity/player.html` rejects `blob:`
- * and double-wraps puller offline entry HTML — load them directly instead.
+ * and double-wraps offline entry HTML — load them directly instead.
  */
 export function isLocalOfflinePlayUrl(url: string): boolean {
 	const trimmed = url.trim();
@@ -444,7 +468,6 @@ export function isLocalOfflinePlayUrl(url: string): boolean {
 	if (trimmed.startsWith('blob:')) return true;
 	if (trimmed.startsWith(`${OFFLINE_SCHEME}:`)) return true;
 	if (trimmed.includes('/browser-offline/')) return true;
-	if (trimmed.includes('/puller-games/')) return true;
 	if (trimmed.includes('/games/') && trimmed.includes('/offline/')) return true;
 	try {
 		const absolute = new URL(trimmed, 'http://local.invalid');
@@ -520,7 +543,6 @@ export function playRouteOfUrl(url: string | null | undefined): PlayRouteKind | 
 	const known = routeByUrl.get(u);
 	if (known) return known;
 	if (u.startsWith(`${RELAY_SCHEME}:`)) return 'relay';
-	if (u.includes('/api/game-live/') || u.includes('/api/unity-play/')) return 'puller';
 	if (isLocalOfflinePlayUrl(u)) return null;
 	return 'direct';
 }
@@ -536,17 +558,6 @@ async function unwrapOnlineShell(gameId: string): Promise<string | null> {
 		return await readOnlineShellIframeSrc(gameId);
 	} catch {
 		return null;
-	}
-}
-
-/** A puller that already answers — it is never started for play. */
-async function pullerAlreadyRunning(): Promise<boolean> {
-	if (isPublicSiteDeployment() || !shouldProbePullerBackend()) return false;
-	try {
-		const { isPullerRunning } = await import('./offline-downloader-puller');
-		return await isPullerRunning();
-	} catch {
-		return false;
 	}
 }
 
@@ -600,10 +611,6 @@ async function urlForRoute(
 			}
 			return `${RELAY_SCHEME}://localhost/game/${encodeURIComponent(gameId)}${tail}`;
 		}
-		case 'puller': {
-			const { pullerUnityPlayUrl, pullerLiveGameUrl } = await import('./offline-downloader-puller');
-			return unity ? pullerUnityPlayUrl(gameId, base) : pullerLiveGameUrl(gameId, base);
-		}
 	}
 }
 
@@ -625,17 +632,12 @@ export async function resolveOnlinePlayRoute(
 	const nativeFrames = await nativeGameFramesSupported();
 	const input = {
 		desktopApp: nativeFrames,
-		pullerRunning: false,
 		embedUrl: catalogEmbedUrl(metadata),
 		localEmbed: Boolean(metadata?.localEmbed)
 	};
-	let plan = planOnlineRoutes(input);
+	const plan = planOnlineRoutes(input);
 	for (let attempt = 0; attempt < 8; attempt++) {
-		let kind = nextPlayRoute(plan, failedPlayRoutes(gameId));
-		if (!kind && !plan.includes('puller') && (await pullerAlreadyRunning())) {
-			plan = planOnlineRoutes({ ...input, pullerRunning: true });
-			kind = nextPlayRoute(plan, failedPlayRoutes(gameId));
-		}
+		const kind = nextPlayRoute(plan, failedPlayRoutes(gameId));
 		if (!kind) break;
 		const url = await urlForRoute(kind, gameId, metadata, nativeFrames);
 		if (url) {
@@ -669,13 +671,7 @@ async function prepareFramesFor(gameId: string, url: string): Promise<void> {
 	if (!(await nativeGameFramesSupported())) return;
 	const kind = playRouteOfUrl(url);
 	const topHasBridge = kind !== 'direct' || url.startsWith(`${base}/`) || url.startsWith('/');
-	let ownOrigins: string[] = [];
-	try {
-		const { getPullerBaseUrl } = await import('./offline-downloader-puller');
-		ownOrigins = [new URL(getPullerBaseUrl()).origin];
-	} catch {
-		/* no puller origin to exclude */
-	}
+	const ownOrigins: string[] = [];
 	watchGameFrameLife();
 	await prepareNativeGameFrames({ gameId, topHasBridge, ownOrigins });
 }
@@ -692,7 +688,7 @@ async function offlineAvailable(gameId: string): Promise<boolean> {
 	 * A file backend's offline:false is authoritative. Otherwise still accept a same-origin
 	 * disk mirror so an offline launch survives the backend being unreachable.
 	 */
-	if (status && (backend === 'puller' || backend === 'native')) return false;
+	if (status && backend === 'native') return false;
 	if (!isPublicSiteDeployment()) {
 		return staticOfflineFileExists(gameId, base);
 	}
@@ -724,7 +720,7 @@ async function resolveGamePlayerUrl(
 	const mode = networkOnline ? getGamePlayMode(gameId) : 'offline';
 	/*
 	 * Only an offline launch needs to know about offline copies. Asking costs a backend
-	 * lookup (and, in `pnpm dev`, a puller probe), and an online launch now starts the
+	 * lookup (and, in `pnpm dev`, a probe), and an online launch now starts the
 	 * game the moment this resolves, so the common case must not wait on it.
 	 */
 	const hasOffline = mode === 'offline' ? await offlineAvailable(gameId) : false;
@@ -872,7 +868,6 @@ export function iframeAllowForUrl(url: string): string | undefined {
 		url.includes('/unity/embed.html') ||
 		url.includes('jsdelivr.net') ||
 		url.includes('/browser-offline/') ||
-		url.includes('/puller-games/') ||
 		url.includes('127.0.0.1') ||
 		url.includes('localhost') ||
 		url.startsWith('blob:') ||

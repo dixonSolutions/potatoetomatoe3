@@ -7,7 +7,6 @@
 	import * as ToggleGroup from '$lib/components/ui/toggle-group';
 	import { Badge } from '$lib/components/ui/badge';
 	import { Separator } from '$lib/components/ui/separator';
-	import HealthStrip from '$lib/components/dev-harness/HealthStrip.svelte';
 	import GamePicker from '$lib/components/dev-harness/GamePicker.svelte';
 	import TimelinePanel from '$lib/components/dev-harness/TimelinePanel.svelte';
 	import LogExportBar from '$lib/components/dev-harness/LogExportBar.svelte';
@@ -32,9 +31,9 @@
 	import { applyPauseToGameIframe } from '$lib/utils/game-pause';
 	import { broadcastGameAudioOutput, unlockGameIframeAudio } from '$lib/utils/game-audio';
 	import {
-		fetchPullerOfflineStatusesForIds,
+		fetchOfflineStatusesForIds,
 		type GameOfflineStatus
-	} from '$lib/utils/offline-downloader-puller';
+	} from '$lib/utils/offline-downloader';
 	import { appendPlayLog } from '$lib/utils/play-diagnostics-log';
 	import type { TouchKeyCode } from '$lib/utils/touch-console';
 
@@ -87,7 +86,7 @@
 	}
 
 	async function refreshStatuses() {
-		statuses = await fetchPullerOfflineStatusesForIds(
+		statuses = await fetchOfflineStatusesForIds(
 			games.map((g) => g.id),
 			true
 		);
@@ -305,7 +304,7 @@
 				<Badge variant="secondary">dev</Badge>
 			</div>
 			<p class="max-w-2xl text-sm text-muted-foreground">
-				Touch injection into puller-proxied online and offline games — production dispatcher +
+				Touch injection into online and offline games — production dispatcher +
 				bridge.
 			</p>
 		</div>
@@ -344,7 +343,6 @@
 		</div>
 	</header>
 
-	<HealthStrip gameId={selectedId} />
 
 	<div class="grid min-h-0 flex-1 gap-4 xl:grid-cols-[340px_minmax(0,1fr)_360px]">
 		<aside class="space-y-3">

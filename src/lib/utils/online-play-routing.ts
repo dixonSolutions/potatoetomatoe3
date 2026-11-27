@@ -2,11 +2,9 @@
  * How an online launch reaches the game, and what it falls back to when that fails.
  *
  * Every platform starts the same way the public site always has: the game's own URL in a
- * plain iframe. The desktop app used to send launches through the Node puller instead —
- * a relay that re-fetched and rewrote every asset of the game — which made launches slow
- * and the app hard to run. It no longer needs to: the desktop webview injects the in-frame
- * bridge into the game's frames itself (`native-game-frames.ts`), which is what the relay
- * existed for.
+ * plain iframe. The desktop webview injects the in-frame
+ * bridge into the game's frames itself (`native-game-frames.ts`), so no relay is needed
+ * for ordinary games.
  *
  * What remains are games that a plain iframe cannot show, each with its own fix:
  *
@@ -23,14 +21,12 @@
  * never runs with the app's origin; that works on every platform with no server. The
  * desktop app plays `local` through its relay instead, and tries the relay before a shell,
  * so a game there keeps an origin of its own with real storage.
- * `relay` is the desktop app's in-process relay (`src-tauri/src/relay.rs`). `puller` is the
- * legacy Node relay, used only if one happens to be running already — the app never starts
- * it to play a game. When the chain runs out, the page offers the system browser.
+ * `relay` is the desktop app's in-process relay (`src-tauri/src/relay.rs`). When the chain runs out, the page offers the system browser.
  *
  * The chain itself is pure so it can be tested without a network.
  */
 
-export type PlayRouteKind = 'direct' | 'local' | 'shell' | 'relay' | 'puller';
+export type PlayRouteKind = 'direct' | 'local' | 'shell' | 'relay';
 
 /** Serve `.html` as `text/plain`, so a frame shows the source instead of the game. */
 const TEXT_PLAIN_HTML_HOSTS = ['cdn.jsdelivr.net'];
@@ -87,23 +83,18 @@ export function isFlashUrl(url: string | null | undefined): boolean {
  * True when a direct launch is a guaranteed blank frame *and* this platform has no relay to
  * rescue it — the mobile builds. The desktop app has its in-process relay; the page offers
  * the system browser instead of a frame that cannot load.
- *
- * `pullerSupported` is what the page passes for "desktop app" (it predates the in-process
- * relay); the name is kept so the call site does not change.
  */
 export function isUnframeableInApp(input: {
 	localApp: boolean;
-	pullerSupported: boolean;
+	desktopApp: boolean;
 	frameBlockedHost: boolean;
 }): boolean {
-	return input.localApp && !input.pullerSupported && input.frameBlockedHost;
+	return input.localApp && !input.desktopApp && input.frameBlockedHost;
 }
 
 export interface PlayRouteInput {
 	/** The desktop app, which has the in-process relay. */
 	desktopApp: boolean;
-	/** A puller already answers on this machine. It is never started for play. */
-	pullerRunning: boolean;
 	/** The catalog's online URL (`onlineEmbedUrl`, else `remotePlayUrl`). */
 	embedUrl: string | null;
 	/** The catalog ships the playable document as `online/embed.html`. */
@@ -134,7 +125,6 @@ export function planOnlineRoutes(input: PlayRouteInput): PlayRouteKind[] {
 		chain.push('direct');
 	}
 	if (input.desktopApp && embed && !chain.includes('relay')) chain.push('relay');
-	if (input.pullerRunning) chain.push('puller');
 	return chain;
 }
 

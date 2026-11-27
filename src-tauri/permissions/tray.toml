@@ -4,16 +4,6 @@ description = "Allow the frontend to update the system tray recent-games menu"
 commands.allow = ["sync_tray_recent"]
 
 [[permission]]
-identifier = "allow-get-puller-base-url"
-description = "Allow the frontend to read the local puller HTTP base URL"
-commands.allow = ["get_puller_base_url"]
-
-[[permission]]
-identifier = "allow-ensure-puller"
-description = "Allow the frontend to check for, and start on demand, the local puller (offline downloads)"
-commands.allow = ["ensure_puller", "puller_running"]
-
-[[permission]]
 identifier = "allow-get-dev-harness-mode"
 description = "Allow the frontend to read the active development harness mode (debug builds only)"
 commands.allow = ["get_dev_harness_mode"]
@@ -46,7 +36,7 @@ commands.allow = ["native_game_frames_supported", "set_game_frame_context", "cle
 [[permission]]
 identifier = "allow-offline-files"
 description = "Allow the frontend to read offline copies and per-game saves from the app's games folder"
-commands.allow = ["offline_statuses", "offline_entry", "offline_delete", "game_profile_read", "game_profile_write", "game_profile_delete"]
+commands.allow = ["offline_statuses", "offline_entry", "offline_delete", "offline_download_start", "offline_download_cancel", "offline_download_progress", "game_profile_read", "game_profile_write", "game_profile_delete"]
 
 [[permission]]
 identifier = "allow-webview-crash"

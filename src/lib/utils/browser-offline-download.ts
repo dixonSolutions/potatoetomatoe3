@@ -15,8 +15,7 @@ import {
 	type StoredGameMeta
 } from './browser-offline-storage';
 import { looksLikeAppShell } from './offline-play-url';
-import type { DownloadProgress, GameOfflineStatus } from './offline-downloader-puller';
-import { getPullerBaseUrl } from './offline-downloader-puller';
+import type { DownloadProgress, GameOfflineStatus } from './offline-types';
 
 const ASSET_PATTERN =
 	/(?:href|src)=["']([^"']+\.(?:js|css|png|jpg|jpeg|gif|webp|wasm|json|br|mp3|ogg|wav|svg|ico|html?))["']/gi;
@@ -273,12 +272,6 @@ export function iframeSrcLooksLikeUnity(src: string): boolean {
 	}
 }
 
-/*
- * The Unity check used to also fetch the embed itself to sniff its HTML — a cross-origin
- * request (up to 8 s) on every game page, to choose between two puller relay hosts. The
- * play path no longer uses the puller relay, so the URL heuristic is all anything needs.
- */
-
 export type OnlineShellExternalInfo = {
 	external: boolean;
 	/** The embed looks like Unity (catalog engine, or a Unity CDN host/path). */
@@ -366,8 +359,8 @@ export async function onlineShellHasExternalIframe(gameId: string): Promise<bool
 }
 
 /** Clear message when browser storage cannot mirror a third-party game host. */
-export const EXTERNAL_IFRAME_NEEDS_PULLER =
-	'Full offline needs the desktop app or a local puller — this game embeds a third-party host that cannot be scraped from the browser alone.';
+export const EXTERNAL_IFRAME_UNSUPPORTED =
+	'This game embeds a third-party host that cannot be saved for offline play from the browser.';
 
 function isSameOriginAsset(gameId: string, ref: string, pageUrl: string): string | null {
 	if (!ref || ref.startsWith('data:') || ref.startsWith('blob:') || ref.startsWith('#')) {
@@ -585,7 +578,7 @@ async function runBrowserDownload(gameId: string, signal: AbortSignal): Promise<
 
 		/*
 		 * Cross-origin iframe shells cannot be full-scraped from IndexedDB alone.
-		 * Refuse to mark as offline — callers should route to the puller first.
+		 * Refuse to mark as offline.
 		 */
 		if (externalIframe) {
 			await setGameMeta(gameId, {
@@ -598,8 +591,8 @@ async function runBrowserDownload(gameId: string, signal: AbortSignal): Promise<
 			setBrowserProgress(gameId, {
 				state: 'error',
 				progress: 0,
-				message: EXTERNAL_IFRAME_NEEDS_PULLER,
-				error: EXTERNAL_IFRAME_NEEDS_PULLER
+				message: EXTERNAL_IFRAME_UNSUPPORTED,
+				error: EXTERNAL_IFRAME_UNSUPPORTED
 			});
 			return;
 		}
@@ -645,6 +638,7 @@ async function runBrowserDownload(gameId: string, signal: AbortSignal): Promise<
 			});
 			const { loadGameMetadata } = await import('./games');
 			const gameMeta = await loadGameMetadata(gameId);
+			if (gameMeta) meta.metadata = gameMeta as unknown as Record<string, unknown>;
 			const thumbPath = gameMeta?.thumbnail
 				? await cacheRemoteThumbnail(gameId, gameMeta.thumbnail, signal)
 				: null;
@@ -735,88 +729,6 @@ export async function deleteBrowserOfflineCopy(gameId: string): Promise<void> {
 export function browserOfflinePlayUrl(gameId: string): string {
 	const base = appBase();
 	return `${window.location.origin}${base}/browser-offline/${encodeURIComponent(gameId)}/online/index.html`;
-}
-
-/**
- * Import a completed puller mirror into this browser's IndexedDB.
- * Scraping stays in the shared puller; this function is only a storage adapter.
- */
-export async function importPullerOfflineCopy(
-	gameId: string,
-	onProgress?: (progress: DownloadProgress) => void,
-	signal?: AbortSignal
-): Promise<void> {
-	const baseUrl = getPullerBaseUrl();
-	const manifestResponse = await fetch(
-		`${baseUrl}/api/offline/${encodeURIComponent(gameId)}/export`,
-		{ signal }
-	);
-	if (!manifestResponse.ok) {
-		throw new Error(`Puller export unavailable (${manifestResponse.status})`);
-	}
-	const manifest = (await manifestResponse.json()) as {
-		files?: Array<{ path: string; mimeType?: string }>;
-	};
-	const files = manifest.files ?? [];
-	if (files.length === 0) throw new Error('Puller export contains no files');
-	const exportedThumbnail = files.find((file) => /^assets\/thumbnail\./i.test(file.path));
-	const thumbnailPath = exportedThumbnail ? `online/${exportedThumbnail.path}` : undefined;
-
-	await setGameMeta(gameId, {
-		downloadedAt: 0,
-		fileCount: 0,
-		downloading: true,
-		partialCache: true,
-		cachedFileCount: 0,
-		totalFileCount: files.length,
-		externalIframe: false,
-		thumbnailPath
-	});
-
-	for (let index = 0; index < files.length; index++) {
-		throwIfAborted(signal);
-		const file = files[index];
-		const response = await fetch(
-			`${baseUrl}/api/offline/${encodeURIComponent(gameId)}/export/file?path=${encodeURIComponent(file.path)}`,
-			{ signal }
-		);
-		if (!response.ok) throw new Error(`Puller export file failed (${response.status})`);
-		const data = await response.arrayBuffer();
-		await putGameFile(
-			gameId,
-			`online/${file.path}`,
-			file.mimeType ?? guessMimeType(file.path),
-			data
-		);
-		const count = index + 1;
-		const progress = Math.min(99, Math.round((count / files.length) * 95));
-		onProgress?.({
-			state: 'running',
-			progress,
-			message: `Saving puller mirror ${count}/${files.length}…`
-		});
-		await setGameMeta(gameId, {
-			downloadedAt: 0,
-			fileCount: count,
-			downloading: true,
-			partialCache: true,
-			cachedFileCount: count,
-			totalFileCount: files.length,
-			externalIframe: false,
-			thumbnailPath
-		});
-	}
-
-	await setGameMeta(gameId, {
-		downloadedAt: Date.now(),
-		fileCount: files.length,
-		downloading: false,
-		partialCache: false,
-		cachedFileCount: files.length,
-		totalFileCount: files.length,
-		externalIframe: false,
-		thumbnailPath
-	});
 }
 
 export { isBrowserGameDownloaded };

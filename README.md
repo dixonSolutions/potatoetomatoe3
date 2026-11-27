@@ -110,29 +110,19 @@ flatpak install -y flathub org.gnome.Platform//50 org.gnome.Sdk//50
 sudo apt install libwebkit2gtk-4.1-dev libayatana-appindicator3-dev librsvg2-dev patchelf
 
 pnpm install --frozen-lockfile
-pnpm puller:bundle:linux
 pnpm tauri:build:flatpak
 pnpm flatpak:install   # build + install to ~/.local/share/flatpak
 pnpm flatpak:run
 ```
 
-## Puller service
+## Offline downloads
 
-The puller runs as a **separate Node package** at [`puller/`](puller/). It exposes:
+- **Desktop app:** the app downloads a game itself (`src-tauri/src/offline_download.rs`) into its
+  data folder and serves it as `ptoffline://localhost/<id>/…` (`offline_games.rs`).
+- **Web and Android:** same-origin game files go to IndexedDB and are served by the service
+  worker (`src/lib/utils/browser-offline-download.ts`).
 
-| Endpoint                        | Method | Description                      |
-| ------------------------------- | ------ | -------------------------------- |
-| `/api/offline/health`           | GET    | Service health                   |
-| `/api/offline/status`           | GET    | All games' online/offline status |
-| `/api/offline/status/:gameId`   | GET    | Single game status               |
-| `/api/offline/:gameId/download` | POST   | Start offline download           |
-| `/api/offline/:gameId/progress` | GET    | Download progress                |
-| `/api/offline/:gameId`          | DELETE | Remove offline copy              |
-| `/games/:gameId/...`            | GET    | Serve offline game files         |
-
-**Strategies:** `embed` (Unity/Google Sites — Shrek) and `generic` (iframe wget mirror).
-
-See [docs/offline-downloader.md](docs/offline-downloader.md) for details.
+See [docs/offline-downloader.md](docs/offline-downloader.md).
 
 Touch controls for mobile require same-origin (mirrored) game documents — see [docs/touch-console.md](docs/touch-console.md).
 
@@ -140,9 +130,8 @@ Touch controls for mobile require same-origin (mirrored) game documents — see 
 
 ```
 PotatoeTomatoe3/
-├── puller/              # Offline download backend (Playwright + HTTP API)
 ├── src/                 # SvelteKit frontend
-├── src-tauri/           # Tauri Rust shell (+ puller sidecar)
+├── src-tauri/           # Tauri Rust shell (offline downloads, relay, frames)
 ├── static/games/        # Game catalog (gitignored except shrek-escape)
 ├── flatpak/             # Flatpak manifest
 ├── scripts/             # Catalog generators, port importers
@@ -153,7 +142,7 @@ PotatoeTomatoe3/
 
 Every push to `main` runs [`.github/workflows/release.yml`](.github/workflows/release.yml):
 
-1. Builds Flatpak + puller sidecar
+1. Builds the Flatpak
 2. Publishes a [GitHub Release](https://github.com/dixonSolutions/potatoetomatoe3/releases) with a `.flatpak` bundle
 3. Deploys the web app plus OSTree Flatpak repo to GitHub Pages (`/flatpak/` + `potatotomato.flatpakrepo`)
 
@@ -165,7 +154,6 @@ See [docs/release.md](docs/release.md) for CI details and troubleshooting.
 | ------------------------------- | ---------------------------------------- |
 | `pnpm dev`                      | Web dev server (opens browser)           |
 | `pnpm app`                      | Tauri desktop app                        |
-| `pnpm puller:start`             | Start puller backend                     |
 | `pnpm games:restore-from-build` | Restore online shells from `build/games` |
 | `pnpm tauri:dev`                | Alias for `pnpm app`                     |
 | `pnpm flatpak:build`            | Local Flatpak build                      |

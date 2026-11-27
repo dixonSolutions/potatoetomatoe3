@@ -1,28 +1,33 @@
 /**
  * Client-side play analytics and recommendations.
  * - Persists in localStorage (no server).
- * - Ranks candidates with TensorFlow.js matmul on WebGPU when available (see recommendation-tf.ts).
- * - Content-based weights (categories, authors), implicit feedback, recency, explicit category affinity.
+ * - Ranks the whole catalog with a BPR-trained user vector over hashed game features
+ *   (recommendation-model.ts), scored on WebGPU when available (recommendation-gpu.ts).
+ * - Signals: starts, playtime, favourites, dislikes, launch errors and early leaves
+ *   (play-events.ts), last six months only.
  */
 
 import { canUseLocalStorage } from '$lib/utils/browser-storage';
 import type { GameIndexEntry, GameMetadata } from '$lib/utils/games';
 import type { GamePreferences } from '$lib/utils/preferences';
-import { cpuMatMulVec, scoreWithTensorFlow } from '$lib/utils/recommendation-tf';
+import {
+	buildFeatureMatrix,
+	FEATURE_DIM,
+	matVecCpu,
+	writeFeatures,
+	rankFromScores,
+	trainUserModel,
+	type FeatureMatrix,
+	type GameSignal
+} from '$lib/utils/recommendation-model';
+import { scoreCatalog } from '$lib/utils/recommendation-gpu';
+import { loadPlayEvents, playEvents, type PlayEvent } from '$lib/utils/play-events';
 
 const STORAGE_KEY = 'potato-tomato-play-analytics';
 
 const VERSION = 2 as const;
 const LEARN_RATE = 0.12;
 const RECENT_CAT_MAX = 8;
-const RECENT_CAT_BOOST = 0.18;
-
-/** Cap TF/CPU scoring pool — full 12k scans are too slow on home. */
-export const RECOMMEND_CANDIDATE_CAP = 800;
-
-/** Feature dimension for TF / CPU dot-product scorer */
-export const RECOMMEND_FEATURE_DIM = 8;
-
 /** Games usable for ranking (lean index or full metadata). */
 export type RecommendableGame = GameIndexEntry & Partial<Pick<GameMetadata, 'description'>>;
 
@@ -263,20 +268,6 @@ export function isTodayPlayLimitReached(gameId: string): boolean {
 	return false;
 }
 
-function sumValues(rec: Record<string, number>): number {
-	return Object.values(rec).reduce((a, b) => a + b, 0);
-}
-
-function normalizeWeights(rec: Record<string, number>): Record<string, number> {
-	const s = sumValues(rec);
-	if (s <= 0) return {};
-	const out: Record<string, number> = {};
-	for (const [k, v] of Object.entries(rec)) {
-		out[k] = v / s;
-	}
-	return out;
-}
-
 function mulberry32(seed: number) {
 	return function () {
 		let t = (seed += 0x6d2b79f5);
@@ -309,254 +300,95 @@ export function getBrowseShuffleSeed(): number {
 	return parseInt(raw, 10) || 0xdec0de;
 }
 
-function likedAuthorHints(
-	prefs: GamePreferences,
-	byId: Map<string, RecommendableGame>
-): Set<string> {
-	const authors = new Set<string>();
-	for (const id of prefs.liked) {
-		const g = byId.get(id);
-		if (g?.author) authors.add(g.author);
-	}
-	return authors;
-}
-
-function learningSignalStrength(analytics: PlayAnalyticsV2, prefs: GamePreferences): number {
-	return sumValues(analytics.categoryWeights) + prefs.liked.length * 0.1;
-}
-
-/** Hand-tuned weights for feature vector (same order as buildFeatureRow). */
-const SCORE_WEIGHTS = new Float32Array([
-	2.2, // categoryNorm
-	1.0, // authorNorm
-	0.25, // likedAuthor
-	0.08, // likedGame
-	0.18, // recency
-	0.45, // freshness (inverse sessions)
-	0.12, // days since play
-	1.0 // category affinity (0..1)
-]);
-
-function buildFeatureRow(
-	game: RecommendableGame,
+/** Turn play analytics, favourites and the event log into per-game model signals. */
+export function gatherSignals(
 	analytics: PlayAnalyticsV2,
 	prefs: GamePreferences,
-	catNorm: Record<string, number>,
-	authNorm: Record<string, number>,
-	likedAuthors: Set<string>,
-	recentIdx: Map<string, number>,
-	recentCats: string[]
-): Float32Array {
-	const now = Date.now();
-	const dayMs = 86_400_000;
-	const affinityRaw = analytics.categoryAffinity[game.category] ?? 0;
-	const affinity01 = (affinityRaw + 1) / 2;
-
-	const sessions = analytics.perGame[game.id]?.sessions ?? 0;
-	const last = analytics.perGame[game.id]?.lastPlayed;
-	const freshness = 1 / (1 + sessions * 0.12);
-	let daysNorm = 0;
-	if (last != null) {
-		const days = (now - last) / dayMs;
-		daysNorm = Math.min(1, days / 30);
-	}
-
-	const ri = recentIdx.get(game.category);
-	let recency = 0;
-	if (ri !== undefined && recentCats.length > 0) {
-		recency = RECENT_CAT_BOOST * (1 - ri / Math.max(1, recentCats.length));
-	}
-
-	const f = new Float32Array(RECOMMEND_FEATURE_DIM);
-	f[0] = catNorm[game.category] ?? 0;
-	f[1] = authNorm[game.author] ?? 0;
-	f[2] = likedAuthors.has(game.author) ? 1 : 0;
-	f[3] = prefs.liked.includes(game.id) ? 1 : 0;
-	f[4] = recency;
-	f[5] = freshness;
-	f[6] = daysNorm;
-	f[7] = affinity01;
-	return f;
-}
-
-function scoreGamesCpu(
-	games: RecommendableGame[],
-	analytics: PlayAnalyticsV2,
-	prefs: GamePreferences,
-	byId: Map<string, RecommendableGame>
-): { game: RecommendableGame; score: number }[] {
-	/* Disliked games are already dropped by selectRecommendCandidates. */
-	const effectiveCat: Record<string, number> = { ...analytics.categoryWeights };
-	for (const id of prefs.liked) {
-		const g = byId.get(id);
-		if (g?.category) {
-			const c = g.category;
-			effectiveCat[c] = (effectiveCat[c] ?? 0) + 0.35;
+	events: readonly PlayEvent[] = playEvents(),
+	now = Date.now()
+): GameSignal[] {
+	const byId = new Map<string, GameSignal>();
+	const get = (id: string, last: number) => {
+		let s = byId.get(id);
+		if (!s) {
+			s = { id, last };
+			byId.set(id, s);
+		} else if (last > s.last) {
+			s.last = last;
 		}
+		return s;
+	};
+	for (const [id, stats] of Object.entries(analytics.perGame)) {
+		const s = get(id, stats.lastPlayed || 0);
+		s.starts = stats.sessions;
+		s.playMs = stats.totalPlayMs ?? 0;
 	}
-	const catNorm = normalizeWeights(effectiveCat);
-	const authNorm = normalizeWeights(analytics.authorWeights);
-	const likedAuthors = likedAuthorHints(prefs, byId);
-	const recentCats = analytics.recentCategories ?? [];
-	const recentIdx = new Map<string, number>();
-	for (let i = 0; i < recentCats.length; i++) {
-		const c = recentCats[i];
-		if (!recentIdx.has(c)) recentIdx.set(c, i);
+	for (const e of events) {
+		const s = get(e.id, e.t);
+		if (e.k === 'error') s.errors = (s.errors ?? 0) + 1;
+		else s.earlyLeaves = (s.earlyLeaves ?? 0) + 1;
 	}
-
-	const n = games.length;
-	const features = new Float32Array(n * RECOMMEND_FEATURE_DIM);
-	for (let i = 0; i < n; i++) {
-		const row = buildFeatureRow(
-			games[i],
-			analytics,
-			prefs,
-			catNorm,
-			authNorm,
-			likedAuthors,
-			recentIdx,
-			recentCats
-		);
-		features.set(row, i * RECOMMEND_FEATURE_DIM);
-	}
-	const scores = cpuMatMulVec(features, SCORE_WEIGHTS, n, RECOMMEND_FEATURE_DIM);
-	return games.map((game, i) => ({
-		game,
-		score: scores[i] + (game.id.charCodeAt(0) % 7) * 0.001
-	}));
+	/* Favourites and dislikes carry no date: they count as current. */
+	for (const id of prefs.liked) get(id, now).favourite = true;
+	for (const id of prefs.disliked) get(id, now).disliked = true;
+	return [...byId.values()];
 }
 
-/**
- * Prefer liked/recent categories, then deterministic fill — keeps scoring ≤ RECOMMEND_CANDIDATE_CAP.
- */
-export function selectRecommendCandidates(
-	allGames: RecommendableGame[],
-	prefs: GamePreferences,
-	cap = RECOMMEND_CANDIDATE_CAP
-): RecommendableGame[] {
+let matrixCache: { key: string; matrix: FeatureMatrix } | null = null;
+
+function catalogKey(games: readonly RecommendableGame[]): string {
+	return `${games.length}:${games[0]?.id}:${games[games.length - 1]?.id}`;
+}
+
+/** Feature rows for the catalog, built once per catalog (about 20 ms for 13k games). */
+function featureMatrix(games: readonly RecommendableGame[]): FeatureMatrix {
+	const key = catalogKey(games);
+	if (matrixCache?.key !== key) matrixCache = { key, matrix: buildFeatureMatrix(games) };
+	return matrixCache.matrix;
+}
+
+function prepareRanking(allGames: RecommendableGame[], prefs: GamePreferences) {
 	const analytics = loadPlayAnalytics();
 	const disliked = new Set(prefs.disliked);
-	const pool = allGames.filter((g) => !disliked.has(g.id));
-	if (pool.length <= cap) return pool;
-
-	const preferredCats = new Set<string>();
-	for (const c of analytics.recentCategories ?? []) preferredCats.add(c);
-	for (const [c, w] of Object.entries(analytics.categoryWeights)) {
-		if (w > 0.05) preferredCats.add(c);
-	}
-	const byId = new Map(pool.map((g) => [g.id, g]));
-	for (const id of prefs.liked) {
-		const g = byId.get(id);
-		if (g?.category) preferredCats.add(g.category);
-	}
-
-	const selected: RecommendableGame[] = [];
-	const have = new Set<string>();
-	for (const g of pool) {
-		if (preferredCats.has(g.category) && !have.has(g.id)) {
-			selected.push(g);
-			have.add(g.id);
-			if (selected.length >= cap) return selected;
-		}
-	}
-	for (const g of shuffleDeterministic(pool, 42_069)) {
-		if (have.has(g.id)) continue;
-		selected.push(g);
-		have.add(g.id);
-		if (selected.length >= cap) break;
-	}
-	return selected;
+	const matrix = featureMatrix(allGames);
+	const model = trainUserModel(matrix, gatherSignals(analytics, prefs), Date.now());
+	return { analytics, disliked, matrix, model };
 }
 
 /**
- * Home page (sync): CPU-only ranking — same math as async path without TensorFlow.
+ * Home page (sync, CPU): the BPR model over hashed features, see recommendation-model.ts.
+ * With no history this is the catalog's quality order, diversified by category.
  */
 export function getHomeRecommendations(
 	allGames: RecommendableGame[],
 	prefs: GamePreferences,
 	limit: number
 ): RecommendableGame[] {
-	const analytics = loadPlayAnalytics();
-	const byId = new Map(allGames.map((g) => [g.id, g]));
-	const candidates = selectRecommendCandidates(allGames, prefs);
-	if (candidates.length === 0) return [];
-
-	if (learningSignalStrength(analytics, prefs) < 0.02) {
-		return shuffleDeterministic(candidates, 42_069).slice(0, limit);
-	}
-
-	const scored = scoreGamesCpu(candidates, analytics, prefs, byId);
-	scored.sort((a, b) => b.score - a.score);
-	return scored.slice(0, limit).map((s) => s.game);
+	if (allGames.length === 0) return [];
+	const { analytics, disliked, matrix, model } = prepareRanking(allGames, prefs);
+	const raw = matVecCpu(matrix.data, model.w, allGames.length);
+	return rankFromScores(allGames, raw, model, {
+		limit,
+		exclude: disliked,
+		categoryAffinity: analytics.categoryAffinity
+	});
 }
 
-/**
- * Home page (async): TensorFlow matmul on GPU when available.
- */
+/** Home page (async): the same ranking, with the catalog mat-vec on WebGPU when available. */
 export async function getHomeRecommendationsAsync(
 	allGames: RecommendableGame[],
 	prefs: GamePreferences,
 	limit: number
 ): Promise<RecommendableGame[]> {
-	const analytics = loadPlayAnalytics();
-	const byId = new Map(allGames.map((g) => [g.id, g]));
-	const candidates = selectRecommendCandidates(allGames, prefs);
-	if (candidates.length === 0) return [];
-
-	if (learningSignalStrength(analytics, prefs) < 0.02) {
-		return shuffleDeterministic(candidates, 42_069).slice(0, limit);
-	}
-
-	const effectiveCat: Record<string, number> = { ...analytics.categoryWeights };
-	for (const id of prefs.liked) {
-		const g = byId.get(id);
-		if (g?.category) {
-			const c = g.category;
-			effectiveCat[c] = (effectiveCat[c] ?? 0) + 0.35;
-		}
-	}
-	const catNorm = normalizeWeights(effectiveCat);
-	const authNorm = normalizeWeights(analytics.authorWeights);
-	const likedAuthors = likedAuthorHints(prefs, byId);
-	const recentCats = analytics.recentCategories ?? [];
-	const recentIdx = new Map<string, number>();
-	for (let i = 0; i < recentCats.length; i++) {
-		const c = recentCats[i];
-		if (!recentIdx.has(c)) recentIdx.set(c, i);
-	}
-
-	const n = candidates.length;
-	const features = new Float32Array(n * RECOMMEND_FEATURE_DIM);
-	for (let i = 0; i < n; i++) {
-		const row = buildFeatureRow(
-			candidates[i],
-			analytics,
-			prefs,
-			catNorm,
-			authNorm,
-			likedAuthors,
-			recentIdx,
-			recentCats
-		);
-		features.set(row, i * RECOMMEND_FEATURE_DIM);
-	}
-
-	/*
-	 * No eager `initRecommendationBackend()` here: it downloaded and initialised the whole
-	 * tfjs runtime before `scoreWithTensorFlow` had a chance to decide this workload is far
-	 * too small to be worth a GPU. Let the scorer choose; it only touches TF if it needs to.
-	 */
-	const scores =
-		typeof window !== 'undefined'
-			? await scoreWithTensorFlow(features, SCORE_WEIGHTS, n, RECOMMEND_FEATURE_DIM)
-			: cpuMatMulVec(features, SCORE_WEIGHTS, n, RECOMMEND_FEATURE_DIM);
-
-	const combined = candidates.map((game, i) => ({
-		game,
-		score: scores[i] + (game.id.charCodeAt(0) % 7) * 0.001
-	}));
-	combined.sort((a, b) => b.score - a.score);
-	return combined.slice(0, limit).map((s) => s.game);
+	if (allGames.length === 0) return [];
+	const { analytics, disliked, matrix, model } = prepareRanking(allGames, prefs);
+	await loadPlayEvents();
+	const raw = await scoreCatalog(matrix.data, model.w, allGames.length);
+	return rankFromScores(allGames, raw, model, {
+		limit,
+		exclude: disliked,
+		categoryAffinity: analytics.categoryAffinity
+	});
 }
 
 /**
@@ -621,73 +453,32 @@ export function getRecommendationsForGamePage(
 	prefs: GamePreferences,
 	limit: number
 ): RecommendableGame[] {
-	const analytics = loadPlayAnalytics();
-	const disliked = new Set(prefs.disliked);
-	const byId = new Map(allGames.map((g) => [g.id, g]));
-
-	const effectiveCat: Record<string, number> = { ...analytics.categoryWeights };
-	for (const id of prefs.liked) {
-		const g = byId.get(id);
-		if (g?.category) {
-			const c = g.category;
-			effectiveCat[c] = (effectiveCat[c] ?? 0) + 0.25;
+	if (allGames.length === 0) return [];
+	const { analytics, disliked, matrix, model } = prepareRanking(allGames, prefs);
+	/*
+	 * "More like this": the current game's feature row, nudged by the player's own taste.
+	 * Both are unit-length, so the game dominates and taste breaks ties.
+	 */
+	const target = new Float32Array(FEATURE_DIM);
+	writeFeatures(current, target, 0);
+	let wnorm = 0;
+	for (let k = 0; k < FEATURE_DIM; k++) wnorm += model.w[k] ** 2;
+	const taste = wnorm > 0 ? 0.35 / Math.sqrt(wnorm) : 0;
+	for (let k = 0; k < FEATURE_DIM; k++) target[k] += taste * model.w[k];
+	const raw = matVecCpu(matrix.data, target, allGames.length);
+	const exclude = new Set(disliked);
+	exclude.add(currentId);
+	return rankFromScores(
+		allGames,
+		raw,
+		{ ...model, w: target },
+		{
+			limit,
+			exclude,
+			categoryAffinity: analytics.categoryAffinity,
+			perCategory: limit
 		}
-	}
-	const catNorm = normalizeWeights(effectiveCat);
-	const authNorm = normalizeWeights(analytics.authorWeights);
-	const likedAuthors = likedAuthorHints(prefs, byId);
-
-	const similarTo = similarityProfile(current);
-
-	const pool = selectRecommendCandidates(
-		allGames.filter((g) => g.id !== currentId),
-		prefs
 	);
-	const recentCats = analytics.recentCategories ?? [];
-	const recentIdx = new Map<string, number>();
-	for (let i = 0; i < recentCats.length; i++) {
-		const c = recentCats[i];
-		if (!recentIdx.has(c)) recentIdx.set(c, i);
-	}
-
-	const scored = pool.map((game) => {
-		let score = 1.8 * (catNorm[game.category] ?? 0);
-		score += 0.9 * (authNorm[game.author] ?? 0);
-		if (likedAuthors.has(game.author)) score += 0.22;
-		score += 0.55 * gameSimilarity(similarTo, game);
-
-		if (prefs.disliked.some((id) => byId.get(id)?.author === game.author)) {
-			score -= 0.25;
-		}
-
-		const sessions = analytics.perGame[game.id]?.sessions ?? 0;
-		score -= sessions * 0.02;
-
-		const aff = analytics.categoryAffinity[game.category] ?? 0;
-		score += aff * 0.4;
-
-		return { game, score };
-	});
-
-	scored.sort((a, b) => b.score - a.score);
-	let out = scored.slice(0, limit).map((s) => s.game);
-
-	if (out.length < limit) {
-		const need = limit - out.length;
-		const have = new Set(out.map((g) => g.id));
-		const sameCat = allGames
-			.filter(
-				(g) =>
-					g.id !== currentId &&
-					!disliked.has(g.id) &&
-					!have.has(g.id) &&
-					g.category === current.category
-			)
-			.slice(0, need);
-		out = [...out, ...sameCat];
-	}
-
-	return out.slice(0, limit);
 }
 
 export function getRecentlyPlayedGames(

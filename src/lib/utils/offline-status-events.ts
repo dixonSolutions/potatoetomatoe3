@@ -1,4 +1,3 @@
-import { invalidatePullerOfflineStatusCache } from './offline-downloader-puller';
 import { invalidateOfflineBackendCache } from './offline-runtime';
 
 export const OFFLINE_STATUS_CHANGED = 'potato-tomato-offline-status-changed';
@@ -20,7 +19,6 @@ export function dispatchOfflineStatusChanged(
 	gameId?: string,
 	reason?: OfflineStatusChangeReason
 ): void {
-	invalidatePullerOfflineStatusCache();
 	invalidateOfflineBackendCache();
 	if (typeof window === 'undefined') return;
 	window.dispatchEvent(
@@ -29,5 +27,5 @@ export function dispatchOfflineStatusChanged(
 }
 
 export function invalidateOfflineStatusCache(): void {
-	invalidatePullerOfflineStatusCache();
+	invalidateOfflineBackendCache();
 }

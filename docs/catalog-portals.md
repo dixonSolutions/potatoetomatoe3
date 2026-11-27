@@ -25,7 +25,7 @@ library. Rebuild with `node scripts/reindex-games-catalog.mjs` (or full
 `generate-games-list`). Browse Fuse search builds only when the user types a query.
 Full descriptions / embed URLs stay on per-game `online/metadata.json` for detail pages.
 
-`games-list.json` and `games-metadata.json` remain for puller / Flatpak tooling.
+`games-list.json` remains for tooling. `games-metadata.json` lives in `scripts/data/` (build scripts only) and is not shipped.
 
 ## Quality filter (Unity Play)
 

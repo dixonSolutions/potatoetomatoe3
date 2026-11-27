@@ -25,8 +25,7 @@ async function onlineShellExists(gameId: string): Promise<boolean> {
 }
 
 /**
- * When the puller drops, backend becomes `browser` and IndexedDB status often says
- * offline:false even though a prior puller download still exists on disk under
+ * IndexedDB status often says offline:false even though a copy exists on disk under
  * `/games/{id}/offline/`. Keep probing static mirrors in that case so Offline play
  * remains selectable.
  */
@@ -38,7 +37,7 @@ async function shouldProbeStaticOfflineMirror(
 	if (statusOffline === undefined) return true;
 	const backend = await getOfflineBackend();
 	/* A file backend already looked at the disk; its answer is the answer. */
-	return backend !== 'puller' && backend !== 'native';
+	return backend !== 'native';
 }
 
 /** Whether online and/or offline copies exist for a game. */

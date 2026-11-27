@@ -12,23 +12,27 @@
 		type CatalogLoadProgress,
 		type GameIndexEntry
 	} from '$lib/utils/games';
-	import GameCardImage from '$lib/components/game-card/GameCardImage.svelte';
-	import { warmGameLaunch } from '$lib/utils/network-warmup';
 	import { canUseLocalStorage } from '$lib/utils/browser-storage';
 	import {
 		applyQualityFilter,
 		compareByQuality,
 		countHiddenByDefault,
 		readQualityFilterPrefs,
+		suggestionPool,
 		writeQualityFilterPrefs
 	} from '$lib/utils/catalog-quality';
 	import { getPreferences } from '$lib/utils/preferences';
 	import { getBrowseShuffleSeed, shuffleDeterministic } from '$lib/utils/play-recommendations';
-	import * as Card from '$lib/components/ui/card';
+	import GameTile from '$lib/components/game-card/GameTile.svelte';
+	import * as Popover from '$lib/components/ui/popover';
+	import * as ToggleGroup from '$lib/components/ui/toggle-group';
+	import { Switch } from '$lib/components/ui/switch';
+	import { Label } from '$lib/components/ui/label';
+	import { recommendedGames } from '$lib/utils/home-feed-recommended';
 	import Input from '$lib/components/ui/input/input.svelte';
 	import * as Select from '$lib/components/ui/select';
 	import Button from '$lib/components/ui/button/button.svelte';
-	import { Heart, ArrowUpDown, HardDrive, Eye, GraduationCap } from 'lucide-svelte';
+	import { ArrowUpDown, Search, SlidersHorizontal } from 'lucide-svelte';
 	import Fuse from 'fuse.js';
 	import { likeGame, removePreference } from '$lib/utils/preferences';
 	import {
@@ -38,6 +42,7 @@
 	} from '$lib/utils/offline-downloader';
 	import { filterDownloadedGames } from '$lib/utils/game-availability';
 	import { isNetworkOnline, subscribeNetworkStatus } from '$lib/utils/network-status';
+	import { offlineFilterOn, setOfflineFilter } from '$lib/utils/offline-filter.svelte';
 	import { WifiOff } from 'lucide-svelte';
 	import { createWindowVirtualizer } from '@tanstack/svelte-virtual';
 
@@ -45,7 +50,7 @@
 	const SORT_KEYS: SortKey[] = ['quality', 'name', 'author', 'category', 'random'];
 	const BROWSE_SORT_LS = 'potato-tomato-games-browse-sort';
 	const SEARCH_DEBOUNCE_MS = 150;
-	const ROW_ESTIMATE_PX = 360;
+	const ROW_ESTIMATE_PX = 240;
 	/** Prefetch more shards when within this many rows of the loaded end. */
 	const SCROLL_PREFETCH_ROWS = 3;
 	const SHARDS_PER_SCROLL = 2;
@@ -65,7 +70,13 @@
 	/* Only games whose hosts are not known to be blocked by the NSW DoE filter. */
 	let schoolNetworkOnly = $state(false);
 	let sortReversed = $state(false);
-	let showFavouritesOnly = $state(false);
+	/* Any / Recommended / Favourites: combines with search and the other filters. */
+	type ShowMode = 'any' | 'recommended' | 'favourites';
+	const SHOW_MODES: ShowMode[] = ['any', 'recommended', 'favourites'];
+	let show = $state<ShowMode>('any');
+	/* Recommender order for the Recommended filter, computed once per visit. */
+	let recommendedOrder = $state<Map<string, number> | null>(null);
+	const RECOMMENDED_LIMIT = 400;
 	let showDownloadedOnly = $state(false);
 	let networkOnline = $state(true);
 	let offlineStatusMap = $state<Record<string, { offline?: boolean; offlineThumbnail?: string }>>(
@@ -80,16 +91,13 @@
 	 * below (1/2/3/4 columns in a 1920px-max container).
 	 */
 	const CARD_IMAGE_SIZES =
-		'(min-width: 1920px) 450px, (min-width: 1024px) 24vw, (min-width: 768px) 32vw, (min-width: 640px) 48vw, 94vw';
+		'(min-width: 1800px) 220px, (min-width: 1536px) 13vw, (min-width: 1280px) 15vw, (min-width: 1024px) 18vw, (min-width: 768px) 23vw, (min-width: 640px) 31vw, 46vw';
 
 	function prefersOfflineCover(game: GameIndexEntry): boolean {
 		return !networkOnline || Boolean(offlineStatusMap[game.id]?.offline);
 	}
 
-	function toggleFavourite(gameId: string, event: MouseEvent) {
-		event.preventDefault();
-		event.stopPropagation();
-
+	function toggleFavourite(gameId: string) {
 		if (favouriteIds.has(gameId)) {
 			removePreference(gameId);
 			favouriteIds.delete(gameId);
@@ -97,21 +105,6 @@
 			likeGame(gameId);
 			favouriteIds.add(gameId);
 		}
-	}
-
-	function openGame(gameId: string, event: MouseEvent) {
-		if (
-			event.defaultPrevented ||
-			event.button !== 0 ||
-			event.metaKey ||
-			event.ctrlKey ||
-			event.shiftKey ||
-			event.altKey
-		) {
-			return;
-		}
-		event.preventDefault();
-		void goto(resolve(`/games/${gameId}`));
 	}
 
 	let selectedCategoryValue = $derived({
@@ -215,10 +208,13 @@
 	function updateColumnCount() {
 		if (typeof window === 'undefined') return;
 		const w = window.innerWidth;
-		if (w >= 1024) columnCount = 4;
-		else if (w >= 768) columnCount = 3;
-		else if (w >= 640) columnCount = 2;
-		else columnCount = 1;
+		if (w >= 1800) columnCount = 8;
+		else if (w >= 1536) columnCount = 7;
+		else if (w >= 1280) columnCount = 6;
+		else if (w >= 1024) columnCount = 5;
+		else if (w >= 768) columnCount = 4;
+		else if (w >= 640) columnCount = 3;
+		else columnCount = 2;
 	}
 
 	onMount(() => {
@@ -241,6 +237,9 @@
 			searchQuery = params.get('q') || '';
 			debouncedSearch = searchQuery;
 			selectedCategory = params.get('category') || 'all';
+			const urlShow = params.get('show') as ShowMode | null;
+			show = urlShow && SHOW_MODES.includes(urlShow) ? urlShow : 'any';
+			showDownloadedOnly = params.get('downloaded') === '1';
 			const urlSort = params.get('sort') as SortKey | null;
 			const fromLs = canUseLocalStorage()
 				? (localStorage.getItem(BROWSE_SORT_LS) as SortKey | null)
@@ -321,13 +320,58 @@
 		void loadCatalogIndex(applyCatalogUpdate, { eager: true });
 	});
 
-	let restrictToDownloaded = $derived(!networkOnline || showDownloadedOnly);
+	let restrictToDownloaded = $derived(showDownloadedOnly || (!networkOnline && offlineFilterOn()));
+
+	/* The Recommended filter ranks the whole catalog, so it loads the rest first. */
+	let recommendedRequested = false;
+	$effect(() => {
+		if (!browser || show !== 'recommended' || recommendedRequested) return;
+		recommendedRequested = true;
+		void (async () => {
+			const full = catalogProgress?.complete
+				? games
+				: await loadCatalogIndex(applyCatalogUpdate, { eager: true });
+			const pool = suggestionPool(applyQualityFilter(full, readQualityFilterPrefs()));
+			const ranked = await recommendedGames(pool, RECOMMENDED_LIMIT);
+			recommendedOrder = new Map(ranked.map((g, i) => [g.id, i]));
+		})();
+	});
+
+	function setShow(next: ShowMode) {
+		show = next;
+		const u = new URL($page.url.href);
+		if (next === 'any') u.searchParams.delete('show');
+		else u.searchParams.set('show', next);
+		// eslint-disable-next-line svelte/no-navigation-without-resolve -- resolve() takes no query string; the path part is resolve('/games')
+		void goto(`${resolve('/games')}${u.search}`, {
+			replaceState: true,
+			keepFocus: true,
+			noScroll: true
+		});
+	}
+
+	function setCategory(next: string) {
+		selectedCategory = next;
+	}
+
+	/* Filters that differ from the defaults, for the badge on the filter button. */
+	let activeFilterCount = $derived(
+		(show !== 'any' ? 1 : 0) +
+			(selectedCategory !== 'all' ? 1 : 0) +
+			(sortBy !== 'quality' || sortReversed ? 1 : 0) +
+			(showDownloadedOnly ? 1 : 0) +
+			(schoolNetworkOnly ? 1 : 0) +
+			(showAllGames ? 1 : 0)
+	);
 
 	let filteredGames = $derived.by(() => {
 		let results = games;
 
-		if (showFavouritesOnly) {
+		if (show === 'favourites') {
 			results = results.filter((game) => favouriteIds.has(game.id));
+		} else if (show === 'recommended') {
+			const order = recommendedOrder;
+			results = order ? results.filter((game) => order.has(game.id)) : [];
 		}
 
 		if (restrictToDownloaded) {
@@ -339,7 +383,7 @@
 		 * broken. The school-network filter still applies when it is on.
 		 */
 		results = applyQualityFilter(results, {
-			showAll: showAllGames || showFavouritesOnly || restrictToDownloaded,
+			showAll: showAllGames || show === 'favourites' || restrictToDownloaded,
 			schoolNetworkOnly
 		});
 
@@ -353,6 +397,13 @@
 			results = results.filter(
 				(game) => game.category?.toLowerCase() === selectedCategory.toLowerCase()
 			);
+		}
+
+		/* Recommended keeps the recommender's order unless another sort was picked. */
+		if (show === 'recommended' && sortBy === 'quality' && recommendedOrder) {
+			const order = recommendedOrder;
+			const ranked = [...results].sort((a, b) => order.get(a.id)! - order.get(b.id)!);
+			return sortReversed ? ranked.reverse() : ranked;
 		}
 
 		/* Shards are best-first — skip a full sort for the default browse path. */
@@ -422,6 +473,16 @@
 	});
 
 	let virtualRows = $derived($rowVirtualizer.getVirtualItems());
+
+	/* Rows are measured, so tile height can follow the column width. */
+	function measureRow(node: HTMLElement) {
+		untrack(() => $rowVirtualizer.measureElement(node));
+		return {
+			update() {
+				untrack(() => $rowVirtualizer.measureElement(node));
+			}
+		};
+	}
 	let totalSize = $derived($rowVirtualizer.getTotalSize());
 
 	$effect(() => {
@@ -474,244 +535,218 @@
 	let catalogLoading = $derived(catalogProgress != null && catalogProgress.complete === false);
 </script>
 
-<div class="mx-auto w-full max-w-[1920px] px-3 py-5 sm:px-5 md:py-6">
-	{#if !networkOnline}
+<div class="mx-auto w-full max-w-[1920px] px-3 py-4 sm:px-5 md:py-6">
+	<div class="mb-4 flex items-center gap-2 md:mb-5">
+		<div class="relative flex-1">
+			<Search
+				class="pointer-events-none absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-muted-foreground"
+				aria-hidden="true"
+			/>
+			<Input
+				type="search"
+				placeholder="Search games"
+				aria-label="Search games"
+				bind:value={searchQuery}
+				class="h-10 pl-9"
+			/>
+		</div>
+		<Popover.Root>
+			<Popover.Trigger>
+				{#snippet child({ props })}
+					<Button
+						{...props}
+						variant={activeFilterCount > 0 ? 'secondary' : 'outline'}
+						size="icon"
+						class="relative h-10 w-10 shrink-0"
+						aria-label="Filters"
+					>
+						<SlidersHorizontal class="h-4 w-4" />
+						{#if activeFilterCount > 0}
+							<span
+								class="absolute -top-1 -right-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-primary px-1 text-[10px] font-semibold text-primary-foreground"
+								>{activeFilterCount}</span
+							>
+						{/if}
+					</Button>
+				{/snippet}
+			</Popover.Trigger>
+			<Popover.Content align="end" class="w-80 space-y-4">
+				<ToggleGroup.Root
+					type="single"
+					variant="outline"
+					value={show}
+					onValueChange={(v) => {
+						if (v && SHOW_MODES.includes(v as ShowMode)) setShow(v as ShowMode);
+					}}
+					class="w-full"
+					aria-label="Show"
+				>
+					<ToggleGroup.Item value="any" class="flex-1">Any</ToggleGroup.Item>
+					<ToggleGroup.Item value="recommended" class="flex-1">Recommended</ToggleGroup.Item>
+					<ToggleGroup.Item value="favourites" class="flex-1">Favourites</ToggleGroup.Item>
+				</ToggleGroup.Root>
+
+				<div class="grid grid-cols-[1fr_auto] gap-2">
+					<Select.Root
+						type="single"
+						value={selectedCategory}
+						onValueChange={(v) => {
+							if (v) setCategory(v);
+						}}
+					>
+						<Select.Trigger class="col-span-2 w-full" aria-label="Category">
+							{selectedCategoryValue.label}
+						</Select.Trigger>
+						<Select.Content>
+							{#each categories as category (category)}
+								<Select.Item value={category}>
+									{category === 'all'
+										? 'All categories'
+										: category.charAt(0).toUpperCase() + category.slice(1)}
+								</Select.Item>
+							{/each}
+						</Select.Content>
+					</Select.Root>
+					<Select.Root
+						type="single"
+						value={sortBy}
+						onValueChange={(v) => {
+							if (SORT_KEYS.includes(v as SortKey)) setSortBy(v as SortKey);
+						}}
+					>
+						<Select.Trigger class="w-full" aria-label="Sort">
+							{selectedSortValue.label}
+						</Select.Trigger>
+						<Select.Content>
+							<Select.Item value="quality">Best first</Select.Item>
+							<Select.Item value="name">Name (A–Z)</Select.Item>
+							<Select.Item value="author">Author</Select.Item>
+							<Select.Item value="category">Category</Select.Item>
+							<Select.Item value="random">Shuffle</Select.Item>
+						</Select.Content>
+					</Select.Root>
+					<Button
+						variant="outline"
+						size="icon"
+						onclick={toggleSortDirection}
+						disabled={sortBy === 'random'}
+						aria-label={sortReversed ? 'Sort descending' : 'Sort ascending'}
+					>
+						<ArrowUpDown class="h-4 w-4 {sortReversed ? 'rotate-180' : ''}" />
+					</Button>
+				</div>
+
+				<div class="space-y-3">
+					<div class="flex items-center justify-between gap-3">
+						<Label for="filter-downloaded">Downloaded only</Label>
+						<Switch
+							id="filter-downloaded"
+							checked={restrictToDownloaded}
+							onCheckedChange={(v) => {
+								if (networkOnline) showDownloadedOnly = v;
+								else {
+									showDownloadedOnly = false;
+									setOfflineFilter(v);
+								}
+							}}
+						/>
+					</div>
+					<div class="flex items-center justify-between gap-3">
+						<Label for="filter-school" title="Hide games whose sites the NSW school network blocks"
+							>School network</Label
+						>
+						<Switch
+							id="filter-school"
+							checked={schoolNetworkOnly}
+							onCheckedChange={(v) => setQualityFilter({ schoolNetworkOnly: v })}
+						/>
+					</div>
+					<div class="flex items-center justify-between gap-3">
+						<Label for="filter-all" title="Include tests and games that do not load"
+							>Show hidden games</Label
+						>
+						<Switch
+							id="filter-all"
+							checked={showAllGames}
+							onCheckedChange={(v) => setQualityFilter({ showAll: v })}
+						/>
+					</div>
+				</div>
+			</Popover.Content>
+		</Popover.Root>
+	</div>
+
+	<div class="mb-3 flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+		{#if !networkOnline}
+			<span class="inline-flex items-center gap-1 rounded-full bg-muted px-2 py-0.5" role="status">
+				<WifiOff class="h-3.5 w-3.5" aria-hidden="true" />
+				Offline · {downloadedCount} downloaded
+			</span>
+		{/if}
+		{#if !loading}
+			<span>{filteredGames.length.toLocaleString()} games</span>
+		{/if}
+		{#if catalogLoading}
+			<span>· loading…</span>
+		{/if}
+		{#if hiddenCount > 0 && !showAllGames}
+			<button
+				type="button"
+				class="underline-offset-2 hover:text-foreground hover:underline"
+				onclick={() => setQualityFilter({ showAll: true })}
+			>
+				· {hiddenCount} hidden
+			</button>
+		{/if}
+	</div>
+
+	{#if loading || (show === 'recommended' && !recommendedOrder)}
 		<div
-			class="mb-6 flex items-start gap-3 rounded-lg border border-amber-500/40 bg-amber-500/10 px-4 py-3 text-sm"
-			role="status"
+			class="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7"
+			aria-busy="true"
+			aria-label="Loading"
 		>
-			<WifiOff class="mt-0.5 h-4 w-4 shrink-0 text-amber-700 dark:text-amber-300" />
-			<div>
-				<p class="font-medium text-foreground">You are offline</p>
-				<p class="text-muted-foreground">
-					Showing {downloadedCount} downloaded {downloadedCount === 1 ? 'game' : 'games'} you can play
-					without internet.
-				</p>
-			</div>
-		</div>
-	{/if}
-
-	<div class="mb-8">
-		<h1 class="mb-4 text-4xl font-bold">All games</h1>
-		<p class="max-w-2xl text-muted-foreground">
-			Best games first. Development tests and games that no longer load are hidden — use Show all to
-			include them. More games load as you scroll; search pulls in the rest of the catalog.
-		</p>
-	</div>
-
-	<div class="mb-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
-		<Input
-			type="text"
-			placeholder="Search games..."
-			bind:value={searchQuery}
-			class="w-full sm:min-w-[14rem] sm:flex-1"
-		/>
-
-		<Button
-			variant={restrictToDownloaded ? 'default' : 'outline'}
-			onclick={() => {
-				if (!networkOnline) return;
-				showDownloadedOnly = !showDownloadedOnly;
-			}}
-			disabled={!networkOnline}
-			class="w-full sm:w-auto"
-			title={!networkOnline ? 'Downloaded filter is required while offline' : undefined}
-		>
-			<HardDrive class="mr-2 h-4 w-4" />
-			{restrictToDownloaded ? 'Downloaded' : 'Downloaded only'}
-		</Button>
-
-		<Button
-			variant={schoolNetworkOnly ? 'default' : 'outline'}
-			onclick={() => setQualityFilter({ schoolNetworkOnly: !schoolNetworkOnly })}
-			class="w-full sm:w-auto"
-			aria-pressed={schoolNetworkOnly}
-			title="Only games whose sites are not known to be blocked by the NSW Department of Education web filter"
-		>
-			<GraduationCap class="mr-2 h-4 w-4" />
-			School network
-		</Button>
-
-		<Button
-			variant={showAllGames ? 'default' : 'outline'}
-			onclick={() => setQualityFilter({ showAll: !showAllGames })}
-			class="w-full sm:w-auto"
-			aria-pressed={showAllGames}
-			title="Include development tests, templates and games that failed to load"
-		>
-			<Eye class="mr-2 h-4 w-4" />
-			Show all
-		</Button>
-
-		<Button
-			variant={showFavouritesOnly ? 'default' : 'outline'}
-			onclick={() => (showFavouritesOnly = !showFavouritesOnly)}
-			class="w-full sm:w-auto"
-		>
-			<Heart class="mr-2 h-4 w-4 {showFavouritesOnly ? 'fill-current' : ''}" />
-			{showFavouritesOnly ? 'Favourites' : 'Show Favourites'}
-		</Button>
-
-		<Select.Root
-			type="single"
-			value={selectedCategory}
-			onValueChange={(v) => {
-				if (v) selectedCategory = v;
-			}}
-		>
-			<Select.Trigger class="w-full sm:w-48">
-				{selectedCategoryValue.label}
-			</Select.Trigger>
-			<Select.Content>
-				{#each categories as category (category)}
-					<Select.Item value={category}>
-						{category === 'all'
-							? 'All Categories'
-							: category.charAt(0).toUpperCase() + category.slice(1)}
-					</Select.Item>
-				{/each}
-			</Select.Content>
-		</Select.Root>
-
-		<div class="flex w-full gap-2 sm:w-auto">
-			<Select.Root
-				type="single"
-				value={sortBy}
-				onValueChange={(v) => {
-					if (SORT_KEYS.includes(v as SortKey)) setSortBy(v as SortKey);
-				}}
-			>
-				<Select.Trigger class="flex-1 sm:w-44">
-					{selectedSortValue.label}
-				</Select.Trigger>
-				<Select.Content>
-					<Select.Item value="quality">Best first</Select.Item>
-					<Select.Item value="name">Name (A–Z)</Select.Item>
-					<Select.Item value="author">Author</Select.Item>
-					<Select.Item value="category">Category</Select.Item>
-					<Select.Item value="random">Shuffle (random)</Select.Item>
-				</Select.Content>
-			</Select.Root>
-
-			<Button
-				variant="outline"
-				size="icon"
-				onclick={toggleSortDirection}
-				disabled={sortBy === 'random'}
-				title={sortBy === 'random'
-					? 'Not used for shuffle'
-					: sortReversed
-						? 'Sort descending'
-						: 'Sort ascending'}
-			>
-				<ArrowUpDown class="h-4 w-4 {sortReversed ? 'rotate-180' : ''}" />
-			</Button>
-		</div>
-	</div>
-
-	{#if loading}
-		<div class="py-12 text-center">
-			<p class="text-muted-foreground">Loading games...</p>
+			{#each [...Array(14).keys()] as i (i)}
+				<div>
+					<div class="aspect-square animate-pulse rounded-xl bg-muted"></div>
+					<div class="mt-1.5 h-3 w-3/4 animate-pulse rounded bg-muted"></div>
+				</div>
+			{/each}
 		</div>
 	{:else if filteredGames.length === 0}
-		<div class="py-12 text-center">
-			<p class="text-muted-foreground">
-				{!networkOnline
-					? 'No downloaded games available offline yet'
-					: searchQuery || selectedCategory !== 'all' || schoolNetworkOnly
-						? 'No games match your filters'
-						: 'No games available yet'}
-			</p>
-		</div>
+		<p class="py-12 text-center text-sm text-muted-foreground">
+			{!networkOnline
+				? 'No downloaded games yet'
+				: show === 'favourites' && favouriteIds.size === 0
+					? 'No favourites yet. Tap the heart on a game.'
+					: 'No games match'}
+		</p>
 	{:else}
-		<div class="mb-4 flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
-			<span>
-				{filteredGames.length} games
-				{#if catalogProgress}
-					· catalog {catalogProgress.loadedGames}/{catalogProgress.total}
-				{/if}
-			</span>
-			{#if hiddenCount > 0 && !showAllGames}
-				<button
-					type="button"
-					class="text-xs underline underline-offset-2 hover:text-foreground"
-					onclick={() => setQualityFilter({ showAll: true })}
-				>
-					{hiddenCount} tests and broken games hidden — show all
-				</button>
-			{/if}
-			{#if catalogLoading}
-				<span class="text-xs">Loading catalog…</span>
-			{/if}
-		</div>
-
 		<div style="height: {totalSize}px; width: 100%; position: relative;">
 			{#each virtualRows as vRow (vRow.key)}
 				{@const start = vRow.index * columnCount}
 				{@const rowGames = filteredGames.slice(start, start + columnCount)}
-				<div class="absolute top-0 left-0 w-full" style="transform: translateY({vRow.start}px);">
+				<div
+					class="absolute top-0 left-0 w-full pb-4"
+					style="transform: translateY({vRow.start}px);"
+					data-index={vRow.index}
+					use:measureRow
+				>
 					<div
-						class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
-						style="padding-bottom: 1.5rem;"
+						class="grid gap-3"
+						style="grid-template-columns: repeat({columnCount}, minmax(0, 1fr));"
 					>
 						{#each rowGames as game (game.id)}
-							<div class="group relative">
-								<a
-									href={resolve(`/games/${game.id}`)}
-									class="block"
-									data-sveltekit-preload-data="hover"
-									onclick={(e) => openGame(game.id, e)}
-									onpointerenter={() => warmGameLaunch(game.id)}
-									ontouchstart={() => warmGameLaunch(game.id)}
-									onfocus={() => warmGameLaunch(game.id)}
-								>
-									<Card.Root class="overflow-hidden transition-all hover:scale-105 hover:shadow-lg">
-										<div class="relative aspect-square overflow-hidden bg-muted">
-											<GameCardImage
-												thumbnail={game.thumbnail}
-												gameId={game.id}
-												name={game.name}
-												alt={game.name}
-												sizes={CARD_IMAGE_SIZES}
-												priority={vRow.index === 0}
-												preferOffline={prefersOfflineCover(game)}
-												offlineThumbnailRel={offlineStatusMap[game.id]?.offlineThumbnail}
-												class="transition-transform group-hover:scale-110"
-											/>
-											{#if offlineStatusMap[game.id]?.offline}
-												<div
-													class="absolute top-2 left-2 z-10 flex items-center gap-1 rounded-full bg-background/80 px-2 py-1 text-[10px] font-medium backdrop-blur-sm"
-													title="Downloaded for offline play"
-												>
-													<HardDrive class="h-3 w-3" />
-													Offline
-												</div>
-											{/if}
-										</div>
-										<Card.Header>
-											<Card.Title>{game.name}</Card.Title>
-										</Card.Header>
-										<Card.Footer class="flex justify-between text-xs text-muted-foreground">
-											<span>By {game.author}</span>
-											<span class="rounded-full bg-primary/10 px-2 py-1 text-primary"
-												>{game.category}</span
-											>
-										</Card.Footer>
-									</Card.Root>
-								</a>
-								<button
-									type="button"
-									onclick={(e) => toggleFavourite(game.id, e)}
-									class="absolute top-2 right-2 z-20 rounded-full bg-background/80 p-2 backdrop-blur-sm transition-colors hover:bg-background"
-									title={favouriteIds.has(game.id) ? 'Remove from favourites' : 'Add to favourites'}
-								>
-									<Heart
-										class="h-5 w-5 {favouriteIds.has(game.id)
-											? 'fill-red-500 text-red-500'
-											: 'text-muted-foreground'}"
-									/>
-								</button>
-							</div>
+							<GameTile
+								{game}
+								sizes={CARD_IMAGE_SIZES}
+								priority={vRow.index < 2}
+								favourite={favouriteIds.has(game.id)}
+								offline={Boolean(offlineStatusMap[game.id]?.offline)}
+								preferOffline={prefersOfflineCover(game)}
+								offlineThumbnailRel={offlineStatusMap[game.id]?.offlineThumbnail}
+								onToggleFavourite={toggleFavourite}
+							/>
 						{/each}
 					</div>
 				</div>

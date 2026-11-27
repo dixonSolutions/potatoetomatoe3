@@ -4,24 +4,16 @@ vi.mock('./offline-deployment', () => ({
 	getAppDeployment: vi.fn(() => 'local-app'),
 	isLocalAppDeployment: vi.fn(() => true),
 	isPublicSiteDeployment: vi.fn(() => false),
-	isTauriApp: vi.fn(() => true),
-	shouldProbePullerBackend: vi.fn(() => true)
-}));
-
-vi.mock('./offline-downloader-puller', () => ({
-	isPullerAvailable: vi.fn(async () => false)
+	isTauriApp: vi.fn(() => false)
 }));
 
 import { getOfflineBackend, invalidateOfflineBackendCache } from './offline-runtime';
-import { isPullerAvailable } from './offline-downloader-puller';
-import { shouldProbePullerBackend, isPublicSiteDeployment } from './offline-deployment';
+import { isPublicSiteDeployment } from './offline-deployment';
 
 describe('offline-runtime', () => {
 	beforeEach(() => {
 		invalidateOfflineBackendCache();
-		vi.mocked(shouldProbePullerBackend).mockReturnValue(true);
 		vi.mocked(isPublicSiteDeployment).mockReturnValue(false);
-		vi.mocked(isPullerAvailable).mockResolvedValue(false);
 	});
 
 	afterEach(() => {
@@ -29,26 +21,9 @@ describe('offline-runtime', () => {
 		invalidateOfflineBackendCache();
 	});
 
-	it('re-probes after cache invalidation once a puller becomes available', async () => {
-		vi.mocked(isPullerAvailable).mockResolvedValueOnce(false);
-		expect(await getOfflineBackend(true)).not.toBe('puller');
-
-		vi.mocked(isPullerAvailable).mockResolvedValue(true);
-		invalidateOfflineBackendCache();
-		expect(await getOfflineBackend(true)).toBe('puller');
-	});
-
-	it('never selects puller on public-site deployments', async () => {
-		vi.mocked(isPublicSiteDeployment).mockReturnValue(true);
-		vi.mocked(shouldProbePullerBackend).mockReturnValue(false);
-		vi.mocked(isPullerAvailable).mockResolvedValue(true);
-		expect(await getOfflineBackend(true)).not.toBe('puller');
-	});
-
 	it('offers browser storage on the public site when IndexedDB and a worker exist', async () => {
-		/* The web build has no sidecar, but it can still download into IndexedDB. */
+		/* The web build can download into IndexedDB. */
 		vi.mocked(isPublicSiteDeployment).mockReturnValue(true);
-		vi.mocked(shouldProbePullerBackend).mockReturnValue(false);
 		vi.stubGlobal('window', {});
 		vi.stubGlobal('indexedDB', {});
 		vi.stubGlobal('navigator', { serviceWorker: {} });

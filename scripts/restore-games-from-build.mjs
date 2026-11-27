@@ -46,7 +46,8 @@ function restore() {
 	}
 
 	const buildMeta = join(BUILD_ROOT, 'games-metadata.json');
-	const staticMeta = join(STATIC_ROOT, 'games-metadata.json');
+	/* Kept out of static/ since M4 (build tooling only, not shipped). */
+	const staticMeta = join(STATIC_ROOT, '..', '..', 'scripts', 'data', 'games-metadata.json');
 	if (existsSync(buildMeta)) {
 		const buildSize = statSync(buildMeta).size;
 		const staticSize = existsSync(staticMeta) ? statSync(staticMeta).size : 0;

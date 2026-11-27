@@ -18,7 +18,7 @@
  * Options: --app http://127.0.0.1:5177  --port 18795 (collector)  --timeout 60000
  *          --settle 1500  --out <file.json>  --browser <chrome path>  --per-portal 2
  *          --offline <ids> (launch from the offline copy)  --download <ids> (download first)
- *          --force relay|puller (every game on that route only, to compare the relays)
+ *          --force relay (every game on that route only)
  */
 
 import { spawn } from 'node:child_process';
@@ -68,7 +68,7 @@ function parseArgs() {
  * Buckets are the launch classes that behave differently, not just the portals.
  */
 function sampleIds(perPortal) {
-	const all = JSON.parse(readFileSync(path.join(root, 'static/games/games-metadata.json'), 'utf8'));
+	const all = JSON.parse(readFileSync(path.join(root, 'scripts/data/games-metadata.json'), 'utf8'));
 	const host = (g) => {
 		try {
 			return new URL(g.onlineEmbedUrl).hostname;
@@ -154,7 +154,7 @@ function median(values) {
 }
 
 async function chromiumRunner(opts, launcherUrl) {
-	const require = createRequire(path.join(root, 'puller/package.json'));
+	const require = createRequire(path.join(root, 'package.json'));
 	const { chromium } = require('playwright');
 	const browser = await chromium.launch({
 		executablePath: opts.browser,

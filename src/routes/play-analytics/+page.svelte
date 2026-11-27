@@ -19,7 +19,7 @@
 		clearCategoryAffinities
 	} from '$lib/utils/play-recommendations';
 	import { getPreferences } from '$lib/utils/preferences';
-	import { initRecommendationBackend, getRecommendationBackendName } from '$lib/utils/recommendation-tf';
+	import { rankingBackend, webGpuAvailable } from '$lib/utils/recommendation-gpu';
 	import { Cpu, Gauge, Heart, ThumbsDown, ThumbsUp } from 'lucide-svelte';
 
 	let allGames: GameIndexEntry[] = $state([]);
@@ -91,8 +91,7 @@
 
 	onMount(async () => {
 		if (!browser) return;
-		await initRecommendationBackend();
-		backendLabel = getRecommendationBackendName() ?? 'cpu';
+		backendLabel = webGpuAvailable() ? 'webgpu' : 'cpu';
 		allGames = await loadAllGames();
 		const uniq: Record<string, true> = {};
 		for (const g of allGames) {
@@ -107,6 +106,7 @@
 		affinity = aff;
 		const prefs = getPreferences();
 		preview = await getTopRecommendedPreview(allGames, prefs, 12);
+		backendLabel = rankingBackend() ?? backendLabel;
 		loading = false;
 	});
 </script>
@@ -130,8 +130,8 @@
 				Inference backend
 			</h2>
 			<p class="text-sm text-muted-foreground">
-				Active backend: <span class="font-mono text-foreground">{backendLabel}</span>
-				(WebGPU → WebGL → CPU fallback.)
+				Ranking runs on <span class="font-mono text-foreground">{backendLabel}</span> (WebGPU, else
+				CPU).
 			</p>
 		</section>
 

@@ -367,7 +367,6 @@ Options:
 	}
 
 	console.log('\nNext: node scripts/generate-games-list.js');
-	console.log('Then:  pnpm puller:start   # Unity games get splash-stripped offline mirrors');
 }
 
 main().catch((e) => {

@@ -1,6 +1,6 @@
 /**
  * Unified per-game browser profile storage: disk in the desktop app (read and written by the
- * app itself, in the layout the puller used), disk via a dev puller, or IndexedDB.
+ * app itself, in the legacy layout), or IndexedDB.
  *
  * A read has three answers, and the difference between the last two matters: the profile,
  * `null` when the game has no saves, or a thrown `GameProfileReadError` when the store could
@@ -22,12 +22,6 @@ import {
 	loadBrowserGameProfile,
 	saveBrowserGameProfile
 } from './browser-game-data-storage';
-import {
-	deletePullerBrowserProfile,
-	isPullerBrowserDataAvailable,
-	loadPullerBrowserProfile,
-	savePullerBrowserProfile
-} from './puller-browser-data';
 import { isPublicSiteDeployment } from './offline-deployment';
 import {
 	deleteNativeGameProfile,
@@ -36,10 +30,10 @@ import {
 	saveNativeGameProfile
 } from './offline-native';
 
-export type BrowserDataBackend = 'native' | 'puller' | 'browser' | 'none';
+export type BrowserDataBackend = 'native' | 'browser' | 'none';
 
 /**
- * The store holding a game's saves could not be read: a puller error, an IndexedDB error,
+ * The store holding a game's saves could not be read: an IndexedDB error,
  * the native saves command failing. Not "no saves" — nothing may be written over the stored
  * profile on the strength of it.
  */
@@ -87,14 +81,11 @@ function clearLegacyShellSnapshot(gameId: string): void {
 	}
 }
 
-export async function getBrowserDataBackend(force = false): Promise<BrowserDataBackend> {
+export async function getBrowserDataBackend(): Promise<BrowserDataBackend> {
 	if (isPublicSiteDeployment()) {
 		return isBrowserGameDataSupported() ? 'browser' : 'none';
 	}
 	if (hasNativeOfflineBackend()) return 'native';
-	if (await isPullerBrowserDataAvailable(force)) {
-		return 'puller';
-	}
 	return isBrowserGameDataSupported() ? 'browser' : 'none';
 }
 
@@ -117,7 +108,7 @@ async function migrateLegacyIfNeeded(
 }
 
 /**
- * Desktop saves live on disk. While the puller was down they fell back to IndexedDB, so a
+ * Desktop saves live on disk. They once fell back to IndexedDB, so a
  * game with nothing on disk may still have its saves there — move them across once.
  */
 async function loadNativeWithFallback(gameId: string): Promise<GameBrowserProfile | null> {
@@ -150,8 +141,6 @@ export async function loadGameBrowserProfile(
 		const backend = await getBrowserDataBackend();
 		if (backend === 'native') {
 			profile = await loadNativeWithFallback(gameId);
-		} else if (backend === 'puller') {
-			profile = await loadPullerBrowserProfile(gameId);
 		} else if (backend === 'browser') {
 			profile = await loadBrowserGameProfile(gameId);
 		}
@@ -180,10 +169,6 @@ export async function saveGameBrowserProfile(
 		await saveNativeGameProfile(gameId, profile);
 		return;
 	}
-	if (backend === 'puller') {
-		const ok = await savePullerBrowserProfile(gameId, profile);
-		if (ok) return;
-	}
 
 	if (isBrowserGameDataSupported()) {
 		await saveBrowserGameProfile(gameId, profile);
@@ -194,8 +179,6 @@ export async function deleteGameBrowserProfile(gameId: string): Promise<void> {
 	const backend = await getBrowserDataBackend();
 	if (backend === 'native') {
 		await deleteNativeGameProfile(gameId);
-	} else if (backend === 'puller') {
-		await deletePullerBrowserProfile(gameId);
 	}
 	if (isBrowserGameDataSupported()) {
 		await deleteBrowserGameProfile(gameId);
@@ -207,8 +190,6 @@ export function describeBrowserDataBackend(backend: BrowserDataBackend): string 
 	switch (backend) {
 		case 'native':
 			return 'Disk (app data folder)';
-		case 'puller':
-			return 'Disk (puller data folder)';
 		case 'browser':
 			return isPublicSiteDeployment()
 				? 'Browser storage (IndexedDB)'

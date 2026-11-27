@@ -13,7 +13,7 @@ node_modules
 # Games catalog: track online shells + index files; ignore puller downloads
 static/games/**
 !static/games/games-list.json
-!static/games/games-metadata.json
+# games-metadata.json moved to scripts/data/ (M4): build tooling only, never shipped
 !static/games/games-index/
 !static/games/games-index/**
 !static/games/*/

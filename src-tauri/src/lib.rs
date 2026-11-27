@@ -5,6 +5,7 @@ mod frame_first_input;
 mod game_frame_tuning;
 mod game_frames;
 mod memory_watchdog;
+mod offline_download;
 mod offline_games;
 mod power_profile;
 mod relay;
@@ -22,8 +23,7 @@ mod tray {
   pub fn sync_tray_recent() {}
 }
 
-use std::net::TcpListener;
-use std::path::{Path, PathBuf};
+use std::path::PathBuf;
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::{Mutex, OnceLock};
 #[cfg(target_os = "linux")]
@@ -31,46 +31,9 @@ use tauri::Emitter;
 use tauri::Manager;
 use tauri::path::BaseDirectory;
 
-static PULLER_PORT: OnceLock<u16> = OnceLock::new();
-/** Held for the length of one `spawn_puller` attempt; see that function. */
-static PULLER_SPAWN_LOCK: Mutex<()> = Mutex::new(());
 static TRAY_AVAILABLE: AtomicBool = AtomicBool::new(false);
 /** When false, window close quits the app (GNOME/Silverblue without a visible tray). */
 static CLOSE_TO_TRAY: AtomicBool = AtomicBool::new(false);
-
-const DEFAULT_PULLER_PORT: u16 = 18787;
-
-/// Prefer 18787; if occupied (e.g. host `pnpm dev` while Flatpak runs), pick the next free port.
-/// When an existing puller is already healthy on 18787, reuse that port (no second spawn).
-fn reserve_puller_port() -> u16 {
-  *PULLER_PORT.get_or_init(|| {
-    /*
-     * `PULLER_PORT` pins it, the same variable the puller itself reads. Several dev
-     * checkouts on one machine each run their own puller, and without a pin every app
-     * would adopt whichever of them answered on 18787 first.
-     */
-    if let Some(port) = std::env::var("PULLER_PORT")
-      .ok()
-      .and_then(|raw| raw.trim().parse::<u16>().ok())
-    {
-      return port;
-    }
-    if wait_for_puller_health(DEFAULT_PULLER_PORT, 250) {
-      log::info!("default puller port {} already healthy — will reuse", DEFAULT_PULLER_PORT);
-      return DEFAULT_PULLER_PORT;
-    }
-    for port in DEFAULT_PULLER_PORT..DEFAULT_PULLER_PORT + 32 {
-      if TcpListener::bind(("127.0.0.1", port)).is_ok() {
-        return port;
-      }
-    }
-    DEFAULT_PULLER_PORT
-  })
-}
-
-pub fn puller_port() -> u16 {
-  reserve_puller_port()
-}
 
 /// GNOME Shell does not show SNI tray icons without an extension (common on Fedora Silverblue).
 fn is_gnome_desktop() -> bool {
@@ -94,59 +57,7 @@ fn compute_close_to_tray(tray_ok: bool) -> bool {
   !is_gnome_desktop()
 }
 
-fn puller_base_url() -> String {
-  format!("http://127.0.0.1:{}", puller_port())
-}
-
-/// `async` for the same reason as `ensure_puller`: the first call reserves the port, which
-/// probes 18787 for up to a quarter of a second, and a synchronous command would do that on
-/// the GTK main thread while the window is starting.
-#[tauri::command]
-async fn get_puller_base_url() -> String {
-  tauri::async_runtime::spawn_blocking(puller_base_url)
-    .await
-    .unwrap_or_else(|_| format!("http://127.0.0.1:{DEFAULT_PULLER_PORT}"))
-}
-
-/// Whether a puller answers right now. Never starts one: nothing the app does to *play* a
-/// game needs the puller any more, so a probe must not be what brings it up.
-#[tauri::command]
-async fn puller_running() -> bool {
-  tauri::async_runtime::spawn_blocking(|| wait_for_puller_health(puller_port(), 300))
-    .await
-    .unwrap_or(false)
-}
-
-/// Health-check the puller and start it if it is not running — the downloader calls this
-/// when the user asks for an offline copy, which is the one thing that still needs Node
-/// (Playwright capture).
-///
-/// `async`, so Tauri runs it on its worker pool: a synchronous command runs on the GTK
-/// main thread, and this one waits up to twelve seconds for the puller to answer.
-/// Every one of those seconds froze the whole window — no repaint, no input, no
-/// desktop light/dark switch delivered.
-#[tauri::command]
-async fn ensure_puller(app: tauri::AppHandle) -> Result<String, String> {
-  tauri::async_runtime::spawn_blocking(move || {
-    let port = puller_port();
-    if wait_for_puller_health(port, 600) {
-      return Ok(puller_base_url());
-    }
-    log::info!("ensure_puller: nothing healthy on {} — spawning", port);
-    spawn_puller(&app);
-    if wait_for_puller_health(port, 12_000) {
-      Ok(puller_base_url())
-    } else {
-      Err(format!(
-        "puller failed to become healthy on http://127.0.0.1:{port}"
-      ))
-    }
-  })
-  .await
-  .map_err(|e| format!("puller check did not complete: {e}"))?
-}
-
-/// Development harness mode (`console-test` | `puller-test`) from env, or empty.
+/// Development harness mode (`console-test`) from env, or empty.
 /// Only meaningful in debug builds; release always returns empty.
 #[tauri::command]
 fn get_dev_harness_mode() -> String {
@@ -156,7 +67,7 @@ fn get_dev_harness_mode() -> String {
   match std::env::var("POTATO_TOMATO_DEV_HARNESS") {
     Ok(value) => {
       let trimmed = value.trim().to_string();
-      if trimmed == "console-test" || trimmed == "puller-test" {
+      if trimmed == "console-test" {
         trimmed
       } else {
         String::new()
@@ -283,7 +194,7 @@ fn catalog_dir(app: &tauri::AppHandle) -> PathBuf {
     return expected;
   }
 
-  log::error!("resource_dir unavailable — cannot resolve catalog for offline puller");
+  log::error!("resource_dir unavailable — cannot resolve the offline catalog");
   PathBuf::from("/nonexistent/potato-tomato-catalog")
 }
 
@@ -342,278 +253,6 @@ pub(crate) fn game_roots(app: &tauri::AppHandle) -> offline_games::GameRoots {
       catalog: catalog_dir(app),
     })
     .clone()
-}
-
-fn puller_env(app: &tauri::AppHandle) -> (PathBuf, PathBuf, u16) {
-  (
-    games_data_dir(app),
-    catalog_dir(app),
-    puller_port(),
-  )
-}
-
-fn spawn_with_env(
-  mut command: std::process::Command,
-  games_dir: &Path,
-  catalog_dir: &Path,
-  port: u16,
-) -> Result<(), String> {
-  command
-    .env("GAMES_DATA_DIR", games_dir)
-    .env("CATALOG_DIR", catalog_dir)
-    .env("PULLER_PORT", port.to_string());
-
-  command
-    .spawn()
-    .map(|_| {
-      log::info!(
-        "puller started on port {} (data={}, catalog={})",
-        port,
-        games_dir.display(),
-        catalog_dir.display()
-      );
-    })
-    .map_err(|e| e.to_string())
-}
-
-fn spawn_puller_sidecar(
-  app: &tauri::AppHandle,
-  games_dir: &Path,
-  catalog_dir: &Path,
-  port: u16,
-) -> Result<(), String> {
-  use tauri_plugin_shell::ShellExt;
-
-  match app.shell().sidecar("puller-sidecar") {
-    Ok(sidecar) => {
-      return sidecar
-        .env("GAMES_DATA_DIR", games_dir)
-        .env("CATALOG_DIR", catalog_dir)
-        .env("PULLER_PORT", port.to_string())
-        .spawn()
-        .map(|_| {
-          log::info!("puller sidecar spawned on port {}", port);
-        })
-        .map_err(|e| e.to_string());
-    }
-    Err(e) => {
-      log::warn!(
-        "tauri sidecar('puller-sidecar') failed ({e}) — trying exe-adjacent binaries"
-      );
-    }
-  }
-
-  /*
-   * Flatpak historically installed only `/app/bin/puller-sidecar` while Tauri looks for
-   * `puller-sidecar-<target-triple>`. Fall back to plain paths so Offline/Online play
-   * still works when the triple-named file is missing.
-   */
-  let mut candidates = Vec::new();
-  if let Ok(exe) = std::env::current_exe() {
-    if let Some(dir) = exe.parent() {
-      candidates.push(dir.join("puller-sidecar-x86_64-unknown-linux-gnu"));
-      candidates.push(dir.join("puller-sidecar"));
-    }
-  }
-  candidates.push(PathBuf::from("/app/bin/puller-sidecar-x86_64-unknown-linux-gnu"));
-  candidates.push(PathBuf::from("/app/bin/puller-sidecar"));
-
-  for path in candidates {
-    if !path.is_file() {
-      continue;
-    }
-    let cmd = std::process::Command::new(&path);
-    match spawn_with_env(cmd, games_dir, catalog_dir, port) {
-      Ok(()) => {
-        log::info!(
-          "puller spawned via fallback binary {} on port {}",
-          path.display(),
-          port
-        );
-        return Ok(());
-      }
-      Err(err) => log::warn!("fallback puller spawn failed for {}: {err}", path.display()),
-    }
-  }
-
-  Err("puller-sidecar binary not found next to app or under /app/bin".into())
-}
-
-fn spawn_puller_node_bundle(
-  app: &tauri::AppHandle,
-  games_dir: &Path,
-  catalog_dir: &Path,
-  port: u16,
-) -> Result<(), String> {
-  let script = app
-    .path()
-    .resolve("puller/index.cjs", BaseDirectory::Resource)
-    .map_err(|e| e.to_string())?;
-
-  if !script.exists() {
-    return Err(format!("bundled puller script missing: {}", script.display()));
-  }
-
-  let mut cmd = std::process::Command::new("node");
-  cmd.arg(&script);
-  spawn_with_env(cmd, games_dir, catalog_dir, port)
-}
-
-fn spawn_puller_dev(
-  games_dir: &Path,
-  catalog_dir: &Path,
-  port: u16,
-) -> Result<(), String> {
-  let puller_entry = repo_root().join("puller/src/index.ts");
-  if !puller_entry.exists() {
-    return Err(format!("dev puller entry missing: {}", puller_entry.display()));
-  }
-
-  /*
-   * `pnpm exec tsx` resolves against the *root* package, which never depends on tsx —
-   * in a workspace pnpm turns that into a recursive exec and fails with
-   * ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL, costing every dev launch a 10s health wait
-   * before the sidecar fallback takes over. Run the binary the puller package owns.
-   */
-  let root = repo_root();
-  let tsx = ["puller/node_modules/.bin/tsx", "node_modules/.bin/tsx"]
-    .iter()
-    .map(|rel| root.join(rel))
-    .find(|path| path.exists());
-
-  let mut cmd = match &tsx {
-    Some(path) => {
-      let mut cmd = std::process::Command::new(path);
-      cmd.arg("puller/src/index.ts");
-      cmd
-    }
-    /* No install layout we know — let pnpm resolve it from the puller package itself. */
-    None => {
-      let mut cmd = std::process::Command::new("pnpm");
-      cmd.args(["--filter", "./puller", "exec", "tsx", "src/index.ts"]);
-      cmd
-    }
-  };
-  cmd.current_dir(&root);
-  spawn_with_env(cmd, games_dir, catalog_dir, port)
-}
-
-/// `pnpm puller:bundle:linux` replaces this stub; until then spawning it "succeeds" then exits 1.
-fn is_placeholder_puller_sidecar() -> bool {
-  let dir = repo_root().join("src-tauri/binaries");
-  let Ok(entries) = std::fs::read_dir(&dir) else {
-    return false;
-  };
-  for entry in entries.flatten() {
-    let name = entry.file_name();
-    let name = name.to_string_lossy();
-    if !name.starts_with("puller-sidecar") {
-      continue;
-    }
-    if let Ok(contents) = std::fs::read_to_string(entry.path()) {
-      if contents.contains("Placeholder") || contents.contains("puller sidecar not built") {
-        return true;
-      }
-    }
-  }
-  false
-}
-
-/// Confirm the puller HTTP API is actually listening (spawn alone is not enough).
-fn wait_for_puller_health(port: u16, timeout_ms: u64) -> bool {
-  use std::io::{Read, Write};
-  use std::net::{TcpStream, ToSocketAddrs};
-  use std::time::{Duration, Instant};
-
-  let deadline = Instant::now() + Duration::from_millis(timeout_ms);
-  let addr = format!("127.0.0.1:{port}");
-  let req = format!(
-    "GET /api/offline/health HTTP/1.1\r\nHost: 127.0.0.1:{port}\r\nConnection: close\r\n\r\n"
-  );
-
-  while Instant::now() < deadline {
-    if let Ok(mut addrs) = addr.to_socket_addrs() {
-      if let Some(sock) = addrs.next() {
-        if let Ok(mut stream) = TcpStream::connect_timeout(&sock, Duration::from_millis(250)) {
-          let _ = stream.set_read_timeout(Some(Duration::from_millis(400)));
-          let _ = stream.set_write_timeout(Some(Duration::from_millis(400)));
-          if stream.write_all(req.as_bytes()).is_ok() {
-            let mut buf = [0u8; 512];
-            if let Ok(n) = stream.read(&mut buf) {
-              let text = String::from_utf8_lossy(&buf[..n]);
-              if text.contains("200") && text.contains("\"ok\"") {
-                return true;
-              }
-            }
-          }
-        }
-      }
-    }
-    std::thread::sleep(Duration::from_millis(150));
-  }
-  false
-}
-
-fn spawn_puller(app: &tauri::AppHandle) {
-  /*
-   * One attempt at a time. `setup` launches the puller on its own thread and
-   * `ensure_puller` runs on a worker, so callers overlap: each would find the port
-   * unhealthy and start its own process on it, and every process but the one that won
-   * the bind exits — leaving its caller to report the puller as unavailable. Whoever
-   * waits here falls into the health check below and reuses what the winner started.
-   */
-  let _spawning = PULLER_SPAWN_LOCK
-    .lock()
-    .unwrap_or_else(|poisoned| poisoned.into_inner());
-
-  let (games_dir, catalog_dir, port) = puller_env(app);
-
-  /*
-   * Reuse an already-healthy puller on the reserved port (e.g. leftover from a prior
-   * harness session) instead of spawning a duplicate Node/Playwright process.
-   */
-  if wait_for_puller_health(port, 400) {
-    log::info!("reusing healthy puller already listening on port {}", port);
-    return;
-  }
-
-  /*
-   * `tauri dev` / `pnpm app` must not treat the unbuilt sidecar stub as success —
-   * that previously skipped the tsx fallback and left the UI on "puller unavailable"
-   * (often while Flatpak still owned :18787).
-   */
-  if cfg!(debug_assertions) {
-    match spawn_puller_dev(&games_dir, &catalog_dir, port) {
-      Ok(()) => {
-        if wait_for_puller_health(port, 10_000) {
-          log::info!("dev puller healthy on port {}", port);
-          return;
-        }
-        log::warn!("dev puller spawned but health check failed on port {}", port);
-      }
-      Err(e) => log::warn!("dev puller spawn failed: {e}"),
-    }
-  }
-
-  if is_placeholder_puller_sidecar() {
-    log::info!(
-      "skipping unbuilt puller-sidecar placeholder (run pnpm puller:bundle:linux for release builds)"
-    );
-  } else if spawn_puller_sidecar(app, &games_dir, &catalog_dir, port).is_ok() {
-    if wait_for_puller_health(port, 10_000) {
-      return;
-    }
-    log::warn!("puller sidecar spawned but health check failed on port {}", port);
-  }
-
-  if spawn_puller_node_bundle(app, &games_dir, &catalog_dir, port).is_ok() {
-    if wait_for_puller_health(port, 10_000) {
-      return;
-    }
-    log::warn!("bundled puller script spawned but health check failed on port {}", port);
-  }
-
-  log::warn!("puller could not be started — offline download disabled");
 }
 
 /// Register the tray, then settle everything that depends on whether it exists.
@@ -776,8 +415,13 @@ pub fn run() {
         |ctx, request, responder| {
           let roots = game_roots(ctx.app_handle());
           let path = request.uri().path().to_string();
+          let referer = request
+            .headers()
+            .get("referer")
+            .and_then(|v| v.to_str().ok())
+            .map(str::to_string);
           tauri::async_runtime::spawn(async move {
-            responder.respond(offline_games::handle(roots, path).await);
+            responder.respond(offline_games::handle(roots, path, referer).await);
           });
         },
       );
@@ -785,10 +429,7 @@ pub fn run() {
   builder
     .invoke_handler(tauri::generate_handler![
       tray::sync_tray_recent,
-      get_puller_base_url,
-      puller_running,
       desktop_color_scheme_is_dark,
-      ensure_puller,
       get_dev_harness_mode,
       is_tray_available,
       is_close_to_tray_enabled,
@@ -811,6 +452,9 @@ pub fn run() {
       offline_games::offline_statuses,
       offline_games::offline_entry,
       offline_games::offline_delete,
+      offline_download::offline_download_start,
+      offline_download::offline_download_cancel,
+      offline_download::offline_download_progress,
       offline_games::game_profile_read,
       offline_games::game_profile_write,
       offline_games::game_profile_delete,
@@ -872,18 +516,6 @@ pub fn run() {
           log::info!("{}", system_theme::gtk_state("2s after setup"));
         });
       }
-      /*
-       * No puller at startup. Games play straight from their hosts with the bridge put into
-       * their frames natively (`game_frames.rs`), a few through the in-process relay
-       * (`relay.rs`); offline copies and saves are read from disk here
-       * (`offline_games.rs`). The Node process is started by `ensure_puller` when the user
-       * downloads a game, the one job that still needs Playwright — so a normal session
-       * never pays for it, and its port is not even reserved until then.
-       */
-      #[cfg(not(mobile))]
-      log::info!("puller not started: it runs on demand for offline downloads");
-      #[cfg(mobile)]
-      log::info!("mobile build: puller capture sidecar is intentionally disabled");
       #[cfg(mobile)]
       finish_tray_setup(false);
       /*
@@ -932,7 +564,7 @@ pub fn run() {
       #[cfg(desktop)]
       if let tauri::WindowEvent::CloseRequested { api, .. } = event {
         if CLOSE_TO_TRAY.load(Ordering::SeqCst) {
-          // Keep puller + tray alive; Quit from the tray exits for real.
+          // Keep the tray alive; Quit from the tray exits for real.
           let _ = window.hide();
           api.prevent_close();
         } else {

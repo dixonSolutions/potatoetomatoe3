@@ -38,26 +38,13 @@ modules:
     build-commands:
       - |
         test -x src-tauri/target/release/potato-tomato || {
-          echo "Missing Tauri binary. Run: pnpm puller:bundle:linux && pnpm tauri:build" >&2
+          echo "Missing Tauri binary. Run: pnpm tauri:build:flatpak" >&2
           exit 1
         }
       - install -Dm755 src-tauri/target/release/potato-tomato /app/bin/potato-tomato
       - |
-        SIDECAR=""
-        for candidate in \
-          src-tauri/binaries/puller-sidecar-x86_64-unknown-linux-gnu \
-          src-tauri/binaries/puller-sidecar; do
-          if [ -f "$candidate" ]; then SIDECAR="$candidate"; break; fi
-        done
-        if [ -z "$SIDECAR" ]; then echo "ERROR puller sidecar missing — run pnpm puller:bundle:linux" >&2; exit 1; fi
-        # Tauri shell resolves externalBin as `<name>-<target-triple>` next to the app
-        # binary. Installing only `puller-sidecar` makes spawn fail silently on Flatpak
-        # (no puller → white Offline viewports / dead Online proxy).
-        install -Dm755 "$SIDECAR" /app/bin/puller-sidecar
-        install -Dm755 "$SIDECAR" /app/bin/puller-sidecar-x86_64-unknown-linux-gnu
-      - |
         # Tauri `build --no-bundle` places resources next to the binary
-        # (src-tauri/target/release/{catalog,puller}/). On Linux, Tauri resolves
+        # (src-tauri/target/release/catalog/). On Linux, Tauri resolves
         # resources via PackageInfo.name (= productName "Potato Tomato"), so the
         # path is ../lib/Potato Tomato — NOT the Cargo crate name potato-tomato.
         # Installing only under potato-tomato leaves CATALOG_DIR empty at runtime.
@@ -70,16 +57,13 @@ modules:
         RESOURCE_DST="/app/lib/Potato Tomato"
         mkdir -p "$RESOURCE_DST"
         cp -a "$RESOURCE_SRC/catalog" "$RESOURCE_DST/"
-        if [ -d "$RESOURCE_SRC/puller" ]; then
-          cp -a "$RESOURCE_SRC/puller" "$RESOURCE_DST/"
-        fi
         # Alias for docs / debugging (crate-style path)
         ln -sfn "Potato Tomato" /app/lib/potato-tomato
         test -f "$RESOURCE_DST/catalog/games/games-list.json" || {
           echo "ERROR: catalog/games/games-list.json missing after install into $RESOURCE_DST" >&2
           exit 1
         }
-        # Fail CI if list is empty (would surface as "puller catalog is empty")
+        # Fail CI if list is empty (would surface as an empty catalog)
         python3 - <<'PY'
         import json, sys
         path = "/app/lib/Potato Tomato/catalog/games/games-list.json"

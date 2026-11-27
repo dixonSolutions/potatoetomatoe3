@@ -540,7 +540,6 @@ Options:
 	}
 
 	console.log('\nNext: node scripts/generate-games-list.js');
-	console.log('Then:  pnpm puller:start   # Unity Play frames proxy via /api/unity-play/:id');
 }
 
 main().catch((e) => {

@@ -14,7 +14,6 @@ import {
 
 const desktop: PlayRouteInput = {
 	desktopApp: true,
-	pullerRunning: false,
 	embedUrl: 'https://games.crazygames.com/en_US/slope/index.html',
 	localEmbed: false
 };
@@ -28,14 +27,6 @@ describe('planOnlineRoutes', () => {
 
 	it('plays direct on the web and on Android, which have no relay', () => {
 		expect(planOnlineRoutes(web)).toEqual(['direct']);
-	});
-
-	it('never starts or waits for a puller; one that is already running is the last resort', () => {
-		expect(planOnlineRoutes({ ...desktop, pullerRunning: true })).toEqual([
-			'direct',
-			'relay',
-			'puller'
-		]);
 	});
 
 	it('plays Drive U 7 from the catalog’s own embed.html, then the jsDelivr HTML itself', () => {
@@ -53,11 +44,6 @@ describe('planOnlineRoutes', () => {
 		const plain = { ...desktop, embedUrl: 'https://cdn.jsdelivr.net/gh/u/r@abc/index.html' };
 		expect(planOnlineRoutes(plain)).toEqual(['relay', 'shell']);
 		expect(planOnlineRoutes({ ...plain, desktopApp: false })).toEqual(['shell']);
-		expect(planOnlineRoutes({ ...plain, pullerRunning: true })).toEqual([
-			'relay',
-			'shell',
-			'puller'
-		]);
 	});
 
 	it('never frames a Google Sites page, which refuses everyone', () => {
@@ -84,7 +70,7 @@ describe('planOnlineRoutes', () => {
 
 describe('nextPlayRoute', () => {
 	it('skips what already failed', () => {
-		expect(nextPlayRoute(['direct', 'relay', 'puller'], ['direct'])).toBe('relay');
+		expect(nextPlayRoute(['direct', 'relay'], ['direct'])).toBe('relay');
 		expect(nextPlayRoute(['direct', 'relay'], ['direct', 'relay'])).toBeNull();
 		expect(nextPlayRoute([], [])).toBeNull();
 	});
@@ -145,22 +131,22 @@ describe('host facts', () => {
 describe('isUnframeableInApp', () => {
 	it('flags a frame-blocked host on a build with no relay (Android)', () => {
 		expect(
-			isUnframeableInApp({ localApp: true, pullerSupported: false, frameBlockedHost: true })
+			isUnframeableInApp({ localApp: true, desktopApp: false, frameBlockedHost: true })
 		).toBe(true);
 	});
 
 	it('stays false on desktop, where the in-process relay handles it', () => {
 		expect(
-			isUnframeableInApp({ localApp: true, pullerSupported: true, frameBlockedHost: true })
+			isUnframeableInApp({ localApp: true, desktopApp: true, frameBlockedHost: true })
 		).toBe(false);
 	});
 
 	it('stays false on the public site and for hosts that allow framing', () => {
 		expect(
-			isUnframeableInApp({ localApp: false, pullerSupported: false, frameBlockedHost: true })
+			isUnframeableInApp({ localApp: false, desktopApp: false, frameBlockedHost: true })
 		).toBe(false);
 		expect(
-			isUnframeableInApp({ localApp: true, pullerSupported: false, frameBlockedHost: false })
+			isUnframeableInApp({ localApp: true, desktopApp: false, frameBlockedHost: false })
 		).toBe(false);
 	});
 });

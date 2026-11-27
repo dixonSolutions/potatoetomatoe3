@@ -3,9 +3,9 @@
  * Routes under `/dev/*` must remain unavailable in production builds.
  */
 
-export type DevHarnessMode = 'console-test' | 'puller-test';
+export type DevHarnessMode = 'console-test';
 
-const HARNESS_MODES = new Set<DevHarnessMode>(['console-test', 'puller-test']);
+const HARNESS_MODES = new Set<DevHarnessMode>(['console-test']);
 
 export function isDevBuild(): boolean {
 	return Boolean(import.meta.env.DEV);

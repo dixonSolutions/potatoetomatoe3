@@ -14,8 +14,8 @@
 	} from '$lib/utils/online-play-routing-shell';
 
 	/**
-	 * Runs the shipped HTML5 build in a **same-origin** isolated document (`src` = `/games/{id}/offline/…`, `/puller-games/{id}/…`, or `/online/…`).
-	 * Same app origin keeps game localStorage aligned across online/offline; puller copies use `/puller-games/` (proxied in dev).
+	 * Runs the shipped HTML5 build in a **same-origin** isolated document (`src` = `/games/{id}/offline/…` or `/online/…`).
+	 * Same app origin keeps game localStorage aligned across online/offline.
 	 * A separate document is required so the game keeps its own globals and relative asset paths;
 	 * rendering the bundle inline in Svelte would break typical builds. An app-made shell
 	 * (third-party HTML the app plays from a document of its own) is the exception to "same

@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { syncPullerBaseUrlFromTauri } from '$lib/utils/offline-downloader-puller';
 	import { appendPlayLog } from '$lib/utils/play-diagnostics-log';
 	import {
 		getHarnessModeFromEnv,
@@ -11,7 +10,6 @@
 
 	onMount(() => {
 		void (async () => {
-			await syncPullerBaseUrlFromTauri();
 			const mode = getHarnessModeFromEnv() ?? (await getHarnessModeFromTauri());
 			appendPlayLog(
 				'info',
