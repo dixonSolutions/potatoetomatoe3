@@ -183,7 +183,7 @@
 	{/if}
 
 	{#if trayLife}
-		<SettingsGroup title={android ? 'Window' : undefined}>
+		<SettingsGroup title={inApp ? 'Window' : undefined}>
 			<SettingsRow
 				id="settings-section-app-close-to-tray"
 				label="Keep running in the tray"
