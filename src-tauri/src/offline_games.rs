@@ -145,8 +145,18 @@ pub struct OfflineStatus {
 pub fn status(roots: &GameRoots, id: &str) -> OfflineStatus {
   let mirror = resolve_mirror(roots, id);
   let offline = mirror.is_some();
-  let part_dir = roots.data.join(id).join(crate::offline_download::PART_DIR);
-  let part_files = if part_dir.is_dir() { count_files(&part_dir) } else { 0 };
+  /* Files left without a playable entry: a download in progress (PART_DIR) or a capture
+   * that ended without one (a tiny or missing entry in `offline/`). Both resume. */
+  let part_files: usize = if offline {
+    0
+  } else {
+    [crate::offline_download::PART_DIR, "offline"]
+      .iter()
+      .map(|sub| roots.data.join(id).join(sub))
+      .filter(|dir| dir.is_dir())
+      .map(|dir| count_files(&dir))
+      .sum()
+  };
   let partial = !offline && part_files > 0;
   OfflineStatus {
     online: true,
@@ -201,6 +211,16 @@ pub fn delete_copy(roots: &GameRoots, id: &str) -> Result<(), String> {
 /* ------------------------------------------------------------------------------------
  * Serving
  * ---------------------------------------------------------------------------------- */
+
+/// A document, by its first bytes.
+pub fn looks_like_html(bytes: &[u8]) -> bool {
+  let head = String::from_utf8_lossy(&bytes[..bytes.len().min(1024)]).to_ascii_lowercase();
+  let head = head.trim_start_matches('\u{feff}').trim_start();
+  head.starts_with("<!doctype html")
+    || head.starts_with("<html")
+    || head.starts_with("<head")
+    || (head.starts_with("<!--") && head.contains("<html"))
+}
 
 /// Content types as the puller served them (`puller/src/server.ts` `mimeFor`), plus the
 /// few a game also asks for.
@@ -501,7 +521,12 @@ pub async fn handle(roots: GameRoots, path: String, referer: Option<String>) -> 
       )
     }
   };
-  let mime = mime_for(&file);
+  let mut mime = mime_for(&file);
+  /* Captured frames keep their URL's name, often without an extension (`…/frame`,
+   * `embed/2v2-io`): sniff those, or the bridge is never injected. */
+  if mime == "application/octet-stream" && looks_like_html(&bytes) {
+    mime = "text/html; charset=utf-8";
+  }
   let base = if root == mirror_root {
     &mirror_root
   } else {
@@ -951,6 +976,14 @@ mod tests {
     let (dir, entry) = resolve_mirror(&roots, "g").unwrap();
     assert_eq!(entry, "play.html");
     assert_eq!(dir, roots.data.join("g/offline"));
+  }
+
+  #[test]
+  fn extensionless_documents_are_sniffed_as_html() {
+    assert!(looks_like_html(b"\n  <!DOCTYPE html><html><body></body></html>"));
+    assert!(looks_like_html(b"<html lang=\"en\">"));
+    assert!(!looks_like_html(b"\x00asm\x01\x00\x00\x00"));
+    assert!(!looks_like_html(b"{\"html\": true}"));
   }
 
   #[test]

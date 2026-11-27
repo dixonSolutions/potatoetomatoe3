@@ -158,9 +158,13 @@ fn has_asset_extension(path: &str) -> bool {
   let Some(file) = path.rsplit('/').next() else {
     return false;
   };
-  let Some((_, ext)) = file.rsplit_once('.') else {
+  /* `".png"` is a suffix being glued onto a name in code, not a file. */
+  let Some((stem, ext)) = file.rsplit_once('.') else {
     return false;
   };
+  if stem.is_empty() {
+    return false;
+  }
   let ext = ext.to_ascii_lowercase();
   ASSET_EXTENSIONS.contains(&ext.as_str())
 }
