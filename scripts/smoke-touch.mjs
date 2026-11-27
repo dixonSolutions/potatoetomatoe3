@@ -33,11 +33,12 @@ const arg = (name) => {
 };
 const OUT = arg('--out') ?? path.join(ROOT, 'test-results', 'smoke-touch');
 const LAB = '_touch-lab';
-const GAMES = (arg('--games') ?? `${LAB},002,slope`).split(',').filter(Boolean);
+const LAB_2P = '_touch-lab-2p';
+const isLab = (id) => id === LAB || id === LAB_2P;
+const GAMES = (arg('--games') ?? `${LAB},${LAB_2P},002,slope`).split(',').filter(Boolean);
 let BASE = arg('--url');
 let server;
 
-const LAB_DIR = path.join(ROOT, 'static/games', LAB);
 const LAB_HTML = `<!doctype html><html><head><meta charset="utf-8"><title>Touch Lab</title>
 <style>html,body{margin:0;height:100%;background:#123;color:#fff;font:20px sans-serif}
 #load{display:grid;place-items:center;height:100%}canvas{display:block;width:100vw;height:100vh}</style>
@@ -55,20 +56,73 @@ const LAB_HTML = `<!doctype html><html><head><meta charset="utf-8"><title>Touch 
   }, 3000);
 </script></body></html>`;
 
+const LABS = {
+	[LAB]: {
+		name: 'Touch Lab',
+		description: 'Fixture for scripts/smoke-touch.mjs. Arrow keys move, Space jumps.'
+	},
+	/* M11: a same-keyboard two-player game, named as such in its description. */
+	[LAB_2P]: {
+		name: 'Touch Lab 2P',
+		description:
+			'Fixture for scripts/smoke-touch.mjs. A 2 player game: player 1 uses WASD and F, player 2 uses the arrow keys and Enter.'
+	}
+};
+const labDir = (id) => path.join(ROOT, 'static/games', id);
+
 function writeLab() {
-	fs.mkdirSync(path.join(LAB_DIR, 'online'), { recursive: true });
-	fs.writeFileSync(
-		path.join(LAB_DIR, 'online/metadata.json'),
-		JSON.stringify({
-			id: LAB,
-			name: 'Touch Lab',
-			author: 'Test',
-			description: 'Fixture for scripts/smoke-touch.mjs. Arrow keys move, Space jumps.',
-			thumbnail: '',
-			category: 'Test'
-		})
+	for (const [id, meta] of Object.entries(LABS)) {
+		fs.mkdirSync(path.join(labDir(id), 'online'), { recursive: true });
+		fs.writeFileSync(
+			path.join(labDir(id), 'online/metadata.json'),
+			JSON.stringify({ id, author: 'Test', thumbnail: '', category: 'Test', ...meta })
+		);
+		fs.writeFileSync(path.join(labDir(id), 'online/index.html'), LAB_HTML);
+	}
+}
+
+/* Control rects on screen: both sticks and the pad buttons (not the extras strip). */
+async function controlRects(page) {
+	return page.evaluate(() =>
+		[...document.querySelectorAll('[data-testid="touch-joystick"], .pt-touch-btn')]
+			.filter((el) => !el.closest('[data-testid="console-extras"]'))
+			.map((el) => {
+				const r = el.getBoundingClientRect();
+				return {
+					id: el.getAttribute('aria-label') || el.dataset.testid,
+					x: r.x,
+					y: r.y,
+					w: r.width,
+					h: r.height
+				};
+			})
+			.filter((r) => r.w > 0 && r.h > 0)
 	);
-	fs.writeFileSync(path.join(LAB_DIR, 'online/index.html'), LAB_HTML);
+}
+
+function overlaps(rects) {
+	const out = [];
+	for (let i = 0; i < rects.length; i++)
+		for (let j = i + 1; j < rects.length; j++) {
+			const a = rects[i];
+			const b = rects[j];
+			const ox = Math.min(a.x + a.w, b.x + b.w) - Math.max(a.x, b.x);
+			const oy = Math.min(a.y + a.h, b.y + b.h) - Math.max(a.y, b.y);
+			if (ox > 1 && oy > 1) out.push([a.id, b.id]);
+		}
+	return out;
+}
+
+async function stickRight(page, cdp, locator) {
+	const stick = await center(locator);
+	if (!stick) return null;
+	await clearFrameKeys(page);
+	await touch(cdp, 'touchStart', stick.x, stick.y);
+	for (let i = 1; i <= 6; i++) await touch(cdp, 'touchMove', stick.x + i * 8, stick.y);
+	await page.waitForTimeout(300);
+	await touch(cdp, 'touchEnd', stick.x + 48, stick.y);
+	await page.waitForTimeout(200);
+	return [...new Set(await frameKeys(page))];
 }
 
 async function startServer() {
@@ -250,7 +304,7 @@ async function checkGame(browser, id, n) {
 		errors: errors.slice(0, 2)
 	};
 	if (!appeared && surface.injectable !== 'true') {
-		check(`A7 ${id}: controls wait for the game`, id !== LAB, {
+		check(`A7 ${id}: controls wait for the game`, !isLab(id), {
 			...timing,
 			skipped: 'the console cannot reach this game frame (cross-origin, no bridge)'
 		});
@@ -259,7 +313,7 @@ async function checkGame(browser, id, n) {
 	}
 	const waitedForReady = readyAt !== null ? t.ctlAt >= readyAt : t.ctlAt - (t.frameAt ?? 0) >= 5500;
 	/* The lab must signal ready itself (bridge 'surface'), after its 3 s loader. */
-	const labOk = id !== LAB || (readyAt !== null && t.ready[0].reason === 'surface');
+	const labOk = !isLab(id) || (readyAt !== null && t.ready[0].reason === 'surface');
 	check(
 		`A7 ${id}: no controls at the loader, controls after ready`,
 		appeared && controlsAtLoader === false && waitedForReady && labOk,
@@ -274,7 +328,7 @@ async function checkGame(browser, id, n) {
 	);
 
 	/* A9: joystick right → some game frame receives ArrowRight or KeyD. */
-	const stick = await center(page.getByTestId('touch-joystick'));
+	const stick = await center(page.getByTestId('touch-joystick').first());
 	if (stick) {
 		await clearFrameKeys(page);
 		await touch(cdp, 'touchStart', stick.x, stick.y);
@@ -292,18 +346,52 @@ async function checkGame(browser, id, n) {
 		check(`A9 ${id}: joystick sends keys into the game`, false, { error: 'no joystick' });
 	}
 
+	/* A12 / M11: no two controls overlap. */
+	const rects = await controlRects(page);
+	check(`A12 ${id}: controls never overlap`, rects.length > 0 && overlaps(rects).length === 0, {
+		controls: rects.length,
+		overlapping: overlaps(rects).slice(0, 4)
+	});
+
+	/* A12 / M11: a two-player game gets a stick per player, each on its own keys. */
+	const twoSticks = (await page.getByTestId('touch-joystick-2').count()) > 0;
+	if (id === LAB_2P) {
+		await page.screenshot({ path: path.join(OUT, `${n}-${id}-two-players.png`) });
+		const p1 = twoSticks
+			? await stickRight(page, cdp, page.getByTestId('touch-joystick').first())
+			: null;
+		const p2 = twoSticks
+			? await stickRight(
+					page,
+					cdp,
+					page.getByTestId('touch-joystick-2').getByTestId('touch-joystick')
+				)
+			: null;
+		check(
+			`A12 ${id}: two players split, P1 on WASD, P2 on arrows`,
+			twoSticks &&
+				(p1 ?? []).includes('KeyD') &&
+				!(p1 ?? []).includes('ArrowRight') &&
+				(p2 ?? []).includes('ArrowRight') &&
+				!(p2 ?? []).includes('KeyD'),
+			{ twoSticks, p1, p2 }
+		);
+	} else {
+		check(`A12 ${id}: single-player game keeps one stick`, !twoSticks, { twoSticks });
+	}
+
 	/*
 	 * A10: a real key hides the controls within a frame; a touch brings them back. The lab
 	 * frame is same-origin, so the key goes into the game. A cross-origin game frame is
 	 * invisible to the app, so the key is pressed in the app window instead.
 	 */
-	if (id !== LAB) await page.evaluate(() => document.activeElement?.blur?.());
+	if (!isLab(id)) await page.evaluate(() => document.activeElement?.blur?.());
 	await page.keyboard.press('Shift');
 	await page.waitForTimeout(50);
 	const hiddenAfterKey = !(await visible(page, GRIP));
 	await page.screenshot({ path: path.join(OUT, `${n}-${id}-keyboard.png`) });
 	const vp = page.viewportSize();
-	const spot = id === LAB ? { x: vp.width / 2, y: vp.height / 2 } : await appPoint(page);
+	const spot = isLab(id) ? { x: vp.width / 2, y: vp.height / 2 } : await appPoint(page);
 	if (spot) await tap(cdp, spot.x, spot.y);
 	let backAfterTouch = false;
 	for (let i = 0; i < 10 && !backAfterTouch; i++) {
@@ -313,7 +401,7 @@ async function checkGame(browser, id, n) {
 	check(`A10 ${id}: key hides, touch shows`, hiddenAfterKey && backAfterTouch, {
 		hiddenAfterKey,
 		backAfterTouch,
-		keyIn: id === LAB ? 'game frame' : 'app window',
+		keyIn: isLab(id) ? 'game frame' : 'app window',
 		touchAt: spot
 	});
 
@@ -373,7 +461,7 @@ try {
 	}
 } finally {
 	server?.kill();
-	fs.rmSync(LAB_DIR, { recursive: true, force: true });
+	for (const id of Object.keys(LABS)) fs.rmSync(labDir(id), { recursive: true, force: true });
 }
 const passed = results.filter((r) => r.ok).length;
 console.log(`SMOKE-TOUCH ${passed}/${results.length} passed`);
