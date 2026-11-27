@@ -167,13 +167,16 @@ fn has_asset_extension(path: &str) -> bool {
 
 /// A string that could be a URL, not code or a template fragment.
 fn plausible_ref(raw: &str) -> bool {
+  let absolute = raw.starts_with("https://") || raw.starts_with("http://");
   !raw.is_empty()
-    && raw.len() < 512
+    && raw.len() < 2048
     && !raw.starts_with("data:")
     && !raw.starts_with("blob:")
     && !raw.starts_with("javascript:")
     && !raw.starts_with('#')
-    && !raw.contains(['{', '}', '<', '>', '\\', '\n', ' ', '+', '`', '$', '*'])
+    && !raw.contains(['{', '}', '<', '>', '\\', '\n', ' ', '`', '$', '*'])
+    /* `"a" + b` is code; a signed absolute URL may carry a literal `+`. */
+    && (absolute || !raw.contains('+'))
 }
 
 /// Where a found reference came from: it decides what it resolves against.
@@ -197,6 +200,7 @@ pub fn find_refs(text: &str, kind: &str) -> Vec<(String, RefKind)> {
   static CSS_URL: OnceLock<regex::Regex> = OnceLock::new();
   static CSS_IMPORT: OnceLock<regex::Regex> = OnceLock::new();
   static QUOTED: OnceLock<regex::Regex> = OnceLock::new();
+  static JSON_PAGE: OnceLock<regex::Regex> = OnceLock::new();
   let mut out = Vec::new();
   let mut push = |raw: &str, kind: RefKind| {
     let raw = raw.trim();
@@ -220,6 +224,15 @@ pub fn find_refs(text: &str, kind: &str) -> Vec<(String, RefKind)> {
     for c in frame.captures_iter(text) {
       push(&c[1], RefKind::Frame);
     }
+    /* Portals that build the game frame in script name its document in their config,
+     * e.g. CrazyGames' `"loaderOptions":{"url":"https://….game-files…/index.html"}`. */
+    let page = regex(
+      &JSON_PAGE,
+      r#"(?i)["'](?:url|gameUrl|iframeUrl|iframeSrc|embedUrl)["']\s*:\s*["'](https?://[^"'\s]+?\.html?(?:\?[^"'\s]*)?)["']"#,
+    );
+    for c in page.captures_iter(text) {
+      push(&c[1].replace("\\/", "/"), RefKind::Frame);
+    }
   }
   if kind == "html" || kind == "css" {
     let url = regex(&CSS_URL, r#"(?i)url\(\s*["']?([^"')]+)["']?\s*\)"#);
@@ -232,7 +245,7 @@ pub fn find_refs(text: &str, kind: &str) -> Vec<(String, RefKind)> {
     }
   }
   if kind != "css" {
-    let quoted = regex(&QUOTED, r#"["']([^"'\s]{1,400}?)["']"#);
+    let quoted = regex(&QUOTED, r#"["']([^"'\s]{1,2000}?)["']"#);
     for c in quoted.captures_iter(text) {
       if has_asset_extension(&c[1]) {
         push(&c[1], RefKind::Quoted);
@@ -529,7 +542,8 @@ fn enqueue_refs(
   page: &reqwest::Url,
   seen: &mut HashSet<String>,
   queue: &mut VecDeque<Item>,
-) {
+) -> Vec<reqwest::Url> {
+  let mut frames = Vec::new();
   for (raw, ref_kind) in find_refs(text, kind) {
     let base = match ref_kind {
       RefKind::Tag | RefKind::Frame => file_url,
@@ -552,6 +566,9 @@ fn enqueue_refs(
     } else {
       page.clone()
     };
+    if ref_kind == RefKind::Frame && !frames.contains(&url) {
+      frames.push(url.clone());
+    }
     let key = vault_path(&url).unwrap_or_else(|| url.to_string());
     if seen.insert(key) {
       queue.push_back(Item {
@@ -560,6 +577,7 @@ fn enqueue_refs(
       });
     }
   }
+  frames
 }
 
 /// Fetch everything the game loads, starting from its document. Returns the entry file's
@@ -567,6 +585,8 @@ fn enqueue_refs(
 async fn crawl(crawl: &mut Crawl, start: Start) -> Result<String, String> {
   let mut queue: VecDeque<Item> = VecDeque::new();
   let mut seen: HashSet<String> = HashSet::new();
+  /* The game documents the start page frames. A wrapper around exactly one becomes it. */
+  let mut start_frames: Vec<reqwest::Url> = Vec::new();
 
   let entry = match start {
     Start::CatalogCopy(dir) => {
@@ -602,7 +622,7 @@ async fn crawl(crawl: &mut Crawl, start: Start) -> Result<String, String> {
       crawl.bytes += fetched.bytes;
       if let Some((text, kind)) = &fetched.text {
         let page = fetched.final_url.clone();
-        enqueue_refs(text, kind, &fetched.final_url, &page, &mut seen, &mut queue);
+        start_frames = enqueue_refs(text, kind, &fetched.final_url, &page, &mut seen, &mut queue);
       }
       fetched.rel
     }
@@ -641,7 +661,22 @@ async fn crawl(crawl: &mut Crawl, start: Start) -> Result<String, String> {
     }
     crawl.report(queue.len());
   }
+  if let [inner] = start_frames.as_slice() {
+    if let Some(rel) = vault_path(inner) {
+      if is_html_file(&crawl.part.join(&rel)).await {
+        return Ok(rel);
+      }
+    }
+  }
   Ok(entry)
+}
+
+async fn is_html_file(path: &Path) -> bool {
+  let Ok(bytes) = tokio::fs::read(path).await else {
+    return false;
+  };
+  let head = String::from_utf8_lossy(&bytes[..bytes.len().min(2048)]).to_ascii_lowercase();
+  bytes.len() >= 64 && (head.contains("<html") || head.contains("<!doctype") || head.contains("<script") || head.contains("<body"))
 }
 
 /// A game whose files ship in the catalog: copy its `online/` folder (bounded).
@@ -902,6 +937,17 @@ mod tests {
   }
 
   #[test]
+  fn portal_configs_name_the_game_document_and_signed_asset_urls_survive() {
+    let html = r#"<script>var options = {"loader":"html5","loaderOptions":{"url":"https://g.game-files.crazygames.com/g/2/index.html"}};
+      config = { dataUrl: "https://cdn.play.unity.com/games/a/b/game.data.gz?GoogleAccessId=x&Expires=1&Signature=a+b%2F" };</script>"#;
+    let refs = find_refs(html, "html");
+    assert!(refs.contains(&("https://g.game-files.crazygames.com/g/2/index.html".into(), RefKind::Frame)));
+    assert!(refs
+      .iter()
+      .any(|(r, k)| *k == RefKind::Quoted && r.ends_with("Signature=a+b%2F")));
+  }
+
+  #[test]
   fn css_urls_resolve_against_the_stylesheet() {
     let refs = find_refs("body{background:url('../img/bg.png')} @import 'x.css';", "css");
     assert!(refs.contains(&("../img/bg.png".into(), RefKind::Css)));
@@ -976,5 +1022,69 @@ mod tests {
       other => panic!("{other:?}"),
     }
     let _ = std::fs::remove_dir_all(&root);
+  }
+
+  /// Downloads real games over the network: `cargo test --lib live_downloads -- --ignored --nocapture`.
+  #[test]
+  #[ignore]
+  fn live_downloads() {
+    let cases = [
+      ("002", "https://play.unity.com/api/v1/games/game/44510a1e-b731-4260-932e-857cbeda9643/build/latest/frame"),
+      ("crazygames-10-bullets-html-5", "https://games.crazygames.com/en_US/10-bullets-html-5/index.html"),
+      ("fnf-games-2v2-io", "https://fnf-games.io/embed/2v2-io?preroll=0"),
+      ("coolmath-test", "https://www.coolmathgames.com/sites/default/files/public_games/25805/"),
+    ];
+    let root = std::env::temp_dir().join(format!("pt-dl-live-{}", std::process::id()));
+    let _ = std::fs::remove_dir_all(&root);
+    let roots = GameRoots {
+      data: root.join("data"),
+      catalog: root.join("catalog"),
+    };
+    let mut failures = Vec::new();
+    for (id, url) in cases {
+      let online = roots.catalog.join(id).join("online");
+      std::fs::create_dir_all(&online).unwrap();
+      std::fs::write(
+        online.join("metadata.json"),
+        serde_json::json!({"name": id, "description": "d", "onlineEmbedUrl": url}).to_string(),
+      )
+      .unwrap();
+      let started = std::time::Instant::now();
+      let result = tauri::async_runtime::block_on(run(
+        roots.clone(),
+        id.to_string(),
+        Arc::new(AtomicBool::new(false)),
+      ));
+      let mirror = crate::offline_games::resolve_mirror(&roots, id);
+      let manifest: serde_json::Value = std::fs::read_to_string(roots.data.join(id).join("offline").join(MANIFEST))
+        .ok()
+        .and_then(|s| serde_json::from_str(&s).ok())
+        .unwrap_or_default();
+      println!(
+        "LIVE {id}: result={result:?} secs={:.1} entry={:?} files={} bytes={}",
+        started.elapsed().as_secs_f32(),
+        mirror.as_ref().map(|(_, e)| e.clone()),
+        manifest["files"],
+        manifest["bytes"]
+      );
+      match mirror {
+        Some((_, entry)) => {
+          let response = tauri::async_runtime::block_on(crate::offline_games::handle(
+            roots.clone(),
+            format!("/{id}/{entry}"),
+            None,
+          ));
+          let body = String::from_utf8_lossy(response.body());
+          let ok = response.status() == 200 && body.contains("__ptGameId");
+          println!("LIVE {id}: served entry status={} bridge={ok}", response.status());
+          if !ok {
+            failures.push(id);
+          }
+        }
+        None => failures.push(id),
+      }
+    }
+    let _ = std::fs::remove_dir_all(&root);
+    assert!(failures.is_empty(), "no playable copy for {failures:?}");
   }
 }
