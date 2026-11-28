@@ -32,6 +32,7 @@
 		frameSandboxFor,
 		isShellBlobUrl,
 		releaseOnlineShells,
+		shellFrameSrcdocFor,
 		shellFrameSrcFor
 	} from '$lib/utils/online-play-routing-shell';
 	import {
@@ -317,7 +318,8 @@
 				<iframe
 					bind:this={frameEl}
 					sandbox={frameSandboxFor(frameUrl)}
-					src={shellFrameSrcFor(frameUrl) ?? frameUrl}
+					src={shellFrameSrcdocFor(frameUrl) ? undefined : (shellFrameSrcFor(frameUrl) ?? frameUrl)}
+					srcdoc={shellFrameSrcdocFor(frameUrl)}
 					title="bench"
 					class="h-full w-full border-0"
 					allowfullscreen

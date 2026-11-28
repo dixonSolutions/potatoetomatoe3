@@ -37,12 +37,19 @@ const LAB_2P = '_touch-lab-2p';
 const isLab = (id) => id === LAB || id === LAB_2P;
 const GAMES = (
 	arg('--games') ??
-	`${LAB},${LAB_2P},weasels,002,playhop-1-jump-on-the-keyboard-540983,addicting-100-arrows,slope`
+	`${LAB},${LAB_2P},weasels,002,playhop-1-jump-on-the-keyboard-540983,addicting-100-arrows,addicting-shards,slope`
 )
 	.split(',')
 	.filter(Boolean);
-/** Cross-origin games whose host allows CORS reads: on the web they play in a bridge shell. */
-const SHELL_IDS = new Set(['002', 'playhop-1-jump-on-the-keyboard-540983', 'addicting-100-arrows']);
+/**
+ * Cross-origin games whose host allows CORS reads: on the web they play in a bridge shell.
+ * Not 002: Unity Play's CDN sends no CORS headers, so it plays in the app's Unity player.
+ */
+const SHELL_IDS = new Set([
+	'playhop-1-jump-on-the-keyboard-540983',
+	'addicting-100-arrows',
+	'addicting-shards'
+]);
 let BASE = arg('--url');
 let server;
 
@@ -186,7 +193,7 @@ function initScript() {
 	});
 	const watch = () => {
 		const mark = () => {
-			if (!window.__ptFrameAt && document.querySelector('iframe[src]')) {
+			if (!window.__ptFrameAt && document.querySelector('iframe[src], iframe[srcdoc]')) {
 				window.__ptFrameAt = performance.now();
 			}
 			if (
@@ -441,17 +448,26 @@ async function checkGame(browser, id, n) {
 		const route = await page.evaluate(() => {
 			const f = document.querySelector('iframe[data-testid="game-frame"], iframe[title]');
 			return {
-				src: (f?.getAttribute('src') ?? '').slice(0, 24),
+				src: f?.hasAttribute('srcdoc') ? 'srcdoc' : (f?.getAttribute('src') ?? '').slice(0, 24),
 				sandbox: f?.getAttribute('sandbox') ?? null,
 				dispatch: document
 					.querySelector('[data-testid="touch-console-surface"]')
 					?.getAttribute('data-dispatch')
 			};
 		});
+		/* A srcdoc shell is a secure context (crypto.subtle, gamepads); a data: one is not. */
+		const shellFrame = page.frames().find((fr) => fr.url() === 'about:srcdoc');
+		const secure = shellFrame
+			? await shellFrame.evaluate(() => isSecureContext).catch(() => null)
+			: null;
 		check(
-			`W1 ${id}: plays in a bridge shell on the web`,
-			route.src.startsWith('data:') && surface.injectable === 'true' && route.dispatch === 'bridge',
-			{ ...route, injectable: surface.injectable, errors: errors.slice(0, 2) }
+			`W1 ${id}: plays in a secure bridge shell on the web`,
+			route.src === 'srcdoc' &&
+				secure === true &&
+				!/allow-same-origin/.test(route.sandbox ?? '') &&
+				surface.injectable === 'true' &&
+				route.dispatch === 'bridge',
+			{ ...route, secure, injectable: surface.injectable, errors: errors.slice(0, 2) }
 		);
 	}
 	if (!appeared && surface.injectable !== 'true') {
@@ -476,6 +492,29 @@ async function checkGame(browser, id, n) {
 	check(
 		`A8 ${id}: no console banner or essay`,
 		!/Console (enabled|blocked)|Waiting for the game/i.test(text)
+	);
+
+	/*
+	 * P1: nothing that stays on screen over the running game blurs it. Backdrop blur
+	 * re-samples the game canvas every frame, which costs frame rate on phones.
+	 */
+	const blurred = await page.evaluate(() => {
+		const surface = document.querySelector('[data-testid="touch-console-surface"]');
+		if (!surface) return null;
+		return [...surface.querySelectorAll('*')]
+			.filter((el) => {
+				const cs = getComputedStyle(el);
+				const f = cs.backdropFilter || cs.webkitBackdropFilter || 'none';
+				return f !== 'none' && el.getClientRects().length > 0;
+			})
+			.map((el) => el.className.toString().slice(0, 60));
+	});
+	check(
+		`P1 ${id}: on-screen controls do not blur the game`,
+		Array.isArray(blurred) && blurred.length === 0,
+		{
+			blurred
+		}
 	);
 
 	/* A9: joystick right → some game frame receives ArrowRight or KeyD. */

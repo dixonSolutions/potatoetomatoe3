@@ -87,6 +87,20 @@ export function isCorsClosedHtmlHost(url: string | null | undefined): boolean {
 	return hostMatches(hostOf(url), CORS_CLOSED_HTML_HOSTS);
 }
 
+/**
+ * Hosts whose games cannot run from a shell even though their HTML can be read (checked
+ * 2026-11-28 against the public site):
+ * - play.unity.com: the build's `loader.js` on cdn.play.unity.com sends no CORS headers, so
+ *   an opaque-origin document can never fetch it. On the web the direct route plays Unity
+ *   games in the app's own player (same origin, real storage) anyway.
+ * - html5.gamedistribution.com: the SDK locks the game to a domain, and a shell has none.
+ */
+const SHELL_INCOMPATIBLE_HOSTS = ['play.unity.com', 'html5.gamedistribution.com'];
+
+export function isShellIncompatibleHost(url: string | null | undefined): boolean {
+	return hostMatches(hostOf(url), SHELL_INCOMPATIBLE_HOSTS);
+}
+
 /** True for hosts that label HTML `text/plain` (a frame would show source text). */
 export function isTextPlainHtmlHost(url: string | null | undefined): boolean {
 	return hostMatches(hostOf(url), TEXT_PLAIN_HTML_HOSTS);
@@ -152,7 +166,8 @@ export function planOnlineRoutes(input: PlayRouteInput): PlayRouteKind[] {
 		 * controls, saves and key remapping. Try one where the host lets the HTML be read;
 		 * the direct frame stays the fallback.
 		 */
-		if (!input.desktopApp && !isCorsClosedHtmlHost(embed)) chain.push('shell');
+		if (!input.desktopApp && !isCorsClosedHtmlHost(embed) && !isShellIncompatibleHost(embed))
+			chain.push('shell');
 		chain.push('direct');
 	}
 	if (input.desktopApp && embed && !chain.includes('relay')) chain.push('relay');
@@ -173,7 +188,48 @@ export function nextPlayRoute(
 
 const FAILED_PREFIX = 'potato-tomato-play-route-failed:';
 
+/*
+ * Games whose shell failed for a reason that will not go away (the game needs its own
+ * origin): kept across visits, so they start on the next route straight away. A short
+ * list of ids, newest last.
+ */
+const SHELL_INCOMPATIBLE_KEY = 'potato-tomato-shell-incompatible';
+const SHELL_INCOMPATIBLE_MAX = 500;
+
+function shellIncompatibleGames(): string[] {
+	if (typeof localStorage === 'undefined') return [];
+	try {
+		const parsed: unknown = JSON.parse(localStorage.getItem(SHELL_INCOMPATIBLE_KEY) ?? '[]');
+		return Array.isArray(parsed) ? parsed.filter((id) => typeof id === 'string') : [];
+	} catch {
+		return [];
+	}
+}
+
+/** This game cannot play from a shell, on this device, from now on. */
+export function rememberShellIncompatible(gameId: string): void {
+	if (typeof localStorage === 'undefined' || !gameId) return;
+	const ids = shellIncompatibleGames().filter((id) => id !== gameId);
+	ids.push(gameId);
+	try {
+		localStorage.setItem(
+			SHELL_INCOMPATIBLE_KEY,
+			JSON.stringify(ids.slice(-SHELL_INCOMPATIBLE_MAX))
+		);
+	} catch {
+		/* private mode / quota */
+	}
+}
+
 function readFailed(gameId: string): PlayRouteKind[] {
+	const failed = readSessionFailed(gameId);
+	if (gameId && !failed.includes('shell') && shellIncompatibleGames().includes(gameId)) {
+		failed.push('shell');
+	}
+	return failed;
+}
+
+function readSessionFailed(gameId: string): PlayRouteKind[] {
 	if (typeof sessionStorage === 'undefined' || !gameId) return [];
 	try {
 		const raw = sessionStorage.getItem(FAILED_PREFIX + gameId);
@@ -189,7 +245,7 @@ function readFailed(gameId: string): PlayRouteKind[] {
 /** Session-scoped: this route did not produce a running game frame. */
 export function markPlayRouteFailed(gameId: string, kind: PlayRouteKind): void {
 	if (typeof sessionStorage === 'undefined' || !gameId) return;
-	const failed = readFailed(gameId);
+	const failed = readSessionFailed(gameId);
 	if (failed.includes(kind)) return;
 	try {
 		sessionStorage.setItem(FAILED_PREFIX + gameId, JSON.stringify([...failed, kind]));

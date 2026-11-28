@@ -153,15 +153,14 @@
 		pointer-events: auto;
 		border-radius: 9999px;
 		border: 1.5px solid var(--pt-accent-border);
-		background: var(--pt-accent-fill);
+		/* A dark underlay instead of backdrop blur: blur re-samples the game canvas every frame. */
+		background: linear-gradient(var(--pt-accent-fill), var(--pt-accent-fill)), rgb(15 23 42 / 0.38);
 		color: #fff;
 		font-weight: 700;
 		letter-spacing: 0.02em;
 		box-shadow:
 			0 6px 18px rgb(0 0 0 / 0.35),
 			inset 0 1px 0 rgb(255 255 255 / 0.25);
-		-webkit-backdrop-filter: blur(8px);
-		backdrop-filter: blur(8px);
 		display: grid;
 		place-items: center;
 		align-content: center;

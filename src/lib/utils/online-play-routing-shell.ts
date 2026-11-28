@@ -72,6 +72,18 @@ interface Shell {
 	html: string;
 	/** What the frame loads: the loader, as a `data:` URL. */
 	frameSrc: string;
+	/**
+	 * The loader as `srcdoc`, for a game page with a doctype. A sandboxed `srcdoc` frame keeps
+	 * the opaque origin but is a secure context (`crypto.subtle`, workers, gamepads), which a
+	 * `data:` frame never is; it is never in quirks mode, so pages without a doctype keep
+	 * `frameSrc`.
+	 */
+	frameSrcdoc?: string;
+}
+
+/** The game page declares a doctype (after any BOM, whitespace and comments). */
+export function hasDoctype(html: string): boolean {
+	return /^\uFEFF?\s*(?:<!--[\s\S]*?-->\s*)*<!doctype\s/i.test(html);
 }
 
 /** Every URL this module made, for `frameSandboxFor` — kept even after one is revoked. */
@@ -123,6 +135,109 @@ export function looksLikeHtml(text: string): boolean {
 	);
 }
 
+/**
+ * A page's own Content-Security-Policy `<meta>`. Its `'self'` meant the game's host; in the
+ * shell's opaque origin it matches nothing and blocks every script the game loads (Yandex
+ * games ship one). The sandbox is the boundary here, so the shell drops it.
+ */
+const CSP_META = /<meta\b[^>]*http-equiv\s*=\s*["']?content-security-policy["']?[^>]*>/gi;
+
+/**
+ * Engines that cannot run in an opaque-origin document: Construct 3 needs a secure context
+ * and resolves its worker against the page's own URL (`file:///…/dispatchworker.js` from a
+ * `data:` frame). Those games play from their own URL instead.
+ */
+const SHELL_INCOMPATIBLE_PAGE = [
+	/c3runtime/i,
+	/\bdispatchworker\b/i,
+	/<meta\b[^>]*content\s*=\s*["']?Construct 3/i
+];
+
+export function shellIncompatiblePage(html: string): boolean {
+	return SHELL_INCOMPATIBLE_PAGE.some((re) => re.test(html));
+}
+
+/**
+ * Errors that only an opaque-origin document produces, and that leave the game dead: a
+ * worker resolved against the shell's own URL (`file:`), or Web Crypto missing because a
+ * `data:` shell is not a secure context. One of these early in a shell start means the game
+ * should play from its own URL. Not "Failed to fetch" or a blocked reach into the parent:
+ * plenty of games shrug those off and play on (an analytics call, a portal check).
+ */
+const SHELL_INCOMPATIBLE_ERROR = [
+	/URL scheme "file" is not supported/i,
+	/reading 'digest'/i,
+	/crypto\.subtle is undefined/i
+];
+
+export function isShellIncompatibilityError(message: string): boolean {
+	return SHELL_INCOMPATIBLE_ERROR.some((re) => re.test(message));
+}
+
+/** How long after a shell starts its errors still say something about the shell. */
+const SHELL_ERROR_WINDOW_MS = 20000;
+
+/*
+ * Runs first in the game document. Reports the game's uncaught errors to the app for the
+ * first moments of a start (not the bridge's ad blocker's refusals, `__ptAd`), and evens out
+ * what a shell document's own URL (`about:srcdoc`, `data:`) and opaque origin change:
+ * - `new URL(path, location.href)` resolves against the game's `<base>`, as it would on the
+ *   game's own page, instead of throwing "Invalid URL" (Unity's loader does this);
+ * - `navigator.serviceWorker` reads as a service worker container that never registers,
+ *   instead of throwing on the read;
+ * - a fetch or XHR to `file:` (a worker resolved against the shell's URL) is reported as the
+ *   browser's own fatal message, which the browser logs but never throws as such.
+ */
+const ERROR_REPORTER = `(function (GAME, TYPE, WINDOW) {
+	var t0 = Date.now(), sent = 0;
+	function send(m) {
+		if (!m || Date.now() - t0 > WINDOW || sent++ > 8) return;
+		try { window.top.postMessage({ type: TYPE, action: 'error', gameId: GAME, message: String(m).slice(0, 300) }, '*'); } catch (e) {}
+	}
+	addEventListener('error', function (e) { if (e && e.message) send(e.message); });
+	addEventListener('unhandledrejection', function (e) {
+		var r = e && e.reason;
+		if (r && r.__ptAd) return;
+		send(r && r.message ? r.message : r);
+	});
+	try {
+		var NativeURL = window.URL, own = String(location.href);
+		window.URL = new Proxy(NativeURL, { construct: function (target, args, newTarget) {
+			if (args.length > 1 && args[1] != null) {
+				var b = String(args[1]);
+				if (b === own || /^(about|data):/i.test(b)) args[1] = document.baseURI;
+			}
+			return Reflect.construct(target, args, newTarget);
+		} });
+	} catch (e) {}
+	try { navigator.serviceWorker; } catch (e) {
+		try {
+			var never = new Promise(function () {});
+			Object.defineProperty(navigator, 'serviceWorker', { configurable: true, value: {
+				controller: null, ready: never, oncontrollerchange: null, onmessage: null,
+				register: function () { return Promise.reject(new DOMException('Service workers are off in this frame', 'SecurityError')); },
+				getRegistration: function () { return Promise.resolve(undefined); },
+				getRegistrations: function () { return Promise.resolve([]); },
+				startMessages: function () {}, addEventListener: function () {}, removeEventListener: function () {}
+			} });
+		} catch (e2) {}
+	}
+	function fileUrl(u) {
+		try { return /^file:/i.test(typeof u === 'string' ? u : u && u.url ? u.url : String(u)); } catch (e) { return false; }
+	}
+	var fileMessage = 'URL scheme "file" is not supported.';
+	var nativeFetch = window.fetch;
+	if (nativeFetch) window.fetch = function (input) {
+		if (fileUrl(input)) send(fileMessage);
+		return nativeFetch.apply(this, arguments);
+	};
+	var nativeOpen = XMLHttpRequest.prototype.open;
+	XMLHttpRequest.prototype.open = function (method, url) {
+		if (fileUrl(url)) send(fileMessage);
+		return nativeOpen.apply(this, arguments);
+	};
+})`;
+
 /** A bridge tag already in the page, as a dev server or service worker may have added it. */
 const EXISTING_BRIDGE_TAG = /<script\b[^>]*game-storage-bridge\.child\.js[^>]*>\s*<\/script>/gi;
 
@@ -139,13 +254,14 @@ export function buildShellHtml(
 	html: string,
 	options: { gameId: string; baseHref?: string; bridgeSource: string }
 ): string {
-	const page = html.replace(EXISTING_BRIDGE_TAG, '');
+	const page = html.replace(EXISTING_BRIDGE_TAG, '').replace(CSP_META, '');
 	let tags = '';
 	if (options.baseHref && !/<base\b[^>]*\bhref\s*=/i.test(page)) {
 		tags += `<base href="${escapeAttr(options.baseHref)}">`;
 	}
 	const bridge = options.bridgeSource.replace(/<\/script/gi, '<\\/script');
-	tags += `${PROFILE_SLOT}<script>window.__ptGameId=${scriptJson(options.gameId)};${bridge}</script>`;
+	const reporter = `${ERROR_REPORTER}(${scriptJson(options.gameId)},${scriptJson(SHELL_MESSAGE_TYPE)},${SHELL_ERROR_WINDOW_MS});`;
+	tags += `<script>${reporter}</script>${PROFILE_SLOT}<script>window.__ptGameId=${scriptJson(options.gameId)};${bridge}</script>`;
 	return insertFirstInHead(page, tags);
 }
 
@@ -233,6 +349,18 @@ export function buildShellLoader(gameId: string, shellUrl: string, origin = ''):
 
 let documentsAttached = false;
 
+type ShellIncompatibleListener = (gameId: string, message: string) => void;
+const incompatibleListeners = new Set<ShellIncompatibleListener>();
+
+/**
+ * Hear about a shell whose game failed only because it is not on its own origin
+ * (`isShellIncompatibilityError`). The game page relaunches it on the next route.
+ */
+export function onShellIncompatible(listener: ShellIncompatibleListener): () => void {
+	incompatibleListeners.add(listener);
+	return () => incompatibleListeners.delete(listener);
+}
+
 /**
  * Answer loaders asking for their game's document — only a frame this page hosts that game
  * in (`game-storage-bridge.ts` decides that, as for its saves).
@@ -241,8 +369,22 @@ function attachShellDocuments(): void {
 	if (documentsAttached || typeof window === 'undefined') return;
 	documentsAttached = true;
 	window.addEventListener('message', (event: MessageEvent) => {
-		const msg = event.data as { type?: string; action?: string; gameId?: unknown; shell?: unknown };
-		if (!msg || msg.type !== SHELL_MESSAGE_TYPE || msg.action !== 'document') return;
+		const msg = event.data as {
+			type?: string;
+			action?: string;
+			gameId?: unknown;
+			shell?: unknown;
+			message?: unknown;
+		};
+		if (!msg || msg.type !== SHELL_MESSAGE_TYPE) return;
+		if (msg.action === 'error') {
+			if (typeof msg.gameId !== 'string' || typeof msg.message !== 'string') return;
+			if (!isShellIncompatibilityError(msg.message)) return;
+			if (!mayTouchGameSaves(event.source, msg.gameId, 'pull')) return;
+			for (const listener of incompatibleListeners) listener(msg.gameId, msg.message);
+			return;
+		}
+		if (msg.action !== 'document') return;
 		if (typeof msg.gameId !== 'string' || typeof msg.shell !== 'string') return;
 		const shell = shellByUrl.get(msg.shell);
 		if (!shell || shell.gameId !== msg.gameId) return;
@@ -306,7 +448,8 @@ function shellFor(
 			shellByUrl.set(url, {
 				gameId,
 				html: built.html,
-				frameSrc: `data:text/html;charset=utf-8,${encodeURIComponent(loader)}`
+				frameSrc: `data:text/html;charset=utf-8,${encodeURIComponent(loader)}`,
+				frameSrcdoc: key.startsWith('shell:') && hasDoctype(built.html) ? loader : undefined
 			});
 			let forGame = shellsByGame.get(gameId);
 			if (!forGame) shellsByGame.set(gameId, (forGame = new Map()));
@@ -348,6 +491,11 @@ export function isShellBlobUrl(url: string | null | undefined): boolean {
 /** What a frame showing the shell `url` loads, while the visit lasts: its loader. */
 export function shellFrameSrcFor(url: string | null | undefined): string | undefined {
 	return url ? shellByUrl.get(url.trim())?.frameSrc : undefined;
+}
+
+/** The loader as `srcdoc` when the shell `url` plays from one (see `Shell.frameSrcdoc`). */
+export function shellFrameSrcdocFor(url: string | null | undefined): string | undefined {
+	return url ? shellByUrl.get(url.trim())?.frameSrcdoc : undefined;
 }
 
 /** The game document the shell `url` writes in, while the visit lasts. */
@@ -400,6 +548,8 @@ export function createRemoteShell(gameId: string, pageUrl: string): Promise<stri
 	return shellFor(gameId, `shell:${pageUrl}`, async () => {
 		const res = await fetch(pageUrl, { credentials: 'omit', redirect: 'follow' });
 		if (!res.ok) return null;
-		return shellDocument(gameId, await res.text(), res.url || pageUrl);
+		const html = await res.text();
+		if (shellIncompatiblePage(html)) return null;
+		return shellDocument(gameId, html, res.url || pageUrl);
 	});
 }

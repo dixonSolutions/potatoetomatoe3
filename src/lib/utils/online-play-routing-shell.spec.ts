@@ -15,9 +15,13 @@ const {
 	frameSandboxFor,
 	insertFirstInHead,
 	isShellBlobUrl,
+	isShellIncompatibilityError,
 	looksLikeHtml,
+	onShellIncompatible,
 	releaseOnlineShells,
+	hasDoctype,
 	shellDocumentFor,
+	shellFrameSrcdocFor,
 	shellFrameSrcFor
 } = await import('./online-play-routing-shell');
 
@@ -36,6 +40,85 @@ describe('buildShellHtml', () => {
 		expect(base).toBeLessThan(slot);
 		expect(slot).toBeLessThan(bridgeAt);
 		expect(bridgeAt).toBeLessThan(out.indexOf('game.js'));
+	});
+
+	it('drops the page’s own CSP <meta> and reports early errors from before the bridge', () => {
+		const out = buildShellHtml(
+			'<html><head><meta http-equiv="Content-Security-Policy" content="script-src \'self\'"><script src="sdk.js"></script></head></html>',
+			{ gameId: 'g-2', baseHref: 'https://app-1.games.s3.yandex.net/1/index.html', bridgeSource }
+		);
+		expect(out).not.toMatch(/Content-Security-Policy/i);
+		const reporter = out.indexOf("addEventListener('unhandledrejection'");
+		expect(reporter).toBeGreaterThan(-1);
+		expect(reporter).toBeLessThan(out.indexOf('<!--pt-shell-profile-->'));
+		expect(out).toContain('"g-2","potato-tomato-game-shell",20000');
+	});
+
+	it('evens out a shell document’s URL and opaque origin for the game', async () => {
+		const out = buildShellHtml('<html><head></head></html>', {
+			gameId: 'g-3',
+			baseHref: 'https://cdn.example/game/index.html',
+			bridgeSource
+		});
+		const start = out.indexOf('<script>') + '<script>'.length;
+		const prelude = out.slice(start, out.indexOf('</script>', start));
+		const posted: { message: string }[] = [];
+		const fetched: unknown[] = [];
+		class FakeXhr {
+			opened = '';
+			open(_method: string, url: string) {
+				this.opened = url;
+			}
+		}
+		const navigatorLike = {};
+		Object.defineProperty(navigatorLike, 'serviceWorker', {
+			configurable: true,
+			get() {
+				throw new Error('sandboxed');
+			}
+		});
+		const win: Record<string, unknown> = {
+			URL,
+			fetch: (input: unknown) => (fetched.push(input), Promise.resolve('ok')),
+			top: { postMessage: (m: { message: string }) => posted.push(m) }
+		};
+		new Function(
+			'window',
+			'location',
+			'document',
+			'navigator',
+			'XMLHttpRequest',
+			'addEventListener',
+			prelude
+		)(
+			win,
+			{ href: 'about:srcdoc' },
+			{ baseURI: 'https://cdn.example/game/index.html' },
+			navigatorLike,
+			FakeXhr,
+			() => {}
+		);
+		const ShellURL = win.URL as typeof URL;
+		expect(new ShellURL('Build/x.data', 'about:srcdoc').href).toBe(
+			'https://cdn.example/game/Build/x.data'
+		);
+		expect(new ShellURL('a.js', 'https://other/b/').href).toBe('https://other/b/a.js');
+		expect(new ShellURL('https://abs/x').href).toBe('https://abs/x');
+		expect(new ShellURL('https://abs/x')).toBeInstanceOf(URL);
+		expect(ShellURL.createObjectURL).toBe(URL.createObjectURL);
+
+		const sw = (navigatorLike as { serviceWorker: { register(): Promise<unknown> } }).serviceWorker;
+		await expect(sw.register()).rejects.toThrow(/off in this frame/);
+
+		await (win.fetch as (u: string) => Promise<unknown>)('file:///scripts/dispatchworker.js');
+		await (win.fetch as (u: string) => Promise<unknown>)('https://cdn.example/game/data.json');
+		new FakeXhr().open('GET', 'file:///scripts/main.js');
+		expect(fetched).toHaveLength(2);
+		expect(posted.map((m) => m.message)).toEqual([
+			'URL scheme "file" is not supported.',
+			'URL scheme "file" is not supported.'
+		]);
+		expect(posted.every((m) => isShellIncompatibilityError(m.message))).toBe(true);
 	});
 
 	it('keeps a page’s own <base> (Drive U 7 embed.html brings one)', () => {
@@ -61,8 +144,8 @@ describe('buildShellHtml', () => {
 			bridgeSource: 'var s = "</script>";'
 		});
 		expect(out).toContain('href="https://h/?q=&quot;x&quot;"');
-		/* Only the bridge's own closing tag: neither the id nor the source can end it early. */
-		expect(out.match(/<\/script>/g)).toHaveLength(1);
+		/* Only the error reporter's and the bridge's own closing tags: neither the id nor the source can end one early. */
+		expect(out.match(/<\/script>/g)).toHaveLength(2);
 		expect(out).toContain('window.__ptGameId="a\\"\\u003c/script>\\u003cb>"');
 	});
 });
@@ -199,6 +282,10 @@ describe('shells for a visit', () => {
 		expect(src.startsWith('data:text/html;charset=utf-8,')).toBe(true);
 		expect(decodeURIComponent(src)).toContain('"https://cdn.jsdelivr.net"');
 		expect(shellDocumentFor(a)).toContain('/* bridge */');
+		/* A page with a doctype plays from srcdoc: still sandboxed, but a secure context. */
+		expect(shellFrameSrcdocFor(a)).toBe(
+			decodeURIComponent(src.slice('data:text/html;charset=utf-8,'.length))
+		);
 		releaseOnlineShells('g');
 		expect(shellFrameSrcFor(a)).toBeUndefined();
 		const c = await createRemoteShell('g', page);
@@ -213,6 +300,25 @@ describe('shells for a visit', () => {
 		expect(frameSandboxFor('https://example.com/game.html')).toBeUndefined();
 		expect(frameSandboxFor('blob:http://app/unrelated')).toBeUndefined();
 		expect(frameLoadsPerStart('https://example.com/game.html')).toBe(1);
+	});
+
+	it('makes no shell of a Construct 3 page, which needs its own origin', async () => {
+		const page = 'https://cdn2.addictinggames.com/x/bloon-pop/index.html';
+		stubFetch({
+			[page]:
+				'<!DOCTYPE html><html><head><meta name="generator" content="Construct 3"></head><body><script src="scripts/c3runtime.js"></script></body></html>'
+		});
+		expect(await createRemoteShell('c3', page)).toBeNull();
+	});
+
+	it('keeps a page without a doctype on data: (srcdoc is never in quirks mode)', async () => {
+		const page = 'https://cdn.jsdelivr.net/gh/u/r@1/old.html';
+		stubFetch({ [page]: '<html><head></head><body>old</body></html>' });
+		const url = await createRemoteShell('quirky', page);
+		expect(shellFrameSrcFor(url)).toMatch(/^data:/);
+		expect(shellFrameSrcdocFor(url)).toBeUndefined();
+		expect(hasDoctype('\uFEFF <!-- built --> <!DOCTYPE html><html>')).toBe(true);
+		expect(hasDoctype('<html><!doctype html>')).toBe(false);
 	});
 
 	it('makes no shell of a page that is not HTML', async () => {
@@ -249,6 +355,41 @@ describe('shells for a visit', () => {
 			expect.objectContaining({ action: 'document', shell: url, html: shellDocumentFor(url) }),
 			'*'
 		);
+
+		/* Errors: only the hosting frame's, only the ones that say "needs its own origin". */
+		const heard: string[] = [];
+		const detach = onShellIncompatible((id, message) => heard.push(`${id}: ${message}`));
+		const report = (source: unknown, message: string) =>
+			listeners.forEach((fn) =>
+				fn({
+					source,
+					data: { type: 'potato-tomato-game-shell', action: 'error', gameId: 'hosted', message }
+				} as unknown as MessageEvent)
+			);
+		const fatal = 'URL scheme "file" is not supported.';
+		report(stranger, fatal);
+		report(hosted, 'Failed to fetch');
+		report(hosted, fatal);
+		expect(heard).toEqual([`hosted: ${fatal}`]);
+		detach();
+		report(hosted, fatal);
+		expect(heard).toHaveLength(1);
+	});
+
+	it('tells origin trouble apart from a game’s own bugs', () => {
+		for (const m of [
+			'Fetch API cannot load file:///text/scripts/dispatchworker.js. URL scheme "file" is not supported.',
+			"Cannot read properties of undefined (reading 'digest')"
+		])
+			expect(isShellIncompatibilityError(m)).toBe(true);
+		/* Games that throw these can still be playing: addicting-100-arrows, Unity analytics. */
+		for (const m of [
+			"Failed to read a named property 'document' from 'Window': Blocked a frame with origin \"null\" from accessing a cross-origin frame.",
+			'Failed to fetch',
+			'Howl is not defined',
+			''
+		])
+			expect(isShellIncompatibilityError(m)).toBe(false);
 	});
 });
 

@@ -9,6 +9,7 @@ import {
 	isUnframeableInApp,
 	markPlayRouteFailed,
 	nextPlayRoute,
+	rememberShellIncompatible,
 	planOnlineRoutes,
 	type PlayRouteInput
 } from './online-play-routing';
@@ -35,7 +36,18 @@ describe('planOnlineRoutes', () => {
 			...web,
 			embedUrl: 'https://play.unity.com/api/v1/games/game/abc/build/latest/frame'
 		};
-		expect(planOnlineRoutes(unity)).toEqual(['shell', 'direct']);
+		/* Unity Play's CDN sends no CORS headers: no shell, the app's own player instead. */
+		expect(planOnlineRoutes(unity)).toEqual(['direct']);
+		const gd = {
+			...web,
+			embedUrl: 'https://html5.gamedistribution.com/00cf/?gd_sdk_referrer_url=x'
+		};
+		expect(planOnlineRoutes(gd)).toEqual(['direct']);
+		const ag = {
+			...web,
+			embedUrl: 'https://cdn2.addictinggames.com/x/html5-games/shards/index.html'
+		};
+		expect(planOnlineRoutes(ag)).toEqual(['shell', 'direct']);
 		const yandex = { ...web, embedUrl: 'https://app-1.games.s3.yandex.net/1/x/index.html' };
 		expect(planOnlineRoutes(yandex)).toEqual(['shell', 'direct']);
 		/* The desktop injects the bridge into the game's own frames; no shell needed. */
@@ -90,13 +102,17 @@ describe('nextPlayRoute', () => {
 });
 
 describe('failed route memory', () => {
-	beforeEach(() => {
+	const store = () => {
 		const data = new Map<string, string>();
-		vi.stubGlobal('sessionStorage', {
+		return {
 			getItem: (k: string) => data.get(k) ?? null,
 			setItem: (k: string, v: string) => void data.set(k, String(v)),
 			removeItem: (k: string) => void data.delete(k)
-		});
+		};
+	};
+	beforeEach(() => {
+		vi.stubGlobal('sessionStorage', store());
+		vi.stubGlobal('localStorage', store());
 	});
 	afterEach(() => vi.unstubAllGlobals());
 
@@ -108,6 +124,21 @@ describe('failed route memory', () => {
 		expect(failedPlayRoutes('other')).toEqual([]);
 		clearPlayRouteFailures('g');
 		expect(failedPlayRoutes('g')).toEqual([]);
+	});
+
+	it('keeps a game that needs its own origin off the shell on later visits too', () => {
+		rememberShellIncompatible('c3');
+		rememberShellIncompatible('c3');
+		expect(failedPlayRoutes('c3')).toEqual(['shell']);
+		/* A new session: the session list is gone, the shell verdict is not. */
+		vi.stubGlobal('sessionStorage', store());
+		markPlayRouteFailed('c3', 'direct');
+		expect(failedPlayRoutes('c3')).toEqual(['direct', 'shell']);
+		expect(nextPlayRoute(['shell', 'direct'], failedPlayRoutes('c3'))).toBeNull();
+		expect(JSON.parse(localStorage.getItem('potato-tomato-shell-incompatible') ?? '[]')).toEqual([
+			'c3'
+		]);
+		expect(failedPlayRoutes('other')).toEqual([]);
 	});
 });
 

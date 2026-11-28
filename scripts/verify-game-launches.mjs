@@ -353,6 +353,21 @@ function directRouteUrl(game) {
 	return game.onlineEmbedUrl || `/games/${id}/online/index.html`;
 }
 
+/**
+ * What the app's game frame actually plays: an app-made shell (`srcdoc` or `data:` loader), a local
+ * or catalog page, or the game's own URL (direct, or the fallback after a shell failed).
+ */
+async function playedRoute(page) {
+	const frame = page.locator('iframe').first();
+	if (await frame.getAttribute('srcdoc').catch(() => null)) return 'shell';
+	const src = await frame.getAttribute('src').catch(() => null);
+	if (!src) return null;
+	if (src.startsWith('data:')) return 'shell';
+	if (/^https?:/i.test(src) && !src.includes('127.0.0.1') && !src.includes('localhost'))
+		return 'direct';
+	return 'local';
+}
+
 function routeTested(game) {
 	return game.localEmbed ? 'local' : 'direct';
 }
@@ -509,6 +524,7 @@ async function verifyGame(context, game, opts) {
 					const texts = await collectFrameText(page);
 					return {
 						...base,
+						played: await playedRoute(page),
 						/* Painted, but never became a settled game screen: a loader or splash. */
 						status: settled ? 'LAUNCHED' : 'LOADER',
 						strict: true,
@@ -556,6 +572,7 @@ async function verifyGame(context, game, opts) {
 							: 'NO_RENDER';
 		return {
 			...base,
+			played: await playedRoute(page),
 			status,
 			ms: Date.now() - clicked,
 			paint,

@@ -171,13 +171,12 @@
 		position: absolute;
 		inset: 0;
 		border-radius: 9999px;
-		background: rgb(255 255 255 / 0.06);
+		background:
+			linear-gradient(rgb(255 255 255 / 0.06), rgb(255 255 255 / 0.06)), rgb(15 23 42 / 0.3);
 		border: 1px solid rgb(255 255 255 / 0.22);
 		box-shadow:
 			0 8px 24px rgb(0 0 0 / 0.35),
 			inset 0 1px 0 rgb(255 255 255 / 0.28);
-		-webkit-backdrop-filter: blur(10px);
-		backdrop-filter: blur(10px);
 	}
 	.pt-touch-joystick__thumb {
 		position: relative;

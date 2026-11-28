@@ -85,3 +85,15 @@ Cluster job `20261127T070858-potatoetomatoe3-9gj9ui` at `919c5ec2d`, built with
 
 The binary is 56% smaller. The M1 gzip figure may have used a different gzip level, so
 compare the raw sizes.
+
+## M16: cold-cache web, 2026-11-28 (job `fOvatf`)
+
+`node scripts/perf-baseline.mjs /home /games` after a production web build, three runs, headless
+Chromium, fresh context. Covers count as on screen only inside the viewport in both directions
+(Home rows scroll sideways; lazy covers past the right edge are not meant to load).
+`build/_app` 1,227,020 B.
+
+| Route    | FCP      | covers on screen | on-screen covers decoded           | requests | bytes      |
+| -------- | -------- | ---------------- | ---------------------------------- | -------- | ---------- |
+| `/home`  | 80-92 ms | 14               | 736-927 ms (M1: never within 60 s) | ~178     | 0.8-1.1 MB |
+| `/games` | 68-72 ms | 18 (virtualised) | 520-678 ms (M1: ~460-640 ms)       | ~120     | 0.7-1.1 MB |
