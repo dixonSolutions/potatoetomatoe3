@@ -241,6 +241,8 @@
 	});
 </script>
 
+<!-- Pointerdown only unlocks audio on the way through; the game inside takes the real input. -->
+<!-- svelte-ignore a11y_no_static_element_interactions -->
 <div
 	bind:this={surfaceEl}
 	class="relative w-full overflow-hidden bg-muted {fillContainer

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import '../app.css';
-	import { onMount } from 'svelte';
+	import { onMount, untrack } from 'svelte';
 	import { afterNavigate } from '$app/navigation';
 	import { page } from '$app/state';
 	import { browser } from '$app/environment';
@@ -77,7 +77,7 @@
 	const ssrPrivacyHead = $derived(data.ssrPrivacyHead ?? ssrPrivacyHeadFallback);
 
 	/** SSR snapshot for $state seeds only — do not read $derived here (captures once by design). */
-	const initialPrivacyHead = data.ssrPrivacyHead ?? ssrPrivacyHeadFallback;
+	const initialPrivacyHead = untrack(() => data.ssrPrivacyHead) ?? ssrPrivacyHeadFallback;
 
 	/** SSR uses settings + unlock cookie so the first document request matches privacy state (no flash of full UI while locked). */
 	let privacyEnabled = $state(!!initialPrivacyHead.privacyModeEnabled);
