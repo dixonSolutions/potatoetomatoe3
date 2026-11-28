@@ -193,7 +193,7 @@ function initScript() {
 	});
 	const watch = () => {
 		const mark = () => {
-			if (!window.__ptFrameAt && document.querySelector('iframe[src]')) {
+			if (!window.__ptFrameAt && document.querySelector('iframe[src], iframe[srcdoc]')) {
 				window.__ptFrameAt = performance.now();
 			}
 			if (
