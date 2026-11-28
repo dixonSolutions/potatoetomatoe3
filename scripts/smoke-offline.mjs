@@ -25,7 +25,11 @@ const arg = (name) => {
 const OUT = arg('--out') ?? path.join(ROOT, 'test-results', 'smoke-offline');
 /* Games bundled in this repo: the browser can keep a copy (hosted-elsewhere ones get no Download). */
 const CANCEL_ID = arg('--cancel') ?? 'weasels';
-const KEEP_IDS = (arg('--keep') ?? 'slope,fnf-games-2v2-io,8-ball-pool').split(',').filter(Boolean);
+/*
+ * Self-contained bundled games: their shells have no other site's iframe, so the web offers
+ * Download for them (slope and friends wrap a CrazyGames frame and are online only).
+ */
+const KEEP_IDS = (arg('--keep') ?? 'alivenloaded,staccato').split(',').filter(Boolean);
 let BASE = arg('--url');
 let server;
 
