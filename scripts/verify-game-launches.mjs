@@ -354,15 +354,13 @@ function directRouteUrl(game) {
 }
 
 /**
- * What the app's game frame actually plays: an app-made shell (`data:` loader), a local
+ * What the app's game frame actually plays: an app-made shell (`srcdoc` or `data:` loader), a local
  * or catalog page, or the game's own URL (direct, or the fallback after a shell failed).
  */
 async function playedRoute(page) {
-	const src = await page
-		.locator('iframe')
-		.first()
-		.getAttribute('src')
-		.catch(() => null);
+	const frame = page.locator('iframe').first();
+	if (await frame.getAttribute('srcdoc').catch(() => null)) return 'shell';
+	const src = await frame.getAttribute('src').catch(() => null);
 	if (!src) return null;
 	if (src.startsWith('data:')) return 'shell';
 	if (/^https?:/i.test(src) && !src.includes('127.0.0.1') && !src.includes('localhost'))

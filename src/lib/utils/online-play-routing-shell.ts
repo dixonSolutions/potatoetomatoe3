@@ -72,6 +72,18 @@ interface Shell {
 	html: string;
 	/** What the frame loads: the loader, as a `data:` URL. */
 	frameSrc: string;
+	/**
+	 * The loader as `srcdoc`, for a game page with a doctype. A sandboxed `srcdoc` frame keeps
+	 * the opaque origin but is a secure context (`crypto.subtle`, workers, gamepads), which a
+	 * `data:` frame never is; it is never in quirks mode, so pages without a doctype keep
+	 * `frameSrc`.
+	 */
+	frameSrcdoc?: string;
+}
+
+/** The game page declares a doctype (after any BOM, whitespace and comments). */
+export function hasDoctype(html: string): boolean {
+	return /^\uFEFF?\s*(?:<!--[\s\S]*?-->\s*)*<!doctype\s/i.test(html);
 }
 
 /** Every URL this module made, for `frameSandboxFor` — kept even after one is revoked. */
@@ -393,7 +405,8 @@ function shellFor(
 			shellByUrl.set(url, {
 				gameId,
 				html: built.html,
-				frameSrc: `data:text/html;charset=utf-8,${encodeURIComponent(loader)}`
+				frameSrc: `data:text/html;charset=utf-8,${encodeURIComponent(loader)}`,
+				frameSrcdoc: key.startsWith('shell:') && hasDoctype(built.html) ? loader : undefined
 			});
 			let forGame = shellsByGame.get(gameId);
 			if (!forGame) shellsByGame.set(gameId, (forGame = new Map()));
@@ -435,6 +448,11 @@ export function isShellBlobUrl(url: string | null | undefined): boolean {
 /** What a frame showing the shell `url` loads, while the visit lasts: its loader. */
 export function shellFrameSrcFor(url: string | null | undefined): string | undefined {
 	return url ? shellByUrl.get(url.trim())?.frameSrc : undefined;
+}
+
+/** The loader as `srcdoc` when the shell `url` plays from one (see `Shell.frameSrcdoc`). */
+export function shellFrameSrcdocFor(url: string | null | undefined): string | undefined {
+	return url ? shellByUrl.get(url.trim())?.frameSrcdoc : undefined;
 }
 
 /** The game document the shell `url` writes in, while the visit lasts. */

@@ -441,17 +441,26 @@ async function checkGame(browser, id, n) {
 		const route = await page.evaluate(() => {
 			const f = document.querySelector('iframe[data-testid="game-frame"], iframe[title]');
 			return {
-				src: (f?.getAttribute('src') ?? '').slice(0, 24),
+				src: f?.hasAttribute('srcdoc') ? 'srcdoc' : (f?.getAttribute('src') ?? '').slice(0, 24),
 				sandbox: f?.getAttribute('sandbox') ?? null,
 				dispatch: document
 					.querySelector('[data-testid="touch-console-surface"]')
 					?.getAttribute('data-dispatch')
 			};
 		});
+		/* A srcdoc shell is a secure context (crypto.subtle, gamepads); a data: one is not. */
+		const shellFrame = page.frames().find((fr) => fr.url() === 'about:srcdoc');
+		const secure = shellFrame
+			? await shellFrame.evaluate(() => isSecureContext).catch(() => null)
+			: null;
 		check(
-			`W1 ${id}: plays in a bridge shell on the web`,
-			route.src.startsWith('data:') && surface.injectable === 'true' && route.dispatch === 'bridge',
-			{ ...route, injectable: surface.injectable, errors: errors.slice(0, 2) }
+			`W1 ${id}: plays in a secure bridge shell on the web`,
+			route.src === 'srcdoc' &&
+				secure === true &&
+				!/allow-same-origin/.test(route.sandbox ?? '') &&
+				surface.injectable === 'true' &&
+				route.dispatch === 'bridge',
+			{ ...route, secure, injectable: surface.injectable, errors: errors.slice(0, 2) }
 		);
 	}
 	if (!appeared && surface.injectable !== 'true') {
@@ -493,9 +502,13 @@ async function checkGame(browser, id, n) {
 			})
 			.map((el) => el.className.toString().slice(0, 60));
 	});
-	check(`P1 ${id}: on-screen controls do not blur the game`, Array.isArray(blurred) && blurred.length === 0, {
-		blurred
-	});
+	check(
+		`P1 ${id}: on-screen controls do not blur the game`,
+		Array.isArray(blurred) && blurred.length === 0,
+		{
+			blurred
+		}
+	);
 
 	/* A9: joystick right → some game frame receives ArrowRight or KeyD. */
 	const stick = await center(page.getByTestId('touch-joystick').first());

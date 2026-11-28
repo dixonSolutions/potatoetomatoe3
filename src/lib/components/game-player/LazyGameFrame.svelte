@@ -10,6 +10,7 @@
 	import {
 		frameLoadsPerStart,
 		frameSandboxFor,
+		shellFrameSrcdocFor,
 		shellFrameSrcFor
 	} from '$lib/utils/online-play-routing-shell';
 
@@ -113,6 +114,8 @@
 	const sandbox = $derived(frameSandboxFor(gameUrl));
 	/* A shell's play URL only names it: the frame loads the shell's loader. */
 	const frameSrc = $derived(shellFrameSrcFor(gameUrl) ?? gameUrl);
+	/* …from `srcdoc` when it can: a secure context, unlike a `data:` frame. */
+	const frameSrcdoc = $derived(shellFrameSrcdocFor(gameUrl));
 	const loadsPerStart = $derived(frameLoadsPerStart(gameUrl));
 	/** `load` events seen since the current start; the game is up after `loadsPerStart`. */
 	let loadsSeen = 0;
@@ -265,7 +268,8 @@
 			<iframe
 				bind:this={iframeEl}
 				{sandbox}
-				src={held ? 'about:blank' : frameSrc}
+				src={held ? 'about:blank' : frameSrcdoc ? undefined : frameSrc}
+				srcdoc={held ? undefined : frameSrcdoc}
 				{title}
 				class="h-full w-full border-0 bg-black"
 				class:invisible={held}

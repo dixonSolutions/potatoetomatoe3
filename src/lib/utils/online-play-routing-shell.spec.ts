@@ -19,7 +19,9 @@ const {
 	looksLikeHtml,
 	onShellIncompatible,
 	releaseOnlineShells,
+	hasDoctype,
 	shellDocumentFor,
+	shellFrameSrcdocFor,
 	shellFrameSrcFor
 } = await import('./online-play-routing-shell');
 
@@ -213,6 +215,10 @@ describe('shells for a visit', () => {
 		expect(src.startsWith('data:text/html;charset=utf-8,')).toBe(true);
 		expect(decodeURIComponent(src)).toContain('"https://cdn.jsdelivr.net"');
 		expect(shellDocumentFor(a)).toContain('/* bridge */');
+		/* A page with a doctype plays from srcdoc: still sandboxed, but a secure context. */
+		expect(shellFrameSrcdocFor(a)).toBe(
+			decodeURIComponent(src.slice('data:text/html;charset=utf-8,'.length))
+		);
 		releaseOnlineShells('g');
 		expect(shellFrameSrcFor(a)).toBeUndefined();
 		const c = await createRemoteShell('g', page);
@@ -236,6 +242,16 @@ describe('shells for a visit', () => {
 				'<!DOCTYPE html><html><head><meta name="generator" content="Construct 3"></head><body><script src="scripts/c3runtime.js"></script></body></html>'
 		});
 		expect(await createRemoteShell('c3', page)).toBeNull();
+	});
+
+	it('keeps a page without a doctype on data: (srcdoc is never in quirks mode)', async () => {
+		const page = 'https://cdn.jsdelivr.net/gh/u/r@1/old.html';
+		stubFetch({ [page]: '<html><head></head><body>old</body></html>' });
+		const url = await createRemoteShell('quirky', page);
+		expect(shellFrameSrcFor(url)).toMatch(/^data:/);
+		expect(shellFrameSrcdocFor(url)).toBeUndefined();
+		expect(hasDoctype('\uFEFF <!-- built --> <!DOCTYPE html><html>')).toBe(true);
+		expect(hasDoctype('<html><!doctype html>')).toBe(false);
 	});
 
 	it('makes no shell of a page that is not HTML', async () => {
