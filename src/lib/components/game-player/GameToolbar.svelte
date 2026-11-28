@@ -71,7 +71,6 @@
 	pressed?: boolean;
 	disabled?: boolean;
 	testid?: string;
-	tone?: 'default' | 'on';
 	iconClass?: string;
 })}
 	{@const Icon = opts.icon}
@@ -82,11 +81,7 @@
 					{...props}
 					variant="ghost"
 					size="icon"
-					class="size-9 shrink-0 {opts.tone === 'on'
-						? 'bg-emerald-600 text-white hover:bg-emerald-500 hover:text-white'
-						: opts.pressed
-							? 'bg-accent text-accent-foreground'
-							: ''}"
+					class="size-9 shrink-0 {opts.pressed ? 'bg-accent text-accent-foreground' : ''}"
 					aria-label={opts.label}
 					aria-pressed={opts.pressed}
 					disabled={opts.disabled}
@@ -140,7 +135,6 @@
 				icon: Gamepad2,
 				onclick: onToggleConsole,
 				pressed: consoleOn,
-				tone: consoleOn ? 'on' : 'default',
 				testid: 'touch-console-toggle'
 			})}
 		{/if}
