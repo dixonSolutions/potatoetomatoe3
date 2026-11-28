@@ -18,7 +18,7 @@
  * pointers; Playwright's mouse would switch the input mode to keyboard.
  *
  * Usage: node scripts/smoke-touch.mjs [--url http://127.0.0.1:5173] [--out dir]
- *          [--games _touch-lab,002,slope]
+ *          [--games _touch-lab,002,slope]   (002, playhop-…, addicting-100-arrows: shell route)
  */
 import { spawn } from 'node:child_process';
 import fs from 'node:fs';
@@ -35,7 +35,14 @@ const OUT = arg('--out') ?? path.join(ROOT, 'test-results', 'smoke-touch');
 const LAB = '_touch-lab';
 const LAB_2P = '_touch-lab-2p';
 const isLab = (id) => id === LAB || id === LAB_2P;
-const GAMES = (arg('--games') ?? `${LAB},${LAB_2P},weasels,002,slope`).split(',').filter(Boolean);
+const GAMES = (
+	arg('--games') ??
+	`${LAB},${LAB_2P},weasels,002,playhop-1-jump-on-the-keyboard-540983,addicting-100-arrows,slope`
+)
+	.split(',')
+	.filter(Boolean);
+/** Cross-origin games whose host allows CORS reads: on the web they play in a bridge shell. */
+const SHELL_IDS = new Set(['002', 'playhop-1-jump-on-the-keyboard-540983', 'addicting-100-arrows']);
 let BASE = arg('--url');
 let server;
 
@@ -159,7 +166,16 @@ const GRIP = '[aria-label="Drag to move the whole console"]';
 function initScript() {
 	if (window.top !== window) {
 		window.__ptKeys = [];
-		addEventListener('keydown', (e) => window.__ptKeys.push(e.code), true);
+		addEventListener(
+			'keydown',
+			(e) => {
+				/* One record per event, however many recorders are armed. */
+				if (e.__ptRec) return;
+				e.__ptRec = true;
+				window.__ptKeys.push(e.code);
+			},
+			true
+		);
 		return;
 	}
 	window.__ptReady = [];
@@ -247,7 +263,28 @@ function consoleState(page) {
 
 async function clearFrameKeys(page) {
 	for (const f of page.frames()) {
-		if (f !== page.mainFrame()) await f.evaluate(() => (window.__ptKeys = [])).catch(() => {});
+		if (f === page.mainFrame()) continue;
+		/*
+		 * A shell's loader writes the game document over its own, which erases the window
+		 * listeners the init script added; arm the recorder again for the current document.
+		 */
+		await f
+			.evaluate(() => {
+				window.__ptKeys = [];
+				if (window.__ptKeyDoc === document.documentElement) return;
+				window.__ptKeyDoc = document.documentElement;
+				addEventListener(
+					'keydown',
+					(e) => {
+						/* One record per event, however many recorders are armed. */
+						if (e.__ptRec) return;
+						e.__ptRec = true;
+						window.__ptKeys.push(e.code);
+					},
+					true
+				);
+			})
+			.catch(() => {});
 	}
 }
 
@@ -263,6 +300,84 @@ function appPoint(page) {
 		}
 		return null;
 	});
+}
+
+/** The app's stored save profile for a game (IndexedDB), as size and a few facts. */
+function storedProfile(page, id) {
+	return page.evaluate(
+		(gameId) =>
+			new Promise((resolve) => {
+				const req = indexedDB.open('potatotomato-browser-data-v1');
+				req.onerror = () => resolve({ error: 'open failed' });
+				req.onsuccess = () => {
+					const db = req.result;
+					if (!db.objectStoreNames.contains('browserProfiles')) return resolve({ none: true });
+					const get = db.transaction('browserProfiles').objectStore('browserProfiles').get(gameId);
+					get.onsuccess = () => {
+						const v = get.result;
+						if (!v) return resolve({ none: true });
+						const json = JSON.stringify(v);
+						resolve({ bytes: json.length, probe: json.includes('pt-smoke-save') });
+					};
+					get.onerror = () => resolve({ error: 'get failed' });
+				};
+			}),
+		id
+	);
+}
+
+/** Every child frame's view of one localStorage key (the bridge's virtual storage). */
+async function frameSaves(page) {
+	const out = [];
+	for (const fr of page.frames()) {
+		if (fr === page.mainFrame()) continue;
+		out.push(await fr.evaluate(() => localStorage.getItem('pt-smoke-save')).catch(() => null));
+	}
+	return out.filter(Boolean);
+}
+
+/**
+ * S1/S2: a save made inside a shell game reaches the app's own store (shared with the
+ * offline copy, which reads the same per-game profile), stays light, and is there again
+ * after a reload.
+ */
+async function checkSaves(page, id, n) {
+	const stamp = `v${Date.now()}`;
+	let wrote = 0;
+	for (const fr of page.frames()) {
+		if (fr === page.mainFrame()) continue;
+		const ok = await fr
+			.evaluate((s) => {
+				localStorage.setItem('pt-smoke-save', s);
+				return true;
+			}, stamp)
+			.catch(() => false);
+		if (ok) wrote++;
+	}
+	let stored = {};
+	for (let i = 0; i < 20; i++) {
+		await page.waitForTimeout(500);
+		stored = await storedProfile(page, id);
+		if (stored.probe) break;
+	}
+	check(
+		`S1 ${id}: a save in the game frame reaches the app store, light`,
+		Boolean(stored.probe) && stored.bytes < 2_000_000,
+		{
+			wrote,
+			...stored
+		}
+	);
+	await page.reload({ waitUntil: 'domcontentloaded' });
+	let seen = [];
+	for (let i = 0; i < 40 && !seen.includes(stamp); i++) {
+		await page.waitForTimeout(500);
+		seen = await frameSaves(page);
+	}
+	check(`S2 ${id}: the save is back after a reload`, seen.includes(stamp), {
+		seen: seen.slice(0, 3)
+	});
+	await page.screenshot({ path: path.join(OUT, `${n}-${id}-after-reload.png`) });
 }
 
 async function checkGame(browser, id, n) {
@@ -321,8 +436,26 @@ async function checkGame(browser, id, n) {
 		injectable: surface.injectable,
 		errors: errors.slice(0, 2)
 	};
+	/* W1: a CORS-readable cross-origin game plays in an app-made shell with the bridge inside. */
+	if (SHELL_IDS.has(id)) {
+		const route = await page.evaluate(() => {
+			const f = document.querySelector('iframe[data-testid="game-frame"], iframe[title]');
+			return {
+				src: (f?.getAttribute('src') ?? '').slice(0, 24),
+				sandbox: f?.getAttribute('sandbox') ?? null,
+				dispatch: document
+					.querySelector('[data-testid="touch-console-surface"]')
+					?.getAttribute('data-dispatch')
+			};
+		});
+		check(
+			`W1 ${id}: plays in a bridge shell on the web`,
+			route.src.startsWith('data:') && surface.injectable === 'true' && route.dispatch === 'bridge',
+			{ ...route, injectable: surface.injectable, errors: errors.slice(0, 2) }
+		);
+	}
 	if (!appeared && surface.injectable !== 'true') {
-		check(`A7 ${id}: controls wait for the game`, !isLab(id), {
+		check(`A7 ${id}: controls wait for the game`, !isLab(id) && !SHELL_IDS.has(id), {
 			...timing,
 			skipped: 'the console cannot reach this game frame (cross-origin, no bridge)'
 		});
@@ -353,13 +486,12 @@ async function checkGame(browser, id, n) {
 		for (let i = 1; i <= 6; i++) await touch(cdp, 'touchMove', stick.x + i * 8, stick.y);
 		await page.waitForTimeout(300);
 		const during = await consoleState(page);
-		const hit = await page.evaluate(
-			({ x, y }) => {
-				const el = document.elementFromPoint(x, y);
-				return el ? `${el.tagName.toLowerCase()}${el.dataset.testid ? '#' + el.dataset.testid : ''}` : null;
-			},
-			stick
-		);
+		const hit = await page.evaluate(({ x, y }) => {
+			const el = document.elementFromPoint(x, y);
+			return el
+				? `${el.tagName.toLowerCase()}${el.dataset.testid ? '#' + el.dataset.testid : ''}`
+				: null;
+		}, stick);
 		await touch(cdp, 'touchEnd', stick.x + 48, stick.y);
 		await page.waitForTimeout(200);
 		const keys = await frameKeys(page);
@@ -477,6 +609,10 @@ async function checkGame(browser, id, n) {
 		a11.hideDocks && a11.tapRestores && a11.dragDocks && a11.swipeRestores,
 		a11
 	);
+	if (SHELL_IDS.has(id))
+		await checkSaves(page, id, n).catch((e) =>
+			check(`S1 ${id}`, false, { error: String(e).slice(0, 300) })
+		);
 	await context.close();
 }
 

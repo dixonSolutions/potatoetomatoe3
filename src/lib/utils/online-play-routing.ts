@@ -13,6 +13,8 @@
  * | Drive U 7 (catalog `localEmbed`)       | Sites refuses framing; jsDelivr serves | `local` |
  * |                                        | HTML as `text/plain`                   |         |
  * | Other HTML on a `text/plain` host      | wrong content type                     | `shell` |
+ * | Cross-origin HTML, web and Android     | no bridge inside, so no touch controls | `shell` |
+ * |                                        | (hosts that allow CORS reads), then    | direct  |
  * | Flash `.swf` on prod.addictinggames    | `X-Frame-Options`, no CORS for Ruffle  | `relay` |
  * | Anything whose direct frame stays dead | (seen by the launch watchdog)          | next    |
  *
@@ -44,6 +46,23 @@ const TEXT_PLAIN_HTML_HOSTS = ['cdn.jsdelivr.net'];
  */
 const FRAME_BLOCKED_HOSTS = ['prod.addictinggames.com'];
 
+/**
+ * Hosts whose game HTML a page on another origin cannot read (no
+ * `Access-Control-Allow-Origin` on the entry document), checked 2026-11-28. Without a
+ * relay, nothing can put the bridge inside their frames, so the web and Android play them
+ * direct, with no touch controls. Every other host is tried as a shell first there:
+ * Unity Play, Yandex game storage, addictinggames' cdn2 and GameDistribution all answer
+ * `*`; a host that does not costs one failed fetch before the direct frame.
+ */
+const CORS_CLOSED_HTML_HOSTS = [
+	'games.crazygames.com',
+	'www.coolmathgames.com',
+	'fnf-games.io',
+	'www.playgeography.com',
+	'foony.com',
+	'www.modd.io'
+];
+
 function hostOf(url: string | null | undefined): string {
 	const raw = url?.trim();
 	if (!raw) return '';
@@ -61,6 +80,11 @@ function hostMatches(host: string, list: readonly string[]): boolean {
 /** True when `url`'s host is known to send X-Frame-Options / restrictive frame-ancestors. */
 export function isFrameBlockedHost(url: string | null | undefined): boolean {
 	return hostMatches(hostOf(url), FRAME_BLOCKED_HOSTS);
+}
+
+/** True for hosts known to refuse cross-origin reads of their game HTML. */
+export function isCorsClosedHtmlHost(url: string | null | undefined): boolean {
+	return hostMatches(hostOf(url), CORS_CLOSED_HTML_HOSTS);
 }
 
 /** True for hosts that label HTML `text/plain` (a frame would show source text). */
@@ -122,6 +146,13 @@ export function planOnlineRoutes(input: PlayRouteInput): PlayRouteKind[] {
 		if (input.desktopApp) chain.push('relay');
 		chain.push('shell');
 	} else if (!isFrameBlockedHost(embed) && hostOf(embed) !== 'sites.google.com') {
+		/*
+		 * Off the desktop (no native frame injection, no relay) the bridge reaches a
+		 * cross-origin game only from inside a shell, and the bridge is what carries touch
+		 * controls, saves and key remapping. Try one where the host lets the HTML be read;
+		 * the direct frame stays the fallback.
+		 */
+		if (!input.desktopApp && !isCorsClosedHtmlHost(embed)) chain.push('shell');
 		chain.push('direct');
 	}
 	if (input.desktopApp && embed && !chain.includes('relay')) chain.push('relay');

@@ -25,9 +25,11 @@ const arg = (name) => {
 const OUT = arg('--out') ?? path.join(ROOT, 'test-results', 'smoke-offline');
 /* Games bundled in this repo: the browser can keep a copy (hosted-elsewhere ones get no Download). */
 const CANCEL_ID = arg('--cancel') ?? 'weasels';
-const KEEP_IDS = (arg('--keep') ?? 'slope,fnf-games-2v2-io,8-ball-pool')
-	.split(',')
-	.filter(Boolean);
+/*
+ * Self-contained bundled games: their shells have no other site's iframe, so the web offers
+ * Download for them (slope and friends wrap a CrazyGames frame and are online only).
+ */
+const KEEP_IDS = (arg('--keep') ?? 'alivenloaded,staccato').split(',').filter(Boolean);
 let BASE = arg('--url');
 let server;
 
@@ -81,14 +83,22 @@ async function openGame(page, id) {
 /** The offline controls sit under More → "Version & offline". */
 async function showPlayOptions(page, timeout = 30000) {
 	await page.getByTestId('game-more-menu').waitFor({ timeout });
-	if (await controls(page).isVisible().catch(() => false)) return;
+	if (
+		await controls(page)
+			.isVisible()
+			.catch(() => false)
+	)
+		return;
 	await page.getByTestId('game-more-menu').click();
 	await page.getByTestId('play-options-toggle').click();
 	try {
 		await controls(page).waitFor({ timeout: 15000 });
 	} catch (e) {
 		await page.screenshot({ path: path.join(OUT, 'no-offline-controls.png') }).catch(() => {});
-		const text = await page.getByTestId('play-options').innerText().catch(() => '(none)');
+		const text = await page
+			.getByTestId('play-options')
+			.innerText()
+			.catch(() => '(none)');
 		throw new Error(`offline controls missing; play-options: ${text.slice(0, 300)}`, { cause: e });
 	}
 }
@@ -162,15 +172,17 @@ try {
 	const startable = await startBtn.isEnabled().catch(() => false);
 	check('download button', startable, { id: CANCEL_ID });
 	if (startable) {
-		/* A slow line, so the download is still running when we come back to the game. */
-		const cdp = await context.newCDPSession(page);
-		await cdp.send('Network.enable');
-		await cdp.send('Network.emulateNetworkConditions', {
-			offline: false,
-			latency: 40,
-			downloadThroughput: 96 * 1024,
-			uploadThroughput: 96 * 1024
-		});
+		/*
+		 * Slow only the game's own files, so the download is still running when we come back.
+		 * (Throttling the whole line slowed the app's return as much as the download, and the
+		 * 1.5 MB game finished first.)
+		 */
+		const slowGame = new RegExp(`/games/${CANCEL_ID}/`);
+		const slow = async (route) => {
+			await new Promise((r) => setTimeout(r, 2500));
+			await route.continue().catch(() => {});
+		};
+		await context.route(slowGame, slow);
 		await startBtn.click();
 		await controls(page).getByRole('status').waitFor({ timeout: 15000 });
 		await leaveAndReturn(page);
@@ -197,12 +209,7 @@ try {
 				.isVisible()
 				.catch(() => false)
 		});
-		await cdp.send('Network.emulateNetworkConditions', {
-			offline: false,
-			latency: 0,
-			downloadThroughput: -1,
-			uploadThroughput: -1
-		});
+		await context.unroute(slowGame, slow);
 	}
 
 	/* A3 b: the kept games download; the first must finish with exactly one toast. */
@@ -271,7 +278,24 @@ try {
 
 	/* A4: launch each downloaded game offline from Home (in-app navigation). */
 	for (const keepId of KEEP_IDS) {
+		/* Each launch starts from the offline Home, reached in-app. */
+		if (!/\/home/.test(page.url())) {
+			await page.locator('a[href$="/home"]').first().click();
+			await page.waitForURL(/\/home/, { timeout: 15000 });
+		}
 		const tile = page.locator(`a[href$="/games/${keepId}"]`).first();
+		await tile.waitFor({ timeout: 15000 }).catch(() => {});
+		/* The game's banner is its tile picture: offline, it must come from the download. */
+		const banner = await tile
+			.locator('img')
+			.first()
+			.evaluate(async (img) => {
+				img.scrollIntoView({ block: 'center' });
+				for (let i = 0; i < 40 && !(img.complete && img.naturalWidth > 0); i++)
+					await new Promise((r) => setTimeout(r, 250));
+				return { loaded: img.complete && img.naturalWidth > 0, src: img.currentSrc.slice(0, 80) };
+			})
+			.catch(() => ({ loaded: false, src: null }));
 		if (!(await tile.isVisible().catch(() => false))) {
 			check(`offline launch ${keepId}`, false, { reason: 'no tile on offline Home' });
 			continue;
@@ -295,10 +319,6 @@ try {
 			.first()
 			.textContent()
 			.catch(() => '');
-		const banners = await page
-			.locator('main img')
-			.evaluateAll((imgs) => imgs.filter((i) => i.complete && i.naturalWidth > 0).length)
-			.catch(() => 0);
 		/* What the game frame itself shows (Playwright can read any frame). */
 		let rendered = null;
 		for (const fr of page.frames()) {
@@ -319,7 +339,7 @@ try {
 			Boolean(
 				title?.trim() &&
 					(description ?? '').trim() &&
-					banners > 0 &&
+					banner.loaded &&
 					frame &&
 					!crashed &&
 					rendered &&
@@ -328,7 +348,7 @@ try {
 			{
 				title: title?.trim(),
 				description: (description ?? '').trim().slice(0, 60),
-				banners,
+				banner,
 				frame: frame?.slice(0, 80),
 				rendered,
 				crashed
