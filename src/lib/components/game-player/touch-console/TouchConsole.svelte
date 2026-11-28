@@ -1077,7 +1077,7 @@
 				data-console-control
 				data-testid="console-dock-tab"
 				data-side={docked}
-				class="pointer-events-auto absolute z-30 flex h-16 w-7 touch-none items-center justify-center border border-border/70 bg-background/80 text-foreground shadow-md backdrop-blur-sm {docked ===
+				class="pointer-events-auto absolute z-30 flex h-16 w-7 touch-none items-center justify-center border border-border/70 bg-background/80 text-foreground shadow-md {docked ===
 				'left'
 					? 'left-0 rounded-r-2xl border-l-0'
 					: 'right-0 rounded-l-2xl border-r-0'}"
@@ -1124,7 +1124,7 @@
 				<button
 					type="button"
 					data-console-control
-					class="pointer-events-auto absolute top-2 left-2 z-10 flex h-7 max-w-[34%] items-center gap-1 rounded-full border border-border/70 bg-background/80 px-2.5 text-[10px] font-semibold tracking-wide text-foreground shadow-sm backdrop-blur-sm outline-none"
+					class="pointer-events-auto absolute top-2 left-2 z-10 flex h-7 max-w-[34%] items-center gap-1 rounded-full border border-border/70 bg-background/80 px-2.5 text-[10px] font-semibold tracking-wide text-foreground shadow-sm outline-none"
 					class:border-emerald-400={effectiveScheme !== config.joystickScheme}
 					aria-label="Joystick key scheme"
 					aria-haspopup="listbox"
@@ -1142,7 +1142,7 @@
 				<button
 					type="button"
 					data-console-control
-					class="pointer-events-auto absolute top-2 left-1/2 z-10 flex h-7 w-14 -translate-x-1/2 cursor-move touch-none items-center justify-center rounded-full border border-border/70 bg-background/80 text-foreground shadow-sm backdrop-blur-sm"
+					class="pointer-events-auto absolute top-2 left-1/2 z-10 flex h-7 w-14 -translate-x-1/2 cursor-move touch-none items-center justify-center rounded-full border border-border/70 bg-background/80 text-foreground shadow-sm"
 					aria-label="Drag to move the whole console"
 					title="Drag to move the whole console"
 					onpointerdown={(e) => {
@@ -1203,7 +1203,7 @@
 						<button
 							type="button"
 							data-console-control
-							class="flex h-7 items-center justify-center rounded-full border border-border/70 bg-background/80 px-2 text-foreground shadow-sm backdrop-blur-sm"
+							class="flex h-7 items-center justify-center rounded-full border border-border/70 bg-background/80 px-2 text-foreground shadow-sm"
 							aria-label="Reset layout to default"
 							title="Reset layout to default"
 							onclick={resetLayout}
@@ -1215,7 +1215,7 @@
 							type="button"
 							data-console-control
 							data-testid="console-hide"
-							class="flex h-7 w-8 items-center justify-center rounded-full border border-border/70 bg-background/80 text-foreground shadow-sm backdrop-blur-sm"
+							class="flex h-7 w-8 items-center justify-center rounded-full border border-border/70 bg-background/80 text-foreground shadow-sm"
 							aria-label="Hide touch controls"
 							title="Hide — tap the side tab to bring them back"
 							onclick={() =>
@@ -1227,7 +1227,7 @@
 							type="button"
 							data-console-control
 							data-testid="console-controls-toggle"
-							class="flex h-7 w-8 items-center justify-center rounded-full border backdrop-blur-sm {menuOpen
+							class="flex h-7 w-8 items-center justify-center rounded-full border {menuOpen
 								? 'border-emerald-500/80 bg-emerald-500 text-white'
 								: 'border-border/70 bg-background/80 text-foreground shadow-sm'}"
 							aria-label={menuOpen ? 'Hide controls' : 'Show controls'}
@@ -1242,7 +1242,7 @@
 						type="button"
 						data-console-control
 						data-testid="console-edit-toggle"
-						class="flex h-7 items-center justify-center gap-1 rounded-full border px-2 text-[10px] font-semibold backdrop-blur-sm {editMode
+						class="flex h-7 items-center justify-center gap-1 rounded-full border px-2 text-[10px] font-semibold {editMode
 							? 'border-rose-500/80 bg-rose-500 text-white'
 							: 'border-border/70 bg-background/80 text-foreground shadow-sm'}"
 						aria-label={editMode ? 'Done editing layout' : 'Edit layout'}
@@ -1263,14 +1263,14 @@
 				-->
 				{#if noKeyboardSettled}
 					<span
-						class="pointer-events-none absolute right-3 bottom-2 z-10 rounded-full border border-amber-500/50 bg-background/80 px-2 py-0.5 text-[10px] font-semibold text-amber-700 backdrop-blur-sm dark:text-amber-300"
+						class="pointer-events-none absolute right-3 bottom-2 z-10 rounded-full border border-amber-500/50 bg-background/80 px-2 py-0.5 text-[10px] font-semibold text-amber-700 dark:text-amber-300"
 						title="Nothing in this game listens for key presses — touch the game directly."
 					>
 						No keys used
 					</span>
 				{:else if hiddenControlCount > 0}
 					<span
-						class="pointer-events-none absolute right-3 bottom-2 z-10 rounded-full border border-emerald-500/50 bg-background/80 px-2 py-0.5 text-[10px] font-semibold text-emerald-700 backdrop-blur-sm dark:text-emerald-300"
+						class="pointer-events-none absolute right-3 bottom-2 z-10 rounded-full border border-emerald-500/50 bg-background/80 px-2 py-0.5 text-[10px] font-semibold text-emerald-700 dark:text-emerald-300"
 						title="Hidden because this game's own control list does not mention them."
 					>
 						−{hiddenControlCount} unused
@@ -1362,7 +1362,7 @@
 					role="status"
 				>
 					<span
-						class="rounded-full border border-rose-500/60 bg-popover/90 px-3 py-1 text-[11px] font-semibold text-popover-foreground shadow-md backdrop-blur-sm"
+						class="rounded-full border border-rose-500/60 bg-popover/90 px-3 py-1 text-[11px] font-semibold text-popover-foreground shadow-md"
 					>
 						Drag any control to move it · tap Done when finished
 					</span>

@@ -478,6 +478,25 @@ async function checkGame(browser, id, n) {
 		!/Console (enabled|blocked)|Waiting for the game/i.test(text)
 	);
 
+	/*
+	 * P1: nothing that stays on screen over the running game blurs it. Backdrop blur
+	 * re-samples the game canvas every frame, which costs frame rate on phones.
+	 */
+	const blurred = await page.evaluate(() => {
+		const surface = document.querySelector('[data-testid="touch-console-surface"]');
+		if (!surface) return null;
+		return [...surface.querySelectorAll('*')]
+			.filter((el) => {
+				const cs = getComputedStyle(el);
+				const f = cs.backdropFilter || cs.webkitBackdropFilter || 'none';
+				return f !== 'none' && el.getClientRects().length > 0;
+			})
+			.map((el) => el.className.toString().slice(0, 60));
+	});
+	check(`P1 ${id}: on-screen controls do not blur the game`, Array.isArray(blurred) && blurred.length === 0, {
+		blurred
+	});
+
 	/* A9: joystick right → some game frame receives ArrowRight or KeyD. */
 	const stick = await center(page.getByTestId('touch-joystick').first());
 	if (stick) {
