@@ -79,11 +79,17 @@ async function openGame(page, id) {
 
 /** The offline controls sit under More → "Version & offline". */
 async function showPlayOptions(page, timeout = 30000) {
-	await controls(page).waitFor({ state: 'attached', timeout });
-	if (await controls(page).isVisible()) return;
+	await page.getByTestId('game-more-menu').waitFor({ timeout });
+	if (await controls(page).isVisible().catch(() => false)) return;
 	await page.getByTestId('game-more-menu').click();
 	await page.getByTestId('play-options-toggle').click();
-	await controls(page).waitFor({ timeout: 15000 });
+	try {
+		await controls(page).waitFor({ timeout: 15000 });
+	} catch (e) {
+		await page.screenshot({ path: path.join(OUT, 'no-offline-controls.png') }).catch(() => {});
+		const text = await page.getByTestId('play-options').innerText().catch(() => '(none)');
+		throw new Error(`offline controls missing; play-options: ${text.slice(0, 300)}`, { cause: e });
+	}
 }
 
 /** Leave by an in-app link (a reload would end a web download), then come back. */
@@ -93,6 +99,23 @@ async function leaveAndReturn(page) {
 	await page.waitForTimeout(1500);
 	await page.goBack();
 	await page.waitForURL(/\/games\//, { timeout: 15000 });
+	try {
+		await page.getByTestId('game-more-menu').waitFor({ timeout: 60000 });
+	} catch (e) {
+		await page.screenshot({ path: path.join(OUT, 'return-failed.png') }).catch(() => {});
+		const text = await page.evaluate(() => document.body.innerText.slice(0, 500)).catch(() => '');
+		throw new Error(
+			`game page did not come back: ${page.url()} | ${text.replace(/\s+/g, ' ')} | errors: ${pageErrors.slice(-3).join(' / ')}`,
+			{ cause: e }
+		);
+	}
+	/* A3: the running download's progress is on screen without opening a menu. */
+	const shown = await controls(page)
+		.getByRole('status')
+		.waitFor({ timeout: 10000 })
+		.then(() => true)
+		.catch(() => false);
+	check('progress shown on return, no menu', shown);
 	await showPlayOptions(page, 60000);
 }
 
@@ -116,6 +139,9 @@ async function watchFlicker(page, testid, fn, ms) {
 	});
 }
 
+/** Page errors and console errors, for a failure's message. */
+const pageErrors = [];
+
 if (!BASE) BASE = await startServer();
 fs.mkdirSync(OUT, { recursive: true });
 const browser = await chromium.launch({
@@ -124,6 +150,10 @@ const browser = await chromium.launch({
 try {
 	const context = await browser.newContext({ viewport: { width: 1280, height: 800 } });
 	const page = await context.newPage();
+	page.on('pageerror', (e) => pageErrors.push(String(e).slice(0, 200)));
+	page.on('console', (m) => {
+		if (m.type() === 'error') pageErrors.push(m.text().slice(0, 200));
+	});
 
 	/* A3 a: start, leave, come back, progress still shown, cancel frees storage. */
 	await openGame(page, CANCEL_ID);

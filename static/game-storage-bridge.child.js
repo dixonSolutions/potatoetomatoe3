@@ -4074,8 +4074,8 @@
  *
  * Posts {type:'potato-tomato-game-ready', gameId, reason} to the app once, when:
  *   - a canvas or video covering a good part of the frame is up ('surface'), or
- *   - the page has no canvas, video or frame at all a moment after load ('document':
- *     a plain HTML game), or
+ *   - the page has no canvas, video or frame, has stopped changing and does not read as
+ *     a loader ('document': a plain HTML game), or
  *   - an engine that said it is loading (`window.__ptEngineLoading`, set by
  *     static/unity/inject.js) calls `window.__ptGameReady()` ('engine'), or
  *   - nothing of that after MAX_MS ('timeout'), so the controls are never lost.
@@ -4189,7 +4189,9 @@
 			if (surfaceUp()) return post('surface');
 			if (
 				now - loadedAt >= DOCUMENT_SETTLE_MS &&
-				!document.querySelector('canvas, video, iframe, embed, object')
+				now - lastChangeAt >= DOCUMENT_SETTLE_MS &&
+				!document.querySelector('canvas, video, iframe, embed, object') &&
+				!looksLikeLoader()
 			) {
 				return post('document');
 			}
@@ -4197,8 +4199,31 @@
 		setTimeout(check, 250);
 	}
 
+	/*
+	 * A plain page counts as the game only once it has stopped changing and does not read
+	 * as a loader: a "Loading…" screen with no canvas yet is not a game (the canvas comes).
+	 */
+	var lastChangeAt = Date.now();
+	function looksLikeLoader() {
+		var body = document.body;
+		if (!body) return true;
+		var text = (body.innerText || body.textContent || '').trim();
+		return text.length < 200 && /\bloading\b|please wait|\b\d{1,3}\s*%/i.test(text);
+	}
+
 	function begin() {
 		loadedAt = Date.now();
+		try {
+			new MutationObserver(function () {
+				lastChangeAt = Date.now();
+			}).observe(document.documentElement, {
+				childList: true,
+				subtree: true,
+				characterData: true
+			});
+		} catch {
+			/* no observer: the load time alone decides */
+		}
 		setTimeout(check, 300);
 	}
 	if (document.readyState === 'complete') begin();

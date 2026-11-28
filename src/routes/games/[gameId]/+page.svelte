@@ -32,6 +32,7 @@
 		isGlobalDailyLimitExceeded
 	} from '$lib/utils/play-recommendations';
 	import { resolveCatalogAlias } from '$lib/utils/catalog-aliases';
+	import { isDownloading } from '$lib/utils/download-manager.svelte';
 	import { recordPlayEvent } from '$lib/utils/play-events';
 	import { EARLY_LEAVE_MS } from '$lib/utils/recommendation-model';
 	import Button from '$lib/components/ui/button/button.svelte';
@@ -791,7 +792,8 @@
 			releaseOnlineShells();
 			autoFullscreenFor = '';
 			inGameMenuOpen = false;
-			playOptionsOpen = false;
+			/* A3: back on a game whose download is running, its progress shows without a menu. */
+			playOptionsOpen = isDownloading(id);
 			pointerLockHintShown = false;
 			stuckCursorHintShown = false;
 			loading = true;

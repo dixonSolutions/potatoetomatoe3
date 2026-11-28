@@ -494,10 +494,13 @@ export function getEffectiveConfig(
 
 	let enabled = global.enabled;
 	let availability = global.availability;
-	/* Native / local-app: puller + touch proxy stay on — keep console available. */
+	/*
+	 * Native / local-app: puller + touch proxy stay on, so the console stays available.
+	 * 'auto', not 'always': a key press must still hide it (A10) — 'always' pins it up.
+	 */
 	if (isLocalAppDeployment()) {
 		enabled = true;
-		if (availability === 'off' || availability === 'auto') availability = 'always';
+		if (availability === 'off') availability = 'auto';
 	}
 
 	return {
