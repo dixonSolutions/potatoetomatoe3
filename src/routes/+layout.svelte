@@ -365,8 +365,7 @@
 			if (!playLimitToastIssued) {
 				playLimitToastIssued = true;
 				toast.error('Daily playtime limit reached', {
-					description:
-						'Change it in Settings → Play time.'
+					description: 'Change it in Settings → Play time.'
 				});
 			}
 		} else if (!exceeded) {

@@ -171,7 +171,8 @@
 		position: absolute;
 		inset: 0;
 		border-radius: 9999px;
-		background: linear-gradient(rgb(255 255 255 / 0.06), rgb(255 255 255 / 0.06)), rgb(15 23 42 / 0.3);
+		background:
+			linear-gradient(rgb(255 255 255 / 0.06), rgb(255 255 255 / 0.06)), rgb(15 23 42 / 0.3);
 		border: 1px solid rgb(255 255 255 / 0.22);
 		box-shadow:
 			0 8px 24px rgb(0 0 0 / 0.35),
