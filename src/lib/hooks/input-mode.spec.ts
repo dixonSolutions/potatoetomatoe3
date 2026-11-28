@@ -96,4 +96,17 @@ describe('input mode', () => {
 		expect(w.count()).toBe(0);
 		expect(watchInputMode(null)).toBeTypeOf('function');
 	});
+
+	it('detaches quietly from a frame window that went cross-origin', () => {
+		const target = {
+			addEventListener: () => {},
+			removeEventListener: () => {
+				throw new DOMException('Blocked a frame', 'SecurityError');
+			}
+		} as unknown as EventTarget;
+		const detach = watchInputMode(target);
+		expect(() => detach()).not.toThrow();
+		/* It is forgotten, so a later watch attaches afresh. */
+		expect(watchInputMode(target)).not.toBe(detach);
+	});
 });

@@ -85,12 +85,21 @@ export function watchInputMode(target: EventTarget | null | undefined): () => vo
 	target.addEventListener('keydown', onKey, opts);
 	target.addEventListener('message', onMessage);
 	const detach = () => {
-		target.removeEventListener('pointerdown', onPointer, opts);
-		target.removeEventListener('touchstart', onTouch, opts);
-		target.removeEventListener('mousemove', onMouseMove, opts);
-		target.removeEventListener('keydown', onKey, opts);
-		target.removeEventListener('message', onMessage);
 		attached.delete(target);
+		/*
+		 * A game frame's window may have navigated cross-origin since: touching it throws a
+		 * SecurityError, which in a component's cleanup used to leave the next page blank.
+		 * Its listeners went with the old document anyway.
+		 */
+		try {
+			target.removeEventListener('pointerdown', onPointer, opts);
+			target.removeEventListener('touchstart', onTouch, opts);
+			target.removeEventListener('mousemove', onMouseMove, opts);
+			target.removeEventListener('keydown', onKey, opts);
+			target.removeEventListener('message', onMessage);
+		} catch {
+			/* cross-origin or gone */
+		}
 	};
 	attached.set(target, detach);
 	return detach;
