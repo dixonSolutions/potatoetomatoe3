@@ -67,10 +67,13 @@
 			!status?.offline &&
 			!downloading &&
 			onlineAvailable &&
+			/* Hosted on another site: the browser cannot keep a copy, so offer none. */
+			!externalEmbedOnly &&
 			statusReady
 	);
 	let blockedReason = $derived.by(() => {
 		if (canDownload || downloading || status?.offline || bundled || !statusReady) return '';
+		if (externalEmbedOnly) return '';
 		if (!networkOnline) return 'Connect to download';
 		if (!offlineReady) return 'Downloads unavailable here';
 		if (!onlineAvailable) return 'Nothing to download';
