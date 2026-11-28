@@ -9,6 +9,7 @@ import {
 	isUnframeableInApp,
 	markPlayRouteFailed,
 	nextPlayRoute,
+	rememberShellIncompatible,
 	planOnlineRoutes,
 	type PlayRouteInput
 } from './online-play-routing';
@@ -90,13 +91,17 @@ describe('nextPlayRoute', () => {
 });
 
 describe('failed route memory', () => {
-	beforeEach(() => {
+	const store = () => {
 		const data = new Map<string, string>();
-		vi.stubGlobal('sessionStorage', {
+		return {
 			getItem: (k: string) => data.get(k) ?? null,
 			setItem: (k: string, v: string) => void data.set(k, String(v)),
 			removeItem: (k: string) => void data.delete(k)
-		});
+		};
+	};
+	beforeEach(() => {
+		vi.stubGlobal('sessionStorage', store());
+		vi.stubGlobal('localStorage', store());
 	});
 	afterEach(() => vi.unstubAllGlobals());
 
@@ -108,6 +113,21 @@ describe('failed route memory', () => {
 		expect(failedPlayRoutes('other')).toEqual([]);
 		clearPlayRouteFailures('g');
 		expect(failedPlayRoutes('g')).toEqual([]);
+	});
+
+	it('keeps a game that needs its own origin off the shell on later visits too', () => {
+		rememberShellIncompatible('c3');
+		rememberShellIncompatible('c3');
+		expect(failedPlayRoutes('c3')).toEqual(['shell']);
+		/* A new session: the session list is gone, the shell verdict is not. */
+		vi.stubGlobal('sessionStorage', store());
+		markPlayRouteFailed('c3', 'direct');
+		expect(failedPlayRoutes('c3')).toEqual(['direct', 'shell']);
+		expect(nextPlayRoute(['shell', 'direct'], failedPlayRoutes('c3'))).toBeNull();
+		expect(JSON.parse(localStorage.getItem('potato-tomato-shell-incompatible') ?? '[]')).toEqual([
+			'c3'
+		]);
+		expect(failedPlayRoutes('other')).toEqual([]);
 	});
 });
 

@@ -15,7 +15,9 @@ const {
 	frameSandboxFor,
 	insertFirstInHead,
 	isShellBlobUrl,
+	isShellIncompatibilityError,
 	looksLikeHtml,
+	onShellIncompatible,
 	releaseOnlineShells,
 	shellDocumentFor,
 	shellFrameSrcFor
@@ -36,6 +38,18 @@ describe('buildShellHtml', () => {
 		expect(base).toBeLessThan(slot);
 		expect(slot).toBeLessThan(bridgeAt);
 		expect(bridgeAt).toBeLessThan(out.indexOf('game.js'));
+	});
+
+	it('drops the page’s own CSP <meta> and reports early errors from before the bridge', () => {
+		const out = buildShellHtml(
+			'<html><head><meta http-equiv="Content-Security-Policy" content="script-src \'self\'"><script src="sdk.js"></script></head></html>',
+			{ gameId: 'g-2', baseHref: 'https://app-1.games.s3.yandex.net/1/index.html', bridgeSource }
+		);
+		expect(out).not.toMatch(/Content-Security-Policy/i);
+		const reporter = out.indexOf("addEventListener('unhandledrejection'");
+		expect(reporter).toBeGreaterThan(-1);
+		expect(reporter).toBeLessThan(out.indexOf('<!--pt-shell-profile-->'));
+		expect(out).toContain('"g-2","potato-tomato-game-shell",20000');
 	});
 
 	it('keeps a page’s own <base> (Drive U 7 embed.html brings one)', () => {
@@ -61,8 +75,8 @@ describe('buildShellHtml', () => {
 			bridgeSource: 'var s = "</script>";'
 		});
 		expect(out).toContain('href="https://h/?q=&quot;x&quot;"');
-		/* Only the bridge's own closing tag: neither the id nor the source can end it early. */
-		expect(out.match(/<\/script>/g)).toHaveLength(1);
+		/* Only the error reporter's and the bridge's own closing tags: neither the id nor the source can end one early. */
+		expect(out.match(/<\/script>/g)).toHaveLength(2);
 		expect(out).toContain('window.__ptGameId="a\\"\\u003c/script>\\u003cb>"');
 	});
 });
@@ -215,6 +229,15 @@ describe('shells for a visit', () => {
 		expect(frameLoadsPerStart('https://example.com/game.html')).toBe(1);
 	});
 
+	it('makes no shell of a Construct 3 page, which needs its own origin', async () => {
+		const page = 'https://cdn2.addictinggames.com/x/bloon-pop/index.html';
+		stubFetch({
+			[page]:
+				'<!DOCTYPE html><html><head><meta name="generator" content="Construct 3"></head><body><script src="scripts/c3runtime.js"></script></body></html>'
+		});
+		expect(await createRemoteShell('c3', page)).toBeNull();
+	});
+
 	it('makes no shell of a page that is not HTML', async () => {
 		const page = 'https://cdn.jsdelivr.net/gh/u/r@1/game.json';
 		stubFetch({ [page]: '{"not":"html"}' });
@@ -249,6 +272,40 @@ describe('shells for a visit', () => {
 			expect.objectContaining({ action: 'document', shell: url, html: shellDocumentFor(url) }),
 			'*'
 		);
+
+		/* Errors: only the hosting frame's, only the ones that say "needs its own origin". */
+		const heard: string[] = [];
+		const detach = onShellIncompatible((id, message) => heard.push(`${id}: ${message}`));
+		const report = (source: unknown, message: string) =>
+			listeners.forEach((fn) =>
+				fn({
+					source,
+					data: { type: 'potato-tomato-game-shell', action: 'error', gameId: 'hosted', message }
+				} as unknown as MessageEvent)
+			);
+		report(stranger, 'Failed to fetch');
+		report(hosted, 'Cannot read properties of undefined (reading x)');
+		report(hosted, 'Failed to fetch');
+		expect(heard).toEqual(['hosted: Failed to fetch']);
+		detach();
+		report(hosted, 'Failed to fetch');
+		expect(heard).toHaveLength(1);
+	});
+
+	it('tells origin trouble apart from a game’s own bugs', () => {
+		for (const m of [
+			"Failed to read a named property 'document' from 'Window': Blocked a frame with origin \"null\" from accessing a cross-origin frame.",
+			'Failed to fetch',
+			'NetworkError when attempting to fetch resource.',
+			'Fetch API cannot load file:///text/scripts/dispatchworker.js. URL scheme "file" is not supported.'
+		])
+			expect(isShellIncompatibilityError(m)).toBe(true);
+		for (const m of [
+			'Howl is not defined',
+			"Cannot read properties of null (reading 'defaultView')",
+			''
+		])
+			expect(isShellIncompatibilityError(m)).toBe(false);
 	});
 });
 

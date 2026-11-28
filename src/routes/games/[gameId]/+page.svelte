@@ -100,7 +100,8 @@
 		clearDirectLaunchFailed,
 		isFrameBlockedHost,
 		isUnframeableInApp,
-		markPlayRouteFailed
+		markPlayRouteFailed,
+		rememberShellIncompatible
 	} from '$lib/utils/online-play-routing';
 	import {
 		gameFrameSpokeSince,
@@ -108,7 +109,11 @@
 		releaseNativeGameFrames,
 		watchGameFrameLife
 	} from '$lib/utils/native-game-frames';
-	import { isShellBlobUrl, releaseOnlineShells } from '$lib/utils/online-play-routing-shell';
+	import {
+		isShellBlobUrl,
+		onShellIncompatible,
+		releaseOnlineShells
+	} from '$lib/utils/online-play-routing-shell';
 	import { openExternalUrl } from '$lib/utils/open-external';
 	import { takeWebviewCrashOfGame, webviewCrashOnLoad } from '$lib/utils/webview-crash';
 	import { readConsoleVisiblePref, writeConsoleVisiblePref } from '$lib/utils/touch-console';
@@ -434,8 +439,7 @@
 			`game=${gameId} url=${gamePlayerUrl}`
 		);
 		toast.error('Console cannot reach this game.', {
-			description:
-				'It runs on another site. Tap the game itself, or download it.'
+			description: 'It runs on another site. Tap the game itself, or download it.'
 		});
 		return false;
 	}
@@ -602,7 +606,7 @@
 	}
 
 	/** Relaunch the game on the next route of its chain. */
-	async function tryNextPlayRoute(reason: 'stalled' | 'blank') {
+	async function tryNextPlayRoute(reason: 'stalled' | 'blank' | 'incompatible') {
 		const id = gameId;
 		/* Never behind the lock screen: the frame there is held on a blank page on purpose. */
 		if (!id || privacyLocked) return;
@@ -932,6 +936,21 @@
 		playLimitHold = isGlobalDailyLimitExceeded();
 		/* Proof of life from game frames, for the launch watchdog, on every platform. */
 		watchGameFrameLife();
+		/*
+		 * A shell game that failed only because it is not on its own origin plays from its
+		 * own URL — now, and on every later visit (`rememberShellIncompatible`).
+		 */
+		const detachShellErrors = onShellIncompatible((id, message) => {
+			if (id !== gameId || !isShellBlobUrl(gamePlayerUrl)) return;
+			rememberShellIncompatible(id);
+			appendPlayLog(
+				'warn',
+				'play-url',
+				'Game needs its own origin — leaving the shell',
+				`game=${id} error=${message}`
+			);
+			void tryNextPlayRoute('incompatible');
+		});
 		const detachNetwork = subscribeNetworkStatus((online) => {
 			networkOnline = online;
 			/*
@@ -1028,6 +1047,7 @@
 
 		return () => {
 			detachNetwork();
+			detachShellErrors();
 			detachPagePointerGuard();
 			window.removeEventListener('potato-tomato-privacy-locked', onPrivacyLocked);
 			window.removeEventListener('potato-tomato-privacy-settings-applied', onSettingsApplied);

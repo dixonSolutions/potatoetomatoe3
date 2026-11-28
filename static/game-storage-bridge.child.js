@@ -131,7 +131,9 @@
 			var url = input && typeof input === 'object' && 'url' in input ? input.url : input;
 			if (isAd(url)) {
 				note(url);
-				return Promise.reject(new TypeError('Failed to fetch'));
+				var refused = new TypeError('Failed to fetch');
+				refused.__ptAd = true;
+				return Promise.reject(refused);
 			}
 			return origFetch.apply(this, arguments);
 		};

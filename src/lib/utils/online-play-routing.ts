@@ -173,7 +173,48 @@ export function nextPlayRoute(
 
 const FAILED_PREFIX = 'potato-tomato-play-route-failed:';
 
+/*
+ * Games whose shell failed for a reason that will not go away (the game needs its own
+ * origin): kept across visits, so they start on the next route straight away. A short
+ * list of ids, newest last.
+ */
+const SHELL_INCOMPATIBLE_KEY = 'potato-tomato-shell-incompatible';
+const SHELL_INCOMPATIBLE_MAX = 500;
+
+function shellIncompatibleGames(): string[] {
+	if (typeof localStorage === 'undefined') return [];
+	try {
+		const parsed: unknown = JSON.parse(localStorage.getItem(SHELL_INCOMPATIBLE_KEY) ?? '[]');
+		return Array.isArray(parsed) ? parsed.filter((id) => typeof id === 'string') : [];
+	} catch {
+		return [];
+	}
+}
+
+/** This game cannot play from a shell, on this device, from now on. */
+export function rememberShellIncompatible(gameId: string): void {
+	if (typeof localStorage === 'undefined' || !gameId) return;
+	const ids = shellIncompatibleGames().filter((id) => id !== gameId);
+	ids.push(gameId);
+	try {
+		localStorage.setItem(
+			SHELL_INCOMPATIBLE_KEY,
+			JSON.stringify(ids.slice(-SHELL_INCOMPATIBLE_MAX))
+		);
+	} catch {
+		/* private mode / quota */
+	}
+}
+
 function readFailed(gameId: string): PlayRouteKind[] {
+	const failed = readSessionFailed(gameId);
+	if (gameId && !failed.includes('shell') && shellIncompatibleGames().includes(gameId)) {
+		failed.push('shell');
+	}
+	return failed;
+}
+
+function readSessionFailed(gameId: string): PlayRouteKind[] {
 	if (typeof sessionStorage === 'undefined' || !gameId) return [];
 	try {
 		const raw = sessionStorage.getItem(FAILED_PREFIX + gameId);
@@ -189,7 +230,7 @@ function readFailed(gameId: string): PlayRouteKind[] {
 /** Session-scoped: this route did not produce a running game frame. */
 export function markPlayRouteFailed(gameId: string, kind: PlayRouteKind): void {
 	if (typeof sessionStorage === 'undefined' || !gameId) return;
-	const failed = readFailed(gameId);
+	const failed = readSessionFailed(gameId);
 	if (failed.includes(kind)) return;
 	try {
 		sessionStorage.setItem(FAILED_PREFIX + gameId, JSON.stringify([...failed, kind]));
