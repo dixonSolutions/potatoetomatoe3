@@ -208,12 +208,17 @@ export function watchDocumentPointerLock(
 	doc.addEventListener('pointerlockchange', onLockChange);
 
 	return () => {
-		win[POINTER_LOCK_GUARD_FLAG] = false;
-		win.removeEventListener('mousemove', onMove, true);
-		win.removeEventListener('pointerdown', onPress, true);
-		win.removeEventListener('mousedown', onPress, true);
-		for (const type of followUps) win.removeEventListener(type, onFollowUp, true);
-		doc.removeEventListener('pointerlockchange', onLockChange);
+		/* The frame may be cross-origin or gone by now; never let cleanup throw. */
+		try {
+			win[POINTER_LOCK_GUARD_FLAG] = false;
+			win.removeEventListener('mousemove', onMove, true);
+			win.removeEventListener('pointerdown', onPress, true);
+			win.removeEventListener('mousedown', onPress, true);
+			for (const type of followUps) win.removeEventListener(type, onFollowUp, true);
+			doc.removeEventListener('pointerlockchange', onLockChange);
+		} catch {
+			/* cross-origin or gone */
+		}
 		restoreCursor();
 	};
 }

@@ -174,7 +174,7 @@
 				</RadioGroup.Root>
 			</SettingsRow>
 		</SettingsGroup>
-	{:else if desktop}
+	{:else if updates.platform === 'desktop'}
 		<SettingsGroup id="settings-section-updates">
 			<SettingsRow label="Version" hint="Updates come from the Flatpak remote." inline>
 				<span class="font-mono text-sm">{updates.installed ?? '—'}</span>
