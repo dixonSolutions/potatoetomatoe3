@@ -228,6 +228,21 @@ async function frameKeys(page) {
 	return out;
 }
 
+/** The console's own view of things, for a failing check's detail. */
+function consoleState(page) {
+	return page.evaluate(() => {
+		const el = document.querySelector('[data-testid="touch-console-surface"]');
+		const sticks = [...document.querySelectorAll('[data-testid="touch-joystick"]')];
+		return {
+			input: el?.getAttribute('data-input-mode'),
+			overlay: el?.getAttribute('data-overlay'),
+			dispatch: el?.getAttribute('data-dispatch'),
+			twoPlayer: el?.getAttribute('data-two-player'),
+			sticks: sticks.map((s) => s.getAttribute('data-active')).join(',')
+		};
+	});
+}
+
 async function clearFrameKeys(page) {
 	for (const f of page.frames()) {
 		if (f !== page.mainFrame()) await f.evaluate(() => (window.__ptKeys = [])).catch(() => {});
@@ -335,13 +350,21 @@ async function checkGame(browser, id, n) {
 		await touch(cdp, 'touchStart', stick.x, stick.y);
 		for (let i = 1; i <= 6; i++) await touch(cdp, 'touchMove', stick.x + i * 8, stick.y);
 		await page.waitForTimeout(300);
+		const during = await consoleState(page);
+		const hit = await page.evaluate(
+			({ x, y }) => {
+				const el = document.elementFromPoint(x, y);
+				return el ? `${el.tagName.toLowerCase()}${el.dataset.testid ? '#' + el.dataset.testid : ''}` : null;
+			},
+			stick
+		);
 		await touch(cdp, 'touchEnd', stick.x + 48, stick.y);
 		await page.waitForTimeout(200);
 		const keys = await frameKeys(page);
 		check(
 			`A9 ${id}: joystick sends keys into the game`,
 			keys.some((k) => k === 'ArrowRight' || k === 'KeyD'),
-			{ keys: [...new Set(keys)].slice(0, 6) }
+			{ keys: [...new Set(keys)].slice(0, 6), during, hit, frames: page.frames().length }
 		);
 	} else {
 		check(`A9 ${id}: joystick sends keys into the game`, false, { error: 'no joystick' });
@@ -397,9 +420,11 @@ async function checkGame(browser, id, n) {
 				h.focus();
 			}
 		});
+	const beforeKey = await consoleState(page);
 	await page.keyboard.press('Shift');
 	await page.waitForTimeout(50);
 	const hiddenAfterKey = !(await visible(page, GRIP));
+	const afterKey = await consoleState(page);
 	await page.screenshot({ path: path.join(OUT, `${n}-${id}-keyboard.png`) });
 	const vp = page.viewportSize();
 	const spot = isLab(id) ? { x: vp.width / 2, y: vp.height / 2 } : await appPoint(page);
@@ -413,7 +438,9 @@ async function checkGame(browser, id, n) {
 		hiddenAfterKey,
 		backAfterTouch,
 		keyIn: isLab(id) ? 'game frame' : 'app window',
-		touchAt: spot
+		touchAt: spot,
+		beforeKey,
+		afterKey
 	});
 
 	/* A11: hide button → side tab; tap the tab → back. Drag grip to the edge → tab; swipe in → back. */

@@ -79,11 +79,17 @@ async function openGame(page, id) {
 
 /** The offline controls sit under More → "Version & offline". */
 async function showPlayOptions(page, timeout = 30000) {
-	await controls(page).waitFor({ state: 'attached', timeout });
-	if (await controls(page).isVisible()) return;
+	await page.getByTestId('game-more-menu').waitFor({ timeout });
+	if (await controls(page).isVisible().catch(() => false)) return;
 	await page.getByTestId('game-more-menu').click();
 	await page.getByTestId('play-options-toggle').click();
-	await controls(page).waitFor({ timeout: 15000 });
+	try {
+		await controls(page).waitFor({ timeout: 15000 });
+	} catch (e) {
+		await page.screenshot({ path: path.join(OUT, 'no-offline-controls.png') }).catch(() => {});
+		const text = await page.getByTestId('play-options').innerText().catch(() => '(none)');
+		throw new Error(`offline controls missing; play-options: ${text.slice(0, 300)}`, { cause: e });
+	}
 }
 
 /** Leave by an in-app link (a reload would end a web download), then come back. */
@@ -93,6 +99,14 @@ async function leaveAndReturn(page) {
 	await page.waitForTimeout(1500);
 	await page.goBack();
 	await page.waitForURL(/\/games\//, { timeout: 15000 });
+	await page.getByTestId('game-more-menu').waitFor({ timeout: 60000 });
+	/* A3: the running download's progress is on screen without opening a menu. */
+	const shown = await controls(page)
+		.getByRole('status')
+		.waitFor({ timeout: 10000 })
+		.then(() => true)
+		.catch(() => false);
+	check('progress shown on return, no menu', shown);
 	await showPlayOptions(page, 60000);
 }
 

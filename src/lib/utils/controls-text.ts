@@ -360,7 +360,8 @@ function parseSentence(clause: string, into: ParsedControls): void {
 	const parts = clause.split(/,|&|\band\b(?!\s+then)/i);
 	let pending: string[] = [];
 	for (const part of parts) {
-		const p = part.trim();
+		/* "A 2 player game: player 1 uses WASD": the label before a player's keys is not a key. */
+		const p = part.trim().replace(/^[^:]{1,40}:\s*(?=(?:player\s*\d|p\d)\b)/i, '');
 		if (!p || POINTER.test(p.split(/\bto\b/i)[0])) {
 			pending = [];
 			continue;
@@ -385,7 +386,10 @@ function parseSentence(clause: string, into: ParsedControls): void {
 			}
 		}
 		/* "Press Space" alone, or a key list that the next part gives an action to. */
-		const verbOnly = p.match(/^\s*(?:press|hold|tap|use|hit)\s+(.{1,24})$/i);
+		/* "Player 1 uses WASD", "P2 uses the arrow keys": a player's keys, named per player. */
+		const verbOnly = p.match(
+			/^\s*(?:(?:player\s*\d|p\d)\s+)?(?:press(?:es)?|hold|tap|uses?|hit)\s+(?:the\s+)?(.{1,24})$/i
+		);
 		const bare = verbOnly ? verbOnly[1] : p;
 		const keys = isPureKeyList(bare) ? keysInPhrase(bare, verbOnly ? 'all' : 'cue') : [];
 		if (keys.length) pending.push(...keys);

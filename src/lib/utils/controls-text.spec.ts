@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { keysInPhrase, parseControlsText } from './controls-text';
+import { detectPlayers } from './touch-players';
 
 const ARROWS = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
 const WASD = ['KeyW', 'KeyA', 'KeyS', 'KeyD'];
@@ -154,5 +155,15 @@ describe('parseControlsText', () => {
 		const p = parseControlsText('Controls Arrow keys = move, Space = dash');
 		expect(p.purposes.ArrowUp).toBe('Move');
 		expect(p.purposes.Space).toBe('Dash');
+	});
+
+	it('reads each player\'s keys in a two-player description', () => {
+		const text =
+			'A 2 player game: player 1 uses WASD and F, player 2 uses the arrow keys and Enter.';
+		const codes = parseControlsText(text).codes;
+		for (const code of ['KeyW', 'KeyD', 'ArrowUp', 'ArrowRight', 'Enter']) {
+			expect(codes, code).toContain(code);
+		}
+		expect(detectPlayers(codes, text)).toHaveLength(2);
 	});
 });

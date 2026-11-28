@@ -93,6 +93,8 @@
 	const dispatcher = new KeyDispatcher();
 
 	let injectable = $state(false);
+	/** Where synthetic keys go ('dom' | 'bridge' | 'none'); shown on the surface for tests. */
+	let dispatchKind = $state<'dom' | 'bridge' | 'none'>('none');
 	let surfaceEl = $state<HTMLDivElement | null>(null);
 	let surfaceW = $state(0);
 	let surfaceH = $state(0);
@@ -445,6 +447,7 @@
 			nextInjectable = false;
 		}
 		if (injectable !== nextInjectable) injectable = nextInjectable;
+		dispatchKind = dispatcher.getDispatchPathKind();
 		if (nextInjectable) requestAutoShow();
 	}
 
@@ -1054,6 +1057,10 @@
 		data-testid="touch-console-surface"
 		data-injectable={injectable}
 		data-game-ready={gameReady}
+		data-input-mode={inputMode()}
+		data-overlay={showOverlay}
+		data-two-player={twoPlayer}
+		data-dispatch={dispatchKind}
 		aria-hidden={!showOverlay && !showMenu}
 		onpointerdowncapture={keepGameFocused}
 	>
