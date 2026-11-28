@@ -87,6 +87,20 @@ export function isCorsClosedHtmlHost(url: string | null | undefined): boolean {
 	return hostMatches(hostOf(url), CORS_CLOSED_HTML_HOSTS);
 }
 
+/**
+ * Hosts whose games cannot run from a shell even though their HTML can be read (checked
+ * 2026-11-28 against the public site):
+ * - play.unity.com: the build's `loader.js` on cdn.play.unity.com sends no CORS headers, so
+ *   an opaque-origin document can never fetch it. On the web the direct route plays Unity
+ *   games in the app's own player (same origin, real storage) anyway.
+ * - html5.gamedistribution.com: the SDK locks the game to a domain, and a shell has none.
+ */
+const SHELL_INCOMPATIBLE_HOSTS = ['play.unity.com', 'html5.gamedistribution.com'];
+
+export function isShellIncompatibleHost(url: string | null | undefined): boolean {
+	return hostMatches(hostOf(url), SHELL_INCOMPATIBLE_HOSTS);
+}
+
 /** True for hosts that label HTML `text/plain` (a frame would show source text). */
 export function isTextPlainHtmlHost(url: string | null | undefined): boolean {
 	return hostMatches(hostOf(url), TEXT_PLAIN_HTML_HOSTS);
@@ -152,7 +166,8 @@ export function planOnlineRoutes(input: PlayRouteInput): PlayRouteKind[] {
 		 * controls, saves and key remapping. Try one where the host lets the HTML be read;
 		 * the direct frame stays the fallback.
 		 */
-		if (!input.desktopApp && !isCorsClosedHtmlHost(embed)) chain.push('shell');
+		if (!input.desktopApp && !isCorsClosedHtmlHost(embed) && !isShellIncompatibleHost(embed))
+			chain.push('shell');
 		chain.push('direct');
 	}
 	if (input.desktopApp && embed && !chain.includes('relay')) chain.push('relay');

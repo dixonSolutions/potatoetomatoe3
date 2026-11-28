@@ -158,16 +158,16 @@ export function shellIncompatiblePage(html: string): boolean {
 }
 
 /**
- * Errors a game throws only because the shell is not its own origin: it reached into a
- * parent frame, or a fetch was refused (the host sends no CORS headers for origin "null").
- * One of these early in a shell start means the game should play from its own URL.
+ * Errors that only an opaque-origin document produces, and that leave the game dead: a
+ * worker resolved against the shell's own URL (`file:`), or Web Crypto missing because a
+ * `data:` shell is not a secure context. One of these early in a shell start means the game
+ * should play from its own URL. Not "Failed to fetch" or a blocked reach into the parent:
+ * plenty of games shrug those off and play on (an analytics call, a portal check).
  */
 const SHELL_INCOMPATIBLE_ERROR = [
-	/Blocked a frame with origin "null"/i,
-	/\bFailed to fetch\b/i,
-	/NetworkError when attempting to fetch/i,
-	/not a secure context/i,
-	/URL scheme "file" is not supported/i
+	/URL scheme "file" is not supported/i,
+	/reading 'digest'/i,
+	/crypto\.subtle is undefined/i
 ];
 
 export function isShellIncompatibilityError(message: string): boolean {

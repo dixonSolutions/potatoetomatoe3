@@ -37,12 +37,19 @@ const LAB_2P = '_touch-lab-2p';
 const isLab = (id) => id === LAB || id === LAB_2P;
 const GAMES = (
 	arg('--games') ??
-	`${LAB},${LAB_2P},weasels,002,playhop-1-jump-on-the-keyboard-540983,addicting-100-arrows,slope`
+	`${LAB},${LAB_2P},weasels,002,playhop-1-jump-on-the-keyboard-540983,addicting-100-arrows,addicting-shards,slope`
 )
 	.split(',')
 	.filter(Boolean);
-/** Cross-origin games whose host allows CORS reads: on the web they play in a bridge shell. */
-const SHELL_IDS = new Set(['002', 'playhop-1-jump-on-the-keyboard-540983', 'addicting-100-arrows']);
+/**
+ * Cross-origin games whose host allows CORS reads: on the web they play in a bridge shell.
+ * Not 002: Unity Play's CDN sends no CORS headers, so it plays in the app's Unity player.
+ */
+const SHELL_IDS = new Set([
+	'playhop-1-jump-on-the-keyboard-540983',
+	'addicting-100-arrows',
+	'addicting-shards'
+]);
 let BASE = arg('--url');
 let server;
 

@@ -36,7 +36,18 @@ describe('planOnlineRoutes', () => {
 			...web,
 			embedUrl: 'https://play.unity.com/api/v1/games/game/abc/build/latest/frame'
 		};
-		expect(planOnlineRoutes(unity)).toEqual(['shell', 'direct']);
+		/* Unity Play's CDN sends no CORS headers: no shell, the app's own player instead. */
+		expect(planOnlineRoutes(unity)).toEqual(['direct']);
+		const gd = {
+			...web,
+			embedUrl: 'https://html5.gamedistribution.com/00cf/?gd_sdk_referrer_url=x'
+		};
+		expect(planOnlineRoutes(gd)).toEqual(['direct']);
+		const ag = {
+			...web,
+			embedUrl: 'https://cdn2.addictinggames.com/x/html5-games/shards/index.html'
+		};
+		expect(planOnlineRoutes(ag)).toEqual(['shell', 'direct']);
 		const yandex = { ...web, embedUrl: 'https://app-1.games.s3.yandex.net/1/x/index.html' };
 		expect(planOnlineRoutes(yandex)).toEqual(['shell', 'direct']);
 		/* The desktop injects the bridge into the game's own frames; no shell needed. */

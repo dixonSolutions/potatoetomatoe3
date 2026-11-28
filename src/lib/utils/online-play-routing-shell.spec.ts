@@ -299,26 +299,27 @@ describe('shells for a visit', () => {
 					data: { type: 'potato-tomato-game-shell', action: 'error', gameId: 'hosted', message }
 				} as unknown as MessageEvent)
 			);
-		report(stranger, 'Failed to fetch');
-		report(hosted, 'Cannot read properties of undefined (reading x)');
+		const fatal = 'URL scheme "file" is not supported.';
+		report(stranger, fatal);
 		report(hosted, 'Failed to fetch');
-		expect(heard).toEqual(['hosted: Failed to fetch']);
+		report(hosted, fatal);
+		expect(heard).toEqual([`hosted: ${fatal}`]);
 		detach();
-		report(hosted, 'Failed to fetch');
+		report(hosted, fatal);
 		expect(heard).toHaveLength(1);
 	});
 
 	it('tells origin trouble apart from a game’s own bugs', () => {
 		for (const m of [
-			"Failed to read a named property 'document' from 'Window': Blocked a frame with origin \"null\" from accessing a cross-origin frame.",
-			'Failed to fetch',
-			'NetworkError when attempting to fetch resource.',
-			'Fetch API cannot load file:///text/scripts/dispatchworker.js. URL scheme "file" is not supported.'
+			'Fetch API cannot load file:///text/scripts/dispatchworker.js. URL scheme "file" is not supported.',
+			"Cannot read properties of undefined (reading 'digest')"
 		])
 			expect(isShellIncompatibilityError(m)).toBe(true);
+		/* Games that throw these can still be playing: addicting-100-arrows, Unity analytics. */
 		for (const m of [
+			"Failed to read a named property 'document' from 'Window': Blocked a frame with origin \"null\" from accessing a cross-origin frame.",
+			'Failed to fetch',
 			'Howl is not defined',
-			"Cannot read properties of null (reading 'defaultView')",
 			''
 		])
 			expect(isShellIncompatibilityError(m)).toBe(false);
