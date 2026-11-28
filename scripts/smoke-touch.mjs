@@ -272,6 +272,84 @@ function appPoint(page) {
 	});
 }
 
+/** The app's stored save profile for a game (IndexedDB), as size and a few facts. */
+function storedProfile(page, id) {
+	return page.evaluate(
+		(gameId) =>
+			new Promise((resolve) => {
+				const req = indexedDB.open('potatotomato-browser-data-v1');
+				req.onerror = () => resolve({ error: 'open failed' });
+				req.onsuccess = () => {
+					const db = req.result;
+					if (!db.objectStoreNames.contains('browserProfiles')) return resolve({ none: true });
+					const get = db.transaction('browserProfiles').objectStore('browserProfiles').get(gameId);
+					get.onsuccess = () => {
+						const v = get.result;
+						if (!v) return resolve({ none: true });
+						const json = JSON.stringify(v);
+						resolve({ bytes: json.length, probe: json.includes('pt-smoke-save') });
+					};
+					get.onerror = () => resolve({ error: 'get failed' });
+				};
+			}),
+		id
+	);
+}
+
+/** Every child frame's view of one localStorage key (the bridge's virtual storage). */
+async function frameSaves(page) {
+	const out = [];
+	for (const fr of page.frames()) {
+		if (fr === page.mainFrame()) continue;
+		out.push(await fr.evaluate(() => localStorage.getItem('pt-smoke-save')).catch(() => null));
+	}
+	return out.filter(Boolean);
+}
+
+/**
+ * S1/S2: a save made inside a shell game reaches the app's own store (shared with the
+ * offline copy, which reads the same per-game profile), stays light, and is there again
+ * after a reload.
+ */
+async function checkSaves(page, id, n) {
+	const stamp = `v${Date.now()}`;
+	let wrote = 0;
+	for (const fr of page.frames()) {
+		if (fr === page.mainFrame()) continue;
+		const ok = await fr
+			.evaluate((s) => {
+				localStorage.setItem('pt-smoke-save', s);
+				return true;
+			}, stamp)
+			.catch(() => false);
+		if (ok) wrote++;
+	}
+	let stored = {};
+	for (let i = 0; i < 20; i++) {
+		await page.waitForTimeout(500);
+		stored = await storedProfile(page, id);
+		if (stored.probe) break;
+	}
+	check(
+		`S1 ${id}: a save in the game frame reaches the app store, light`,
+		Boolean(stored.probe) && stored.bytes < 2_000_000,
+		{
+			wrote,
+			...stored
+		}
+	);
+	await page.reload({ waitUntil: 'domcontentloaded' });
+	let seen = [];
+	for (let i = 0; i < 40 && !seen.includes(stamp); i++) {
+		await page.waitForTimeout(500);
+		seen = await frameSaves(page);
+	}
+	check(`S2 ${id}: the save is back after a reload`, seen.includes(stamp), {
+		seen: seen.slice(0, 3)
+	});
+	await page.screenshot({ path: path.join(OUT, `${n}-${id}-after-reload.png`) });
+}
+
 async function checkGame(browser, id, n) {
 	const context = await browser.newContext({
 		viewport: { width: 844, height: 390 },
@@ -501,6 +579,10 @@ async function checkGame(browser, id, n) {
 		a11.hideDocks && a11.tapRestores && a11.dragDocks && a11.swipeRestores,
 		a11
 	);
+	if (SHELL_IDS.has(id))
+		await checkSaves(page, id, n).catch((e) =>
+			check(`S1 ${id}`, false, { error: String(e).slice(0, 300) })
+		);
 	await context.close();
 }
 
