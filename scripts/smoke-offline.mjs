@@ -278,7 +278,24 @@ try {
 
 	/* A4: launch each downloaded game offline from Home (in-app navigation). */
 	for (const keepId of KEEP_IDS) {
+		/* Each launch starts from the offline Home, reached in-app. */
+		if (!/\/home/.test(page.url())) {
+			await page.locator('a[href$="/home"]').first().click();
+			await page.waitForURL(/\/home/, { timeout: 15000 });
+		}
 		const tile = page.locator(`a[href$="/games/${keepId}"]`).first();
+		await tile.waitFor({ timeout: 15000 }).catch(() => {});
+		/* The game's banner is its tile picture: offline, it must come from the download. */
+		const banner = await tile
+			.locator('img')
+			.first()
+			.evaluate(async (img) => {
+				img.scrollIntoView({ block: 'center' });
+				for (let i = 0; i < 40 && !(img.complete && img.naturalWidth > 0); i++)
+					await new Promise((r) => setTimeout(r, 250));
+				return { loaded: img.complete && img.naturalWidth > 0, src: img.currentSrc.slice(0, 80) };
+			})
+			.catch(() => ({ loaded: false, src: null }));
 		if (!(await tile.isVisible().catch(() => false))) {
 			check(`offline launch ${keepId}`, false, { reason: 'no tile on offline Home' });
 			continue;
@@ -302,10 +319,6 @@ try {
 			.first()
 			.textContent()
 			.catch(() => '');
-		const banners = await page
-			.locator('main img')
-			.evaluateAll((imgs) => imgs.filter((i) => i.complete && i.naturalWidth > 0).length)
-			.catch(() => 0);
 		/* What the game frame itself shows (Playwright can read any frame). */
 		let rendered = null;
 		for (const fr of page.frames()) {
@@ -326,7 +339,7 @@ try {
 			Boolean(
 				title?.trim() &&
 					(description ?? '').trim() &&
-					banners > 0 &&
+					banner.loaded &&
 					frame &&
 					!crashed &&
 					rendered &&
@@ -335,7 +348,7 @@ try {
 			{
 				title: title?.trim(),
 				description: (description ?? '').trim().slice(0, 60),
-				banners,
+				banner,
 				frame: frame?.slice(0, 80),
 				rendered,
 				crashed
