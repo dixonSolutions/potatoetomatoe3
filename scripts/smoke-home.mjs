@@ -110,6 +110,34 @@ try {
 			errors
 		});
 
+		/* Home search: looks like the Games box, opens Games with that box focused. */
+		const search = page.getByTestId('home-search');
+		const box = await search.boundingBox().catch(() => null);
+		const header = await page
+			.locator('header h1')
+			.first()
+			.boundingBox()
+			.catch(() => null);
+		await search.click();
+		await page.waitForURL(/\/games\?focus=search/, { timeout: 15000 });
+		const focused = await page
+			.waitForFunction(
+				() => document.activeElement?.getAttribute('data-testid') === 'games-search',
+				null,
+				{ timeout: 10000 }
+			)
+			.then(() => true)
+			.catch(() => false);
+		await page.keyboard.type('slope');
+		const typed = await page.getByTestId('games-search').inputValue();
+		await page.screenshot({ path: path.join(OUT, `search-focused-${label}.png`) });
+		check(`home search ${label}`, Boolean(box) && focused && typed === 'slope', {
+			box: box && { x: Math.round(box.x), y: Math.round(box.y), w: Math.round(box.width) },
+			titleY: header && Math.round(header.y),
+			focused,
+			typed
+		});
+
 		await page.goto(`${BASE}/games`, { waitUntil: 'domcontentloaded' });
 		const games = await waitForCards(page, 12, 60000);
 		await page.waitForTimeout(1000);
@@ -164,5 +192,7 @@ try {
 }
 
 const failed = results.filter((r) => !r.ok);
-console.log(`SMOKE ${results.length - failed.length}/${results.length} passed; screenshots in ${OUT}`);
+console.log(
+	`SMOKE ${results.length - failed.length}/${results.length} passed; screenshots in ${OUT}`
+);
 process.exit(failed.length ? 1 : 0);

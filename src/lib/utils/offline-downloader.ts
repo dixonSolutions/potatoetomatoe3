@@ -29,7 +29,13 @@ export {
 
 export { browserOfflinePlayUrl, isBrowserGameDownloaded } from './browser-offline-download';
 
+/**
+ * A game whose offline copy ships with the app. Only the desktop and Android apps have those
+ * files on the device; the public site serves them over the network like any page, so there
+ * the game is not offline until it is downloaded (A4: the offline Home lists only what plays).
+ */
 export function isBundledOfflineGame(gameId: string): boolean {
+	if (isPublicSiteDeployment()) return false;
 	return (BUNDLED_OFFLINE_GAME_IDS as readonly string[]).includes(gameId);
 }
 
