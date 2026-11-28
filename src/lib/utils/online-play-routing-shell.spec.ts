@@ -54,6 +54,73 @@ describe('buildShellHtml', () => {
 		expect(out).toContain('"g-2","potato-tomato-game-shell",20000');
 	});
 
+	it('evens out a shell document’s URL and opaque origin for the game', async () => {
+		const out = buildShellHtml('<html><head></head></html>', {
+			gameId: 'g-3',
+			baseHref: 'https://cdn.example/game/index.html',
+			bridgeSource
+		});
+		const start = out.indexOf('<script>') + '<script>'.length;
+		const prelude = out.slice(start, out.indexOf('</script>', start));
+		const posted: { message: string }[] = [];
+		const fetched: unknown[] = [];
+		class FakeXhr {
+			opened = '';
+			open(_method: string, url: string) {
+				this.opened = url;
+			}
+		}
+		const navigatorLike = {};
+		Object.defineProperty(navigatorLike, 'serviceWorker', {
+			configurable: true,
+			get() {
+				throw new Error('sandboxed');
+			}
+		});
+		const win: Record<string, unknown> = {
+			URL,
+			fetch: (input: unknown) => (fetched.push(input), Promise.resolve('ok')),
+			top: { postMessage: (m: { message: string }) => posted.push(m) }
+		};
+		new Function(
+			'window',
+			'location',
+			'document',
+			'navigator',
+			'XMLHttpRequest',
+			'addEventListener',
+			prelude
+		)(
+			win,
+			{ href: 'about:srcdoc' },
+			{ baseURI: 'https://cdn.example/game/index.html' },
+			navigatorLike,
+			FakeXhr,
+			() => {}
+		);
+		const ShellURL = win.URL as typeof URL;
+		expect(new ShellURL('Build/x.data', 'about:srcdoc').href).toBe(
+			'https://cdn.example/game/Build/x.data'
+		);
+		expect(new ShellURL('a.js', 'https://other/b/').href).toBe('https://other/b/a.js');
+		expect(new ShellURL('https://abs/x').href).toBe('https://abs/x');
+		expect(new ShellURL('https://abs/x')).toBeInstanceOf(URL);
+		expect(ShellURL.createObjectURL).toBe(URL.createObjectURL);
+
+		const sw = (navigatorLike as { serviceWorker: { register(): Promise<unknown> } }).serviceWorker;
+		await expect(sw.register()).rejects.toThrow(/off in this frame/);
+
+		await (win.fetch as (u: string) => Promise<unknown>)('file:///scripts/dispatchworker.js');
+		await (win.fetch as (u: string) => Promise<unknown>)('https://cdn.example/game/data.json');
+		new FakeXhr().open('GET', 'file:///scripts/main.js');
+		expect(fetched).toHaveLength(2);
+		expect(posted.map((m) => m.message)).toEqual([
+			'URL scheme "file" is not supported.',
+			'URL scheme "file" is not supported.'
+		]);
+		expect(posted.every((m) => isShellIncompatibilityError(m.message))).toBe(true);
+	});
+
 	it('keeps a page’s own <base> (Drive U 7 embed.html brings one)', () => {
 		const html = '<html><head><base href="https://cdn.jsdelivr.net/gh/x/y@main/a/"></head></html>';
 		const out = buildShellHtml(html, { gameId: 'g', baseHref: 'https://other/', bridgeSource });

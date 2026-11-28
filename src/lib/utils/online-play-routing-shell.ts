@@ -178,8 +178,15 @@ export function isShellIncompatibilityError(message: string): boolean {
 const SHELL_ERROR_WINDOW_MS = 20000;
 
 /*
- * Runs first in the game document: reports the game's uncaught errors to the app for the
- * first moments of a start. Not the bridge's ad blocker's refusals (`__ptAd`).
+ * Runs first in the game document. Reports the game's uncaught errors to the app for the
+ * first moments of a start (not the bridge's ad blocker's refusals, `__ptAd`), and evens out
+ * what a shell document's own URL (`about:srcdoc`, `data:`) and opaque origin change:
+ * - `new URL(path, location.href)` resolves against the game's `<base>`, as it would on the
+ *   game's own page, instead of throwing "Invalid URL" (Unity's loader does this);
+ * - `navigator.serviceWorker` reads as a service worker container that never registers,
+ *   instead of throwing on the read;
+ * - a fetch or XHR to `file:` (a worker resolved against the shell's URL) is reported as the
+ *   browser's own fatal message, which the browser logs but never throws as such.
  */
 const ERROR_REPORTER = `(function (GAME, TYPE, WINDOW) {
 	var t0 = Date.now(), sent = 0;
@@ -193,6 +200,42 @@ const ERROR_REPORTER = `(function (GAME, TYPE, WINDOW) {
 		if (r && r.__ptAd) return;
 		send(r && r.message ? r.message : r);
 	});
+	try {
+		var NativeURL = window.URL, own = String(location.href);
+		window.URL = new Proxy(NativeURL, { construct: function (target, args, newTarget) {
+			if (args.length > 1 && args[1] != null) {
+				var b = String(args[1]);
+				if (b === own || /^(about|data):/i.test(b)) args[1] = document.baseURI;
+			}
+			return Reflect.construct(target, args, newTarget);
+		} });
+	} catch (e) {}
+	try { navigator.serviceWorker; } catch (e) {
+		try {
+			var never = new Promise(function () {});
+			Object.defineProperty(navigator, 'serviceWorker', { configurable: true, value: {
+				controller: null, ready: never, oncontrollerchange: null, onmessage: null,
+				register: function () { return Promise.reject(new DOMException('Service workers are off in this frame', 'SecurityError')); },
+				getRegistration: function () { return Promise.resolve(undefined); },
+				getRegistrations: function () { return Promise.resolve([]); },
+				startMessages: function () {}, addEventListener: function () {}, removeEventListener: function () {}
+			} });
+		} catch (e2) {}
+	}
+	function fileUrl(u) {
+		try { return /^file:/i.test(typeof u === 'string' ? u : u && u.url ? u.url : String(u)); } catch (e) { return false; }
+	}
+	var fileMessage = 'URL scheme "file" is not supported.';
+	var nativeFetch = window.fetch;
+	if (nativeFetch) window.fetch = function (input) {
+		if (fileUrl(input)) send(fileMessage);
+		return nativeFetch.apply(this, arguments);
+	};
+	var nativeOpen = XMLHttpRequest.prototype.open;
+	XMLHttpRequest.prototype.open = function (method, url) {
+		if (fileUrl(url)) send(fileMessage);
+		return nativeOpen.apply(this, arguments);
+	};
 })`;
 
 /** A bridge tag already in the page, as a dev server or service worker may have added it. */
