@@ -166,7 +166,16 @@ const GRIP = '[aria-label="Drag to move the whole console"]';
 function initScript() {
 	if (window.top !== window) {
 		window.__ptKeys = [];
-		addEventListener('keydown', (e) => window.__ptKeys.push(e.code), true);
+		addEventListener(
+			'keydown',
+			(e) => {
+				/* One record per event, however many recorders are armed. */
+				if (e.__ptRec) return;
+				e.__ptRec = true;
+				window.__ptKeys.push(e.code);
+			},
+			true
+		);
 		return;
 	}
 	window.__ptReady = [];
@@ -254,7 +263,28 @@ function consoleState(page) {
 
 async function clearFrameKeys(page) {
 	for (const f of page.frames()) {
-		if (f !== page.mainFrame()) await f.evaluate(() => (window.__ptKeys = [])).catch(() => {});
+		if (f === page.mainFrame()) continue;
+		/*
+		 * A shell's loader writes the game document over its own, which erases the window
+		 * listeners the init script added; arm the recorder again for the current document.
+		 */
+		await f
+			.evaluate(() => {
+				window.__ptKeys = [];
+				if (window.__ptKeyDoc === document.documentElement) return;
+				window.__ptKeyDoc = document.documentElement;
+				addEventListener(
+					'keydown',
+					(e) => {
+						/* One record per event, however many recorders are armed. */
+						if (e.__ptRec) return;
+						e.__ptRec = true;
+						window.__ptKeys.push(e.code);
+					},
+					true
+				);
+			})
+			.catch(() => {});
 	}
 }
 
