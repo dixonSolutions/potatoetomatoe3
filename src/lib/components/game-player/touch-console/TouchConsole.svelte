@@ -50,7 +50,7 @@
 	import { IsMobile } from '$lib/hooks/is-mobile.svelte.js';
 	import { inputMode, watchInputMode } from '$lib/hooks/input-mode.svelte';
 	import { resolveOverlaps, type Rect } from '$lib/utils/touch-layout-solver';
-	import { detectPlayers } from '$lib/utils/touch-players';
+	import { detectPlayers, mentionsTwoPlayers } from '$lib/utils/touch-players';
 
 	let {
 		iframe = null,
@@ -218,7 +218,14 @@
 	const twoPlayer = $derived(
 		planProfile.declared.length > 0 &&
 			manualSchemeForGame !== gameId &&
-			detectPlayers(profileCodes, controlsHint, config.joystickScheme).length === 2
+			(detectPlayers(profileCodes, controlsHint, config.joystickScheme).length === 2 ||
+				/* Keys only named in the text count when the text itself says two players. */
+				(mentionsTwoPlayers(controlsHint) &&
+					detectPlayers(
+						[...profileCodes, ...planProfile.declared],
+						controlsHint,
+						config.joystickScheme
+					).length === 2))
 	);
 
 	const effectiveScheme = $derived<TouchJoystickScheme>(

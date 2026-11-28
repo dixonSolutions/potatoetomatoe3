@@ -9,8 +9,14 @@
 	import AppUpdateBadge from '$lib/components/AppUpdateBadge.svelte';
 	import AppSection from '$lib/components/settings/sections/app/AppSection.svelte';
 	import { setSettingsUiContext, type SettingsTarget } from '$lib/settings-ui-context';
-	import { updates, type UpdatePhase, type UpdatePlatform } from '$lib/utils/update-center.svelte';
+	import {
+		holdUpdatesForPreview,
+		updates,
+		type UpdatePhase,
+		type UpdatePlatform
+	} from '$lib/utils/update-center.svelte';
 
+	holdUpdatesForPreview();
 	const q = new URLSearchParams(window.location.search);
 	updates.platform = (q.get('platform') as UpdatePlatform) ?? 'android-apk';
 	updates.phase = (q.get('phase') as UpdatePhase) ?? 'up-to-date';

@@ -383,6 +383,14 @@ export function setUpdateSettings(patch: Partial<UpdateSettings>): void {
  * Start following updates. Safe to call more than once. Returns a stop function (tests,
  * HMR); the app keeps it running for its whole life.
  */
+/**
+ * Dev preview only: the page sets the state by hand, so the app's own start (the root
+ * layout's startUpdates, which mounts after the page) must not detect and overwrite it.
+ */
+export function holdUpdatesForPreview(): void {
+	started = true;
+}
+
 export function startUpdates(): () => void {
 	if (started) return () => {};
 	started = true;

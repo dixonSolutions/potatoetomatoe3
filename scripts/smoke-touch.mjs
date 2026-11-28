@@ -212,6 +212,8 @@ async function drag(cdp, from, to, steps = 8) {
 }
 
 async function center(locator) {
+	/* A phone in landscape shows the game below the fold: touches outside the viewport hit nothing. */
+	await locator.scrollIntoViewIfNeeded({ timeout: 3000 }).catch(() => {});
 	const b = await locator.boundingBox();
 	return b ? { x: b.x + b.width / 2, y: b.y + b.height / 2 } : null;
 }

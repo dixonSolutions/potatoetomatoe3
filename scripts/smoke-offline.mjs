@@ -99,7 +99,16 @@ async function leaveAndReturn(page) {
 	await page.waitForTimeout(1500);
 	await page.goBack();
 	await page.waitForURL(/\/games\//, { timeout: 15000 });
-	await page.getByTestId('game-more-menu').waitFor({ timeout: 60000 });
+	try {
+		await page.getByTestId('game-more-menu').waitFor({ timeout: 60000 });
+	} catch (e) {
+		await page.screenshot({ path: path.join(OUT, 'return-failed.png') }).catch(() => {});
+		const text = await page.evaluate(() => document.body.innerText.slice(0, 500)).catch(() => '');
+		throw new Error(
+			`game page did not come back: ${page.url()} | ${text.replace(/\s+/g, ' ')} | errors: ${pageErrors.slice(-3).join(' / ')}`,
+			{ cause: e }
+		);
+	}
 	/* A3: the running download's progress is on screen without opening a menu. */
 	const shown = await controls(page)
 		.getByRole('status')
@@ -130,6 +139,9 @@ async function watchFlicker(page, testid, fn, ms) {
 	});
 }
 
+/** Page errors and console errors, for a failure's message. */
+const pageErrors = [];
+
 if (!BASE) BASE = await startServer();
 fs.mkdirSync(OUT, { recursive: true });
 const browser = await chromium.launch({
@@ -138,6 +150,10 @@ const browser = await chromium.launch({
 try {
 	const context = await browser.newContext({ viewport: { width: 1280, height: 800 } });
 	const page = await context.newPage();
+	page.on('pageerror', (e) => pageErrors.push(String(e).slice(0, 200)));
+	page.on('console', (m) => {
+		if (m.type() === 'error') pageErrors.push(m.text().slice(0, 200));
+	});
 
 	/* A3 a: start, leave, come back, progress still shown, cancel frees storage. */
 	await openGame(page, CANCEL_ID);
