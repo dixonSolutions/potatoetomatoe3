@@ -60,6 +60,7 @@
 	let catalogProgress = $state<CatalogLoadProgress | null>(null);
 	let loading = $state(true);
 	let searchQuery = $state('');
+	let searchInput = $state<HTMLInputElement | null>(null);
 	let debouncedSearch = $state('');
 	let selectedCategory = $state('all');
 	let sortBy = $state<SortKey>('quality');
@@ -218,6 +219,11 @@
 	}
 
 	onMount(() => {
+		/* Home's search box sends people here to type: have the field ready for them. */
+		if ($page.url.searchParams.get('focus') === 'search') {
+			requestAnimationFrame(() => searchInput?.focus());
+		}
+
 		networkOnline = isNetworkOnline();
 		updateColumnCount();
 		const onResize = () => updateColumnCount();
@@ -547,6 +553,8 @@
 				placeholder="Search games"
 				aria-label="Search games"
 				bind:value={searchQuery}
+				bind:ref={searchInput}
+				data-testid="games-search"
 				class="h-10 pl-9"
 			/>
 		</div>

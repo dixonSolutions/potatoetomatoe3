@@ -3,7 +3,7 @@
 	import { onMount } from 'svelte';
 	import { resolve } from '$app/paths';
 	import { SvelteSet } from 'svelte/reactivity';
-	import { HardDrive, WifiOff, X } from 'lucide-svelte';
+	import { HardDrive, Search, WifiOff, X } from 'lucide-svelte';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import { offlineFilterOn, setOfflineFilter } from '$lib/utils/offline-filter.svelte';
 	import { loadCatalogIndex, type GameIndexEntry } from '$lib/utils/games';
@@ -160,11 +160,13 @@
 			window.removeEventListener(OFFLINE_STATUS_CHANGED, onOfflineStatusChanged);
 		};
 	});
+	/* Games, ready to type in (see the Games page's `focus=search`). */
+	const searchHref = `${resolve('/games')}?focus=search`;
 </script>
 
 <div class="min-h-screen bg-background text-foreground">
 	<div class="mx-auto w-full max-w-[1920px] px-3 py-4 sm:px-5 md:py-6">
-		<header class="mb-4 flex items-center gap-2 md:mb-6">
+		<header class="mb-4 flex flex-wrap items-center gap-2 md:mb-6">
 			<h1 class="text-xl font-bold tracking-tight md:text-2xl">Home</h1>
 			{#if filtering}
 				<span
@@ -179,7 +181,7 @@
 				<Button
 					size="sm"
 					variant="secondary"
-					class="ml-auto h-7 rounded-full px-3 text-xs"
+					class="ml-auto h-7 rounded-full px-3 text-xs sm:order-last sm:ml-0"
 					aria-pressed="true"
 					data-testid="offline-filter"
 					onclick={() => setOfflineFilter(false)}
@@ -193,7 +195,7 @@
 				<Button
 					size="sm"
 					variant="outline"
-					class="ml-auto h-7 rounded-full px-3 text-xs"
+					class="ml-auto h-7 rounded-full px-3 text-xs sm:order-last sm:ml-0"
 					aria-pressed="false"
 					data-testid="offline-filter"
 					onclick={() => setOfflineFilter(true)}
@@ -202,6 +204,21 @@
 					Downloads
 				</Button>
 			{/if}
+			<!--
+				Looks like the Games search box and takes you there with it focused: one search,
+				one place to type. Its own full-width row on phones, beside the title above that.
+			-->
+			<!-- eslint-disable svelte/no-navigation-without-resolve -- searchHref is resolved -->
+			<a
+				href={searchHref}
+				class="order-last flex h-10 w-full items-center gap-2 rounded-md border border-input bg-background px-3 text-sm text-muted-foreground shadow-xs transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-none sm:order-none sm:ml-auto sm:w-80 md:w-96"
+				aria-label="Search games"
+				data-testid="home-search"
+			>
+				<Search class="h-4 w-4 shrink-0" aria-hidden="true" />
+				<span>Search games</span>
+			</a>
+			<!-- eslint-enable svelte/no-navigation-without-resolve -->
 		</header>
 
 		{#if !ready}
