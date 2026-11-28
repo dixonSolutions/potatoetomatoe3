@@ -3,6 +3,7 @@ import {
 	clearPlayRouteFailures,
 	failedPlayRoutes,
 	isFlashUrl,
+	isCorsClosedHtmlHost,
 	isFrameBlockedHost,
 	isTextPlainHtmlHost,
 	isUnframeableInApp,
@@ -27,6 +28,18 @@ describe('planOnlineRoutes', () => {
 
 	it('plays direct on the web and on Android, which have no relay', () => {
 		expect(planOnlineRoutes(web)).toEqual(['direct']);
+	});
+
+	it('plays CORS-readable hosts in a bridge shell off the desktop, so touch controls reach them', () => {
+		const unity = {
+			...web,
+			embedUrl: 'https://play.unity.com/api/v1/games/game/abc/build/latest/frame'
+		};
+		expect(planOnlineRoutes(unity)).toEqual(['shell', 'direct']);
+		const yandex = { ...web, embedUrl: 'https://app-1.games.s3.yandex.net/1/x/index.html' };
+		expect(planOnlineRoutes(yandex)).toEqual(['shell', 'direct']);
+		/* The desktop injects the bridge into the game's own frames; no shell needed. */
+		expect(planOnlineRoutes({ ...unity, desktopApp: true })).toEqual(['direct', 'relay']);
 	});
 
 	it('plays Drive U 7 from the catalog’s own embed.html, then the jsDelivr HTML itself', () => {
@@ -109,6 +122,13 @@ describe('host facts', () => {
 		expect(isFrameBlockedHost('https://cdn2.addictinggames.com/games/x/index.html')).toBe(false);
 	});
 
+	it('knows which hosts refuse cross-origin reads of their game HTML', () => {
+		expect(isCorsClosedHtmlHost('https://games.crazygames.com/en_US/slope/index.html')).toBe(true);
+		expect(isCorsClosedHtmlHost('https://www.coolmathgames.com/0-x')).toBe(true);
+		expect(isCorsClosedHtmlHost('https://cdn2.addictinggames.com/a/index.html')).toBe(false);
+		expect(isCorsClosedHtmlHost('https://evilgames.crazygames.com.example/x')).toBe(false);
+	});
+
 	it('is not fooled by a lookalike suffix', () => {
 		expect(isFrameBlockedHost('https://notprod.addictinggames.com.evil/x')).toBe(false);
 	});
@@ -130,23 +150,23 @@ describe('host facts', () => {
 
 describe('isUnframeableInApp', () => {
 	it('flags a frame-blocked host on a build with no relay (Android)', () => {
-		expect(
-			isUnframeableInApp({ localApp: true, desktopApp: false, frameBlockedHost: true })
-		).toBe(true);
+		expect(isUnframeableInApp({ localApp: true, desktopApp: false, frameBlockedHost: true })).toBe(
+			true
+		);
 	});
 
 	it('stays false on desktop, where the in-process relay handles it', () => {
-		expect(
-			isUnframeableInApp({ localApp: true, desktopApp: true, frameBlockedHost: true })
-		).toBe(false);
+		expect(isUnframeableInApp({ localApp: true, desktopApp: true, frameBlockedHost: true })).toBe(
+			false
+		);
 	});
 
 	it('stays false on the public site and for hosts that allow framing', () => {
-		expect(
-			isUnframeableInApp({ localApp: false, desktopApp: false, frameBlockedHost: true })
-		).toBe(false);
-		expect(
-			isUnframeableInApp({ localApp: true, desktopApp: false, frameBlockedHost: false })
-		).toBe(false);
+		expect(isUnframeableInApp({ localApp: false, desktopApp: false, frameBlockedHost: true })).toBe(
+			false
+		);
+		expect(isUnframeableInApp({ localApp: true, desktopApp: false, frameBlockedHost: false })).toBe(
+			false
+		);
 	});
 });

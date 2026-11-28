@@ -18,7 +18,7 @@
  * pointers; Playwright's mouse would switch the input mode to keyboard.
  *
  * Usage: node scripts/smoke-touch.mjs [--url http://127.0.0.1:5173] [--out dir]
- *          [--games _touch-lab,002,slope]
+ *          [--games _touch-lab,002,slope]   (002, playhop-…, addicting-100-arrows: shell route)
  */
 import { spawn } from 'node:child_process';
 import fs from 'node:fs';
@@ -35,7 +35,14 @@ const OUT = arg('--out') ?? path.join(ROOT, 'test-results', 'smoke-touch');
 const LAB = '_touch-lab';
 const LAB_2P = '_touch-lab-2p';
 const isLab = (id) => id === LAB || id === LAB_2P;
-const GAMES = (arg('--games') ?? `${LAB},${LAB_2P},weasels,002,slope`).split(',').filter(Boolean);
+const GAMES = (
+	arg('--games') ??
+	`${LAB},${LAB_2P},weasels,002,playhop-1-jump-on-the-keyboard-540983,addicting-100-arrows,slope`
+)
+	.split(',')
+	.filter(Boolean);
+/** Cross-origin games whose host allows CORS reads: on the web they play in a bridge shell. */
+const SHELL_IDS = new Set(['002', 'playhop-1-jump-on-the-keyboard-540983', 'addicting-100-arrows']);
 let BASE = arg('--url');
 let server;
 
@@ -321,8 +328,26 @@ async function checkGame(browser, id, n) {
 		injectable: surface.injectable,
 		errors: errors.slice(0, 2)
 	};
+	/* W1: a CORS-readable cross-origin game plays in an app-made shell with the bridge inside. */
+	if (SHELL_IDS.has(id)) {
+		const route = await page.evaluate(() => {
+			const f = document.querySelector('iframe[data-testid="game-frame"], iframe[title]');
+			return {
+				src: (f?.getAttribute('src') ?? '').slice(0, 24),
+				sandbox: f?.getAttribute('sandbox') ?? null,
+				dispatch: document
+					.querySelector('[data-testid="touch-console-surface"]')
+					?.getAttribute('data-dispatch')
+			};
+		});
+		check(
+			`W1 ${id}: plays in a bridge shell on the web`,
+			route.src.startsWith('data:') && surface.injectable === 'true' && route.dispatch === 'bridge',
+			{ ...route, injectable: surface.injectable, errors: errors.slice(0, 2) }
+		);
+	}
 	if (!appeared && surface.injectable !== 'true') {
-		check(`A7 ${id}: controls wait for the game`, !isLab(id), {
+		check(`A7 ${id}: controls wait for the game`, !isLab(id) && !SHELL_IDS.has(id), {
 			...timing,
 			skipped: 'the console cannot reach this game frame (cross-origin, no bridge)'
 		});
@@ -353,13 +378,12 @@ async function checkGame(browser, id, n) {
 		for (let i = 1; i <= 6; i++) await touch(cdp, 'touchMove', stick.x + i * 8, stick.y);
 		await page.waitForTimeout(300);
 		const during = await consoleState(page);
-		const hit = await page.evaluate(
-			({ x, y }) => {
-				const el = document.elementFromPoint(x, y);
-				return el ? `${el.tagName.toLowerCase()}${el.dataset.testid ? '#' + el.dataset.testid : ''}` : null;
-			},
-			stick
-		);
+		const hit = await page.evaluate(({ x, y }) => {
+			const el = document.elementFromPoint(x, y);
+			return el
+				? `${el.tagName.toLowerCase()}${el.dataset.testid ? '#' + el.dataset.testid : ''}`
+				: null;
+		}, stick);
 		await touch(cdp, 'touchEnd', stick.x + 48, stick.y);
 		await page.waitForTimeout(200);
 		const keys = await frameKeys(page);
