@@ -23,8 +23,9 @@ const arg = (name) => {
 	return i > 0 ? process.argv[i + 1] : undefined;
 };
 const OUT = arg('--out') ?? path.join(ROOT, 'test-results', 'smoke-offline');
-const CANCEL_ID = arg('--cancel') ?? 'coolmath-1-push';
-const KEEP_IDS = (arg('--keep') ?? 'slope,fnf-games-2v2-io,coolmath-1-push')
+/* Games bundled in this repo: the browser can keep a copy (hosted-elsewhere ones get no Download). */
+const CANCEL_ID = arg('--cancel') ?? 'weasels';
+const KEEP_IDS = (arg('--keep') ?? 'slope,fnf-games-2v2-io,8-ball-pool')
 	.split(',')
 	.filter(Boolean);
 let BASE = arg('--url');
@@ -161,6 +162,15 @@ try {
 	const startable = await startBtn.isEnabled().catch(() => false);
 	check('download button', startable, { id: CANCEL_ID });
 	if (startable) {
+		/* A slow line, so the download is still running when we come back to the game. */
+		const cdp = await context.newCDPSession(page);
+		await cdp.send('Network.enable');
+		await cdp.send('Network.emulateNetworkConditions', {
+			offline: false,
+			latency: 40,
+			downloadThroughput: 96 * 1024,
+			uploadThroughput: 96 * 1024
+		});
 		await startBtn.click();
 		await controls(page).getByRole('status').waitFor({ timeout: 15000 });
 		await leaveAndReturn(page);
@@ -186,6 +196,12 @@ try {
 				.getByRole('button', { name: 'Resume download' })
 				.isVisible()
 				.catch(() => false)
+		});
+		await cdp.send('Network.emulateNetworkConditions', {
+			offline: false,
+			latency: 0,
+			downloadThroughput: -1,
+			uploadThroughput: -1
 		});
 	}
 
